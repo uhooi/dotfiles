@@ -1,5 +1,4 @@
 #!bin/sh
-cd "$(cd $(dirname $0); pwd)"
 
 # ----
 # dotfilesのシンボリックリンクを作成する
@@ -8,18 +7,16 @@ cd "$(cd $(dirname $0); pwd)"
 # 備考：
 # ----
 
-SCRIPT_DIR="$(cd $(dirname $0); pwd)"
-
 # dotfilesのシンボリックリンクを作成する
-ln -s ${SCRIPT_DIR}/.vimrc ~/.vimrc
-ln -s ${SCRIPT_DIR}/.gvimrc ~/.gvimrc
+ln -s $0/.vimrc ~/.vimrc
+ln -s $0/.gvimrc ~/.gvimrc
 mkdir ~/.vim
-ln -s ${SCRIPT_DIR}/.vim/config ~/.vim/config
-ln -s ${SCRIPT_DIR}/.bash_profile ~/.bash_profile
-ln -s ${SCRIPT_DIR}/.gemrc ~/.gemrc
-ln -s ${SCRIPT_DIR}/.sqliterc ~/.sqliterc
-ln -s ${SCRIPT_DIR}/.gitignore ~/.gitignore
-ln -s ${SCRIPT_DIR}/.svnignore ~/.svnignore
+ln -s $0/.vim/config ~/.vim/config
+ln -s $0/.bash_profile ~/.bash_profile
+ln -s $0/.gemrc ~/.gemrc
+ln -s $0/.sqliterc ~/.sqliterc
+ln -s $0/.gitignore ~/.gitignore
+ln -s $0/.svnignore ~/.svnignore
 
 
 exit

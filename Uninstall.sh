@@ -1,5 +1,4 @@
 #!bin/sh
-cd $(cd $(dirname $0); pwd)
 
 # ----
 # dotfilesのシンボリックリンクを削除する
