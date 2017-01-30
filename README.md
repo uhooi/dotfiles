@@ -20,12 +20,12 @@ Install:
 ```bash
 $ git clone https://github.com/uhooi/dotfiles.git
 $ cd dotfiles
-$ source Install.sh
+$ sh Install.sh
 ```
 
 Uninstall:
 ```bash
-$ source Uninstall.sh
+$ sh Uninstall.sh
 ```
 
 ## Caution
