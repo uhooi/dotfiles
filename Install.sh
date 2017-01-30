@@ -8,16 +8,18 @@ cd $(cd $(dirname $0); pwd)
 # 備考：
 # ----
 
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
+
 # dotfilesのシンボリックリンクを作成する
-ln -s .vimrc ~/.vimrc
-ln -s .gvimrc ~/.gvimrc
+ln -s $SCRIPT_DIR/.vimrc ~/.vimrc
+ln -s $SCRIPT_DIR/.gvimrc ~/.gvimrc
 mkdir ~/.vim
-ln -s .vim/config ~/.vim/config
-ln -s .bash_profile ~/.bash_profile
-ln -s .gemrc ~/.gemrc
-ln -s .sqliterc ~/.sqliterc
-ln -s .gitignore ~/.gitignore
-ln -s .svnignore ~/.svnignore
+ln -s $SCRIPT_DIR/.vim/config ~/.vim/config
+ln -s $SCRIPT_DIR/.bash_profile ~/.bash_profile
+ln -s $SCRIPT_DIR/.gemrc ~/.gemrc
+ln -s $SCRIPT_DIR/.sqliterc ~/.sqliterc
+ln -s $SCRIPT_DIR/.gitignore ~/.gitignore
+ln -s $SCRIPT_DIR/.svnignore ~/.svnignore
 
 
 exit
