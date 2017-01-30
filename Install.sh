@@ -1,5 +1,5 @@
 #!bin/sh
-cd $(cd $(dirname $0); pwd)
+cd "$(cd $(dirname $0); pwd)"
 
 # ----
 # dotfilesのシンボリックリンクを作成する
@@ -8,7 +8,7 @@ cd $(cd $(dirname $0); pwd)
 # 備考：
 # ----
 
-SCRIPT_DIR=$(cd $(dirname $0); pwd)
+SCRIPT_DIR="$(cd $(dirname $0); pwd)"
 
 # dotfilesのシンボリックリンクを作成する
 ln -s ${SCRIPT_DIR}/.vimrc ~/.vimrc
