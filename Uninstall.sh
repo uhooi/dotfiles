@@ -11,7 +11,7 @@ cd $(cd $(dirname $0); pwd)
 # dotfilesのシンボリックリンクを削除する
 rm ~/.vimrc
 rm ~/.gvimrc
-rm ~/.vim/config
+rm -r ~/.vim/config
 rm ~/.bash_profile
 rm ~/.gemrc
 rm ~/.sqliterc
