@@ -17,6 +17,3 @@ rm ~/.sqliterc
 rm ~/.gitignore
 rm ~/.svnignore
 
-
-exit
-

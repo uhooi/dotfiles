@@ -7,17 +7,16 @@
 # 備考：
 # ----
 
+SCRIPT_DIR_PATH=$(cd $(dirname $0);pwd)
+
 # dotfilesのシンボリックリンクを作成する
-ln -s $0/.vimrc ~/.vimrc
-ln -s $0/.gvimrc ~/.gvimrc
+ln -fns ${SCRIPT_DIR_PATH}/.vimrc ~/.vimrc
+ln -fns ${SCRIPT_DIR_PATH}/.gvimrc ~/.gvimrc
 mkdir ~/.vim
-ln -s $0/.vim/config ~/.vim/config
-ln -s $0/.bash_profile ~/.bash_profile
-ln -s $0/.gemrc ~/.gemrc
-ln -s $0/.sqliterc ~/.sqliterc
-ln -s $0/.gitignore ~/.gitignore
-ln -s $0/.svnignore ~/.svnignore
-
-
-exit
+ln -fns ${SCRIPT_DIR_PATH}/.vim/config ~/.vim/config
+ln -fns ${SCRIPT_DIR_PATH}/.bash_profile ~/.bash_profile
+ln -fns ${SCRIPT_DIR_PATH}/.gemrc ~/.gemrc
+ln -fns ${SCRIPT_DIR_PATH}/.sqliterc ~/.sqliterc
+ln -fns ${SCRIPT_DIR_PATH}/.gitignore ~/.gitignore
+ln -fns ${SCRIPT_DIR_PATH}/.svnignore ~/.svnignore
 
