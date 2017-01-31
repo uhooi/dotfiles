@@ -101,6 +101,15 @@ set columns=100 " 1行に表示する文字数
 " コマンドラインの高さ(GUI使用時)
 set cmdheight=2
 
+" 背景を透過させる(初期値：255)
+" 参考：http://qiita.com/mayami/items/2635d24c6f67c8277308
+" 重いのでコメントアウト
+"if has('win32') || has('win64')
+"  autocmd GUIEnter * set transparency=240
+"elseif has('mac')
+"  set transparency=240
+"endif
+
 "---------------------------------------------------------------------------
 " カラースキーマに関する設定:
 " solarized
