@@ -11,7 +11,7 @@
 #$include /etc/inputrc
 
 # 編集モードをviにする
-#set editing-mode vi
+set editing-mode vi
 #$if mode=vi
 #  set keymap vi-command
 #  "\e[A": history-search-backward
