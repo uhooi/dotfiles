@@ -1,0 +1,35 @@
+# 行入力支援ライブラリreadline用設定ファイル
+# readlineはbashやmysqlなどで使用されている
+# 参考：http://blog.digital-bot.com/blog/2013/08/30/more-useful-inputrc/
+# 　　：http://x68000.q-e-d.net/~68user/unix/pickup?~/.inputrc
+# 　　：https://wiki.archlinuxjp.org/index.php/Readline
+# 　　：https://www.glamenv-septzen.net/view/346
+# 　　：https://manpages.debian.org/unstable/manpages-ja/bash.1.ja.html
+# 　　：http://orangeclover.hatenablog.com/entry/20120814/1344933195
+
+# おまじない
+#$include /etc/inputrc
+
+# 編集モードをviにする
+#set editing-mode vi
+#$if mode=vi
+#  set keymap vi-command
+#  "\e[A": history-search-backward
+#  "\e[B": history-search-forward
+#  set keymap vi-insert
+#  "\e[A": history-search-backward
+#  "\e[B": history-search-forward
+#$endif
+
+# タブ補完時に大文字小文字を無視する
+set completion-ignore-case on
+
+# ビープ音を鳴らさない代わりに画面を点滅させる
+set bell-style visible
+
+# 補完候補にファイルタイプを示す文字を付ける
+set visible-stats on
+
+# 特殊変数をスペースで展開する
+#space: magic-space
+

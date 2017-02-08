@@ -1,4 +1,10 @@
+# Mac
 .DS_Store
+
+# Vim
+*.swp
+
+# Xcode
 *.xcscmblueprint
 *.xcuserdatad
 

@@ -16,6 +16,7 @@ mkdir ~/.vim
 ln -fns ${SCRIPT_DIR_PATH}/.vim/config ~/.vim/config
 ln -fns ${SCRIPT_DIR_PATH}/.bash_profile ~/.bash_profile
 ln -fns ${SCRIPT_DIR_PATH}/.bashrc ~/.bashrc
+ln -fns ${SCRIPT_DIR_PATH}/.inputrc ~/.inputrc
 ln -fns ${SCRIPT_DIR_PATH}/.gemrc ~/.gemrc
 ln -fns ${SCRIPT_DIR_PATH}/.sqliterc ~/.sqliterc
 ln -fns ${SCRIPT_DIR_PATH}/.gitignore ~/.gitignore

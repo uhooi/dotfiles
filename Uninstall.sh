@@ -13,6 +13,7 @@ rm ~/.gvimrc
 rm -r ~/.vim/config
 rm ~/.bash_profile
 rm ~/.bashrc
+rm ~/.inputrc
 rm ~/.gemrc
 rm ~/.sqliterc
 rm ~/.gitignore

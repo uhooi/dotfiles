@@ -12,3 +12,10 @@ GIT_PS1_SHOWDIRTYSTATE=true
 # 参考：http://qiita.com/koyopro/items/3fce94537df2be6247a3
 source /usr/local/etc/bash_completion.d/git-completion.bash
 
+# .inputrcを読み込む
+# 参考：http://kanjuku-tomato.blogspot.jp/2015/04/bashrc.html?m=1
+# なくても読み込んだのでコメントアウト
+#if [ -f ~/.inputrc ]; then
+#  . ~/.inputrc
+#fi
+
