@@ -6,6 +6,8 @@
 # 　　：https://www.glamenv-septzen.net/view/346
 # 　　：https://manpages.debian.org/unstable/manpages-ja/bash.1.ja.html
 # 　　：http://orangeclover.hatenablog.com/entry/20120814/1344933195
+# 　　：http://camisoul.blogspot.jp/2015/11/set-cd-zsh-zstyle-bashreadline.html
+# 　　：http://ameblo.jp/nekocat2/entry-11539657198.html
 
 # おまじない
 #$include /etc/inputrc
@@ -24,12 +26,32 @@ set editing-mode vi
 # タブ補完時に大文字小文字を無視する
 set completion-ignore-case on
 
+# タブ補完時に「-」と「_」を区別しない
+# 反応しないためコメントアウト
+#set completion-map-case on
+
 # ビープ音を鳴らさない代わりに画面を点滅させる
 set bell-style visible
 
-# 補完候補にファイルタイプを示す文字を付ける
+# 補完候補のディレクトリなどに印を付ける
 set visible-stats on
 
+# 補完候補にファイルタイプに応じた色を付ける
+# 反応しないためコメントアウト
+#set colored-stats on
+
+# タブ補完時に補完候補を表示せず、順番に補完していく
+# 補完候補を表示したいためコメントアウト
+#TAB: menu-complete
+
+# タブ補完時に補完候補を表示し、かつ共通文字列を補完する
+# 通常はまず共通文字列を補完し、次に補完候補を表示する
+set show-all-if-ambiguous on
+
+# 
+set show-all-if-unmodified on
+
 # 特殊変数をスペースで展開する
+# 使用しないためコメントアウト
 #space: magic-space
 
