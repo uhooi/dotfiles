@@ -1,3 +1,8 @@
+# CentOSにデフォルトである記述
+if [ -f /etc/bashrc ]; then
+  . /etc/bashrc
+fi
+
 # Git
 # ターミナルのプロンプトにGitの情報を表示できるようにする
 # 参考：http://qiita.com/varmil/items/9b0aeafa85975474e9b6

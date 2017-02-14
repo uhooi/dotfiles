@@ -17,6 +17,9 @@ fi
 #export PS1="\[\e[0;32m\]\u@\h \[\e[0;33m\]\w\n\[\e[0;90m\]\$\[\e[0;0m\] " # カラフル2行
 export PS1='\[\e[0;32m\]\u@\h \[\e[0;33m\]\w\[\e[0;36m\]$(__git_ps1 " (%s)")\n\[\e[0;90m\]\$\[\e[0;0m\] ' # Git情報付きカラフル2行
 
+# CentOSにデフォルトである記述
+export PATH=$PATH:$HOME/.local/bin:$HOME/bin
+
 # coreutils
 # 「g」抜きでコマンドを使用できるようにする
 # 参考：http://qiita.com/eumesy/items/3bb39fc783c8d4863c5f
