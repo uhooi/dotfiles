@@ -11,9 +11,8 @@ fi
 # Mac
 if [ "$(uname)" == 'Darwin' ]; then
   source /usr/local/etc/bash_completion.d/git-prompt.sh
-fi
 # Linux
-if [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   source /usr/share/doc/git-1.8.3.1/contrib/completion/git-prompt.sh
 fi
 
@@ -27,9 +26,8 @@ GIT_PS1_SHOWDIRTYSTATE=true
 # Mac
 if [ "$(uname)" == 'Darwin' ]; then
   source /usr/local/etc/bash_completion.d/git-completion.bash
-fi
 # Linux
-if [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   source /usr/share/doc/git-1.8.3.1/contrib/completion/git-completion.bash
 fi
 
