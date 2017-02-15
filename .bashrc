@@ -3,6 +3,13 @@ if [ -f /etc/bashrc ]; then
   . /etc/bashrc
 fi
 
+# エイリアス
+# 参考：http://qiita.com/yutat93/items/b5bb9c0366f21bcbea62
+# Mac
+if [ "$(uname)" == 'Darwin' ]; then
+  alias ls='ls --color=auto'
+fi
+
 # Git
 # ターミナルのプロンプトにGitの情報を表示できるようにする
 # 参考：http://qiita.com/varmil/items/9b0aeafa85975474e9b6
