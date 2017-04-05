@@ -30,8 +30,10 @@ if [ "$(uname)" == 'Darwin' ]; then
 fi
 
 # pyenv-virtualenv
-# Mac
-if [ "$(uname)" == 'Darwin' ]; then
+# 参考：http://qiita.com/hedgehoCrow/items/0733c63c690450b14dcf
+# 　　：http://qiita.com/niwak2/items/5490607be32202ce1314
+export PYENV_ROOT="$HOME/.pyenv"
+if [ -d "${PYENV_ROOT}" ]; then
   export PATH="$PATH:$HOME/.pyenv/bin"
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
