@@ -20,7 +20,7 @@ call dein#begin(expand('~/.vim/dein/'))
 
 " 導入するプラグイン一覧
 call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/vimproc.vim', {'build': 'make'})
+call dein#add('Shougo/vimproc.vim', 'build': 'make')
 call dein#add('Shougo/unite.vim')                " ランチャー(最近開いたファイル一覧機能を使用するにはneomru.vimが必要)
 call dein#add('Shougo/neomru.vim')               " ファイル操作
 call dein#add('ujihisa/unite-colorscheme')       " カラースキーマ一覧表示
@@ -41,6 +41,7 @@ call dein#add('tpope/vim-fugitive')              " Git連携
 "call dein#add('thinca/vim-quickrun')            " 
 "call dein#add('easymotion/vim-easymotion')       " キャレット移動補助
 call dein#add('osyo-manga/vim-over')             " 置換対象文字列ハイライト
+call dein#add('kylef/apiblueprint.vim')          " API Blueprintのシンタックスハイライトとバリデーション
 
 " カラースキーマ
 call dein#add('altercation/vim-colors-solarized')
