@@ -21,4 +21,5 @@ ln -fns ${SCRIPT_DIR_PATH}/.gemrc ~/.gemrc
 ln -fns ${SCRIPT_DIR_PATH}/.sqliterc ~/.sqliterc
 ln -fns ${SCRIPT_DIR_PATH}/.gitignore ~/.gitignore
 ln -fns ${SCRIPT_DIR_PATH}/.svnignore ~/.svnignore
+ln -fns ${SCRIPT_DIR_PATH}/.gitconfig ~/.gitconfig
 

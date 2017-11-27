@@ -18,6 +18,7 @@ mklink %USERPROFILE%\.gemrc %~dp0\.gemrc
 mklink %USERPROFILE%\.sqliterc %~dp0\.sqliterc
 mklink %USERPROFILE%\.gitignore %~dp0\.gitignore
 mklink %USERPROFILE%\.svnignore %~dp0\.svnignore
+mklink %USERPROFILE%\.gitconfig %~dp0\windows.gitconfig
 
 
 endlocal
