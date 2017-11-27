@@ -3,6 +3,12 @@
     # UTF-8の日本語を文字化けせずに表示する
     quotepath = false
     excludesfile = ~/.gitignore
+[difftool "sourcetree"]
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path = 
+[mergetool "sourcetree"]
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
 [color]
     # 出力に色を付ける
     ui = auto
