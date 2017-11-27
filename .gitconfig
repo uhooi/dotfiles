@@ -1,3 +1,6 @@
+[user]
+    name = uhooi
+    email = uhooi@server.fake
 [core]
     autocrlf = true
     # UTF-8の日本語を文字化けせずに表示する
@@ -21,4 +24,8 @@
 [diff]
     # diffでリネームを検知する
     renames = true
+[filter "hawser"]
+    clean = git hawser clean %f
+    smudge = git hawser smudge %f
+    required = true
 
