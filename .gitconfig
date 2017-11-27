@@ -1,0 +1,18 @@
+[core]
+    autocrlf = true
+    # UTF-8の日本語を文字化けせずに表示する
+    quotepath = false
+    excludesfile = ~/.gitignore
+[color]
+    # 出力に色を付ける
+    ui = auto
+[alias]
+    # ログを1行のツリー形式で表示する
+    mylog = log --graph --pretty=format:\"%C(yellow)%h %C(green)%an %C(cyan)%ar%C(yellow)%d %Creset%s\"
+    # ステータスを短く表示する
+    mystatus = status --short --branch
+    mydiff = diff --word-diff
+[diff]
+    # diffでリネームを検知する
+    renames = true
+
