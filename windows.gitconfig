@@ -1,12 +1,15 @@
-[user]
-    name = uhooi
-    email = uhooi@server.fake
 [core]
+    # 改行コードをサーバー：LF, クライアント：CRLFになるように調整する
+    # Windowsのみtrueにするか検討し、それ以外はfalseでいい
     autocrlf = true
     # UTF-8の日本語を文字化けせずに表示する
     quotepath = false
     # テキストエディタを指定する
     editor = 'C:\\Program Files\\vim74-kaoriya-win64\\gvim.exe'
+    excludesfile = ~/.gitignore
+[include]
+    # ユーザー名などをGit管理しないローカルファイルに保持する
+    path = ~/.gitconfig.local
 [difftool "sourcetree"]
     cmd = 'C:/Program Files (x86)/WinMerge/WinMergeU.exe' \"$LOCAL\" \"$REMOTE\"
 [color]

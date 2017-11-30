@@ -1,11 +1,13 @@
-[user]
-    name = uhooi
-    email = uhooi@server.fake
 [core]
-    autocrlf = true
+    # 改行コードをサーバー：LF, クライアント：CRLFになるように調整する
+    # Windowsのみtrueにするか検討し、それ以外はfalseでいい
+    #autocrlf = true
     # UTF-8の日本語を文字化けせずに表示する
     quotepath = false
     excludesfile = ~/.gitignore
+[include]
+    # ユーザー名などをGit管理しないローカルファイルに保持する
+    path = ~/.gitconfig.local
 [difftool "sourcetree"]
     cmd = opendiff \"$LOCAL\" \"$REMOTE\"
     path = 

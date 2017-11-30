@@ -8,3 +8,6 @@
 *.xcscmblueprint
 *.xcuserdatad
 
+# Git
+.gitconfig.local
+
