@@ -40,3 +40,11 @@ if [ -d "${PYENV_ROOT}" ]; then
   eval "$(pyenv virtualenv-init -)"
 fi
 
+# jEnv
+# 参考：http://www.jenv.be
+export JENV_ROOT="$HOME/.jenv"
+if [ -d "${JENV_ROOT}" ]; then
+  export PATH="$JENV_ROOT/bin:$PATH"
+  eval "$(jenv init -)"
+fi
+
