@@ -17,6 +17,7 @@ del %USERPROFILE%\.gemrc
 del %USERPROFILE%\.sqliterc
 del %USERPROFILE%\.gitignore
 del %USERPROFILE%\.svnignore
+del %USERPROFILE%\.hyper.js
 
 
 endlocal

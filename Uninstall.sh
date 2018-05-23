@@ -18,4 +18,5 @@ rm ~/.gemrc
 rm ~/.sqliterc
 rm ~/.gitignore
 rm ~/.svnignore
+rm ~/.hyper.js
 

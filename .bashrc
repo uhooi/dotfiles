@@ -45,3 +45,7 @@ fi
 #  . ~/.inputrc
 #fi
 
+# Hyperで日本語を使えるようにする
+# 参考：https://qiita.com/vimyum/items/44478a51ef3a6f49804f#日本語を表示する
+export LANG=ja_JP.UTF-8
+

@@ -48,3 +48,15 @@ if [ -d "${JENV_ROOT}" ]; then
   eval "$(jenv init -)"
 fi
 
+# SDKMAN
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+if [ -d "${SDKMAN_DIR}" ]; then
+  [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+fi
+
+# Android SDK Tools
+if [ -d "/usr/local/opt/android-sdk/tools/bin" ]; then
+  export PATH=$PATH:/usr/local/opt/android-sdk/tools/bin
+fi
+

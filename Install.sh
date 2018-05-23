@@ -22,4 +22,5 @@ ln -fns ${SCRIPT_DIR_PATH}/.sqliterc ~/.sqliterc
 ln -fns ${SCRIPT_DIR_PATH}/.gitignore ~/.gitignore
 ln -fns ${SCRIPT_DIR_PATH}/.svnignore ~/.svnignore
 ln -fns ${SCRIPT_DIR_PATH}/.gitconfig ~/.gitconfig
+ln -fns ${SCRIPT_DIR_PATH}/.hyper.js ~/.hyper.js
 
