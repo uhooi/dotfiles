@@ -134,8 +134,8 @@ module.exports = {
     //},
 
     // Hyper Pokemon
-    pokemon: 'random', // Choose your favorite pokemon theme
-    //pokemon: 'Clefairy', // ピッピ
+    //pokemon: 'random', // Choose your favorite pokemon theme
+    pokemon: 'Clefairy', // ピッピ
     unibody: 'false', // Choose the color of the window header
     poketab: 'false', // Deactivate your theme's poketab
 
@@ -149,6 +149,41 @@ module.exports = {
         //closeAlign: 'right',
         //activityPulse: false,
       },
+
+    // HyperCwd
+    hypercwd: {
+      initialWorkingDirectory: '~/Documents'
+    },
+
+    // hyper-pane
+    paneNavigation: {
+      //debug: false,
+      hotkeys: {
+        navigation: {
+          up: 'ctrl+alt+k',
+          down: 'ctrl+alt+j',
+          left: 'ctrl+alt+h',
+          right: 'ctrl+alt+l',
+        },
+        //jump_prefix: 'ctrl+alt', // completed with 1-9 digits
+        //permutation_modifier: 'shift', // Added to jump and navigation hotkeys for pane permutation
+        //maximize: 'meta+enter'
+      },
+      //showIndicators: true, // Show pane number
+      //indicatorPrefix: '^⌥', // Will be completed with pane number
+      indicatorStyle: { // Added to indicator <div>
+        position: 'absolute',
+        top: 1,
+        left: 3,
+        fontSize: '10px',
+        //fontFamily: '"Ricty Diminished for Powerline", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+      },
+      //focusOnMouseHover: false,
+      //inactivePaneOpacity: 0.6, // Set to 1 to disable inactive panes dimming
+    },
+
+    // hyper-opacity
+    opacity: 0.95,
   },
 
   // a list of plugins to fetch and install from npm
@@ -167,6 +202,9 @@ module.exports = {
     //'hyper-tab-icons',
     'hyper-tabs-enhanced',
     'hyper-search',
+    'hyper-pane',
+    'hypercwd',
+    'hyper-opacity',
   ],
 
   // in development, you can create a directory under
