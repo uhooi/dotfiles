@@ -9,10 +9,10 @@ module.exports = {
     updateChannel: 'stable',
 
     // default font size in pixels for all tabs
-    fontSize: 12,
+    fontSize: 14,
 
     // font family with optional fallbacks
-    fontFamily: 'Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+    fontFamily: '"Ricty Diminished for Powerline", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
 
     // default font weight: 'normal' or 'bold'
     fontWeight: 'normal',
@@ -123,6 +123,32 @@ module.exports = {
     // bellSoundURL: 'http://example.com/bell.mp3',
 
     // for advanced config flags please refer to https://hyper.is/#cfg
+
+    // HyperLine
+    //hyperline: {
+    //  plugins: [
+    //    'ip',
+    //    'cpu',
+    //    'spotify',
+    //  ],
+    //},
+
+    // Hyper Pokemon
+    pokemon: 'random', // Choose your favorite pokemon theme
+    //pokemon: 'Clefairy', // ピッピ
+    unibody: 'false', // Choose the color of the window header
+    poketab: 'false', // Deactivate your theme's poketab
+
+    // hyper-tabs-enhanced
+    hyperTabs: {
+        trafficButtons: true,
+        //border: true,
+        //tabIcons: false,
+        tabIconsColored: true,
+        //activityColor: 'salmon',
+        //closeAlign: 'right',
+        //activityPulse: false,
+      },
   },
 
   // a list of plugins to fetch and install from npm
@@ -131,7 +157,17 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: [],
+  plugins: [
+    //'hyperpower',
+    //'hyperline',
+    'hyper-statusline',
+    //'hyperyellow',
+    //'hyper-solarized-light',
+    'hyper-pokemon',
+    //'hyper-tab-icons',
+    'hyper-tabs-enhanced',
+    'hyper-search',
+  ],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
