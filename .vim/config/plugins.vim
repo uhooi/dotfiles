@@ -43,6 +43,7 @@ call dein#add('tpope/vim-fugitive')              " Git連携
 call dein#add('osyo-manga/vim-over')             " 置換対象文字列ハイライト
 call dein#add('kylef/apiblueprint.vim')          " API Blueprintのシンタックスハイライトとバリデーション
 call dein#add('aklt/plantuml-syntax')            " PlantUMLのシンタックスハイライト
+call dein#add('mechatroner/rainbow_csv')         " CSVのシンタックスハイライト
 
 " カラースキーマ
 call dein#add('altercation/vim-colors-solarized')
