@@ -27,6 +27,7 @@ call dein#add('ujihisa/unite-colorscheme')       " カラースキーマ一覧�
 call dein#add('Shougo/neocomplete.vim')          " 入力補完
 call dein#add('itchyny/lightline.vim')           " ステータスライン拡張
 call dein#add('itchyny/calendar.vim')            " Googleカレンダー連携
+"call dein#add('itchyny/vim-highlighturl')        " URLのハイライト→色が濃いためコメントアウト
 "call dein#add('itchyny/vim-parenmatch')          " 対応する括弧をハイライトする(デフォルトより8倍高速)
 "call dein#add('itchyny/vim-cursorword')          " カーソル上の単語に下線を引く
 call dein#add('scrooloose/nerdtree')             " ツリーエクスプローラー
