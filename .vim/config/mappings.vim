@@ -54,8 +54,12 @@ inoremap <C-k> <Up>
 inoremap <C-l> <Right>
 " 挿入モード時に矢印キーを無効にする
 " ∵Vimのキーバインドに慣れるため
-inoremap <Left> <Nop>
-inoremap <Down> <Nop>
-inoremap <Up> <Nop>
-inoremap <Right> <Nop>
+" Macの場合、日本語入力がおかしくなる不具合があるため無効にしない
+" 参考：https://github.com/cohama/lexima.vim/issues/13
+if !has('mac'))
+  inoremap <Left> <Nop>
+  inoremap <Down> <Nop>
+  inoremap <Up> <Nop>
+  inoremap <Right> <Nop>
+endif
 

@@ -225,6 +225,9 @@ let g:neocomplete#snippets_dir='~/.vim/snippets'
 " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+" 日本語入力時、補完を無効にする
+" 参考：http://baqamore.hatenablog.com/entry/2014/08/29/183814
+let g:neocomplete#lock_iminsert = 1
 
 let $DOTVIM = $HOME.'/.vim'
 

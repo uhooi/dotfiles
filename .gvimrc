@@ -8,11 +8,13 @@ scriptencoding utf-8
 " 　　：https://www.kaoriya.net/blog/2013/05/05/
 " 　　：https://randomsoft.com/node/627
 " 　　：http://note103.hateblo.jp/entry/2016/03/16/172327
-if has('win32') || has('win64')
+if has('win32') || has('win64') || has('mac')
   set encoding=utf-8
   source $VIMRUNTIME/delmenu.vim
   set langmenu=ja_jp.utf-8
   source $VIMRUNTIME/menu.vim
+endif
+if has('win32') || has('win64')
   set guifont=Ricty_Diminished\ for\ Powerline:h10.5:cSHIFTJIS " 半角
   set guifontwide=Ricty_Diminished\ for\ Powerline:h10.5:cSHIFTJIS " 全角
   set rop=type:directx,renmode:5
@@ -21,10 +23,6 @@ if has('win32') || has('win64')
   " 行間隔の設定
   set linespace=1
 elseif has('mac')
-  set encoding=utf-8
-  source $VIMRUNTIME/delmenu.vim
-  set langmenu=ja_jp.utf-8
-  source $VIMRUNTIME/menu.vim
   set guifont=Ricty_Diminished\ for\ Powerline:h13.5 " 半角
   set guifontwide=Ricty_Diminished\ for\ Powerline:h13.5 " 半角
   set linespace=1
