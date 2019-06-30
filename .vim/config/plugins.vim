@@ -45,6 +45,7 @@ call dein#add('osyo-manga/vim-over')             " 置換対象文字列ハイ�
 call dein#add('kylef/apiblueprint.vim')          " API Blueprintのシンタックスハイライトとバリデーション
 call dein#add('aklt/plantuml-syntax')            " PlantUMLのシンタックスハイライト
 call dein#add('mechatroner/rainbow_csv')         " CSVのシンタックスハイライト
+call dein#add('keith/swift.vim')                 " Swiftのシンタックスハイライト
 
 " カラースキーマ
 call dein#add('altercation/vim-colors-solarized')
