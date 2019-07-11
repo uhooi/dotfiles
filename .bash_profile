@@ -48,6 +48,13 @@ if [ -d "${JENV_ROOT}" ]; then
   eval "$(jenv init -)"
 fi
 
+# rbenv
+export RBENV_ROOT="$HOME/.rbenv"
+if [ -d "${RBENV_ROOT}" ]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
+
 # SDKMAN
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
