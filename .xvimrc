@@ -24,11 +24,10 @@ set clipboard=unnamed,unnamedplus
 " --------------------------------------------------------------
 " Mappings
 
-" なぜかShiftのマッピングが効かないのでコメントアウト
-"noremap <S-h> 0
-"noremap <S-l> $
-"noremap 0 <S-h>
-"noremap $ <S-l>
+noremap H 0
+noremap L $
+noremap 0 H
+noremap $ L
 
 noremap <Left> <Nop>
 noremap <Down> <Nop>
@@ -63,4 +62,27 @@ inoremap <Left> <Nop>
 inoremap <Down> <Nop>
 inoremap <Up> <Nop>
 inoremap <Right> <Nop>
+
+nnoremap <Space>r :run<CR>
+nnoremap <Space>n :xcmenucmd Run Without Building<CR>
+nnoremap <Space>b :xcmenucmd Build<CR>
+nnoremap <Space>. :xcmenucmd Stop<CR>
+nnoremap <Space>c :xcmenucmd Clean Build Folder<CR>
+
+nnoremap <Space><Space> :xccmd toggleBreakpointAtCurrentLine<CR>
+nnoremap sc :xcmenucmd Continue<CR>
+nnoremap so :xcmenucmd Step Over<CR>
+nnoremap si :xcmenucmd Step Into<CR>
+
+nnoremap <Space>i :xccmd indentSelection<CR>
+vnoremap <Space>i :xccmd indentSelection<CR>
+nnoremap <Space>/ :xcmenucmd Toggle Comments<CR>
+vnoremap <Space>/ :xcmenucmd Toggle Comments<CR>
+
+nnoremap <Space>o :xccmd openQuickly<CR>
+nnoremap <Space>d :xcmenucmd Show Document Items<CR>
+nnoremap <Space>h :xccmd toggleNavigatorsVisibility<CR>
+nnoremap <Space>j :xccmd toggleDebuggerVisibility<CR>
+nnoremap <Space>k :xccmd toggleToolbarShown<CR>
+nnoremap <Space>l :xcmenucmd Show Inspectors<CR>
 
