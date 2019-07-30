@@ -10,6 +10,7 @@
 # dotfilesのシンボリックリンクを削除する
 rm ~/.vimrc
 rm ~/.gvimrc
+rm ~/.xvimrc
 rm -r ~/.vim/config
 rm ~/.bash_profile
 rm ~/.bashrc

@@ -12,6 +12,7 @@ SCRIPT_DIR_PATH=$(cd $(dirname $0);pwd)
 # dotfilesのシンボリックリンクを作成する
 ln -fns ${SCRIPT_DIR_PATH}/.vimrc ~/.vimrc
 ln -fns ${SCRIPT_DIR_PATH}/.gvimrc ~/.gvimrc
+ln -fns ${SCRIPT_DIR_PATH}/.xvimrc ~/.xvimrc
 mkdir ~/.vim
 ln -fns ${SCRIPT_DIR_PATH}/.vim/config ~/.vim/config
 ln -fns ${SCRIPT_DIR_PATH}/.bash_profile ~/.bash_profile

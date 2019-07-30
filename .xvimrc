@@ -1,0 +1,66 @@
+" 参考：https://github.com/XVimProject/XVim2/blob/master/Documents/FeatureList.md
+" 　　：https://github.com/XVimProject/XVim/blob/master/Documents/Developers/MenuActionList.txt
+" 　　：https://qiita.com/zebult/items/d2393526e73e01cdac94
+" 　　：https://github.com/zebult/dotfiles/blob/master/.xvimrc
+
+" --------------------------------------------------------------
+" Search
+set hlsearch
+set ignorecase
+set smartcase
+set wrapscan
+"set gdefault
+
+" Edit
+"set expandtab
+
+" Display(GUI固有ではない)
+set number
+set wrap
+set laststatus=2
+
+set clipboard=unnamed,unnamedplus
+
+" --------------------------------------------------------------
+" Mappings
+
+" なぜかShiftのマッピングが効かないのでコメントアウト
+"noremap <S-h> 0
+"noremap <S-l> $
+"noremap 0 <S-h>
+"noremap $ <S-l>
+
+noremap <Left> <Nop>
+noremap <Down> <Nop>
+noremap <Up> <Nop>
+noremap <Right> <Nop>
+
+nnoremap Y y$
+
+nnoremap + <C-a>
+nnoremap - <C-x>
+
+nnoremap s <Nop>
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+nnoremap sw <C-w>w
+nnoremap sr <C-w>r
+nnoremap sJ <C-w>J
+nnoremap sK <C-w>K
+nnoremap sL <C-w>L
+nnoremap sH <C-w>H
+nnoremap ss :<C-u>sp<CR>
+nnoremap sv :<C-u>vs<CR>
+
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+
+inoremap <Left> <Nop>
+inoremap <Down> <Nop>
+inoremap <Up> <Nop>
+inoremap <Right> <Nop>
+
