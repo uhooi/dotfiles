@@ -58,10 +58,11 @@ inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-l> <Right>
 
-inoremap <Left> <Nop>
-inoremap <Down> <Nop>
-inoremap <Up> <Nop>
-inoremap <Right> <Nop>
+" 補完を選択できなくなるためコメントアウト
+"inoremap <Left> <Nop>
+"inoremap <Down> <Nop>
+"inoremap <Up> <Nop>
+"inoremap <Right> <Nop>
 
 nnoremap <Space>r :run<CR>
 nnoremap <Space>n :xcmenucmd Run Without Building<CR>
