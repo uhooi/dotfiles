@@ -82,6 +82,7 @@ vnoremap <Space>/ :xcmenucmd Toggle Comments<CR>
 
 nnoremap <Space>o :xccmd openQuickly<CR>
 nnoremap <Space>d :xcmenucmd Show Document Items<CR>
+nnoremap <Space>f :xccmd findInWorkspace<CR>
 nnoremap <Space>h :xccmd toggleNavigatorsVisibility<CR>
 nnoremap <Space>j :xccmd toggleDebuggerVisibility<CR>
 nnoremap <Space>k :xccmd toggleToolbarShown<CR>
