@@ -41,11 +41,17 @@ call dein#add('tyru/open-browser.vim')           " ブラウザ連携
 call dein#add('tpope/vim-fugitive')              " Git連携
 "call dein#add('thinca/vim-quickrun')            " 
 "call dein#add('easymotion/vim-easymotion')       " キャレット移動補助
+call dein#add('dense-analysis/ale')              " 非同期校正
+call dein#add('tokorom/ale-prh-review')          " Re:VIEWの非同期校正
+call dein#add('SirVer/ultisnips')                " スニペット
+
+" シンタックスハイライト
 call dein#add('osyo-manga/vim-over')             " 置換対象文字列ハイライト
 call dein#add('kylef/apiblueprint.vim')          " API Blueprintのシンタックスハイライトとバリデーション
 call dein#add('aklt/plantuml-syntax')            " PlantUMLのシンタックスハイライト
 call dein#add('mechatroner/rainbow_csv')         " CSVのシンタックスハイライト
 call dein#add('keith/swift.vim')                 " Swiftのシンタックスハイライト
+call dein#add('tokorom/vim-review')              " Re:VIEWのシンタックスハイライト
 
 " カラースキーマ
 call dein#add('altercation/vim-colors-solarized')
@@ -309,7 +315,7 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 " ∵鬱陶しいため
 let g:indent_guides_enable_on_vim_startup=0
 " 「Ctrl + i」でガイドの表示を切り替える
-map <C-i> :IndentGuidesToggle<CR>
+nnoremap <C-i> :IndentGuidesToggle<CR>
 " ガイドの幅
 let g:indent_guides_guide_size = 1
 
@@ -372,5 +378,53 @@ let g:calendar_google_calendar = 1
 nnoremap [vimover] :OverCommandLine<CR>
 nmap <Leader>o [vimover]
 
+" --------------------------------------------------------------
+" vim-review
+" 参考：http://www.tokoro.me/posts/vim-review/
 
+let g:vim_review#include_filetypes = ['swift']
+
+" --------------------------------------------------------------
+" ALE
+" 参考：https://github.com/tokorom/dotfiles/blob/master/.vim/plugins.vim
+
+" 保存した時にチェック
+let g:ale_lint_on_save = 1
+" テキスト変更時にはチェックしない
+let g:ale_lint_on_text_changed = 'never'
+" ファイルオープン時にチェックしない
+let g:ale_lint_on_enter = 0
+" エラーがあればlistを自動で開く
+let g:ale_open_list = 1
+" QuickFixを使う
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+
+" Only run linters named in ale_linters settings.
+let g:ale_linters_explicit = 1
+
+let g:ale_linters = {
+\   'vim': ['vint'],
+\   'swift': ['swiftlint', 'swiftsyntaxcheck'],
+\   'review': ['redpen', 'prhreview'],
+\}
+
+" --------------------------------------------------------------
+" ale-prh-review
+" 参考：http://www.tokoro.me/posts/vim-review/
+
+let g:ale_fixers = {
+\   'review': ['redpen', 'prhreview'],
+\}
+
+" --------------------------------------------------------------
+" UltiSnips
+" 参考：http://www.tokoro.me/posts/vim-review/
+" 　　：https://github.com/SirVer/ultisnips
+" 　　：https://github.com/tokorom/dotfiles/blob/master/.vim/plugins.vim
+
+let g:UltiSnipsSnippetDirectories=['snippets/usnippets', 'UltiSnips']
+let g:UltiSnipsExpandTrigger='<tab>'
+let g:UltiSnipsJumpForwardTrigger='<tab>'
+let g:UltiSnipsJumpBackwardTrigger='<c-b>'
 

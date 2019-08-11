@@ -1,0 +1,389 @@
+snippet = "" b
+={${1:label}} ${2:section}
+endsnippet
+
+snippet == "" b
+=={${1:label}} ${2:section}
+endsnippet
+
+snippet === "" b
+==={${1:label}} ${2:section}
+endsnippet
+
+snippet ==== "" b
+===={${1:label}} ${2:section}
+endsnippet
+
+snippet ===== "" b
+====={${1:label}} ${2:section}
+endsnippet
+
+snippet =column "" b
+===[column] ${1:title}
+${0}
+===[/column]
+endsnippet
+
+snippet * "" b
+* ${1}
+endsnippet
+
+snippet ** "" b
+** ${1}
+endsnippet
+
+snippet *** "" b
+*** ${1}
+endsnippet
+
+snippet 1 "" b
+1. ${1}
+endsnippet
+
+snippet : "" b
+: ${1:keyword}
+	${0}
+endsnippet
+
+snippet // "" b
+//${1:op}[${2}]{
+${0}
+//}
+endsnippet
+
+snippet //list "" b
+//list[${1:id}][${2:caption}][${3:ft}]{
+${0}
+//}
+endsnippet
+
+snippet //listnum "" b
+//listnum[${1:id}][${2:caption}][${3:ft}]{
+${0}
+//}
+endsnippet
+
+snippet //emlist "" b
+//emlist[${1}][${2:ft}]{
+${0}
+//}
+endsnippet
+
+snippet //emlistnum "" b
+//emlistnum[${1}][${2:ft}]{
+${0}
+//}
+endsnippet
+
+snippet //firstlinenum "" b
+//firstlinenum[${1}]
+endsnippet
+
+snippet //source "" b
+//source[${1}]{
+${0}
+//}
+endsnippet
+
+snippet //cmd "" b
+//cmd{
+${0}
+//}
+endsnippet
+
+snippet //image "" b
+//image[${1:id}][${2:caption}]{
+//}
+${0}
+endsnippet
+
+snippet //indepimage "" b
+//indepimage[${1:id}][${2:caption}]{
+//}
+${0}
+endsnippet
+
+snippet //numberlessimage "" b
+//numberlessimage[${1:id}][${2:caption}]{
+//}
+${0}
+endsnippet
+
+snippet //graph "" b
+//graph[${1:file}][${2:command}][${3:caption}]{
+${0}
+//}
+endsnippet
+
+snippet //table "" b
+//table[${1:id}][${2:caption}]{
+key1											key2
+----------------------------------------
+value1						value2
+//}
+endsnippet
+
+snippet //emtable "" b
+//emtable[${1:id}][${2:caption}]{
+key1											key2
+----------------------------------------
+value1						value2
+//}
+endsnippet
+
+snippet //tsize "" b
+//tsize[${1}]
+endsnippet
+
+snippet //imgtable "" b
+//imgtable[${1:id}][${2:caption}]{
+//}
+${0}
+endsnippet
+
+snippet //quote "" b
+//quote{
+${0}
+//}
+endsnippet
+
+snippet //lead "" b
+//lead{
+${0}
+//}
+endsnippet
+
+snippet //memo "" b
+//memo[${1:caption}]{
+${0}
+//}
+endsnippet
+
+snippet //tip "" b
+//tip[${1:caption}]{
+${0}
+//}
+endsnippet
+
+snippet //info "" b
+//info[${1:caption}]{
+${0}
+//}
+endsnippet
+
+snippet //warning "" b
+//warning[${1:caption}]{
+${0}
+//}
+endsnippet
+
+snippet //important "" b
+//important[${1:caption}]{
+${0}
+//}
+endsnippet
+
+snippet //caution "" b
+//caution[${1:caption}]{
+${0}
+//}
+endsnippet
+
+snippet //notice "" b
+//notice[${1:caption}]{
+${0}
+//}
+endsnippet
+
+snippet //footnote "" b
+//footnote[${1:id}][${2:body}]
+endsnippet
+
+snippet //bibpaper "" b
+//bibpaper[${1:cite}][${2:caption}]{
+${0}
+//}
+endsnippet
+
+snippet //texequation "" b
+//texequation{
+${0}
+//}
+endsnippet
+
+snippet //noindent "" b
+//noindent
+${0}
+endsnippet
+
+snippet //blankline "" b
+//blankline
+${0}
+endsnippet
+
+snippet //raw "" b
+//raw[|${1}|${2:body}]
+endsnippet
+
+snippet //embed "" b
+//embed[${1}]{
+${0}
+//}
+endsnippet
+
+snippet @ "" w
+@<${1:op}>{${2:body}}${0}
+endsnippet
+
+snippet comment "" w
+@<comment>{${1:body}}${0}
+endsnippet
+
+snippet fn "" w
+@<fn>{${1:body}}${0}
+endsnippet
+
+snippet kw "" w
+@<kw>{${1:body}}${0}
+endsnippet
+
+snippet bou "" w
+@<bou>{${1:body}}${0}
+endsnippet
+
+snippet ami "" w
+@<ami>{${1:body}}${0}
+endsnippet
+
+snippet u "" w
+@<u>{${1:body}}${0}
+endsnippet
+
+snippet b "" w
+@<b>{${1:body}}${0}
+endsnippet
+
+snippet i "" w
+@<i>{${1:body}}${0}
+endsnippet
+
+snippet strong "" w
+@<strong>{${1:body}}${0}
+endsnippet
+
+snippet em "" w
+@<em>{${1:body}}${0}
+endsnippet
+
+snippet tt "" w
+@<tt>{${1:body}}${0}
+endsnippet
+
+snippet tti "" w
+@<tti>{${1:body}}${0}
+endsnippet
+
+snippet ttb "" w
+@<ttb>{${1:body}}${0}
+endsnippet
+
+snippet code "" w
+@<code>{${1:body}}${0}
+endsnippet
+
+snippet tcy "" w
+@<tcy>{${1:body}}${0}
+endsnippet
+
+snippet chap "" w
+@<chap>{${1:body}}${0}
+endsnippet
+
+snippet title "" w
+@<title>{${1:body}}${0}
+endsnippet
+
+snippet chapref "" w
+@<chapref>{${1:body}}${0}
+endsnippet
+
+snippet list "" w
+@<list>{${1:body}}${0}
+endsnippet
+
+snippet img "" w
+@<img>{${1:body}}${0}
+endsnippet
+
+snippet table "" w
+@<table>{${1:body}}${0}
+endsnippet
+
+snippet hd "" w
+@<hd>{${1:body}}${0}
+endsnippet
+
+snippet column "" w
+@<column>{${1:body}}${0}
+endsnippet
+
+snippet ruby "" w
+@<ruby>{${1:word}, ${2:ruby}}${0}
+endsnippet
+
+snippet br "" w
+@<br>{}${0}
+endsnippet
+
+snippet uchar "" w
+@<uchar>{${1:body}}${0}
+endsnippet
+
+snippet href "" w
+@<href>{${1:body}}${0}
+endsnippet
+
+snippet icon "" w
+@<icon>{${1:body}}${0}
+endsnippet
+
+snippet m "" w
+@<m>{${1:body}}${0}
+endsnippet
+
+snippet w "" w
+@<w>{${1:body}}${0}
+endsnippet
+
+snippet wb "" w
+@<wb>{${1:body}}${0}
+endsnippet
+
+snippet raw "" w
+@<raw>{${1:body}}${0}
+endsnippet
+
+snippet embed "" w
+@<embed>{${1:body}}${0}
+endsnippet
+
+snippet idx "" w
+@<idx>{${1:body}}${0}
+endsnippet
+
+snippet hidx "" w
+@<hidx>{${1:body}}${0}
+endsnippet
+
+snippet balloon "" w
+@<balloon>{${1:body}}${0}
+endsnippet
+
+snippet bib "" w
+@<bib>{${1:body}}${0}
+endsnippet
+
+snippet #
+#@# ${0}
+endsnippet
+
