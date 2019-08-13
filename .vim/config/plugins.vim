@@ -26,12 +26,14 @@ call dein#add('Shougo/neomru.vim')               " ファイル操作
 call dein#add('ujihisa/unite-colorscheme')       " カラースキーマ一覧表示
 call dein#add('Shougo/neocomplete.vim')          " 入力補完
 call dein#add('itchyny/lightline.vim')           " ステータスライン拡張
+call dein#add('maximbaz/lightline-ale')          " lightlineにALEのアイコンを表示する
 call dein#add('itchyny/calendar.vim')            " Googleカレンダー連携
 "call dein#add('itchyny/vim-highlighturl')        " URLのハイライト→色が濃いためコメントアウト
 "call dein#add('itchyny/vim-parenmatch')          " 対応する括弧をハイライトする(デフォルトより8倍高速)
 "call dein#add('itchyny/vim-cursorword')          " カーソル上の単語に下線を引く
 call dein#add('scrooloose/nerdtree')             " ツリーエクスプローラー
-call dein#add('scrooloose/syntastic')            " 構文チェッカー
+"call dein#add('scrooloose/syntastic')            " 構文チェッカー→ALEを使う
+"ためコメントアウト
 call dein#add('nathanaelkane/vim-indent-guides') " インデント可視化
 "call dein#add('koron/minimap-vim')               " ミニマップ→Rictyだときれいに表示されないためコメントアウト
 "call dein#add('severin-lemaignan/vim-minimap')   " ミニマップ→なぜか表示されないためコメントアウト
@@ -66,6 +68,10 @@ call dein#end()
 if dein#check_install()
   call dein#install()
 endif
+
+" プラグインを削除する場合にコメントインする
+" 参考：http://katsumeshix.hatenablog.jp/entry/2017/10/16/103709
+"call map(dein#check_clean(), "delete(v:val, 'rf')")
 
 filetype plugin indent on
 
@@ -107,6 +113,7 @@ nnoremap [unite]m :<C-u>Unite<Space>file_mru<CR>
 " 　　：http://qiita.com/yuyuchu3333/items/20a0acfe7e0d0e167ccc
 " 　　：http://qiita.com/osamunmun/items/6fcabd8dff0d5fded559
 " 　　：http://note103.hateblo.jp/entry/2016/03/16/172327
+" 　　：https://github.com/maximbaz/lightline-ale
 
 let g:Powerline_symbols = 'fancy'
 "let g:Powerline_symbols = 'compatible'
@@ -115,8 +122,16 @@ let g:lightline = {
         \ 'colorscheme': 'wombat',
         \ 'mode_map': {'c': 'NORMAL'},
         \ 'active': {
-        \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
-        \   'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype', 'winform' ] ]
+        \   'left': [
+        \     [ 'mode', 'paste' ],
+        \     [ 'fugitive', 'filename', 'ale' ]
+        \   ],
+        \   'right': [
+        \     [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
+        \     [ 'syntastic', 'lineinfo' ],
+        \     [ 'percent' ],
+        \     [ 'fileformat', 'fileencoding', 'filetype', 'winform' ]
+        \   ]
         \ },
         \ 'component_function': {
         \   'modified': 'LightLineModified',
@@ -127,7 +142,19 @@ let g:lightline = {
         \   'filetype': 'LightLineFiletype',
         \   'fileencoding': 'LightLineFileencoding',
         \   'mode': 'LightLineMode',
-        \   'winform' : 'LightLineWinform'
+        \   'winform' : 'LightLineWinform',
+        \ },
+        \ 'component_expand': {
+        \   'linter_checking': 'lightline#ale#checking',
+        \   'linter_warnings': 'lightline#ale#warnings',
+        \   'linter_errors': 'lightline#ale#errors',
+        \   'linter_ok': 'lightline#ale#ok'
+        \ },
+        \ 'component_type': {
+        \   'linter_checking': 'left',
+        \   'linter_warnings': 'warning',
+        \   'linter_errors': 'error',
+        \   'linter_ok': 'left',
         \ },
         \ 'separator': { 'left': '', 'right': '' },
         \ 'subseparator': { 'left': '|', 'right': '|' }
@@ -135,8 +162,6 @@ let g:lightline = {
 
         " セパレート候補
         " 今のところどれもうまくいかない
-        "\ 'separator': { 'left': '', 'right': '' },
-        "\ 'subseparator': { 'left': '|', 'right': '|' }
         "\ 'separator': { 'left': "\u2b80", 'right': "\u2b82" },
         "\ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
         "\ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
@@ -385,37 +410,47 @@ nmap <Leader>o [vimover]
 let g:vim_review#include_filetypes = ['swift']
 
 " --------------------------------------------------------------
-" ALE
-" 参考：https://github.com/tokorom/dotfiles/blob/master/.vim/plugins.vim
+" ALE(Asynchronous Lint Engine)
+" 参考：http://www.tokoro.me/posts/vim-review/
+" 　　：https://github.com/tokorom/dotfiles/blob/master/.vim/plugins.vim
+" 　　：https://wonderwall.hatenablog.com/entry/2017/03/01/223934
 
-" 保存した時にチェック
-let g:ale_lint_on_save = 1
-" テキスト変更時にはチェックしない
-let g:ale_lint_on_text_changed = 'never'
-" ファイルオープン時にチェックしない
-let g:ale_lint_on_enter = 0
-" エラーがあればlistを自動で開く
-let g:ale_open_list = 1
-" QuickFixを使う
+let g:ale_lint_on_save = 1 " 保存時にチェックする
+let g:ale_lint_on_text_changed = 'never' " 変更時にチェックしない
+let g:ale_lint_on_enter = 0 " ファイルオープン時にチェックしない
+let g:ale_open_list = 1 " エラー時にリストを自動で開く
+" ロケーションリストの代わりにQuickFixを使う
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 
-" Only run linters named in ale_linters settings.
-let g:ale_linters_explicit = 1
+let g:ale_linters_explicit = 1 " `ale_linters` で指定したlintのみ実行する
+
+"let g:ale_sign_column_always = 0 " シンボルカラムを警告時のみ表示する(デフォルト)
+"let g:ale_sign_error = '>>' " エラー時のシンボル(デフォルト)
+"let g:ale_sign_warning = '--' " 警告時のシンボル(デフォルト)
 
 let g:ale_linters = {
 \   'vim': ['vint'],
 \   'swift': ['swiftlint', 'swiftsyntaxcheck'],
-\   'review': ['redpen', 'prhreview'],
+\   'review': ['redpen', 'prhreview']
+\}
+
+let g:ale_fixers = {
+\   'review': ['redpen', 'prhreview']
 \}
 
 " --------------------------------------------------------------
-" ale-prh-review
-" 参考：http://www.tokoro.me/posts/vim-review/
+" lightline-ale
+" 参考：https://github.com/maximbaz/lightline-ale
 
-let g:ale_fixers = {
-\   'review': ['redpen', 'prhreview'],
-\}
+" インジケータ
+"let g:lightline#ale#indicator_warnings = "△"
+"let g:lightline#ale#indicator_errors = "×"
+"let g:lightline#ale#indicator_ok = "◆"
+let g:lightline#ale#indicator_checking = "\uf110"
+let g:lightline#ale#indicator_warnings = "\uf071"
+let g:lightline#ale#indicator_errors = "\uf05e"
+let g:lightline#ale#indicator_ok = "\uf00c"
 
 " --------------------------------------------------------------
 " UltiSnips

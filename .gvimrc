@@ -15,16 +15,16 @@ if has('win32') || has('win64') || has('mac')
   source $VIMRUNTIME/menu.vim
 endif
 if has('win32') || has('win64')
-  set guifont=Ricty_Diminished\ for\ Powerline:h10.5:cSHIFTJIS " 半角
-  set guifontwide=Ricty_Diminished\ for\ Powerline:h10.5:cSHIFTJIS " 全角
+  set guifont=RictyDiminished\ NF:h10.5:cSHIFTJIS " 半角
+  set guifontwide=RictyDiminished\ NF:h10.5:cSHIFTJIS " 全角
   set rop=type:directx,renmode:5
 "  set antialias " 何も変わらないためコメントアウト
   set printheader=%<%f%h%m%=%N\ ページ
   " 行間隔の設定
   set linespace=1
 elseif has('mac')
-  set guifont=Ricty_Diminished\ for\ Powerline:h13.5 " 半角
-  set guifontwide=Ricty_Diminished\ for\ Powerline:h13.5 " 半角
+  set guifont=RictyDiminished\ NF:h13.5 " 半角
+  set guifontwide=RictyDiminished\ NF:h13.5 " 全角
   set linespace=1
 elseif has('xfontset')
   " UNIX用 (xfontsetを使用)
