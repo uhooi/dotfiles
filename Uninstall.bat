@@ -13,7 +13,6 @@ rem dotfilesのシンボリックリンクを削除する
 del %USERPROFILE%\.vimrc
 del %USERPROFILE%\.gvimrc
 rmdir %USERPROFILE%\.vim\config
-del %USERPROFILE%\.gemrc
 del %USERPROFILE%\.sqliterc
 del %USERPROFILE%\.xpdfrc
 del %USERPROFILE%\.gitignore
