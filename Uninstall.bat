@@ -15,6 +15,7 @@ del %USERPROFILE%\.gvimrc
 rmdir %USERPROFILE%\.vim\config
 del %USERPROFILE%\.gemrc
 del %USERPROFILE%\.sqliterc
+del %USERPROFILE%\.xpdfrc
 del %USERPROFILE%\.gitignore
 del %USERPROFILE%\.svnignore
 del %USERPROFILE%\.hyper.js

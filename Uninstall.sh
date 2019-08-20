@@ -17,6 +17,7 @@ rm ~/.bashrc
 rm ~/.inputrc
 rm ~/.gemrc
 rm ~/.sqliterc
+rm ~/.xpdfrc
 rm ~/.gitignore
 rm ~/.svnignore
 rm ~/.hyper.js
