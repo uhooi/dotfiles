@@ -12,6 +12,7 @@ rem ----------------------------------------------------------------
 rem dotfilesのシンボリックリンクを作成する
 mklink %USERPROFILE%\.vimrc %~dp0\.vimrc
 mklink %USERPROFILE%\.gvimrc %~dp0\.gvimrc
+mklink %USERPROFILE%\.ideavimrc %~dp0\.ideavimrc
 mkdir %USERPROFILE%\.vim
 mklink /d %USERPROFILE%\.vim\config %~dp0\.vim\config
 mklink %USERPROFILE%\.sqliterc %~dp0\.sqliterc

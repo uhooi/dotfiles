@@ -1,0 +1,89 @@
+" 参考：https://qiita.com/sei40kr/items/09e7e92eb7686f9b5950
+
+" --------------------------------------------------------------
+" Search
+set hlsearch
+set ignorecase
+set smartcase
+set wrapscan
+"set gdefault
+
+" Edit
+"set expandtab
+
+" Display(GUI固有ではない)
+set number
+set wrap
+set laststatus=2
+
+set clipboard=unnamed,unnamedplus
+
+" --------------------------------------------------------------
+" Mappings
+
+noremap j gj
+noremap k gk
+noremap gj j
+noremap gk k
+
+noremap H 0
+noremap L $
+noremap 0 H
+noremap $ L
+
+noremap <Left> <Nop>
+noremap <Down> <Nop>
+noremap <Up> <Nop>
+noremap <Right> <Nop>
+
+nnoremap Y y$
+
+nnoremap + <C-a>
+nnoremap - <C-x>
+
+nnoremap s <Nop>
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+nnoremap sw <C-w>w
+nnoremap sr <C-w>r
+nnoremap sJ <C-w>J
+nnoremap sK <C-w>K
+nnoremap sL <C-w>L
+nnoremap sH <C-w>H
+nnoremap ss :<C-u>sp<CR>
+nnoremap sv :<C-u>vs<CR>
+
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+
+inoremap <Left> <Nop>
+inoremap <Down> <Nop>
+inoremap <Up> <Nop>
+inoremap <Right> <Nop>
+
+nnoremap <Space>r :<C-u>action Run<CR>
+" nnoremap <Space>n :xcmenucmd Run Without Building<CR>
+nnoremap <Space>d :<C-u>action Debug<CR>
+" nnoremap <Space>b :xcmenucmd Build<CR>
+nnoremap <Space>. :<C-u>action Stop<CR>
+nnoremap <Space>c :<C-u>action CleanGradleProject<CR>
+
+nnoremap <Space><Space> :<C-u>action ToggleLineBreakpoint<CR>
+" nnoremap sc :xcmenucmd Continue<CR>
+nnoremap so :<C-u>action StepOver<CR>
+nnoremap si :<C-u>action StepInto<CR>
+
+" nnoremap <Space>/ :xcmenucmd Toggle Comments<CR>
+" vnoremap <Space>/ :xcmenucmd Toggle Comments<CR>
+
+" nnoremap <Space>o :xccmd openQuickly<CR>
+nnoremap <Space>f :<C-u>action FindInPath<CR>
+" nnoremap <Space>h :xccmd toggleNavigatorsVisibility<CR>
+" nnoremap <Space>j :xccmd toggleDebuggerVisibility<CR>
+" nnoremap <Space>k :xccmd toggleToolbarShown<CR>
+" nnoremap <Space>l :xcmenucmd Show Inspectors<CR>
+

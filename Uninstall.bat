@@ -12,6 +12,7 @@ rem ----------------------------------------------------------------
 rem dotfilesのシンボリックリンクを削除する
 del %USERPROFILE%\.vimrc
 del %USERPROFILE%\.gvimrc
+del %USERPROFILE%\.ideavimrc
 rmdir %USERPROFILE%\.vim\config
 del %USERPROFILE%\.sqliterc
 del %USERPROFILE%\.xpdfrc

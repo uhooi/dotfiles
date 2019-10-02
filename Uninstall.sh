@@ -11,6 +11,7 @@
 rm ~/.vimrc
 rm ~/.gvimrc
 rm ~/.xvimrc
+rm ~/.ideavimrc
 rm -r ~/.vim/config
 rm ~/.bash_profile
 rm ~/.bashrc
