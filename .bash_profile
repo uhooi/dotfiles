@@ -74,3 +74,10 @@ if [ -d "${NODEBREW_DIR}" ]; then
   export PATH=$PATH:$NODEBREW_DIR/current/bin
 fi
 
+# Maven
+# 参考：https://qiita.com/yhayashi30/items/dd0e47aea01d65c8a1b4
+export MAVEN_HOME="/usr/local/opt/maven@3.6"
+if [ -d "${MAVEN_HOME}" ]; then
+  export PATH="${MAVEN_HOME}/bin:$PATH"
+fi
+
