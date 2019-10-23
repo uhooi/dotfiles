@@ -1,7 +1,7 @@
 [core]
     # 改行コードをサーバー：LF, クライアント：CRLFになるように調整する
     # Windowsのみtrueにするか検討し、それ以外はfalseでいい
-    #autocrlf = true
+    autocrlf = false
     # UTF-8の日本語を文字化けせずに表示する
     quotepath = false
     excludesfile = ~/.gitignore
