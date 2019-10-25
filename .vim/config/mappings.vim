@@ -1,5 +1,7 @@
 scriptencoding utf-8
 
+" 参考：https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/mappings.rc.vim
+
 " 再割り当て：なし
 " 通常モード、視覚モード
 " カーソルの論理行移動と物理行移動のキーバインドを逆にする
