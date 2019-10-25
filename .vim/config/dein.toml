@@ -1,0 +1,122 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+#[[plugins]]
+#repo = 'haya14busa/dein-command.vim'
+
+#[[plugins]]
+#repo = 'vim-scripts/wombat256.vim'
+
+[[plugins]]
+repo = 'altercation/vim-colors-solarized'
+
+#[[plugins]]
+#repo = 'morhetz/gruvbox'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = 'source ~/.vim/config/plugins/lightline.rc.vim'
+
+[[plugins]]
+repo = 'maximbaz/lightline-ale'
+hook_add = 'source ~/.vim/config/plugins/lightlineale.rc.vim'
+
+#[[plugins]]
+#repo = 'mhinz/vim-signify'
+
+#[[plugins]]
+#repo = 'lambdalisue/gina.vim'
+#hook_add = 'source ~/.vim/config/plugins/gina.rc.vim'
+
+[[plugins]]
+repo = 'machakann/vim-sandwich'
+hook_add = '''
+  nmap s <Nop>
+  xmap s <Nop>
+'''
+
+#[[plugins]]
+#repo = 'mattn/sonictemplate-vim'
+
+#[[plugins]]
+#repo = 'airblade/vim-rooter'
+#hook_add = '''
+#  let g:rooter_patterns = ['.git/']
+#  let g:rooter_change_directory_for_non_project_files = 'current'
+#  let g:rooter_use_lcd = 1
+#'''
+
+#[[plugins]]
+#repo = 'rhysd/committia.vim'
+#hook_add = '''
+#  let g:committia_hooks = {}
+#  function! g:committia_hooks.edit_open(info)
+#    " Additional settings
+#    setlocal spell
+#    setlocal spelllang+=cjk
+#    " If no commit message, start with insert mode
+#    if a:info.vcs ==# 'git' && getline(1) ==# ''
+#      startinsert
+#    end
+#    " Scroll the diff window from insert mode
+#    " Map <C-n> and <C-p>
+#    imap <buffer><C-n> <Plug>(committia-scroll-diff-down-half)
+#    imap <buffer><C-p> <Plug>(committia-scroll-diff-up-half)
+#  endfunction
+#'''
+
+#[[plugins]]
+#repo = 'vim-jp/vimdoc-ja'
+#hook_add = '''
+#  set helplang=ja,en
+#'''
+
+#[[plugins]]
+#repo = 'sheerun/vim-polyglot'
+#hook_add = '''
+#let g:polyglot_disabled = ['csv']
+#" markdown https://github.com/plasticboy/vim-markdown
+#let g:vim_markdown_conceal = 0
+#" terraform https://github.com/hashivim/vim-terraform
+#let g:terraform_align=0
+#let g:terraform_fold_sections=0
+#let g:terraform_fmt_on_save=0
+#'''
+
+#[[plugins]]
+#repo = 'roxma/nvim-yarp'
+#if = "!has('nvim')"
+
+#[[plugins]]
+#repo = 'roxma/vim-hug-neovim-rpc'
+#if = "!has('nvim')"
+
+#[[plugins]]
+#repo = 'lambdalisue/suda.vim'
+#hook_add = '''
+#" let g:suda_smart_edit = 1
+#" let g:suda#prefix = 'suda://'
+#" let g:suda#prefix = ['suda://', 'sudo://', '_://']
+#'''
+
+#[[plugins]]
+#repo = 'lighttiger2505/lab.vim'
+#on_cmd = [
+#  'LabBrowse',
+#  'LabBrowseFile',
+#]
+#hook_add = '''
+#  nnoremap <Leader>ab :<C-u>LabBrowse<CR>
+#  nnoremap <Leader>af :<C-u>LabBrowseFile<CR>
+#'''
+
+#[[plugins]]
+#repo = 'echuraev/translate-shell.vim'
+#on_cmd = ['Trans', 'TransVisual']
+#hook_add = '''
+#  nnoremap <silent> <leader>se :Trans :en+ja<CR>
+#  vnoremap <silent> <leader>se :Trans :en+ja<CR>
+#  nnoremap <silent> <leader>sj :Trans :ja+en<CR>
+#  vnoremap <silent> <leader>sj :Trans :ja+en<CR>
+#'''
+
