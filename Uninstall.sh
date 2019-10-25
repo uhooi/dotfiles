@@ -13,6 +13,7 @@ rm ~/.gvimrc
 rm ~/.xvimrc
 rm ~/.ideavimrc
 rm -r ~/.vim/config
+rm -r ~/.vim/snippets
 rm ~/.bash_profile
 rm ~/.bashrc
 rm ~/.inputrc

@@ -15,6 +15,7 @@ mklink %USERPROFILE%\.gvimrc %~dp0\.gvimrc
 mklink %USERPROFILE%\.ideavimrc %~dp0\.ideavimrc
 mkdir %USERPROFILE%\.vim
 mklink /d %USERPROFILE%\.vim\config %~dp0\.vim\config
+mklink /d %USERPROFILE%\.vim\snippets %~dp0\.vim\snippets
 mklink %USERPROFILE%\.sqliterc %~dp0\.sqliterc
 mklink %USERPROFILE%\.xpdfrc %~dp0\.xpdfrc
 mklink %USERPROFILE%\.gitignore %~dp0\.gitignore

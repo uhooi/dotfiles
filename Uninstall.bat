@@ -14,6 +14,7 @@ del %USERPROFILE%\.vimrc
 del %USERPROFILE%\.gvimrc
 del %USERPROFILE%\.ideavimrc
 rmdir %USERPROFILE%\.vim\config
+rmdir %USERPROFILE%\.vim\snippets
 del %USERPROFILE%\.sqliterc
 del %USERPROFILE%\.xpdfrc
 del %USERPROFILE%\.gitignore
