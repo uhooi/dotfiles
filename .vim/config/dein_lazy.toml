@@ -1,0 +1,45 @@
+# 参考：https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/dein_lazy.toml
+
+# 非同期校正
+[[plugins]]
+repo = 'dense-analysis/ale'
+on_ft = [
+  'javascript',
+  'html',
+  'css',
+  'markdown',
+  'make',
+  'vim',
+  'shell',
+  'sh',
+  'ansible',
+  'json',
+  'tex',
+  'review',
+  'swift',
+]
+hook_add = 'source ~/.vim/config/plugins/ale.rc.vim'
+
+# Re:VIEWの非同期校正
+[[plugins]]
+repo = 'tokorom/ale-prh-review'
+on_ft = ['review']
+on_source = ['dense-analysis/ale']
+
+# マークダウンプレビュー
+[[plugins]]
+repo = 'previm/previm'
+on_ft = ['markdown']
+hook_add = 'source ~/.vim/config/plugins/previm.rc.vim'
+
+# ブラウザ連携
+[[plugins]]
+repo = tyru/open-browser.vim'
+on_source = ['previm/previm']
+hook_add = 'source ~/.vim/config/plugins/openbrowser.rc.vim'
+
+# Vimスクリプトのテストフレームワーク
+[[plugins]]
+repo = 'thinca/vim-themis'
+on_ft = ['vim']
+

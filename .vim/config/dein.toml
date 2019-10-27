@@ -1,3 +1,5 @@
+# 参考：https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/dein.toml
+
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
@@ -6,9 +8,6 @@ repo = 'Shougo/dein.vim'
 
 #[[plugins]]
 #repo = 'vim-scripts/wombat256.vim'
-
-[[plugins]]
-repo = 'altercation/vim-colors-solarized'
 
 #[[plugins]]
 #repo = 'morhetz/gruvbox'
@@ -19,6 +18,8 @@ hook_add = 'source ~/.vim/config/plugins/lightline.rc.vim'
 
 [[plugins]]
 repo = 'maximbaz/lightline-ale'
+# TODO: `on_source` に複数書いたときの挙動は未調査
+on_source = ['itchyny/lightline.vim', 'dense-analysis/ale']
 hook_add = 'source ~/.vim/config/plugins/lightlineale.rc.vim'
 
 #[[plugins]]
@@ -28,12 +29,15 @@ hook_add = 'source ~/.vim/config/plugins/lightlineale.rc.vim'
 #repo = 'lambdalisue/gina.vim'
 #hook_add = 'source ~/.vim/config/plugins/gina.rc.vim'
 
+# 括弧入力補助
 [[plugins]]
 repo = 'machakann/vim-sandwich'
-hook_add = '''
-  nmap s <Nop>
-  xmap s <Nop>
-'''
+hook_add = 'source ~/.vim/config/plugins/vimsandwich.rc.vim'
+
+# インデント可視化
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+hook_add = 'source ~/.vim/config/plugins/vimindentguides.rc.vim'
 
 #[[plugins]]
 #repo = 'mattn/sonictemplate-vim'
@@ -119,4 +123,13 @@ hook_add = '''
 #  nnoremap <silent> <leader>sj :Trans :ja+en<CR>
 #  vnoremap <silent> <leader>sj :Trans :ja+en<CR>
 #'''
+
+# 置換対象文字列ハイライト
+[[plugins]]
+repo = 'osyo-manga/vim-over'
+hook_add = 'source ~/.vim/config/plugins/vimover.rc.vim'
+
+# Git連携
+[[plugins]]
+repo = 'tpope/vim-fugitive'
 

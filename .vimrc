@@ -1,4 +1,5 @@
-scriptencoding utf-8
+filetype off
+filetype plugin indent off
 
 " マップリーダーを「,」にする
 let mapleader = ","
@@ -10,4 +11,7 @@ noremap \ ,
 source ~/.vim/config/basics.vim
 source ~/.vim/config/plugins.vim
 source ~/.vim/config/mappings.vim
+
+filetype plugin indent on
+syntax enable
 

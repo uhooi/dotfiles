@@ -1,0 +1,51 @@
+# 参考：https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/dein_syntax.toml
+
+[[plugins]]
+repo = 'kylef/apiblueprint.vim'
+on_ft = ['apiblueprint']
+
+[[plugins]]
+repo = 'aklt/plantuml-syntax'
+on_ft = ['plantuml']
+
+[[plugins]]
+repo = 'mechatroner/rainbow_csv'
+on_ft = ['csv']
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']
+
+[[plugins]]
+repo = 'keith/swift.vim'
+on_ft = ['swift']
+
+[[plugins]]
+repo = 'tokorom/vim-review'
+on_ft = ['review']
+hook_add = 'source ~/.vim/config/plugins/vimreview.rc.vim'
+
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = ['context_filetype.vim']
+on_ft = ['markdown', 'toml', 'help']
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+#[[plugins]]
+#repo = 'dhruvasagar/vim-table-mode'
+#on_ft = ['markdown']
+#hook_add = '''
+#  let g:table_mode_corner = '|'
+#  let g:table_mode_always_active = 1
+#  let g:table_mode_syntax = 1
+#  let g:table_mode_auto_align = 1
+#  augroup TableCommands
+#    autocmd!
+#    autocmd FileType markdown nnoremap <silent><LocalLeader>a :<C-u>TableModeRealign<CR>
+#    autocmd FileType markdown nnoremap <silent><LocalLeader>t :<C-u>Tableize<CR>
+#    autocmd FileType markdown vnoremap <silent><LocalLeader>t :<C-u>'<,'>Tableize<CR>
+#  augroup END
+#'''
+
