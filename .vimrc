@@ -12,6 +12,12 @@ source ~/.vim/config/basics.vim
 source ~/.vim/config/plugins.vim
 source ~/.vim/config/mappings.vim
 
+" Colors
+set t_Co=256
+set background=light
+colorscheme solarized
+call togglebg#map('<F5>') " F5で背景を切り替えられるようにする
+
 filetype plugin indent on
 syntax enable
 

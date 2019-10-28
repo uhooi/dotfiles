@@ -44,31 +44,3 @@ set cmdheight=2 " コマンドラインの高さ(GUI使用時)
 "  set transparency=240
 "endif
 
-"---------------------------------------------------------------------------
-" カラースキーマに関する設定:
-
-" solarized
-let g:solarized_termcolors=16
-"let g:solarized_termcolors=256
-let g:solarized_termrans=0
-let g:solarized_degrade=0
-let g:solarized_bold=1
-let g:solarized_underline=1
-let g:solarized_italic=1
-let g:solarized_contrast='normal'
-let g:solarized_visibility='normal'
-
-" F5で背景を切り替えられるようにする
-call togglebg#map('<F5>')
-
-syntax enable
-
-set background=light
-
-" カラースキーマの選択
-colorscheme solarized
-"colorscheme jellybeans
-"colorscheme hybrid
-"colorscheme molokai
-"colorscheme visualstudio
-
