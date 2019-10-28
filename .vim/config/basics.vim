@@ -44,7 +44,7 @@ set pumheight=10  " 保管メニューの高さ(デフォルト：0(無制限))
 
 " cursor
 set whichwrap=b,s,h,l " hやlによるカーソル移動で行をまたぐようにする 初期値：b,s
-set scrolloff=8       " スクロール開始行数 初期値：0
+set scrolloff=15      " スクロール開始行数 初期値：0
 
 " file
 set nobackup          " バックアップファイルを作成しない
