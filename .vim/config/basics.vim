@@ -1,3 +1,13 @@
+" 参考：https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/options.rc.vim
+" 　　：https://yu8mada.com/2018/08/26/i-ll-explain-vim-s-5-tab-and-space-related-somewhat-complicated-options-as-simply-as-possible/
+
+" File encoding
+if !exists('g:encoding_set') || !has('nvim')
+  set encoding=utf-8
+  set fileencodings=utf-8,sjis,iso-2022-jp,cp932,euc-jp
+  set fileencoding=utf-8
+  let g:encoding_set=1
+endif
 scriptencoding utf-8
 
 " MacOS Xメニューの日本語化 (メニュー表示前に行なう必要がある)
@@ -7,14 +17,18 @@ endif
 
 " --------------------------------------------------------------
 " Search
-"set hlsearch   " 検索文字列に色を付ける " 他の設定ファイルから読み込んでいるためコメントアウト
+set hlsearch   " 検索文字列に色を付ける
 set ignorecase " 検索時に大文字小文字を無視 (noignorecase:無視しない)
 set smartcase  " 大文字小文字の両方が含まれている場合は大文字小文字を区別
 set wrapscan   " 検索時にファイルの最後まで行ったら最初に戻る (nowrapscan:戻らない)
-"set gdefault   " 置換時に「/g」をデフォルトで有効にする " コメントアウト
+"set gdefault   " 置換時に「/g」をデフォルトで有効にする
 
 " Edit
-set tabstop=4                  " タブの画面上での幅 " 8→4に変更した
+set tabstop=4                  " タブの半角スペース数 " 8→4に変更した
+autocmd FileType vim setlocal tabstop=2
+set softtabstop=0              " タブの入力時に挿入する半角スペース数。0だとOFFになる
+set shiftwidth=0               " 改行時などにインデントする半角スペース数。0だとtabstopの値が使われる
+set smarttab                   " タブの入力時にスペースを挿入する
 set expandtab                  " タブをスペースに展開する (noexpandtab:展開しない)
 set autoindent                 " 自動的にインデントする (noautoindent:インデントしない)
 set backspace=indent,eol,start " バックスペースでインデントや改行を削除できるようにする
@@ -25,10 +39,11 @@ set wildmenu                   " コマンドライン補完するときに強�
 set formatoptions+=mM          " テキスト挿入中の自動折り返しを日本語に対応させる
 set nrformats=alpha            " 数値の増減は常に10進数として行い、英字も増減できるようにする 初期値：octal,hex
 
-" display(GUI固有ではない)
-set number " 行番号を表示(nonumber:非表示)
-set ruler  " ルーラーを表示 (noruler:非表示)
-set list   " タブやスペース、改行などを可視化(nolist:非表示)
+" Display(GUI固有ではない)
+set number         " 行番号を表示(nonumber:非表示)
+"set relativenumber " 行番号をキャレット位置を基準として表示
+set ruler          " ルーラーを表示 (noruler:非表示)
+set list           " タブやスペース、改行などを可視化(nolist:非表示)
 "set listchars=tab:>-,extends:<,trail:-,eol:< " どの文字でタブや改行を表示するかを設定
 " タブを「>.」、行末の半角スペースを「-」、省略を「<」「>」で可視化
 set listchars=tab:>.,trail:-,extends:>,precedes:<
@@ -42,13 +57,15 @@ set cursorline   " カーソルがある行の背景色を変える
 "syntax on        " コードに色を付ける " 他の設定ファイルから読み込んでいるのでコメントアウト
 set pumheight=10  " 保管メニューの高さ(デフォルト：0(無制限))
 
-" cursor
+" Cursor
 set whichwrap=b,s,h,l " hやlによるカーソル移動で行をまたぐようにする 初期値：b,s
 set scrolloff=15      " スクロール開始行数 初期値：0
 
-" file
+" File
+set writebackup
 set nobackup          " バックアップファイルを作成しない
-"set noswapfile        " ファイルの編集中にスワップファイルを作成しない " コメントアウト
+"set noswapfile        " スワップファイルを作成しない
+"set noundofile        " アンドゥファイルを作成しない
 set undodir=$VIM/undo " アンドゥファイルの保存先を指定する
 
 " 動作に関する設定
