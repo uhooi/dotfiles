@@ -1,6 +1,19 @@
 set visualbell " 通知を視覚化する
 set guiheadroom=100
 
+" --------------------------------------------------------------
+" メニュー設定:
+
+" メニューファイルが存在しない場合は予め'guioptions'を調整しておく
+if 1 && !filereadable($VIMRUNTIME . '/menu.vim') && has('gui_running')
+  set guioptions+=M
+endif
+
+" WindowsのgVimでメニューバーとツールバーを非表示にする
+" 参考：http://qiita.com/knt45/items/9717e30ca6a0f1fdad0f
+set guioptions-=m " メニューバー
+set guioptions-=T " ツールバー
+
 "---------------------------------------------------------------------------
 " フォント設定:
 
