@@ -14,6 +14,7 @@ rm ~/.xvimrc
 rm ~/.ideavimrc
 rm -r ~/.vim/config
 rm -r ~/.vim/snippets
+rm -r ~/.config/ranger
 rm ~/.bash_profile
 rm ~/.bashrc
 rm ~/.inputrc
