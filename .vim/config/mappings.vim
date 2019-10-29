@@ -58,7 +58,7 @@ inoremap <C-l> <Right>
 " ∵Vimのキーバインドに慣れるため
 " Macの場合、日本語入力がおかしくなる不具合があるため無効にしない
 " 参考：https://github.com/cohama/lexima.vim/issues/13
-if !has('mac'))
+if !has('mac')
   inoremap <Left> <Nop>
   inoremap <Down> <Nop>
   inoremap <Up> <Nop>

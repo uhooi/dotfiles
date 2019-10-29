@@ -34,7 +34,7 @@ hook_add = 'source ~/.vim/config/plugins/previm.rc.vim'
 
 # ブラウザ連携
 [[plugins]]
-repo = tyru/open-browser.vim'
+repo = 'tyru/open-browser.vim'
 on_source = ['previm/previm']
 hook_add = 'source ~/.vim/config/plugins/openbrowser.rc.vim'
 
