@@ -2,3 +2,6 @@
 repo = 'altercation/vim-colors-solarized'
 hook_add = 'source ~/.vim/config/plugins/solarized.rc.vim'
 
+[[plugins]]
+repo = 'arcticicestudio/nord-vim'
+
