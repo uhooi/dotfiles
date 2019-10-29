@@ -47,15 +47,16 @@ set list           " タブやスペース、改行などを可視化(nolist:非
 "set listchars=tab:>-,extends:<,trail:-,eol:< " どの文字でタブや改行を表示するかを設定
 " タブを「>.」、行末の半角スペースを「-」、省略を「<」「>」で可視化
 set listchars=tab:>.,trail:-,extends:>,precedes:<
-set wrap         " 長い行を折り返して表示 (nowrap:折り返さない)
-set laststatus=2 " 常にステータス行を表示 (詳細は:he laststatus)
-set cmdheight=2  " コマンドラインの行数(Windows用gvim使用時はgvimrcを編集すること)
-set showcmd      " コマンドをステータス行に表示
-set title        " タイトルバーにファイル名を表示する
-set cursorline   " カーソルがある行の背景色を変える
-"set cursorcolumn " カーソルがある列の背景色を変える " 半角と全角文字が混在していると見づらいのでコメントアウト
-"syntax on        " コードに色を付ける " 他の設定ファイルから読み込んでいるのでコメントアウト
-set pumheight=10  " 保管メニューの高さ(デフォルト：0(無制限))
+set wrap           " 長い行を折り返して表示 (nowrap:折り返さない)
+set laststatus=2   " 常にステータス行を表示 (詳細は:he laststatus)
+set cmdheight=2    " コマンドラインの行数(Windows用gvim使用時はgvimrcを編集すること)
+set showcmd        " コマンドをステータス行に表示
+set title          " タイトルバーにファイル名を表示する
+set cursorline     " カーソルがある行の背景色を変える
+"set cursorcolumn   " カーソルがある列の背景色を変える " 半角と全角文字が混在していると見づらいのでコメントアウト
+set colorcolumn=80 " 指定した列に色を付ける
+syntax on          " コードに色を付ける
+set pumheight=10   " 補完メニューの高さ(デフォルト：0(無制限))
 
 " Cursor
 set whichwrap=b,s,h,l " hやlによるカーソル移動で行をまたぐようにする 初期値：b,s
