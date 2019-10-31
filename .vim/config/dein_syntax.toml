@@ -11,8 +11,10 @@ on_ft = ['plantuml']
 [[plugins]]
 repo = 'mechatroner/rainbow_csv'
 on_ft = ['csv']
-# 拡張子が.csvのファイルタイプを「csv」にする機能もあるためコメントアウト
-# したいが、そうするとなぜかプラグインが効かなくなるのでしない
+#if = 'expand("%:e") == "csv"'
+# 拡張子が.csvのファイルタイプを「csv」にする機能もあるため、
+# このような条件にしている
+# が、条件の指定がうまくいっていない
 
 [[plugins]]
 repo = 'cespare/vim-toml'
