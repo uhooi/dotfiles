@@ -10,11 +10,10 @@ on_ft = ['plantuml']
 
 [[plugins]]
 repo = 'mechatroner/rainbow_csv'
-on_ft = ['csv']
-#if = 'expand("%:e") == "csv"'
+#on_ft = ['csv']
+on_path = '\.csv$'
 # 拡張子が.csvのファイルタイプを「csv」にする機能もあるため、
 # このような条件にしている
-# が、条件の指定がうまくいっていない
 
 [[plugins]]
 repo = 'cespare/vim-toml'
