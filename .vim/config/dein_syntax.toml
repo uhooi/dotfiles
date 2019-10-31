@@ -11,6 +11,8 @@ on_ft = ['plantuml']
 [[plugins]]
 repo = 'mechatroner/rainbow_csv'
 on_ft = ['csv']
+# 拡張子が.csvのファイルタイプを「csv」にする機能もあるためコメントアウト
+# したいが、そうするとなぜかプラグインが効かなくなるのでしない
 
 [[plugins]]
 repo = 'cespare/vim-toml'
