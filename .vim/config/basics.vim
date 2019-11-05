@@ -1,5 +1,6 @@
 " 参考：https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/options.rc.vim
 " 　　：https://yu8mada.com/2018/08/26/i-ll-explain-vim-s-5-tab-and-space-related-somewhat-complicated-options-as-simply-as-possible/
+" 　　：http://yskwkzhr.blogspot.com/2013/02/use-mouse-on-terminal-vim.html
 
 " File encoding
 if !exists('g:encoding_set') || !has('nvim')
@@ -61,6 +62,10 @@ set pumheight=10   " 補完メニューの高さ(デフォルト：0(無制限))
 " Cursor
 set whichwrap=b,s,h,l " hやlによるカーソル移動で行をまたぐようにする 初期値：b,s
 set scrolloff=15      " スクロール開始行数 初期値：0
+
+" Mouse
+set mouse=a         " マウス操作を有効にする
+set ttymouse=xterm2
 
 " File
 set writebackup
