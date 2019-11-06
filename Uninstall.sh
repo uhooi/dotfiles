@@ -9,6 +9,7 @@
 
 # dotfilesのシンボリックリンクを削除する
 rm ~/.vimrc
+rm ~/.config/nvim/init.vim
 rm ~/.gvimrc
 rm ~/.xvimrc
 rm ~/.ideavimrc
