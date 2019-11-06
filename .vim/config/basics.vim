@@ -65,7 +65,6 @@ set scrolloff=15      " スクロール開始行数 初期値：0
 
 " Mouse
 set mouse=a         " マウス操作を有効にする
-set ttymouse=xterm2
 
 " File
 set writebackup
