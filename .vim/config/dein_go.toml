@@ -1,0 +1,6 @@
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = ['go']
+build = ':GoUpdateBinaries'
+hook_add = 'source ~/.vim/config/plugins/go.rc.vim'
+
