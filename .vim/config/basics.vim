@@ -11,6 +11,12 @@ if !exists('g:encoding_set') || !has('nvim')
 endif
 scriptencoding utf-8
 
+" Pythonのパスを明示的に指定する
+" ∵Neovimでは違うPythonを見ているため
+" 参考：https://qiita.com/uhooi/items/8a023c24c004ec0c8b84#pythonのパスを指定
+let g:python_host_prog = system('(type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(pyenv global | grep python2)/bin/python") || echo -n $(which python2)')
+let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(pyenv global | grep python3)/bin/python") || echo -n $(which python3)')
+
 " MacOS Xメニューの日本語化 (メニュー表示前に行なう必要がある)
 if has('mac')
   set langmenu=japanese
