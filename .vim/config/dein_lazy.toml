@@ -18,7 +18,7 @@ on_ft = [
   'review',
   'swift',
 ]
-hook_add = 'source ~/.vim/config/plugins/ale.rc.vim'
+hook_source = 'source ~/.vim/config/plugins/ale.rc.vim'
 
 # Re:VIEWの非同期校正
 [[plugins]]
@@ -30,13 +30,13 @@ on_source = ['dense-analysis/ale']
 [[plugins]]
 repo = 'previm/previm'
 on_ft = ['markdown']
-hook_add = 'source ~/.vim/config/plugins/previm.rc.vim'
+hook_source = 'source ~/.vim/config/plugins/previm.rc.vim'
 
 # ブラウザ連携
 [[plugins]]
 repo = 'tyru/open-browser.vim'
 on_source = ['previm/previm']
-hook_add = 'source ~/.vim/config/plugins/openbrowser.rc.vim'
+hook_source = 'source ~/.vim/config/plugins/openbrowser.rc.vim'
 
 # Vimスクリプトのテストフレームワーク
 [[plugins]]
