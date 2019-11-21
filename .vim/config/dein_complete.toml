@@ -19,20 +19,31 @@ repo = 'prabirshrestha/asyncomplete-lsp.vim'
 # For NeoVim
 ###############################################################
 
-#[[plugins]]
-#repo = 'Shougo/deoplete.nvim'
-#if = "has('nvim')"
-#build = ':UpdateRemotePlugins'
-#depends = ['neosnippet.vim']
-#hook_add = '''
-#let g:deoplete#enable_at_startup = 1
-#'''
-#hook_source = 'source ~/.vim/rc/plugins/deoplete.rc.vim'
-#
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+build = ':UpdateRemotePlugins'
+if = "has('nvim')"
+on_event = 'InsertEnter'
+hook_add = '''
+  let g:deoplete#enable_at_startup = 1
+'''
+#hook_source = 'source ~/.vim/config/plugins/deoplete.rc.vim'
+
+[[plugins]]
+repo = 'deoplete-plugins/deoplete-go'
+build = 'make'
+if = "has('nvim')"
+on_ft = ['go']
+on_event = 'InsertEnter'
+depends = ['deoplete.nvim']
+hook_source = '''
+  let g:deoplete#sources#go#gocode_binary = $GOPATH . '/bin/gocode'
+'''
+
 #[[plugins]]
 #repo = 'Shougo/neosnippet.vim'
 #depends = ['neosnippet-snippets']
-#hook_source = 'source ~/.vim/rc/plugins/neosnippet.rc.vim'
+#hook_source = 'source ~/.vim/config/plugins/neosnippet.rc.vim'
 #
 #[[plugins]]
 #repo = 'Shougo/neosnippet-snippets'
