@@ -6,11 +6,42 @@
 
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete.vim'
-if = "!has('nvim')"
-depends = ['asyncomplete-lsp.vim', 'asyncomplete-buffer.vim']
+#if = "!has('nvim')"
+depends = ['asyncomplete-buffer.vim',
+           'asyncomplete-file.vim',
+           'asyncomplete-gocode.vim',
+           'asyncomplete-necosyntax.vim',
+           'asyncomplete-tags.vim',
+           'asyncomplete-necovim.vim',
+           'async.vim',
+           'vim-lsp.vim',
+           'asyncomplete-lsp.vim',
+          ]
+hook_source = 'source ~/.vim/config/plugins/asyncomplete.rc.vim'
 
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete-buffer.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-file.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-gocode.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-necovim.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-necosyntax.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-tags.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/async.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp.vim'
 
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete-lsp.vim'
@@ -19,26 +50,26 @@ repo = 'prabirshrestha/asyncomplete-lsp.vim'
 # For NeoVim
 ###############################################################
 
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-build = ':UpdateRemotePlugins'
-if = "has('nvim')"
-on_event = 'InsertEnter'
-hook_add = '''
-  let g:deoplete#enable_at_startup = 1
-'''
+#[[plugins]]
+#repo = 'Shougo/deoplete.nvim'
+#build = ':UpdateRemotePlugins'
+#if = "has('nvim')"
+#on_event = 'InsertEnter'
 #hook_source = 'source ~/.vim/config/plugins/deoplete.rc.vim'
-
-[[plugins]]
-repo = 'deoplete-plugins/deoplete-go'
-build = 'make'
-if = "has('nvim')"
-on_ft = ['go']
-on_event = 'InsertEnter'
-depends = ['deoplete.nvim']
-hook_source = '''
-  let g:deoplete#sources#go#gocode_binary = $GOPATH . '/bin/gocode'
-'''
+#
+#[[plugins]]
+#repo = '
+#
+#[[plugins]]
+#repo = 'deoplete-plugins/deoplete-go'
+#build = 'make'
+#if = "has('nvim')"
+#on_ft = ['go']
+#on_event = 'InsertEnter'
+#depends = ['deoplete.nvim']
+#hook_source = '''
+#  let g:deoplete#sources#go#gocode_binary = $GOPATH . '/bin/gocode'
+#'''
 
 #[[plugins]]
 #repo = 'Shougo/neosnippet.vim'
