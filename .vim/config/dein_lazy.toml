@@ -38,6 +38,11 @@ repo = 'tyru/open-browser.vim'
 on_source = ['previm/previm']
 hook_source = 'source ~/.vim/config/plugins/openbrowser.rc.vim'
 
+# プレゼン
+[[plugins]]
+repo = 'thinca/vim-showtime'
+on_ft = ['markdown']
+
 # Vimスクリプトのテストフレームワーク
 [[plugins]]
 repo = 'thinca/vim-themis'
