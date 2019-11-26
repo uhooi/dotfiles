@@ -14,7 +14,7 @@ depends = ['asyncomplete-buffer.vim',
            'asyncomplete-tags.vim',
            'asyncomplete-necovim.vim',
            'async.vim',
-           'vim-lsp.vim',
+           'vim-lsp',
            'asyncomplete-lsp.vim',
           ]
 hook_source = 'source ~/.vim/config/plugins/asyncomplete.rc.vim'
@@ -41,7 +41,7 @@ repo = 'prabirshrestha/asyncomplete-tags.vim'
 repo = 'prabirshrestha/async.vim'
 
 [[plugins]]
-repo = 'prabirshrestha/vim-lsp.vim'
+repo = 'prabirshrestha/vim-lsp'
 
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete-lsp.vim'
