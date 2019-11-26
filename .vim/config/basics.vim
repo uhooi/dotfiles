@@ -25,7 +25,7 @@ endif
 " --------------------------------------------------------------
 " Search
 set hlsearch   " 検索文字列に色を付ける
-set ignorecase " 検索時に大文字小文字を無視 (noignorecase:無視しない)
+set ignorecase " 検索時に大文字小文字を区別しない (noignorecase:区別する)
 set smartcase  " 大文字小文字の両方が含まれている場合は大文字小文字を区別
 set wrapscan   " 検索時にファイルの最後まで行ったら最初に戻る (nowrapscan:戻らない)
 "set gdefault   " 置換時に「/g」をデフォルトで有効にする
@@ -43,6 +43,8 @@ set showmatch                  " 括弧入力時に対応する括弧を表示 (
 set matchtime=1                " showmatchで対応する括弧を表示する時間(単位：0.1秒)(デフォルト：0.5秒)
 set matchpairs+=<:>            " 対応する括弧に「<>」を追加
 set wildmenu                   " コマンドライン補完するときに強化されたものを使う(参照 :help wildmenu)
+set wildignorecase             " コマンドライン補完するときに大文字小文字を区別しない
+"set wildmode=list:full
 set formatoptions+=mM          " テキスト挿入中の自動折り返しを日本語に対応させる
 set nrformats=alpha            " 数値の増減は常に10進数として行い、英字も増減できるようにする 初期値：octal,hex
 
