@@ -1,6 +1,7 @@
 " 参考：https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/options.rc.vim
 " 　　：https://yu8mada.com/2018/08/26/i-ll-explain-vim-s-5-tab-and-space-related-somewhat-complicated-options-as-simply-as-possible/
 " 　　：http://yskwkzhr.blogspot.com/2013/02/use-mouse-on-terminal-vim.html
+"
 
 " File encoding
 if !exists('g:encoding_set') || !has('nvim')
@@ -66,6 +67,9 @@ set cursorline     " カーソルがある行の背景色を変える
 set colorcolumn=80 " 指定した列に色を付ける
 syntax on          " コードに色を付ける
 set pumheight=10   " 補完メニューの高さ(デフォルト：0(無制限))
+
+" Font
+set ambiwidth=double " 全角記号を全角で表示する
 
 " Cursor
 set whichwrap=b,s,h,l " hやlによるカーソル移動で行をまたぐようにする 初期値：b,s
