@@ -1,12 +1,8 @@
 # 参考：https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/dein_complete.toml
-
-###############################################################
-# For Vim
-###############################################################
+# 　　：https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/dein_lsp.toml
 
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete.vim'
-#if = "!has('nvim')"
 depends = ['asyncomplete-buffer.vim',
            'asyncomplete-file.vim',
            'asyncomplete-gocode.vim',
@@ -14,8 +10,8 @@ depends = ['asyncomplete-buffer.vim',
            'asyncomplete-tags.vim',
            'asyncomplete-necovim.vim',
            'async.vim',
-           'vim-lsp',
            'asyncomplete-lsp.vim',
+           'vim-lsp',
           ]
 hook_source = 'source ~/.vim/config/plugins/asyncomplete.rc.vim'
 
@@ -41,59 +37,20 @@ repo = 'prabirshrestha/asyncomplete-tags.vim'
 repo = 'prabirshrestha/async.vim'
 
 [[plugins]]
-repo = 'prabirshrestha/vim-lsp'
-
-[[plugins]]
 repo = 'prabirshrestha/asyncomplete-lsp.vim'
 
-###############################################################
-# For NeoVim
-###############################################################
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+#on_ft = ['python', 'go', 'typescript', 'c', 'cpp']
+hook_source = 'source ~/.vim/config/plugins/lsp.rc.vim'
 
-#[[plugins]]
-#repo = 'Shougo/deoplete.nvim'
-#build = ':UpdateRemotePlugins'
-#if = "has('nvim')"
-#on_event = 'InsertEnter'
-#hook_source = 'source ~/.vim/config/plugins/deoplete.rc.vim'
-#
-#[[plugins]]
-#repo = '
-#
-#[[plugins]]
-#repo = 'deoplete-plugins/deoplete-go'
-#build = 'make'
-#if = "has('nvim')"
-#on_ft = ['go']
-#on_event = 'InsertEnter'
-#depends = ['deoplete.nvim']
-#hook_source = '''
-#  let g:deoplete#sources#go#gocode_binary = $GOPATH . '/bin/gocode'
-#'''
+[[plugins]]
+repo = 'ryanolsonx/vim-lsp-typescript'
+depends = ['vim-lsp']
+on_ft = ['typescript']
 
-#[[plugins]]
-#repo = 'Shougo/neosnippet.vim'
-#depends = ['neosnippet-snippets']
-#hook_source = 'source ~/.vim/config/plugins/neosnippet.rc.vim'
-#
-#[[plugins]]
-#repo = 'Shougo/neosnippet-snippets'
-#
-#[[plugins]]
-#repo = 'zchee/deoplete-zsh'
-#if = "has('nvim')"
-#on_ft = ['zsh']
-#depends = ['deoplete.nvim']
-#
-#[[plugins]]
-#repo = 'Shougo/neco-vim'
-#if = "has('nvim')"
-#on_ft = ['vim']
-#depends = ['deoplete.nvim']
-#
-#[[plugins]]
-#repo = 'ujihisa/neco-look'
-#if = "has('nvim')"
-#on_ft = ['gitcommit', 'markdown']
-#depends = ['deoplete.nvim']
+[[plugins]]
+repo = 'ryanolsonx/vim-lsp-swift'
+depends = ['vim-lsp']
+on_ft = ['swift']
 
