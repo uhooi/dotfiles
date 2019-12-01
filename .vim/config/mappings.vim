@@ -26,6 +26,11 @@ noremap <Right> <Nop>
 " 参考：http://itchyny.hatenablog.com/entry/2014/12/25/090000
 " 「Y」をカーソル位置から行末までのヤンクにする
 nnoremap Y y$
+" 貼り付け先のインデントに合わせてペーストする
+nnoremap p ]p
+nnoremap P ]P
+nnoremap ]p p
+nnoremap ]P P
 " インクリメント、デクリメントを「+」「-」に割り当てる
 nnoremap + <C-a>
 nnoremap - <C-x>
