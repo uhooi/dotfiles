@@ -1,6 +1,7 @@
 scriptencoding utf-8
 
 " 参考：https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/mappings.rc.vim
+" 　　：https://qiita.com/uhooi/items/58d58c24647f92f1995e
 
 " 再割り当て：なし
 " 通常モード、視覚モード
@@ -10,7 +11,6 @@ noremap k gk
 noremap gj j
 noremap gk k
 " 「Shift + h, l」で行頭・行末に移動する
-" 参考：http://qiita.com/mizukmb/items/ddb5a5bfa2ce223057cb
 noremap <S-h> 0
 noremap <S-l> $
 noremap 0 <S-h>
@@ -23,7 +23,6 @@ noremap <Up> <Nop>
 noremap <Right> <Nop>
 
 " 通常モード
-" 参考：http://itchyny.hatenablog.com/entry/2014/12/25/090000
 " 「Y」をカーソル位置から行末までのヤンクにする
 nnoremap Y y$
 " 貼り付け先のインデントに合わせてペーストする
