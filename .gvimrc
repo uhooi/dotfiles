@@ -14,6 +14,10 @@ endif
 set guioptions-=m " メニューバー
 set guioptions-=T " ツールバー
 
+" タブをテキストベースにする
+" 参考：https://twitter.com/tsuyoshi_cho/status/1201153730290290688
+set guioptions-=e
+
 "---------------------------------------------------------------------------
 " フォント設定:
 
