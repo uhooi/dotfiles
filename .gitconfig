@@ -22,7 +22,6 @@
     mylog = log --graph --pretty=format:\"%C(yellow)%h %C(green)%an %C(cyan)%ar%C(yellow)%d %Creset%s\"
     # ステータスを短く表示する
     mystatus = status --short --branch
-    mydiff = diff --word-diff
 [diff]
     # diffでリネームを検知する
     renames = true
@@ -30,4 +29,11 @@
     clean = git hawser clean %f
     smudge = git hawser smudge %f
     required = true
+# diffで差分をハイライトする
+# 参考：https://github.com/git/git/tree/master/contrib/diff-highlight
+# 　　：https://udomomo.hatenablog.com/entry/2019/12/01/181404
+[pager]
+    log = diff-highlight | less
+    show = diff-highlight | less
+    diff = diff-highlight | less
 

@@ -31,3 +31,9 @@ ln -fns ${SCRIPT_DIR_PATH}/.svnignore ~/.svnignore
 ln -fns ${SCRIPT_DIR_PATH}/.gitconfig ~/.gitconfig
 ln -fns ${SCRIPT_DIR_PATH}/.hyper.js ~/.hyper.js
 
+# HomebrewでインストールしたGitのdiff-highlightのシンボリックリンクを貼る
+# 参考：https://udomomo.hatenablog.com/entry/2019/12/01/181404
+if [ "$(uname)" == 'Darwin' ]; then
+  sudo ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
+fi
+
