@@ -6,14 +6,11 @@ on_ft = ['apiblueprint']
 
 [[plugins]]
 repo = 'aklt/plantuml-syntax'
-on_ft = ['plantuml']
+on_path = ['\.pu$', '\.uml$', '\.plantuml$']
 
 [[plugins]]
 repo = 'mechatroner/rainbow_csv'
-#on_ft = ['csv']
 on_path = '\.csv$'
-# 拡張子が.csvのファイルタイプを「csv」にする機能もあるため、
-# このような条件にしている
 
 [[plugins]]
 repo = 'cespare/vim-toml'
