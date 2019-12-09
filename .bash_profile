@@ -83,6 +83,7 @@ fi
 
 # OpenSSL
 # Mac標準のLibreSSLでなくHomebrewでインストールしたOpenSSLを参照するようにする
+# ∵Dangerでエラーが発生するため
 # 参考：https://qiita.com/moroi/items/53d60d1d6885795a0f6f
 export OPENSSL_HOME="/usr/local/opt/openssl"
 if [ -d "${OPENSSL_HOME}" ]; then
