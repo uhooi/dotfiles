@@ -69,3 +69,8 @@ if !has('mac')
   inoremap <Right> <Nop>
 endif
 
+" ビジュアルモード
+" インデントの調整後にビジュアルモードを解除しない
+vnoremap < <gv
+vnoremap > >gv
+
