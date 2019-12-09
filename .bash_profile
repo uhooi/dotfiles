@@ -81,3 +81,11 @@ if [ -d "${MAVEN_HOME}" ]; then
   export PATH="${MAVEN_HOME}/bin:$PATH"
 fi
 
+# OpenSSL
+# Mac標準のLibreSSLでなくHomebrewでインストールしたOpenSSLを参照するようにする
+# 参考：https://qiita.com/moroi/items/53d60d1d6885795a0f6f
+export OPENSSL_HOME="/usr/local/opt/openssl"
+if [ -d "${OPENSSL_HOME}" ]; then
+  export PATH="${OPENSSL_HOME}/bin:$PATH"
+fi
+
