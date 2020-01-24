@@ -133,6 +133,11 @@ hook_add = 'source ~/.vim/config/plugins/vimover.rc.vim'
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
+# ウィンドウのサイズ切り替え
+[[plugins]]
+repo = 'simeji/winresizer'
+hook_add = 'source ~/.vim/config/plugins/winresizer.rc.vim'
+
 # ヘルプの日本語化
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
