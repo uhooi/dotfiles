@@ -71,7 +71,7 @@ fi
 # 参考：https://qiita.com/taketakekaho/items/dd08cf01b4fe86b2e218
 export NODEBREW_DIR="${HOME}/.nodebrew"
 if [ -d "${NODEBREW_DIR}" ]; then
-  export PATH=$PATH:$NODEBREW_DIR/current/bin
+  export PATH=$NODEBREW_DIR/current/bin:$PATH
 fi
 
 # Maven
