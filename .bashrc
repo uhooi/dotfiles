@@ -38,6 +38,13 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   source /usr/share/doc/git-1.8.3.1/contrib/completion/git-completion.bash
 fi
 
+# bash-comletion
+# makeコマンドの補完などを有効にする
+# 参考：https://qiita.com/notakaos/items/d44a4c2b72625746de25
+if [ "$(uname)" == 'Darwin' ]; then
+  source /usr/local/etc/bash_completion
+fi
+
 # .inputrcを読み込む
 # 参考：http://kanjuku-tomato.blogspot.jp/2015/04/bashrc.html?m=1
 # なくても読み込んだのでコメントアウト
