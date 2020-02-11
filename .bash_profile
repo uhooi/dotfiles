@@ -55,18 +55,6 @@ if [ -d "${RBENV_ROOT}" ]; then
   eval "$(rbenv init -)"
 fi
 
-# SDKMAN
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-if [ -d "${SDKMAN_DIR}" ]; then
-  [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-fi
-
-# Android SDK Tools
-if [ -d "/usr/local/opt/android-sdk/tools/bin" ]; then
-  export PATH=$PATH:/usr/local/opt/android-sdk/tools/bin
-fi
-
 # nodebrew
 # 参考：https://qiita.com/taketakekaho/items/dd08cf01b4fe86b2e218
 export NODEBREW_DIR="${HOME}/.nodebrew"
