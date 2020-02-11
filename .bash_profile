@@ -85,3 +85,14 @@ if which mint >/dev/null; then
   export MINT_LINK_PATH="${HOME}/.mint/bin"
 fi
 
+# Androidアプリ開発
+export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Home
+if [ -d "${JAVA_HOME}" ]; then
+  export PATH="${JAVA_HOME}/bin:$PATH"
+fi
+
+export ANDROID_HOME=${HOME}/Library/Android/sdk
+if [ -d "${ANDROID_HOME}" ]; then
+  export PATH="${ANDROID_HOME}/bin:$PATH"
+fi
+
