@@ -4,6 +4,7 @@
     autocrlf = false
     # UTF-8の日本語を文字化けせずに表示する
     quotepath = false
+    ignorecase = false
     excludesfile = ~/.gitignore
 [include]
     # ユーザー名などをGit管理しないローカルファイルに保持する
