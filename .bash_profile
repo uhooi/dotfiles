@@ -96,3 +96,10 @@ if [ -d "${ANDROID_HOME}" ]; then
   export PATH="${ANDROID_HOME}/bin:$PATH"
 fi
 
+# `adb` コマンドのパスを通す
+# 参考：https://qiita.com/furusin_oriver/items/f956848788c7a63922bd
+export ANDROID_TOOL_PATH=${ANDROID_HOME}/platform-tools
+if [ -d "${ANDROID_TOOL_PATH}" ]; then
+  export PATH="${ANDROID_TOOL_PATH}:$PATH"
+fi
+
