@@ -19,10 +19,42 @@
     # 出力に色を付ける
     ui = auto
 [alias]
-    # ログを1行のツリー形式で表示する
-    mylog = log --graph --pretty=format:\"%C(yellow)%h %C(green)%an %C(cyan)%ar%C(yellow)%d %Creset%s\"
-    # ステータスを短く表示する
-    mystatus = status --short --branch
+    v = version
+    cl = clone
+    b = branch
+    ba = branch -a
+    bd = branch -d
+    bm = branch -m
+    sw = switch
+    swc = switch -c
+    rt = restore
+    df = diff
+    dfc = diff --cache
+    s = status
+    ss = status -s
+    sb = status -s -b
+    a = add
+    aa = add -A
+    rs = reset
+    rsh = reset HEAD
+    cm = commit
+    cmm = commit -m
+    ps = push
+    psf = push -f
+    ft = fetch
+    rb = rebase
+    mr = merge
+    st = stash
+    stl = stash list
+    sts = stash show
+    stps = stash push
+    stpsm = stash push -m
+    stpp = stash pop
+    stap = stash apply
+    std = stash drop
+    lg = log
+    lga = log --graph --pretty=format:\"%C(yellow)%h %C(green)%an %C(cyan)%ar%C(yellow)%d %Creset%s\"
+    tg = tag
 [diff]
     # diffでリネームを検知する
     renames = true
