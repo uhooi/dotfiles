@@ -40,6 +40,10 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   source /usr/share/doc/git-1.8.3.1/contrib/completion/git-completion.bash
 fi
 
+# `git` に `g` のエイリアスを貼っていても補完が効くようにする
+# 参考：https://twitter.com/396f91/status/1271299342318497792?s=20
+complete -o bashdefault -o default -o nospace -F __git_wrap__git_main g
+
 # bash-comletion
 # makeコマンドの補完などを有効にする
 # 参考：https://qiita.com/notakaos/items/d44a4c2b72625746de25
