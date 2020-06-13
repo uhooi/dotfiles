@@ -37,8 +37,8 @@
     aa = add -A
     rs = reset
     rsh = reset HEAD
-    cm = commit
-    cmm = commit -m
+    c = commit
+    cm = commit -m
     ps = push
     psf = push -f
     ft = fetch
