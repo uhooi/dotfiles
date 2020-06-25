@@ -29,7 +29,7 @@
     swc = switch -c
     rt = restore
     df = diff
-    dfc = diff --cache
+    dfc = diff --caches
     s = status
     ss = status -s
     sb = status -s -b
