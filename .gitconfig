@@ -55,6 +55,8 @@
     lg = log
     lga = log --graph --pretty=format:\"%C(yellow)%h %C(green)%an %C(cyan)%ar%C(yellow)%d %Creset%s\"
     tg = tag
+    rmc = rm --cached
+    rmr = rm -r
 [diff]
     # diffでリネームを検知する
     renames = true
