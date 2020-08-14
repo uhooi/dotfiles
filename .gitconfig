@@ -40,6 +40,7 @@
     c = commit
     cm = commit -m
     ps = push
+    pso = push origin
     psf = push -f
     ft = fetch
     fto = fetch origin
