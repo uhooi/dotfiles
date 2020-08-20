@@ -27,6 +27,7 @@
     bm = branch -m
     sw = switch
     swc = switch -c
+    swd = switch --detach
     rt = restore
     df = diff
     dfc = diff --cached
