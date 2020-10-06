@@ -29,6 +29,7 @@
     swc = switch -c
     swd = switch --detach
     rt = restore
+    rts = restore --source
     df = diff
     dfc = diff --cached
     s = status
