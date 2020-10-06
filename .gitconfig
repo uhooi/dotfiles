@@ -42,14 +42,10 @@
     c = commit
     cm = commit -m
     ps = push
-    pso = push origin
     psf = push -f
     ft = fetch
-    fto = fetch origin
     rb = rebase
-    rbd = rebase origin/develop
     mr = merge
-    mrd = merge origin/develop
     st = stash
     stl = stash list
     sts = stash show
