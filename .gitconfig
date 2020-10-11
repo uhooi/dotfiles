@@ -19,33 +19,33 @@
     # 出力に色を付ける
     ui = auto
 [alias]
-    v = version
-    cl = clone
+    a = add
+    aa = add -A
     b = branch
     ba = branch -a
     bd = branch -d
     bm = branch -m
-    sw = switch
-    swc = switch -c
-    swd = switch --detach
-    rt = restore
-    rts = restore --source
+    c = commit
+    cm = commit -m
+    cl = clone
     df = diff
     dfc = diff --cached
+    ft = fetch
+    lg = log
+    lga = log --graph --pretty=format:\"%C(yellow)%h %C(green)%an %C(cyan)%ar%C(yellow)%d %Creset%s\"
+    mr = merge
+    ps = push
+    psf = push -f
+    rb = rebase
+    rmc = rm --cached
+    rmr = rm -r
+    rs = reset
+    rsh = reset HEAD
+    rt = restore
+    rts = restore --source
     s = status
     ss = status -s
     sb = status -s -b
-    a = add
-    aa = add -A
-    rs = reset
-    rsh = reset HEAD
-    c = commit
-    cm = commit -m
-    ps = push
-    psf = push -f
-    ft = fetch
-    rb = rebase
-    mr = merge
     st = stash
     stl = stash list
     sts = stash show
@@ -54,11 +54,11 @@
     stpp = stash pop
     stap = stash apply
     std = stash drop
-    lg = log
-    lga = log --graph --pretty=format:\"%C(yellow)%h %C(green)%an %C(cyan)%ar%C(yellow)%d %Creset%s\"
+    sw = switch
+    swc = switch -c
+    swd = switch --detach
     tg = tag
-    rmc = rm --cached
-    rmr = rm -r
+    v = version
 [diff]
     # diffでリネームを検知する
     renames = true
