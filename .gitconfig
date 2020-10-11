@@ -39,6 +39,8 @@
     rb = rebase
     rmc = rm --cached
     rmr = rm -r
+    rmt = remote
+    rmta = remote add
     rs = reset
     rsh = reset HEAD
     rt = restore
