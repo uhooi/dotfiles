@@ -28,6 +28,7 @@
     bm = branch -m
     c = commit
     cm = commit -m
+    ca = commit --amend
     cl = clone
     df = diff
     dfc = diff --cached
