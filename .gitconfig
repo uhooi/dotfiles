@@ -21,6 +21,7 @@
 [alias]
     a = add
     aa = add -A
+    ap = add -p
     b = branch
     ba = branch -a
     bd = branch -d
