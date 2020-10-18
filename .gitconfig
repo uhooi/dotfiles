@@ -40,6 +40,7 @@
     ps = push
     psf = push -f
     rb = rebase
+    rbc = rebase --continue
     rmc = rm --cached
     rmr = rm -r
     rmt = remote
