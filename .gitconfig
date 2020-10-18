@@ -33,6 +33,7 @@
     df = diff
     dfc = diff --cached
     ft = fetch
+    h = help
     lg = log
     lga = log --graph --pretty=format:\"%C(yellow)%h %C(green)%an %C(cyan)%ar%C(yellow)%d %Creset%s\"
     mr = merge
