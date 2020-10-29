@@ -96,7 +96,7 @@ if [ -d "${ANDROID_HOME}" ]; then
   export PATH="${ANDROID_HOME}/bin:$PATH"
 fi
 
-# Platform-Tools( `adb` コマンドなど)のパスを通す
+# Platform-Tools( `adb` コマンドなど)
 # 参考：https://qiita.com/uhooi/items/a3dcc15f7e15ae11d1d6
 export ANDROID_TOOL_PATH=${ANDROID_HOME}/platform-tools
 if [ -d "${ANDROID_TOOL_PATH}" ]; then
