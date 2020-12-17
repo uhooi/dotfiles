@@ -39,6 +39,7 @@
     lga = log --graph --pretty=format:\"%C(yellow)%h %C(green)%an %C(cyan)%ar%C(yellow)%d %Creset%s\"
     mr = merge
     ps = push
+    psd = push -d
     psf = push -f
     rb = rebase
     rbc = rebase --continue
@@ -65,6 +66,7 @@
     swc = switch -c
     swd = switch --detach
     tg = tag
+    tgd = tag -d
     v = version
 [diff]
     # diffでリネームを検知する
