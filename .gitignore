@@ -4,7 +4,5 @@
 # Vim
 *.swp
 
-# Xcode
-*.xcscmblueprint
-*.xcuserdatad
+gh.rc.vim
 
