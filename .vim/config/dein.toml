@@ -114,6 +114,10 @@ hook_add = 'source ~/.vim/config/plugins/vimindentguides.rc.vim'
 #  nnoremap <Leader>af :<C-u>LabBrowseFile<CR>
 #'''
 
+[[plugins]]
+repo = 'skanehira/translate.vim'
+hook_add = 'source ~/.vim/config/plugins/translate.rc.vim'
+
 #[[plugins]]
 #repo = 'echuraev/translate-shell.vim'
 #on_cmd = ['Trans', 'TransVisual']
