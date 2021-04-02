@@ -51,6 +51,8 @@
     rsh = reset HEAD
     rt = restore
     rts = restore --source
+    rv = revert
+    rvh = revert HEAD
     s = status
     ss = status -s
     sb = status -s -b
