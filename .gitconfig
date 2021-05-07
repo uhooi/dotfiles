@@ -32,6 +32,7 @@
     ca = commit --amend
     cl = clone
     cp = cherry-pick
+    cpq = cherry-pick --quit
     df = diff
     dfc = diff --cached
     ft = fetch
