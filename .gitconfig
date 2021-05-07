@@ -26,6 +26,7 @@
     b = branch
     ba = branch -a
     bd = branch -d
+    bdf = branch -d -f
     bm = branch -m
     c = commit
     cm = commit -m
