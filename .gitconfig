@@ -46,6 +46,7 @@
     ps = push
     psd = push -d
     psf = push -f
+    psp = push --prune
     rb = rebase
     rbc = rebase --continue
     rmc = rm --cached
