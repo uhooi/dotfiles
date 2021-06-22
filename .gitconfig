@@ -28,6 +28,8 @@
     bd = branch -d
     bdf = branch -d -f
     bm = branch -m
+    bl = blame
+    bll = blame -L
     c = commit
     cm = commit -m
     ca = commit --amend
