@@ -63,6 +63,7 @@
     s = status
     ss = status -s
     sb = status -s -b
+    sh = show
     st = stash
     stl = stash list
     sts = stash show
