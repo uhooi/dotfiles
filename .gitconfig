@@ -39,6 +39,7 @@
     df = diff
     dfc = diff --cached
     ft = fetch
+    ftp = fetch --prune
     h = help
     lg = log
     lga = log --graph --pretty=format:\"%C(yellow)%h %C(green)%an %C(cyan)%ar%C(yellow)%d %Creset%s\"
@@ -46,7 +47,6 @@
     ps = push
     psd = push -d
     psf = push -f
-    psp = push --prune
     rb = rebase
     rbc = rebase --continue
     rmc = rm --cached
