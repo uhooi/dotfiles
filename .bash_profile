@@ -97,3 +97,10 @@ if [ -d "${ANDROID_TOOL_PATH}" ]; then
   export PATH="${ANDROID_TOOL_PATH}:$PATH"
 fi
 
+# Homebrew
+# 参考：https://qiita.com/aiorange19/items/5ffaefc85f912f60c2fa
+export HOMEBREW_HOME=/opt/homebrew
+if [ -d "${HOMEBREW_HOME}" ]; then
+  export PATH="${HOMEBREW_HOME}/bin:$PATH"
+fi
+
