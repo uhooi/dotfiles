@@ -3,15 +3,6 @@
 " 　　：http://yskwkzhr.blogspot.com/2013/02/use-mouse-on-terminal-vim.html
 "
 
-" File encoding
-if !exists('g:encoding_set') || !has('nvim')
-  set encoding=utf-8
-  set fileencodings=utf-8,sjis,iso-2022-jp,cp932,euc-jp
-  set fileencoding=utf-8
-  let g:encoding_set=1
-endif
-scriptencoding utf-8
-
 " Pythonのパスを明示的に指定する
 " ∵Neovimでは違うPythonを見ているため
 " 参考：https://qiita.com/uhooi/items/8a023c24c004ec0c8b84#pythonのパスを指定
