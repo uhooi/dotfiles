@@ -1,7 +1,6 @@
 " 参考：https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/options.rc.vim
 " 　　：https://yu8mada.com/2018/08/26/i-ll-explain-vim-s-5-tab-and-space-related-somewhat-complicated-options-as-simply-as-possible/
 " 　　：http://yskwkzhr.blogspot.com/2013/02/use-mouse-on-terminal-vim.html
-"
 
 " Pythonのパスを明示的に指定する
 " ∵Neovimでは違うPythonを見ているため
