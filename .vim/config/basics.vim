@@ -70,10 +70,12 @@ set mouse=a         " マウス操作を有効にする
 
 " File
 set writebackup
-set nobackup          " バックアップファイルを作成しない
-"set noswapfile        " スワップファイルを作成しない
-"set noundofile        " アンドゥファイルを作成しない
-set undodir=$VIM/undo " アンドゥファイルの保存先を指定する
+set nobackup            " バックアップファイルを作成しない
+"set noswapfile          " スワップファイルを作成しない
+" Undo
+" 参考：https://qiita.com/tamanobi/items/8f013cce36881af8cee3
+"set noundofile          " アンドゥファイルを作成しない
+set undodir=~/.vim/undo " アンドゥファイルの保存先を指定する
 
 " 動作に関する設定
 set clipboard=unnamed,unnamedplus " レジスタを指定せずにクリップボードを使用する
