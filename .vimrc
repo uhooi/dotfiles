@@ -10,7 +10,7 @@ scriptencoding utf-8
 filetype off
 filetype plugin indent off
 
-let mapleader = ","
+let g:mapleader = ","
 noremap \ , " `,` のデフォルトの機能を `\` で使えるように退避
 
 source ~/.vim/config/basics.vim
