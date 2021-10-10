@@ -47,8 +47,8 @@ nnoremap sJ <C-w>J
 nnoremap sK <C-w>K
 nnoremap sL <C-w>L
 nnoremap sH <C-w>H
-nnoremap ss :<C-u>sp<CR>
-nnoremap sv :<C-u>vs<CR>
+nnoremap ss <C-w>s
+nnoremap sv <C-w>v
 
 " 挿入モード
 " エスケープでIMEをOFFにする(通常モードに戻るときにIMEをOFFにしたいため)
