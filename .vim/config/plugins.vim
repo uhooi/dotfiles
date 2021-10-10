@@ -3,19 +3,18 @@
 " 　　：http://post.simplie.jp/posts/55
 " 　　：http://qiita.com/yoza/items/2f8bd33a18225754f346
 
-let s:dein_dir = expand('~/.cache/dein')
+let $DEIN_DIR = expand('~/.cache/dein')
 
 if has('vim_starting')
   " ランタイムパスにプラグインの格納パスを追加
-  " TODO: `s:dein_dir` を使って書く方法がわからない
-  set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim/
+  set runtimepath+=$DEIN_DIR/repos/github.com/Shougo/dein.vim/
 endif
 
-if !dein#load_state(s:dein_dir)
+if !dein#load_state($DEIN_DIR)
   finish
 endif
 
-call dein#begin(s:dein_dir)
+call dein#begin($DEIN_DIR)
 
 let s:config_dir = expand('~/.vim/config')
 call dein#load_toml(s:config_dir . '/dein.toml', {'lazy': 0})
