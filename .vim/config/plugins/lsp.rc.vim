@@ -74,13 +74,7 @@ endif
 
 augroup LspEnable
   autocmd!
-  autocmd BufWinEnter *.go    :call lsp#enable()
-  autocmd BufWinEnter *.py    :call lsp#enable()
-  autocmd BufWinEnter *.ts    :call lsp#enable()
-  autocmd BufWinEnter *.c     :call lsp#enable()
-  autocmd BufWinEnter *.h     :call lsp#enable()
-  autocmd BufWinEnter *.cpp   :call lsp#enable()
-  autocmd BufWinEnter *.swift :call lsp#enable()
+  autocmd BufWinEnter *.go, *.py, *.ts, *.c, *.h, *.cpp, *.swift :call lsp#enable()
 augroup END
 
 augroup LspAutoFormatting
