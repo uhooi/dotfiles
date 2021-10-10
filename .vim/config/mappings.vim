@@ -2,6 +2,7 @@ scriptencoding utf-8
 
 " 参考：https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/mappings.rc.vim
 " 　　：https://qiita.com/uhooi/items/58d58c24647f92f1995e
+" 　　：:h map-table
 
 " 再割り当て：なし
 " 通常モード、視覚モード
@@ -71,6 +72,6 @@ endif
 
 " ビジュアルモード
 " インデントの調整後にビジュアルモードを解除しない
-vnoremap < <gv
-vnoremap > >gv
+xnoremap < <gv
+xnoremap > >gv
 
