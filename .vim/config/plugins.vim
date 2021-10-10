@@ -3,10 +3,6 @@
 " 　　：http://post.simplie.jp/posts/55
 " 　　：http://qiita.com/yoza/items/2f8bd33a18225754f346
 
-if &compatible
-  set nocompatible
-endif
-
 let s:dein_dir = expand('~/.cache/dein')
 
 if has('vim_starting')
