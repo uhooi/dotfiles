@@ -30,6 +30,7 @@ ln -fns ${SCRIPT_DIR_PATH}/.gitignore ~/.gitignore
 ln -fns ${SCRIPT_DIR_PATH}/.svnignore ~/.svnignore
 ln -fns ${SCRIPT_DIR_PATH}/.gitconfig ~/.gitconfig
 ln -fns ${SCRIPT_DIR_PATH}/.hyper.js ~/.hyper.js
+ln -fns ${SCRIPT_DIR_PATH}/.swift-package-complete.bash ~/.swift-package-complete.bash
 
 # HomebrewでインストールしたGitのdiff-highlightのシンボリックリンクを貼る
 # 参考：https://udomomo.hatenablog.com/entry/2019/12/01/181404

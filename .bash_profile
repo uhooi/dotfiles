@@ -104,3 +104,7 @@ if [ -d "${HOMEBREW_HOME}" ]; then
   export PATH="${HOMEBREW_HOME}/bin:$PATH"
 fi
 
+# Swift Package Manager
+# 参考：https://github.com/apple/swift-package-manager/blob/main/Documentation/Usage.md#bash
+source ~/.swift-package-complete.bash
+
