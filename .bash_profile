@@ -108,3 +108,10 @@ fi
 # 参考：https://github.com/apple/swift-package-manager/blob/main/Documentation/Usage.md#bash
 source ~/.swift-package-complete.bash
 
+# Flutter
+# 参考：https://docs.flutter.dev/get-started/install/macos
+export FLUTTER_HOME="${HOME}/development/flutter"
+if [ -d "${FLUTTER_HOME}" ]; then
+  export PATH="${FLUTTER_HOME}/bin:$PATH"
+fi
+
