@@ -86,7 +86,7 @@ if which mint >/dev/null; then
 fi
 
 # Androidアプリ開発
-export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/Contents/Home
+export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Home
 if [ -d "${JAVA_HOME}" ]; then
   export PATH="${JAVA_HOME}/bin:$PATH"
 fi
