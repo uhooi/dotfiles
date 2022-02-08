@@ -31,4 +31,8 @@ if [ "$(uname)" == 'Darwin' ]; then
   defaults delete com.apple.finder AppleShowAllFiles
   defaults delete com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration
   killall SystemUIServer
+
+  # Homebrewをアンインストールする
+  # 参考：https://github.com/homebrew/install#uninstall-homebrew
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
 fi
