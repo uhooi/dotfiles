@@ -19,7 +19,7 @@ alias g='git'
 # 　　：http://qiita.com/UmedaTakefumi/items/fe02d17264de6c78443d
 # Mac
 if [ "$(uname)" == 'Darwin' ]; then
-  source /usr/local/etc/bash_completion.d/git-prompt.sh
+  source /opt/homebrew/etc/bash_completion.d/git-prompt.sh
 # Linux
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   source /usr/share/doc/git-1.8.3.1/contrib/completion/git-prompt.sh
@@ -34,7 +34,7 @@ GIT_PS1_SHOWDIRTYSTATE=true
 # 参考：http://qiita.com/koyopro/items/3fce94537df2be6247a3
 # Mac
 if [ "$(uname)" == 'Darwin' ]; then
-  source /usr/local/etc/bash_completion.d/git-completion.bash
+  source /opt/homebrew/etc/bash_completion.d/git-completion.bash
 # Linux
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   source /usr/share/doc/git-1.8.3.1/contrib/completion/git-completion.bash
@@ -48,7 +48,7 @@ complete -o bashdefault -o default -o nospace -F __git_wrap__git_main g
 # makeコマンドの補完などを有効にする
 # 参考：https://qiita.com/notakaos/items/d44a4c2b72625746de25
 if [ "$(uname)" == 'Darwin' ]; then
-  source /usr/local/etc/bash_completion
+  source /opt/homebrew/etc/bash_completion
 fi
 
 # .inputrcを読み込む
