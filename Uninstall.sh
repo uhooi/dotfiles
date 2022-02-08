@@ -25,8 +25,8 @@ rm ~/.gitignore
 rm ~/.svnignore
 rm ~/.hyper.js
 
-# 環境設定を削除する
 if [ "$(uname)" == 'Darwin' ]; then
+  # 環境設定を削除する
   defaults delete com.apple.screencapture disable-shadow
   defaults delete com.apple.finder AppleShowAllFiles
   defaults delete com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration
