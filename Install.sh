@@ -35,6 +35,18 @@ ln -fns ${SCRIPT_DIR_PATH}/.swift-package-complete.bash ~/.swift-package-complet
 source ~/.bash_profile
 
 if [ "$(uname)" == 'Darwin' ]; then
+  # スクリーンショットの撮影時に影を含めない
+  defaults write com.apple.screencapture disable-shadow -boolean true
+
+  # Finderで隠しファイルを表示する
+  defaults write com.apple.finder AppleShowAllFiles true
+
+  # Swiftプロジェクトのビルドを速くする
+  defaults write com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration 1
+
+  # SystemUIServerを再起動して設定を反映させる
+  killall SystemUIServer
+
   # Homebrewをインストールする
   # 参考：https://docs.brew.sh/Installation
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
