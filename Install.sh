@@ -61,7 +61,7 @@ if [ "$(uname)" == 'Darwin' ]; then
 
   # HomebrewでインストールしたGitのdiff-highlightのシンボリックリンクを貼る
   # 参考：https://udomomo.hatenablog.com/entry/2019/12/01/181404
-  sudo ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
+  sudo ln -s /opt/homebrew/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
 
   # FlutterでJavaのパスを見つけられない不具合を回避する
   # 参考：https://zenn.dev/donchan922/articles/85d16dbf8958c6
