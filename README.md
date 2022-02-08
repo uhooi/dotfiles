@@ -21,7 +21,6 @@ Install:
 $ git clone https://github.com/uhooi/dotfiles.git
 $ cd dotfiles
 $ sh Install.sh
-$ source ~/.bash_profile
 ```
 
 Uninstall:
