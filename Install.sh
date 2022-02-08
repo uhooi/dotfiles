@@ -43,9 +43,9 @@ if [ "$(uname)" == 'Darwin' ]; then
 
   # FlutterでJavaのパスを見つけられない不具合を回避する
   # 参考：https://zenn.dev/donchan922/articles/85d16dbf8958c6
-  cd /Applications/Android\ Studio\.app/Contents/jre
-  ln -s ../jre jdk
-  ln -s "/Library/Internet Plug-Ins/JavaAppletPlugin.plugin" jdk
-  cd -
+  # cd /Applications/Android\ Studio\.app/Contents/jre
+  # ln -s ../jre jdk
+  # ln -s "/Library/Internet Plug-Ins/JavaAppletPlugin.plugin" jdk
+  # cd -
 fi
 
