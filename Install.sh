@@ -32,10 +32,20 @@ ln -fns ${SCRIPT_DIR_PATH}/.gitconfig ~/.gitconfig
 ln -fns ${SCRIPT_DIR_PATH}/.hyper.js ~/.hyper.js
 ln -fns ${SCRIPT_DIR_PATH}/.swift-package-complete.bash ~/.swift-package-complete.bash
 
+source ~/.bash_profile
+
 if [ "$(uname)" == 'Darwin' ]; then
+  # Homebrewをインストールする
+  # 参考：https://docs.brew.sh/Installation
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+  source ~/.bash_profile
+
   # Homebrewで管理しているパッケージをインストールする
   # 参考：https://tech.gootablog.com/article/homebrew-brewfile/
   brew bundle
+
+  source ~/.bash_profile
 
   # HomebrewでインストールしたGitのdiff-highlightのシンボリックリンクを貼る
   # 参考：https://udomomo.hatenablog.com/entry/2019/12/01/181404
