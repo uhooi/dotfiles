@@ -110,6 +110,14 @@ if [ -d "${HOMEBREW_HOME}" ]; then
   export PATH="${HOMEBREW_HOME}/bin:$PATH"
 fi
 
+# diff-highlight
+# 参考：https://udomomo.hatenablog.com/entry/2019/12/01/181404
+# 　　：https://github.com/git/git/tree/master/contrib/diff-highlight
+export DIFF_HIGHLIGHT_HOME=${HOMEBREW_HOME}/share/git-core/contrib/diff-highlight
+if [ -d "${DIFF_HIGHLIGHT_HOME}" ]; then
+  export PATH="${DIFF_HIGHLIGHT_HOME}:$PATH"
+fi
+
 # Swift Package Manager
 # 参考：https://github.com/apple/swift-package-manager/blob/main/Documentation/Usage.md#bash
 source ~/.swift-package-complete.bash
