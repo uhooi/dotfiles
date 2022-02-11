@@ -41,6 +41,12 @@ if [ "$(uname)" == 'Darwin' ]; then
   # Finderで隠しファイルを表示する
   defaults write com.apple.finder AppleShowAllFiles -bool true
 
+  # Xcodeでビルドにかかった時間を表示する
+  defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool true
+
+  # シミュレータにタップジェスチャーを表示する
+  defaults write com.apple.iphonesimulator ShowSingleTouches 1
+
   # Swiftプロジェクトのビルドを速くする
   defaults write com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration 1
 
