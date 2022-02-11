@@ -36,10 +36,10 @@ source ~/.bash_profile
 
 if [ "$(uname)" == 'Darwin' ]; then
   # スクリーンショットの撮影時に影を含めない
-  defaults write com.apple.screencapture disable-shadow -boolean true
+  defaults write com.apple.screencapture disable-shadow -bool true
 
   # Finderで隠しファイルを表示する
-  defaults write com.apple.finder AppleShowAllFiles true
+  defaults write com.apple.finder AppleShowAllFiles -bool true
 
   # Swiftプロジェクトのビルドを速くする
   defaults write com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration 1
