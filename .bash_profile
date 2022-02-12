@@ -51,7 +51,7 @@ fi
 # rbenv
 export RBENV_ROOT="$HOME/.rbenv"
 if [ -d "${RBENV_ROOT}" ]; then
-  export PATH="$HOME/.rbenv/bin:$PATH"
+  export PATH="${RBENV_ROOT}/bin:$PATH"
   eval "$(rbenv init -)"
 fi
 
@@ -59,7 +59,7 @@ fi
 # 参考：https://qiita.com/taketakekaho/items/dd08cf01b4fe86b2e218
 export NODEBREW_DIR="${HOME}/.nodebrew"
 if [ -d "${NODEBREW_DIR}" ]; then
-  export PATH=$NODEBREW_DIR/current/bin:$PATH
+  export PATH=${NODEBREW_DIR}/current/bin:$PATH
 fi
 
 # Maven
