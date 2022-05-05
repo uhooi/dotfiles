@@ -13,11 +13,11 @@ nmap gk gk<SID>g
 nnoremap <script> <SID>gj gj<SID>g
 nnoremap <script> <SID>gk gk<SID>g
 nmap <SID>g <Nop>
-" 「Shift + h, l」で行頭・行末に移動する
-noremap <S-h> 0
-noremap <S-l> $
-noremap 0 <S-h>
-noremap $ <S-l>
+" 「H, L」で行頭・行末に移動する
+noremap H 0
+noremap L $
+noremap 0 H
+noremap $ L
 " 矢印キーを無効にする
 " ∵Vimのキーバインドに慣れるため
 noremap <Left> <Nop>
