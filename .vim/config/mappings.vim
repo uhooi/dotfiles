@@ -6,16 +6,18 @@ scriptencoding utf-8
 
 " 再割り当て：なし
 " 通常モード、視覚モード
-" カーソルの論理行移動と物理行移動のキーバインドを逆にする
-noremap j gj
-noremap k gk
-noremap gj j
-noremap gk k
-" 「Shift + h, l」で行頭・行末に移動する
-noremap <S-h> 0
-noremap <S-l> $
-noremap 0 <S-h>
-noremap $ <S-l>
+" 「g」でカーソルを論理行移動できるようにする
+" 参考：https://zenn.dev/mattn/articles/83c2d4c7645faa
+nmap gj gj<SID>g
+nmap gk gk<SID>g
+nnoremap <script> <SID>gj gj<SID>g
+nnoremap <script> <SID>gk gk<SID>g
+nmap <SID>g <Nop>
+" 「H, L」で行頭・行末に移動する
+noremap H 0
+noremap L $
+noremap 0 H
+noremap $ L
 " 矢印キーを無効にする
 " ∵Vimのキーバインドに慣れるため
 noremap <Left> <Nop>
@@ -37,7 +39,6 @@ nnoremap - <C-x>
 
 " ウィンドウ関連
 " 参考：http://qiita.com/tekkoc/items/98adcadfa4bdc8b5a6ca
-nnoremap s <Nop>
 nnoremap sj <C-w>j
 nnoremap sk <C-w>k
 nnoremap sl <C-w>l
@@ -50,6 +51,21 @@ nnoremap sL <C-w>L
 nnoremap sH <C-w>H
 nnoremap ss <C-w>s
 nnoremap sv <C-w>v
+nmap s+ <C-w>+
+nmap s- <C-w>-
+nmap s> <C-w>>
+nmap s< <C-w><
+nmap s <Nop>
+" 参考：https://zenn.dev/mattn/articles/83c2d4c7645faa#おまけ
+nmap <C-w>+ <C-w>+<SID>ws
+nmap <C-w>- <C-w>-<SID>ws
+nmap <C-w>> <C-w>><SID>ws
+nmap <C-w>< <C-w><<SID>ws
+nnoremap <script> <SID>ws+ <C-w>+<SID>ws
+nnoremap <script> <SID>ws- <C-w>-<SID>ws
+nnoremap <script> <SID>ws> <C-w>><SID>ws
+nnoremap <script> <SID>ws< <C-w><<SID>ws
+nmap <SID>ws <Nop>
 
 " 挿入モード
 " エスケープでIMEをOFFにする(通常モードに戻るときにIMEをOFFにしたいため)
