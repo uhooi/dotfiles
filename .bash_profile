@@ -105,7 +105,13 @@ fi
 
 # Homebrew
 # 参考：https://qiita.com/aiorange19/items/5ffaefc85f912f60c2fa
-export HOMEBREW_HOME=/opt/homebrew
+# M1 Mac
+if [ "$(uname -m)" = "arm64" ]; then
+  export HOMEBREW_HOME=/opt/homebrew
+# Intel Mac
+else
+  export HOMEBREW_HOME=/usr/local
+fi
 if [ -d "${HOMEBREW_HOME}" ]; then
   export PATH="${HOMEBREW_HOME}/bin:$PATH"
 fi
