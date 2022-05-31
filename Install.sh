@@ -34,6 +34,11 @@ ln -fns ${SCRIPT_DIR_PATH}/.swift-package-complete.bash ~/.swift-package-complet
 
 source ~/.bash_profile
 
+# dein.vimをインストールする
+# 参考：https://github.com/Shougo/dein.vim#quick-start
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+sh ./installer.sh ~/.cache/dein
+
 if [ "$(uname)" == 'Darwin' ]; then
   # スクリーンショットの撮影時に影を含めない
   defaults write com.apple.screencapture disable-shadow -bool true
