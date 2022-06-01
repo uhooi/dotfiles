@@ -29,11 +29,6 @@ hook_add = 'source ~/.vim/config/plugins/lightlineale.rc.vim'
 #repo = 'lambdalisue/gina.vim'
 #hook_add = 'source ~/.vim/config/plugins/gina.rc.vim'
 
-# 括弧入力補助
-[[plugins]]
-repo = 'machakann/vim-sandwich'
-hook_add = 'source ~/.vim/config/plugins/vimsandwich.rc.vim'
-
 # インデント可視化
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
