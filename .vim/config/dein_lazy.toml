@@ -1,4 +1,4 @@
-# 参考：https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/dein_lazy.toml
+# ref: https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/dein_lazy.toml
 
 # 非同期校正
 [[plugins]]
