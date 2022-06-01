@@ -4,8 +4,7 @@ scriptencoding utf-8
 " 　　：https://qiita.com/uhooi/items/58d58c24647f92f1995e
 " 　　：:h map-table
 
-" 再割り当て：なし
-" 通常モード、視覚モード
+" 通常モード
 " 「g」でカーソルを論理行移動できるようにする
 " 参考：https://zenn.dev/mattn/articles/83c2d4c7645faa
 nmap gj gj<SID>g
@@ -24,8 +23,6 @@ noremap <Left> <Nop>
 noremap <Down> <Nop>
 noremap <Up> <Nop>
 noremap <Right> <Nop>
-
-" 通常モード
 " 「Y」をカーソル位置から行末までのヤンクにする
 nnoremap Y y$
 " 貼り付け先のインデントに合わせてペーストする
