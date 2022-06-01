@@ -1,4 +1,4 @@
-" 参考：http://hanagurotanuki.blogspot.jp/2015/03/windowsopen-browservimchrome.html
+" ref: http://hanagurotanuki.blogspot.jp/2015/03/windowsopen-browservimchrome.html
 
 let g:netrw_nogx = 1
 nnoremap gx (openbrowser-smart-search)
