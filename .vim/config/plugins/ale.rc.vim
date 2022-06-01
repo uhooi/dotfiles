@@ -1,10 +1,10 @@
 " ALE(Asynchronous Lint Engine)
 
-" 参考：http://www.tokoro.me/posts/vim-review/
-" 　　：https://github.com/tokorom/dotfiles/blob/master/.vim/plugins.vim
-" 　　：https://wonderwall.hatenablog.com/entry/2017/03/01/223934
-" 　　：https://github.com/dense-analysis/ale/issues/2065
-" 　　：https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/plugins/ale.rc.vim
+" ref: http://www.tokoro.me/posts/vim-review/
+"    : https://github.com/tokorom/dotfiles/blob/master/.vim/plugins.vim
+"    : https://wonderwall.hatenablog.com/entry/2017/03/01/223934
+"    : https://github.com/dense-analysis/ale/issues/2065
+"    : https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/plugins/ale.rc.vim
 
 let g:ale_lint_on_save = 1 " 保存時にチェックする
 let g:ale_lint_on_text_changed = 'never' " 変更時にチェックしない
