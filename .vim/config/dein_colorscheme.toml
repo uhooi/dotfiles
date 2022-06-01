@@ -4,7 +4,7 @@ hook_add = '''
   source ~/.vim/config/plugins/solarized.rc.vim
   set background=light
   autocmd VimEnter * ++nested colorscheme solarized
-  call togglebg#map('<F5>') " F5で背景を切り替えられるようにする
+  call togglebg#map('<F5>')
 '''
 
 [[plugins]]
