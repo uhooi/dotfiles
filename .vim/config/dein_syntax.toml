@@ -1,4 +1,4 @@
-# 参考：https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/dein_syntax.toml
+# ref: https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/dein_syntax.toml
 
 [[plugins]]
 repo = 'kylef/apiblueprint.vim'
