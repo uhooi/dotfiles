@@ -1,5 +1,5 @@
-" 参考：https://qiita.com/gorilla0513/items/a027885d03af0d6d5863
-" 　　：https://qiita.com/tobita0000/items/22d314515f009e721740
+" ref: https://qiita.com/gorilla0513/items/a027885d03af0d6d5863
+"    : https://qiita.com/tobita0000/items/22d314515f009e721740
 
 "let g:go_list_type = "locationlist"
 "let g:go_list_type_commands = {"GoInstall": "quickfix", "GoBuild": "quickfix", "GoTest": "quickfix"}
