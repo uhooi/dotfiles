@@ -1,6 +1,6 @@
-" 参考：https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/plugins/deoplete.rc.vim
-" 　　：https://github.com/zchee/.nvim/blob/master/init.vim
-" 　　：https://sinshutu-kibotu.hatenablog.jp/entry/2017/01/27/062757
+" ref: https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/plugins/deoplete.rc.vim
+"    : https://github.com/zchee/.nvim/blob/master/init.vim
+"    : https://sinshutu-kibotu.hatenablog.jp/entry/2017/01/27/062757
 
 " Prams of deoplete
 let g:deoplete#enable_at_startup = 1
@@ -70,11 +70,11 @@ let s:clang_flags = [
       \ ]  " clang++ -v -E -x c++ - -v < /dev/null
       "\ '-I' . s:llvm_path . '/include/c++/v1',
 let g:deoplete#sources#go#cgo#flags = s:clang_flags
-"" clang
+" clang
 let g:deoplete#sources#clang#clang_header = s:llvm_path . '/lib/clang'
 let g:deoplete#sources#clang#libclang_path = s:llvm_path . '/lib/libclang.dylib'
 let g:deoplete#sources#clang#flags = s:clang_flags
-"" jedi
+" jedi
 let g:deoplete#sources#jedi#statement_length = 0
 let g:deoplete#sources#jedi#short_types = 0
 let g:deoplete#sources#jedi#show_docstring = 1
