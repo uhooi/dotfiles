@@ -1,4 +1,3 @@
-"let g:solarized_termcolors=16
 let g:solarized_termcolors=256
 let g:solarized_termrans=0
 let g:solarized_degrade=0
