@@ -1,4 +1,4 @@
-" 参考：https://github.com/maximbaz/lightline-ale
+" ref: https://github.com/maximbaz/lightline-ale
 
 " インジケータ
 "let g:lightline#ale#indicator_warnings = "△"
