@@ -1,12 +1,11 @@
 " dein
-" 参考：https://github.com/Shougo/dein.vim
-" 　　：http://post.simplie.jp/posts/55
-" 　　：http://qiita.com/yoza/items/2f8bd33a18225754f346
+" ref: https://github.com/Shougo/dein.vim
+"    : http://post.simplie.jp/posts/55
+"    : http://qiita.com/yoza/items/2f8bd33a18225754f346
 
 let $DEIN_DIR = expand('~/.cache/dein')
 
 if has('vim_starting')
-  " ランタイムパスにプラグインの格納パスを追加
   set runtimepath+=$DEIN_DIR/repos/github.com/Shougo/dein.vim/
 endif
 
@@ -28,12 +27,11 @@ call dein#load_toml(s:config_dir . '/dein_go.toml', {'lazy': 1})
 call dein#end()
 call dein#save_state()
 
-" プラグインの更新確認を聞く
 if dein#check_install()
   call dein#install()
 endif
 
 " プラグインを削除する場合にコメントインする
-" 参考：http://katsumeshix.hatenablog.jp/entry/2017/10/16/103709
+" ref: http://katsumeshix.hatenablog.jp/entry/2017/10/16/103709
 "call map(dein#check_clean(), "delete(v:val, 'rf')")
 
