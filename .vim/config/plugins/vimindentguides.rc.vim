@@ -1,4 +1,4 @@
-" 参考：http://www.mk-mode.com/octopress/2014/02/10/vim-installation-of-indent-plugin/
+" ref: http://www.mk-mode.com/octopress/2014/02/10/vim-installation-of-indent-plugin/
 
 " vimの起動時にvim-indent-guidesを無効にする
 " ∵鬱陶しいため
