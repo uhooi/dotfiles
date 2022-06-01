@@ -1,6 +1,6 @@
-" 参考：https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/plugins/lsp.rc.vim
-" 　　：https://qiita.com/succi0303/items/cd30d0ea40d419d4431c
-" 　　：https://github.com/prabirshrestha/vim-lsp/wiki/Servers-Swift
+" ref: https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/plugins/lsp.rc.vim
+"    : https://qiita.com/succi0303/items/cd30d0ea40d419d4431c
+"    : https://github.com/prabirshrestha/vim-lsp/wiki/Servers-Swift
 
 let g:lsp_signs_enabled = 1
 let g:lsp_diagnostics_enabled = 0
