@@ -16,12 +16,6 @@ repo = 'Shougo/dein.vim'
 repo = 'itchyny/lightline.vim'
 hook_add = 'source ~/.vim/config/plugins/lightline.rc.vim'
 
-[[plugins]]
-repo = 'maximbaz/lightline-ale'
-# TODO: `on_source` に複数書いたときの挙動は未調査
-on_source = ['itchyny/lightline.vim', 'dense-analysis/ale']
-hook_add = 'source ~/.vim/config/plugins/lightlineale.rc.vim'
-
 #[[plugins]]
 #repo = 'mhinz/vim-signify'
 
