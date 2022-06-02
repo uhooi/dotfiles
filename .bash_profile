@@ -69,15 +69,6 @@ if [ -d "${MAVEN_HOME}" ]; then
   export PATH="${MAVEN_HOME}/bin:$PATH"
 fi
 
-# OpenSSL
-# Mac標準のLibreSSLでなくHomebrewでインストールしたOpenSSLを参照するようにする
-# ∵Dangerでエラーが発生するため
-# 参考：https://qiita.com/moroi/items/53d60d1d6885795a0f6f
-export OPENSSL_HOME="/usr/local/opt/openssl"
-if [ -d "${OPENSSL_HOME}" ]; then
-  export PATH="${OPENSSL_HOME}/bin:$PATH"
-fi
-
 # Mint
 # 参考：https://qiita.com/uhooi/items/6a41a623b13f6ef4ddf0
 if which mint >/dev/null; then
@@ -122,6 +113,15 @@ fi
 export DIFF_HIGHLIGHT_HOME=${HOMEBREW_HOME}/share/git-core/contrib/diff-highlight
 if [ -d "${DIFF_HIGHLIGHT_HOME}" ]; then
   export PATH="${DIFF_HIGHLIGHT_HOME}:$PATH"
+fi
+
+# OpenSSL
+# Mac標準のLibreSSLでなくHomebrewでインストールしたOpenSSLを参照するようにする
+# ∵Dangerでエラーが発生するため
+# 参考：https://qiita.com/moroi/items/53d60d1d6885795a0f6f
+export OPENSSL_HOME="${HOMEBREW_HOME}/bin/opt/openssl"
+if [ -d "${OPENSSL_HOME}" ]; then
+  export PATH="${OPENSSL_HOME}/bin:$PATH"
 fi
 
 # Swift Package Manager
