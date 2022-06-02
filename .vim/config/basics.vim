@@ -1,3 +1,5 @@
+" ref: https://qiita.com/uhooi/items/292a98f45600c1e31b3e
+
 " Pythonのパスを明示的に指定する
 " ∵Neovimでは違うPythonを見ているため
 " ref: https://qiita.com/uhooi/items/8a023c24c004ec0c8b84#pythonのパスを指定
