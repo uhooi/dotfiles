@@ -2,17 +2,9 @@
 
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
-#if = "!has('nvim')"
+depends = ['vim-lsp-settings']
 #on_ft = ['python', 'go', 'typescript', 'c', 'cpp']
-hook_source = 'source ~/.vim/config/plugins/lsp.rc.vim'
 
 [[plugins]]
-repo = 'ryanolsonx/vim-lsp-typescript'
-depends = ['vim-lsp']
-on_ft = ['typescript']
-
-[[plugins]]
-repo = 'ryanolsonx/vim-lsp-swift'
-depends = ['vim-lsp']
-on_ft = ['swift']
+repo = 'mattn/vim-lsp-settings'
 
