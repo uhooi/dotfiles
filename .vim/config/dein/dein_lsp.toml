@@ -1,22 +1,18 @@
 # ref: https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/dein_lsp.toml
 
-#[[plugins]]
-#repo = 'prabirshrestha/vim-lsp'
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
 #if = "!has('nvim')"
 #on_ft = ['python', 'go', 'typescript', 'c', 'cpp']
-#depends = ['async.vim', 'vista.vim']
-#hook_source = '''
-#  source ~/.vim/rc/plugins/lsp.rc.vim
-#'''
-#
-#[[plugins]]
-#repo = 'prabirshrestha/async.vim'
-#
-#[[plugins]]
-#repo = 'ryanolsonx/vim-lsp-typescript'
-#on_ft = ['typescript']
-#
-#[[plugins]]
-#repo = 'ryanolsonx/vim-lsp-swift'
-#on_ft = ['swift']
+hook_source = 'source ~/.vim/config/plugins/lsp.rc.vim'
+
+[[plugins]]
+repo = 'ryanolsonx/vim-lsp-typescript'
+depends = ['vim-lsp']
+on_ft = ['typescript']
+
+[[plugins]]
+repo = 'ryanolsonx/vim-lsp-swift'
+depends = ['vim-lsp']
+on_ft = ['swift']
 
