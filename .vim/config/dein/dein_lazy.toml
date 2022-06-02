@@ -1,31 +1,5 @@
 # ref: https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/dein_lazy.toml
 
-# 非同期校正
-[[plugins]]
-repo = 'dense-analysis/ale'
-on_ft = [
-  'javascript',
-  'html',
-  'css',
-  'markdown',
-  'make',
-  'vim',
-  'shell',
-  'sh',
-  'ansible',
-  'json',
-  'tex',
-  'review',
-  'swift',
-]
-hook_source = 'source ~/.vim/config/plugins/ale.rc.vim'
-
-# Re:VIEWの非同期校正
-[[plugins]]
-repo = 'tokorom/ale-prh-review'
-on_ft = ['review']
-on_source = ['dense-analysis/ale']
-
 # マークダウンプレビュー
 [[plugins]]
 repo = 'previm/previm'
