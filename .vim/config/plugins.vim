@@ -22,7 +22,6 @@ call dein#load_toml(s:config_dir . '/dein/dein_lazy.toml', {'lazy': 1})
 call dein#load_toml(s:config_dir . '/dein/dein_syntax.toml', {'lazy': 1})
 call dein#load_toml(s:config_dir . '/dein/dein_complete.toml', {'lazy': 1})
 call dein#load_toml(s:config_dir . '/dein/dein_lsp.toml', {'lazy': 1})
-call dein#load_toml(s:config_dir . '/dein/dein_go.toml', {'lazy': 1})
 
 call dein#end()
 call dein#save_state()
