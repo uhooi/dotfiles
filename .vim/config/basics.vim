@@ -76,3 +76,10 @@ set clipboard=unnamed,unnamedplus " レジスタを指定せずにクリップ�
 " 挿入モードから切り替えるとき、自動的にIMEをOFFにする 初期値：0
 "set iminsert=2 " gVimだと初期値が2のためコメントアウト
 
+" Set filetype
+" ref: https://github.com/apple/sourcekit-lsp/blob/b8d8181a8ceda1b705f2dba0cc6971061868d986/Editors/README.md#vim-lsp
+augroup filetype
+  au! BufRead,BufNewFile *.podspec set ft=ruby
+  au! BufRead,BufNewFile Podfile set ft=ruby
+augroup END
+
