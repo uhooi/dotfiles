@@ -1,3 +1,5 @@
+# ref: https://oki2a24.com/2020/07/01/coloscheme-settings-in-only-dein-vim-toml-file/
+
 [[plugins]]
 repo = 'altercation/vim-colors-solarized'
 hook_add = '''
@@ -11,13 +13,13 @@ hook_add = '''
 repo = 'cocopon/iceberg.vim'
 #hook_add = '''
 #  set background=dark
-#  colorscheme iceberg
-#```
+#  autocmd VimEnter * ++nested colorscheme iceberg
+#'''
 
 [[plugins]]
 repo = 'arcticicestudio/nord-vim'
 #hook_add = '''
 #  set background=dark
-#  colorscheme nord
-#```
+#  autocmd VimEnter * ++nested colorscheme nord
+#'''
 
