@@ -6,6 +6,12 @@ hook_add = '''
   autocmd VimEnter * ++nested colorscheme solarized
   call togglebg#map('<F5>')
 '''
+[[plugins]]
+repo = 'cocopon/iceberg.vim'
+#hook_add = '''
+#  set background=dark
+#  colorscheme iceberg
+#```
 
 [[plugins]]
 repo = 'arcticicestudio/nord-vim'
