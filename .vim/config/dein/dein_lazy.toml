@@ -1,23 +1,19 @@
 # ref: https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/dein_lazy.toml
 
-# マークダウンプレビュー
 [[plugins]]
 repo = 'previm/previm'
 on_ft = ['markdown']
 hook_source = 'source ~/.vim/config/plugins/previm.rc.vim'
 
-# ブラウザ連携
 [[plugins]]
 repo = 'tyru/open-browser.vim'
 on_source = ['previm/previm']
 hook_source = 'source ~/.vim/config/plugins/openbrowser.rc.vim'
 
-# プレゼン
 [[plugins]]
 repo = 'thinca/vim-showtime'
 on_ft = ['markdown']
 
-# Vimスクリプトのテストフレームワーク
 [[plugins]]
 repo = 'thinca/vim-themis'
 on_ft = ['vim']
