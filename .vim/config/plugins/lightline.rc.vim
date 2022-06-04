@@ -11,59 +11,59 @@ let g:Powerline_symbols = 'fancy'
 "let g:Powerline_symbols = 'compatible'
 "set t_Co=256
 let g:lightline = {
-        \ 'colorscheme': 'wombat',
-        \ 'mode_map': {'c': 'NORMAL'},
-        \ 'active': {
-        \   'left': [
-        \     [ 'mode', 'paste' ],
-        \     [ 'fugitive', 'filename', 'ale' ]
-        \   ],
-        \   'right': [
-        \     [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
-        \     [ 'syntastic', 'lineinfo' ],
-        \     [ 'percent' ],
-        \     [ 'fileformat', 'fileencoding', 'filetype', 'winform' ]
-        \   ]
-        \ },
-        \ 'component_function': {
-        \   'modified': 'LightLineModified',
-        \   'readonly': 'LightLineReadonly',
-        \   'fugitive': 'LightLineFugitive',
-        \   'filename': 'LightLineFilename',
-        \   'fileformat': 'LightLineFileformat',
-        \   'filetype': 'LightLineFiletype',
-        \   'fileencoding': 'LightLineFileencoding',
-        \   'mode': 'LightLineMode',
-        \   'winform' : 'LightLineWinform',
-        \ },
-        \ 'component_expand': {
-        \   'linter_checking': 'lightline#ale#checking',
-        \   'linter_warnings': 'lightline#ale#warnings',
-        \   'linter_errors': 'lightline#ale#errors',
-        \   'linter_ok': 'lightline#ale#ok'
-        \ },
-        \ 'component_type': {
-        \   'linter_checking': 'left',
-        \   'linter_warnings': 'warning',
-        \   'linter_errors': 'error',
-        \   'linter_ok': 'left',
-        \ },
-        \ 'separator': { 'left': '', 'right': '' },
-        \ 'subseparator': { 'left': '|', 'right': '|' }
-        \ }
+\  'colorscheme': 'wombat',
+\  'mode_map': {'c': 'NORMAL'},
+\  'active': {
+\    'left': [
+\      [ 'mode', 'paste' ],
+\      [ 'fugitive', 'filename', 'ale' ]
+\    ],
+\    'right': [
+\      [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
+\      [ 'syntastic', 'lineinfo' ],
+\      [ 'percent' ],
+\      [ 'fileformat', 'fileencoding', 'filetype', 'winform' ]
+\    ]
+\  },
+\  'component_function': {
+\    'modified': 'LightLineModified',
+\    'readonly': 'LightLineReadonly',
+\    'fugitive': 'LightLineFugitive',
+\    'filename': 'LightLineFilename',
+\    'fileformat': 'LightLineFileformat',
+\    'filetype': 'LightLineFiletype',
+\    'fileencoding': 'LightLineFileencoding',
+\    'mode': 'LightLineMode',
+\    'winform' : 'LightLineWinform',
+\  },
+\  'component_expand': {
+\    'linter_checking': 'lightline#ale#checking',
+\    'linter_warnings': 'lightline#ale#warnings',
+\    'linter_errors': 'lightline#ale#errors',
+\    'linter_ok': 'lightline#ale#ok'
+\  },
+\  'component_type': {
+\    'linter_checking': 'left',
+\    'linter_warnings': 'warning',
+\    'linter_errors': 'error',
+\    'linter_ok': 'left',
+\  },
+\  'separator': { 'left': '', 'right': '' },
+\  'subseparator': { 'left': '|', 'right': '|' }
+\}
 
-        " セパレート候補
-        " 今のところどれもうまくいかない
-        "\ 'separator': { 'left': "\u2b80", 'right': "\u2b82" },
-        "\ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
-        "\ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-        "\ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
-        "\ 'separator': { 'left': '<U+2B80>', 'right': '<U+2B82>' },
-        "\ 'subseparator': { 'left': '<U+2B81>', 'right': '<U+2B83>' }
-        "\ 'separator': { 'left': "<U+2B80>", 'right': "<U+2B82>" },
-        "\ 'subseparator': { 'left': "<U+2B81>", 'right': "<U+2B83>" }
-        "\ 'separator': { 'left': '⮀', 'right': '⮂' },
-        "\ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+" セパレート候補
+" 今のところどれもうまくいかない
+"\  'separator': { 'left': "\u2b80", 'right': "\u2b82" },
+"\  'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
+"\  'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+"\  'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
+"\  'separator': { 'left': '<U+2B80>', 'right': '<U+2B82>' },
+"\  'subseparator': { 'left': '<U+2B81>', 'right': '<U+2B83>' }
+"\  'separator': { 'left': "<U+2B80>", 'right': "<U+2B82>" },
+"\  'subseparator': { 'left': "<U+2B81>", 'right': "<U+2B83>" }
+"\  'separator': { 'left': '⮀', 'right': '⮂' },
+"\  'subseparator': { 'left': '⮁', 'right': '⮃' }
 
 function! LightLineModified()
   return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
