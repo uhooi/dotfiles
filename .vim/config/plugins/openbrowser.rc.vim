@@ -1,15 +1,14 @@
-" ref: http://hanagurotanuki.blogspot.jp/2015/03/windowsopen-browservimchrome.html
+" ref: https://github.com/tyru/open-browser.vim/blob/80ec3f2bb0a86ac13c998e2f2c86e16e6d2f20bb/doc/openbrowser.txt
 
-let g:netrw_nogx = 1
-nnoremap gx (openbrowser-smart-search)
-vnoremap gx (openbrowser-smart-search)
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
 
-" Windowsの場合、ブラウザにChromeを指定する
 if has('win32') || has('win64')
   let g:openbrowser_browser_commands = [
   \  {
-  \    "name": "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
-  \    "args": ["{browser}", "{uri}"]
+  \    'name': 'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe',
+  \    'args': ['start', '{browser}', '{uri}']}
   \  }
   \]
 endif

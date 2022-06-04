@@ -1,13 +1,15 @@
-# ref: https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/dein_lazy.toml
+# ref: https://github.com/lighttiger2505/.dotfiles/blob/073c6c4082248052d34ab5243c6957ebb4611d8f/.vim/rc/dein_lazy.toml
 
 [[plugins]]
 repo = 'previm/previm'
+depends = ['open-browser.vim']
+#on_cmd = ['PrevimOpen']
 on_ft = ['markdown']
 hook_source = 'source ~/.vim/config/plugins/previm.rc.vim'
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'
-on_source = ['previm/previm']
+on_map = ['<Plug>(openbrowser-smart-search)']
 hook_source = 'source ~/.vim/config/plugins/openbrowser.rc.vim'
 
 [[plugins]]
