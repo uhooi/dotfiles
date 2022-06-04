@@ -5,6 +5,10 @@ repo = 'keith/swift.vim'
 on_ft = ['swift']
 
 [[plugins]]
+repo = 'keith/xcconfig.vim'
+on_path = '\.xcconfig$'
+
+[[plugins]]
 repo = 'mechatroner/rainbow_csv'
 on_path = '\.csv$'
 
