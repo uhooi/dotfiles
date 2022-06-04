@@ -1,12 +1,8 @@
 # ref: https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/dein_syntax.toml
 
 [[plugins]]
-repo = 'kylef/apiblueprint.vim'
-on_ft = ['apiblueprint']
-
-[[plugins]]
-repo = 'aklt/plantuml-syntax'
-on_path = ['\.pu$', '\.uml$', '\.plantuml$']
+repo = 'keith/swift.vim'
+on_ft = ['swift']
 
 [[plugins]]
 repo = 'mechatroner/rainbow_csv'
@@ -17,13 +13,17 @@ repo = 'cespare/vim-toml'
 on_ft = ['toml']
 
 [[plugins]]
-repo = 'keith/swift.vim'
-on_ft = ['swift']
+repo = 'aklt/plantuml-syntax'
+on_path = ['\.pu$', '\.uml$', '\.plantuml$']
 
 [[plugins]]
 repo = 'tokorom/vim-review'
 on_ft = ['review']
 hook_source = 'source ~/.vim/config/plugins/vimreview.rc.vim'
+
+[[plugins]]
+repo = 'kylef/apiblueprint.vim'
+on_ft = ['apiblueprint']
 
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
