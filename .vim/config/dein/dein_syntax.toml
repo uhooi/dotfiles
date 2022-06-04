@@ -3,6 +3,9 @@
 [[plugins]]
 repo = 'keith/swift.vim'
 on_ft = ['swift']
+#hook_source = '''
+#  let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
+#'''
 
 [[plugins]]
 repo = 'keith/xcconfig.vim'
