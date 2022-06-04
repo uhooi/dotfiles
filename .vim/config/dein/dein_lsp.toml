@@ -3,8 +3,12 @@
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
 depends = ['vim-lsp-settings']
+#on_event = 'BufRead'
 #on_ft = ['python', 'go', 'typescript', 'c', 'cpp']
+hook_source = 'source ~/.vim/config/plugins/lsp.rc.vim'
+#hook_add = 'source ~/.vim/config/plugins/lsp.rc.vim'
 
 [[plugins]]
 repo = 'mattn/vim-lsp-settings'
+#depends = ['vim-lsp']
 
