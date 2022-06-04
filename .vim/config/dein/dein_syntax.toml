@@ -1,4 +1,4 @@
-# ref: https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/dein_syntax.toml
+# ref: https://github.com/lighttiger2505/.dotfiles/blob/073c6c4082248052d34ab5243c6957ebb4611d8f/.vim/rc/dein_syntax.toml
 
 [[plugins]]
 repo = 'keith/swift.vim'
