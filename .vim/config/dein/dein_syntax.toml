@@ -12,6 +12,10 @@ repo = 'keith/xcconfig.vim'
 on_path = '\.xcconfig$'
 
 [[plugins]]
+repo = 'udalov/kotlin-vim'
+on_ft = ['kotlin']
+
+[[plugins]]
 repo = 'mechatroner/rainbow_csv'
 on_path = '\.csv$'
 
