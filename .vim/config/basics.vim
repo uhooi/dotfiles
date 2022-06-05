@@ -71,8 +71,5 @@ augroup swapchoice-readonly
   autocmd SwapExists * let v:swapchoice = 'o'
 augroup END
 
-" 動作に関する設定
 set clipboard=unnamed,unnamedplus " レジスタを指定せずにクリップボードを使用する
-" 挿入モードから切り替えるとき、自動的にIMEをOFFにする 初期値：0
-"set iminsert=2 " gVimだと初期値が2のためコメントアウト
 
