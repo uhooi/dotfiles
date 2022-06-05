@@ -10,8 +10,7 @@ noremap H 0
 noremap L $
 noremap 0 H
 noremap $ L
-" 矢印キーを無効にする
-" ∵Vimのキーバインドに慣れるため
+" Disable Arrow keys
 noremap <Left> <Nop>
 noremap <Down> <Nop>
 noremap <Up> <Nop>
