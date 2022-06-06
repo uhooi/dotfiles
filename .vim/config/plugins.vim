@@ -1,4 +1,4 @@
-" dein
+" Dein.vim
 " ref: https://github.com/Shougo/dein.vim
 "    : http://post.simplie.jp/posts/55
 "    : http://qiita.com/yoza/items/2f8bd33a18225754f346
