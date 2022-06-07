@@ -24,3 +24,7 @@ hook_add = 'set helplang=ja,en'
 [[plugins]]
 repo = 'tweekmonster/helpful.vim'
 
+# Not working in Neovim
+#[[plugins]]
+#repo = 'mattn/vim-nekokak'
+
