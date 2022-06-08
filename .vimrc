@@ -5,7 +5,7 @@ if !exists('g:encoding_set') || !has('nvim')
   let g:encoding_set=1
 endif
 scriptencoding utf-8
-" 参考：https://github.com/vim-jp/reading-vimrc/wiki/vimrcアンチパターン
+" ref: https://github.com/vim-jp/reading-vimrc/wiki/vimrcアンチパターン
 
 filetype off
 filetype plugin indent off
@@ -20,4 +20,9 @@ source ~/.vim/config/mappings.vim
 
 filetype plugin indent on
 syntax enable
+
+let s:vimrc_local = '~/.vimrc.local'
+if filereadable(expand(s:vimrc_local))
+  exec ':source '.s:vimrc_local
+endif
 
