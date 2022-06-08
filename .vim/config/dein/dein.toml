@@ -9,6 +9,9 @@ hook_add = 'source ~/.vim/config/plugins/lightline.rc.vim'
 repo = 'nathanaelkane/vim-indent-guides'
 hook_add = 'source ~/.vim/config/plugins/vimindentguides.rc.vim'
 
+#[[plugins]]
+#repo = 'github/copilot.vim'
+
 [[plugins]]
 repo = 'skanehira/translate.vim'
 hook_add = 'source ~/.vim/config/plugins/translate.rc.vim'
