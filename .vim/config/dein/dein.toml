@@ -27,4 +27,9 @@ repo = 'tweekmonster/helpful.vim'
 # Not working in Neovim
 #[[plugins]]
 #repo = 'mattn/vim-nekokak'
+#if = "!has('nvim')"
+
+[[plugins]]
+repo = 'delphinus/nekokak.nvim'
+if = "has('nvim')"
 
