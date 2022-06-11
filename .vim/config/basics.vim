@@ -19,7 +19,6 @@ set wrapscan
 
 " Edit
 set tabstop=4
-autocmd FileType vim setlocal tabstop=2
 set softtabstop=0
 set shiftwidth=0
 set smarttab
@@ -33,6 +32,12 @@ set wildmenu
 set wildignorecase
 set formatoptions+=mM
 set nrformats=alpha
+set virtualedit+=block
+augroup edit
+  autocmd!
+  autocmd FileType vim setlocal tabstop=2
+  autocmd FileType c,cpp,java setlocal cindent
+augroup END
 
 " Display
 set number
