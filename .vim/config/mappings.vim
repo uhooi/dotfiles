@@ -1,5 +1,3 @@
-scriptencoding utf-8
-
 " ref: https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/mappings.rc.vim
 "    : https://qiita.com/uhooi/items/58d58c24647f92f1995e
 "    : :h map-table
