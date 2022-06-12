@@ -14,7 +14,7 @@ filetype off
 filetype plugin indent off
 
 let g:mapleader = ","
-noremap \ , " `,` のデフォルトの機能を `\` で使えるように退避
+noremap \ ,
 
 source ~/.vim/config/filetypes.vim
 source ~/.vim/config/basics.vim
