@@ -4,10 +4,10 @@ augroup filetype
   autocmd!
 
   " Swift
-  autocmd! BufRead,BufNewFile Package.resolved set ft=json
+  autocmd BufRead,BufNewFile Package.resolved setlocal filetype=json
 
   " CocoaPods
-  autocmd! BufRead,BufNewFile *.podspec set ft=ruby
-  autocmd! BufRead,BufNewFile Podfile set ft=ruby
+  autocmd BufRead,BufNewFile *.podspec setlocal filetype=ruby
+  autocmd BufRead,BufNewFile Podfile setlocal filetype=ruby
 augroup END
 
