@@ -51,7 +51,6 @@ set showcmd
 set title
 set cursorline
 set colorcolumn=80
-syntax on
 set pumheight=10
 
 " Font
