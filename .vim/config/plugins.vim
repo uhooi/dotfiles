@@ -27,7 +27,7 @@ if dein#check_install()
   call dein#install()
 endif
 
-" プラグインを削除する場合にコメントインする
+" Comment in to remove plugins
 " ref: http://katsumeshix.hatenablog.jp/entry/2017/10/16/103709
 "call map(dein#check_clean(), "delete(v:val, 'rf')")
 
