@@ -1,5 +1,4 @@
 " Dein.vim
-" ref: https://github.com/Shougo/dein.vim
 
 let $DEIN_DIR = expand('~/.cache/dein')
 
