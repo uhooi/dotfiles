@@ -12,13 +12,13 @@ endif
 
 call dein#begin($DEIN_DIR)
 
-let s:config_dir = expand('~/.vim/config')
-call dein#load_toml(s:config_dir . '/dein/dein.toml', {'lazy': 0})
-call dein#load_toml(s:config_dir . '/dein/dein_colorscheme.toml', {'lazy': 0})
-call dein#load_toml(s:config_dir . '/dein/dein_syntax.toml', {'lazy': 1})
-call dein#load_toml(s:config_dir . '/dein/dein_lazy.toml', {'lazy': 1})
-call dein#load_toml(s:config_dir . '/dein/dein_complete.toml', {'lazy': 1})
-call dein#load_toml(s:config_dir . '/dein/dein_lsp.toml', {'lazy': 1})
+let s:config_dir = expand('~/.vim/config/dein')
+call dein#load_toml(s:config_dir . '/dein.toml', {'lazy': 0})
+call dein#load_toml(s:config_dir . '/dein_colorscheme.toml', {'lazy': 0})
+call dein#load_toml(s:config_dir . '/dein_syntax.toml', {'lazy': 1})
+call dein#load_toml(s:config_dir . '/dein_lazy.toml', {'lazy': 1})
+call dein#load_toml(s:config_dir . '/dein_complete.toml', {'lazy': 1})
+call dein#load_toml(s:config_dir . '/dein_lsp.toml', {'lazy': 1})
 
 call dein#end()
 call dein#save_state()
