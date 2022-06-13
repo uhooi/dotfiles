@@ -11,11 +11,11 @@
     # ユーザー名などをGit管理しないローカルファイルに保持する
     path = ~/.gitconfig.local
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+    cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
 [color]
     # 出力に色を付ける
     ui = auto
@@ -90,15 +90,15 @@
     smudge = git hawser smudge %f
     required = true
 # diffで差分をハイライトする
-# 参考：https://github.com/git/git/tree/master/contrib/diff-highlight
-# 　　：https://udomomo.hatenablog.com/entry/2019/12/01/181404
+# ref: https://github.com/git/git/tree/master/contrib/diff-highlight
+#    : https://udomomo.hatenablog.com/entry/2019/12/01/181404
 [pager]
     log = diff-highlight | less
     show = diff-highlight | less
     diff = diff-highlight | less
 
 [filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
