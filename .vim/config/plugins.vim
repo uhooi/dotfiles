@@ -14,6 +14,7 @@ call dein#begin($DEIN_DIR)
 
 let s:config_dir = expand('~/.vim/config/dein')
 call dein#load_toml(s:config_dir . '/dein.toml', {'lazy': 0})
+call dein#load_toml(s:config_dir . '/dein_textobj.toml', {'lazy': 0})
 call dein#load_toml(s:config_dir . '/dein_colorscheme.toml', {'lazy': 0})
 call dein#load_toml(s:config_dir . '/dein_syntax.toml', {'lazy': 1})
 call dein#load_toml(s:config_dir . '/dein_lazy.toml', {'lazy': 1})
