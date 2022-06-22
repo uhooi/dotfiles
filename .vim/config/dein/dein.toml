@@ -6,6 +6,10 @@ repo = 'itchyny/lightline.vim'
 hook_add = 'source ~/.vim/config/plugins/lightline.rc.vim'
 
 [[plugins]]
+repo = 'easymotion/vim-easymotion'
+hook_add = 'source ~/.vim/config/plugins/easymotion.rc.vim'
+
+[[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
 hook_add = 'source ~/.vim/config/plugins/vimindentguides.rc.vim'
 
