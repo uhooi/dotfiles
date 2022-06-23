@@ -16,6 +16,15 @@ repo = 'udalov/kotlin-vim'
 on_ft = ['kotlin']
 
 [[plugins]]
+repo = 'dart-lang/dart-vim-plugin'
+on_ft = ['dart']
+hook_source = '''
+  let dart_html_in_string=v:true
+  let g:dart_style_guide = 2
+  let g:dart_format_on_save = 1
+'''
+
+[[plugins]]
 repo = 'mechatroner/rainbow_csv'
 on_path = '\.csv$'
 
