@@ -3,6 +3,9 @@
 augroup filetype
   autocmd!
 
+  " Git
+  autocmd BufRead,BufNewFile .gitconfig.* setlocal filetype=gitconfig
+
   " Swift
   autocmd BufRead,BufNewFile Package.resolved setlocal filetype=json
 
