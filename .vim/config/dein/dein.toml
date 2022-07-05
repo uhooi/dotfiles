@@ -36,4 +36,14 @@ repo = 'tweekmonster/helpful.vim'
 [[plugins]]
 repo = 'delphinus/nekokak.nvim'
 if = "has('nvim')"
+#hook_add = '''
+#  lua require "nekokak".setup {}
+#'''
+
+[[plugins]]
+repo = 'uhooi/uhooi.nvim'
+if = "has('nvim')"
+#hook_add = '''
+#  lua require "uhooi".setup {}
+#'''
 
