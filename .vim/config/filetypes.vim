@@ -12,5 +12,8 @@ augroup filetype
   " CocoaPods
   autocmd BufRead,BufNewFile *.podspec setlocal filetype=ruby
   autocmd BufRead,BufNewFile Podfile setlocal filetype=ruby
+
+  " textlint
+  autocmd BufRead,BufNewFile .textlintrc setlocal filetype=json
 augroup END
 
