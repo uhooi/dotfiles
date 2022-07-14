@@ -13,6 +13,9 @@ augroup filetype
   autocmd BufRead,BufNewFile *.podspec setlocal filetype=ruby
   autocmd BufRead,BufNewFile Podfile setlocal filetype=ruby
 
+  " fastlane
+  autocmd BufRead,BufNewFile Fastfile setlocal filetype=ruby
+
   " textlint
   autocmd BufRead,BufNewFile .textlintrc setlocal filetype=json
 augroup END
