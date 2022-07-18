@@ -18,6 +18,23 @@ call ddu#custom#patch_global({
 \  }
 \})
 
+nnoremap <buffer> >
+\ <Cmd>call ddu#ui#filer#do_action('updateOptions', {
+\   'sourceOptions': {
+\     '_': {
+\       'matchers': ToggleHidden(),
+\     },
+\   },
+\ })<CR>
+
+function! ToggleHidden()
+  let current = ddu#custom#get_current(b:ddu_ui_name)
+  let source_options = get(current, 'sourceOptions', {})
+  let source_options_all = get(source_options, '_', {})
+  let matchers = get(source_options_all, 'matchers', [])
+  return empty(matchers) ? ['matcher_hidden'] : []
+endfunction
+
 " Mappings
 autocmd FileType ddu-filer call s:ddu_my_settings()
 function! s:ddu_my_settings() abort
