@@ -28,6 +28,12 @@ hook_add = 'set helplang=ja,en'
 [[plugins]]
 repo = 'tweekmonster/helpful.vim'
 
+[[plugins]]
+repo = 'vim-denops/denops.vim'
+
+[[plugins]]
+repo = 'vim-denops/denops-helloworld.vim'
+
 # Not working in Neovim
 #[[plugins]]
 #repo = 'mattn/vim-nekokak'
