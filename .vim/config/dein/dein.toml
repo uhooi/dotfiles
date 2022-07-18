@@ -34,6 +34,22 @@ repo = 'vim-denops/denops.vim'
 [[plugins]]
 repo = 'vim-denops/denops-helloworld.vim'
 
+[[plugins]]
+repo = 'Shougo/ddu.vim'
+hook_add = 'source ~/.vim/config/plugins/ddu.rc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-ui-filer'
+
+[[plugins]]
+repo = 'Shougo/ddu-source-file'
+
+[[plugins]]
+repo = 'Shougo/ddu-kind-file'
+
+[[plugins]]
+repo = 'Shougo/ddu-column-filename'
+
 # Not working in Neovim
 #[[plugins]]
 #repo = 'mattn/vim-nekokak'
