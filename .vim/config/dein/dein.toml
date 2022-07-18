@@ -48,6 +48,9 @@ repo = 'Shougo/ddu-source-file'
 repo = 'Shougo/ddu-kind-file'
 
 [[plugins]]
+repo = 'Shougo/ddu-filter-matcher_hidden'
+
+[[plugins]]
 repo = 'Shougo/ddu-column-filename'
 
 # Not working in Neovim
