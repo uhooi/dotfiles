@@ -6,6 +6,11 @@ depends = 'denops.vim'
 on_source = 'denops.vim'
 hook_source = 'source ~/.vim/config/plugins/ddu.rc.vim'
 
+[[plugins]]
+repo = 'Shougo/ddu-commands.vim'
+depends = 'ddu.vim'
+on_cmd = 'Ddu'
+
 # UIs
 
 [[plugins]]
