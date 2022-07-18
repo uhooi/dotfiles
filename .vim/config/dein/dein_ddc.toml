@@ -1,0 +1,25 @@
+# ref: https://github.com/Shougo/shougo-s-github/blob/959a1069654d90f56bbb8b2f5a5f6d065010d102/vim/rc/ddc.toml
+
+[[plugins]]
+repo = 'Shougo/ddc.vim'
+depends = 'denops.vim'
+on_event = ['InsertEnter', 'CursorHold']
+hook_source = 'source ~/.vim/config/plugins/ddc.rc.vim'
+
+# Sources
+
+[[plugins]]
+repo = 'Shougo/ddc-around'
+on_source = 'ddc.vim'
+
+# Matchers
+
+[[plugins]]
+repo = 'Shougo/ddc-matcher_head'
+on_source = 'ddc.vim'
+
+# Sorters
+
+[[plugins]]
+repo = 'Shougo/ddc-sorter_rank'
+on_source = 'ddc.vim'
