@@ -12,6 +12,10 @@ hook_source = 'source ~/.vim/config/plugins/ddc.rc.vim'
 repo = 'Shougo/ddc-around'
 on_source = 'ddc.vim'
 
+[[plugins]]
+repo = 'shun/ddc-vim-lsp'
+on_source = 'ddc.vim'
+
 # Matchers
 
 [[plugins]]

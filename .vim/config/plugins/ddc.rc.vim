@@ -1,4 +1,4 @@
-call ddc#custom#patch_global('sources', ['around', 'nextword'])
+call ddc#custom#patch_global('sources', ['around', 'nextword', 'vim-lsp'])
 
 call ddc#custom#patch_global('sourceOptions', {
 \  '_': {
@@ -10,7 +10,10 @@ call ddc#custom#patch_global('sourceOptions', {
 \  },
 \  'nextword': {
 \    'mark': 'nextword',
-\  }
+\  },
+\  'vim-lsp': {
+\    'mark': 'lsp',
+\  },
 \})
 
 " Mappings
