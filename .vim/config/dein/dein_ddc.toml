@@ -23,6 +23,10 @@ repo = 'LumaKernel/ddc-file'
 on_source = 'ddc.vim'
 
 [[plugins]]
+repo = 'Shougo/ddc-cmdline-history'
+on_source = 'ddc.vim'
+
+[[plugins]]
 repo = 'shun/ddc-vim-lsp'
 on_source = 'ddc.vim'
 

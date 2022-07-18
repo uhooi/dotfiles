@@ -2,7 +2,7 @@ call ddc#custom#patch_global('sources',
 \  ['around', 'nextword', 'file', 'vim-lsp']
 \)
 call ddc#custom#patch_global('cmdlineSources',
-\  ['file', 'vim-lsp', 'around', 'nextword']
+\  ['cmdline-history', 'file', 'vim-lsp', 'around', 'nextword']
 \)
 
 call ddc#custom#patch_global('sourceOptions', {
@@ -20,6 +20,10 @@ call ddc#custom#patch_global('sourceOptions', {
 \    'mark': 'F',
 \    'isVolatile': v:true,
 \    'forceCompletionPattern': '\S/\S*',
+\  },
+\  'cmdline-history': {
+\    'mark': 'history',
+\    'sorters': [],
 \  },
 \  'vim-lsp': {
 \    'mark': 'lsp',
