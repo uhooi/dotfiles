@@ -1,0 +1,18 @@
+[[plugins]]
+repo = 'Shougo/ddu.vim'
+hook_add = 'source ~/.vim/config/plugins/ddu.rc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-ui-filer'
+
+[[plugins]]
+repo = 'Shougo/ddu-source-file'
+
+[[plugins]]
+repo = 'Shougo/ddu-kind-file'
+
+[[plugins]]
+repo = 'Shougo/ddu-filter-matcher_hidden'
+
+[[plugins]]
+repo = 'Shougo/ddu-column-filename'
