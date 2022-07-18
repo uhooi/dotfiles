@@ -1,4 +1,4 @@
-call ddc#custom#patch_global('sources', ['around', 'nextword', 'vim-lsp'])
+call ddc#custom#patch_global('sources', ['around', 'nextword', 'file', 'vim-lsp'])
 
 call ddc#custom#patch_global('sourceOptions', {
 \  '_': {
@@ -10,6 +10,11 @@ call ddc#custom#patch_global('sourceOptions', {
 \  },
 \  'nextword': {
 \    'mark': 'nextword',
+\  },
+\  'file': {
+\    'mark': 'F',
+\    'isVolatile': v:true,
+\    'forceCompletionPattern': '\S/\S*',
 \  },
 \  'vim-lsp': {
 \    'mark': 'lsp',
