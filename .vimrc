@@ -16,6 +16,12 @@ filetype plugin indent off
 let g:mapleader = ","
 noremap \ ,
 
+" Set augroup.
+" ref: https://github.com/Shougo/shougo-s-github/blob/959a1069654d90f56bbb8b2f5a5f6d065010d102/vim/rc/vimrc
+augroup MyAutoCmd
+  autocmd!
+augroup END
+
 source ~/.vim/config/filetypes.vim
 source ~/.vim/config/basics.vim
 source ~/.vim/config/plugins.vim

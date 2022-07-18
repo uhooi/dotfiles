@@ -6,6 +6,12 @@ depends = 'denops.vim'
 on_event = ['InsertEnter', 'CursorHold']
 hook_source = 'source ~/.vim/config/plugins/ddc.rc.vim'
 
+[[plugins]]
+repo = 'Shougo/pum.vim'
+hook_source = '''
+  call pum#set_option('max_width', 80)
+'''
+
 # Sources
 
 [[plugins]]
