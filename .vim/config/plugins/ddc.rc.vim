@@ -7,6 +7,7 @@ call ddc#custom#patch_global('cmdlineSources',
 
 call ddc#custom#patch_global('sourceOptions', {
 \  '_': {
+\    'ignoreCase': v:true,
 \    'matchers': ['matcher_head'],
 \    'sorters': ['sorter_rank'],
 \  },
