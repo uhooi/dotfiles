@@ -1,4 +1,5 @@
 # ref: https://github.com/lighttiger2505/.dotfiles/blob/073c6c4082248052d34ab5243c6957ebb4611d8f/.vim/rc/dein_lazy.toml
+#    : https://github.com/Shougo/shougo-s-github/blob/959a1069654d90f56bbb8b2f5a5f6d065010d102/vim/rc/deinlazy.toml
 
 [[plugins]]
 repo = 'previm/previm'
@@ -15,6 +16,14 @@ hook_source = 'source ~/.vim/config/plugins/openbrowser.rc.vim'
 [[plugins]]
 repo = 'thinca/vim-showtime'
 on_ft = ['markdown']
+
+[[plugins]]
+repo = 'vim-denops/denops.vim'
+on_event = 'CursorHold'
+
+[[plugins]]
+repo = 'vim-denops/denops-helloworld.vim'
+on_source = 'denops.vim'
 
 [[plugins]]
 repo = 'thinca/vim-themis'

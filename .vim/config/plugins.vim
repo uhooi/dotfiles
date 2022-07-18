@@ -19,7 +19,7 @@ call dein#load_toml(s:config_dir . '/dein_colorscheme.toml', {'lazy': 0})
 call dein#load_toml(s:config_dir . '/dein_syntax.toml', {'lazy': 1})
 call dein#load_toml(s:config_dir . '/dein_lazy.toml', {'lazy': 1})
 call dein#load_toml(s:config_dir . '/dein_complete.toml', {'lazy': 1})
-call dein#load_toml(s:config_dir . '/dein_ddu.toml', {'lazy': 0})
+call dein#load_toml(s:config_dir . '/dein_ddu.toml', {'lazy': 1})
 call dein#load_toml(s:config_dir . '/dein_lsp.toml', {'lazy': 0})
 
 call dein#end()
