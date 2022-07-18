@@ -24,7 +24,7 @@ function! s:ddu_my_settings() abort
   nnoremap <buffer><silent> <CR>
 \    <Cmd>call ddu#ui#filer#do_action('itemAction')<CR>
   nnoremap <buffer><silent> <Space>
-\    <Cmd>call ddu#ui#filer#do_action('toggleSelectItem')<CR>
+\    <Cmd>call ddu#ui#filer#do_action('toggleSelectItem')<CR>j
   nnoremap <buffer> o
 \    <Cmd>call ddu#ui#filer#do_action('expandItem',
 \    {'mode': 'toggle'})<CR>
