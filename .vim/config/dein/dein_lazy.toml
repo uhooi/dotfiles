@@ -18,6 +18,10 @@ repo = 'thinca/vim-showtime'
 on_ft = ['markdown']
 
 [[plugins]]
+repo = 'rhysd/committia.vim'
+on_ft = 'gitcommit'
+
+[[plugins]]
 repo = 'vim-denops/denops.vim'
 on_event = 'CursorHold'
 
