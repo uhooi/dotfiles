@@ -2,7 +2,7 @@
 
 [[plugins]]
 repo = 'Shougo/ddc.vim'
-depends = 'denops.vim'
+depends = ['denops.vim', 'pum.vim']
 on_event = ['InsertEnter', 'CursorHold']
 hook_source = 'source ~/.vim/config/plugins/ddc.rc.vim'
 

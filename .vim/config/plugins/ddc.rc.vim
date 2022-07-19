@@ -45,14 +45,17 @@ call ddc#custom#patch_global('completionMenu', 'pum.vim')
 
 " Mappings
 " For insert mode completion
-" <Tab>: completion.
 inoremap <silent><expr> <Tab>
-\  ddc#map#pum_visible() ? '<C-n>' :
+\  pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
 \  (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
-\  '<Tab>' : ddc#map#manual_complete()
-
-" <S-Tab>: completion back.
-inoremap <expr><S-Tab>  ddc#map#pum_visible() ? '<C-p>' : '<C-h>'
+\  '<Tab>' : ddc#manual_complete()
+inoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
+inoremap <C-n> <Cmd>call pum#map#select_relative(+1)<CR>
+inoremap <C-p> <Cmd>call pum#map#select_relative(-1)<CR>
+inoremap <C-y> <Cmd>call pum#map#confirm()<CR>
+inoremap <C-e> <Cmd>call pum#map#cancel()<CR>
+inoremap <silent><expr> <C-l> ddc#map#extend()
+inoremap <silent><expr> <C-x><C-f> ddc#manual_complete('path')
 
 " For command line mode completion
 cnoremap <expr> <Tab>
