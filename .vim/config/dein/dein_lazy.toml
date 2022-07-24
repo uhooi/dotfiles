@@ -30,6 +30,10 @@ repo = 'vim-denops/denops-helloworld.vim'
 on_source = 'denops.vim'
 
 [[plugins]]
+repo = 'lambdalisue/gin.vim'
+on_source = 'denops.vim'
+
+[[plugins]]
 repo = 'thinca/vim-themis'
 on_ft = ['vim']
 
