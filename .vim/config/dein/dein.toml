@@ -9,6 +9,10 @@ repo = 'itchyny/lightline.vim'
 hook_add = 'source ~/.vim/config/plugins/lightline.rc.vim'
 
 [[plugins]]
+repo = 'norcalli/nvim-colorizer.lua'
+if = "has('nvim')"
+
+[[plugins]]
 repo = 'easymotion/vim-easymotion'
 hook_add = 'source ~/.vim/config/plugins/easymotion.rc.vim'
 
