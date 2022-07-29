@@ -12,5 +12,16 @@ repo = 'mattn/vim-lsp-settings'
 repo = 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 if = "has('nvim')"
 hook_add = '''
-  lua require"lsp_lines".setup{}
+lua <<EOF
+  require("lsp_lines").setup()
+  vim.diagnostic.config({
+    virtual_text = false,
+  })
+  vim.keymap.set(
+    "",
+    "<Leader>l",
+    require("lsp_lines").toggle,
+    { desc = "Toggle lsp_lines" }
+  )
+EOF
 '''
