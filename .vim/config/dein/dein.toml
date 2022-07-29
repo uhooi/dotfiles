@@ -49,6 +49,7 @@ repo = 'tweekmonster/helpful.vim'
 repo = 'delphinus/nekokak.nvim'
 if = "has('nvim')"
 #hook_add = '''
+#  set termguicolors
 #  lua require"nekokak".setup{}
 #'''
 
@@ -56,6 +57,7 @@ if = "has('nvim')"
 repo = 'uhooi/uhooi.nvim'
 if = "has('nvim')"
 #hook_add = '''
+#  set termguicolors
 #  lua require"uhooi".setup{}
 #'''
 
