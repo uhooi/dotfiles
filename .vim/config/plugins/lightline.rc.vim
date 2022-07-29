@@ -2,7 +2,6 @@
 "    : http://itchyny.hatenablog.com/entry/20130917/1379369171
 "    : https://itchyny.hatenablog.com/entry/20130918/1379461406
 "    : https://github.com/itchyny/lightline.vim
-"    : http://altarf.net/computer/技術的なポエム/3244
 "    : http://qiita.com/yuyuchu3333/items/20a0acfe7e0d0e167ccc
 "    : http://qiita.com/osamunmun/items/6fcabd8dff0d5fded559
 "    : http://note103.hateblo.jp/entry/2016/03/16/172327
@@ -19,7 +18,6 @@ let g:lightline = {
 \      [ 'fugitive', 'filename' ]
 \    ],
 \    'right': [
-\      [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
 \      [ 'syntastic', 'lineinfo' ],
 \      [ 'percent' ],
 \      [ 'fileformat', 'fileencoding', 'filetype', 'winform' ]
