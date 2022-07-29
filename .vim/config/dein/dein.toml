@@ -40,6 +40,15 @@ hook_add = 'set helplang=ja,en'
 [[plugins]]
 repo = 'tweekmonster/helpful.vim'
 
+[[plugins]]
+repo = 'lewis6991/gitsigns.nvim'
+hook_add = '''
+lua <<EOF
+  require('gitsigns').setup()
+EOF
+  source ~/.vim/config/plugins/gitsigns.rc.vim
+'''
+
 # Not working in Neovim
 #[[plugins]]
 #repo = 'mattn/vim-nekokak'
