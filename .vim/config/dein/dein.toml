@@ -16,6 +16,10 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'lilydjwg/colorizer'
+if = "!has('nvim')"
+
+[[plugins]]
 repo = 'easymotion/vim-easymotion'
 hook_add = 'source ~/.vim/config/plugins/easymotion.rc.vim'
 
