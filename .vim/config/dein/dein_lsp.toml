@@ -8,6 +8,7 @@ hook_add = 'source ~/.vim/config/plugins/lsp.rc.vim'
 [[plugins]]
 repo = 'mattn/vim-lsp-settings'
 
+# Not work
 [[plugins]]
 repo = 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 if = "has('nvim')"
