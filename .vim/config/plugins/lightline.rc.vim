@@ -18,7 +18,7 @@ let g:lightline = {
 \      [ 'fugitive', 'filename' ]
 \    ],
 \    'right': [
-\      [ 'syntastic', 'lineinfo' ],
+\      [ 'lineinfo' ],
 \      [ 'percent' ],
 \      [ 'fileformat', 'fileencoding', 'filetype', 'winform' ]
 \    ]
@@ -61,11 +61,11 @@ endfunction
 
 function! LightLineFilename()
   return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
-        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-        \  &ft == 'unite' ? unite#get_status_string() :
-        \  &ft == 'vimshell' ? vimshell#get_status_string() :
-        \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
-        \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+\    (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+\     &ft == 'unite' ? unite#get_status_string() :
+\     &ft == 'vimshell' ? vimshell#get_status_string() :
+\    '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+\    ('' != LightLineModified() ? ' ' . LightLineModified() : '')
 endfunction
 
 function! LightLineFugitive()
