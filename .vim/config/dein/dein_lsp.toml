@@ -8,3 +8,9 @@ hook_add = 'source ~/.vim/config/plugins/lsp.rc.vim'
 [[plugins]]
 repo = 'mattn/vim-lsp-settings'
 
+[[plugins]]
+repo = 'git@git.sr.ht:~whynothugo/lsp_lines.nvim'
+if = "has('nvim')"
+hook_add = '''
+  lua require"lsp_lines".setup{}
+'''
