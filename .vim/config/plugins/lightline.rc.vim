@@ -1,11 +1,11 @@
 " ref: http://itchyny.hatenablog.com/entry/20130828/1377653592
 "    : http://itchyny.hatenablog.com/entry/20130917/1379369171
+"    : https://itchyny.hatenablog.com/entry/20130918/1379461406
 "    : https://github.com/itchyny/lightline.vim
 "    : http://altarf.net/computer/技術的なポエム/3244
 "    : http://qiita.com/yuyuchu3333/items/20a0acfe7e0d0e167ccc
 "    : http://qiita.com/osamunmun/items/6fcabd8dff0d5fded559
 "    : http://note103.hateblo.jp/entry/2016/03/16/172327
-"    : https://github.com/maximbaz/lightline-ale
 
 let g:Powerline_symbols = 'fancy'
 "let g:Powerline_symbols = 'compatible'
@@ -16,7 +16,7 @@ let g:lightline = {
 \  'active': {
 \    'left': [
 \      [ 'mode', 'paste' ],
-\      [ 'fugitive', 'filename', 'ale' ]
+\      [ 'fugitive', 'filename' ]
 \    ],
 \    'right': [
 \      [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
@@ -35,18 +35,6 @@ let g:lightline = {
 \    'fileencoding': 'LightLineFileencoding',
 \    'mode': 'LightLineMode',
 \    'winform' : 'LightLineWinform',
-\  },
-\  'component_expand': {
-\    'linter_checking': 'lightline#ale#checking',
-\    'linter_warnings': 'lightline#ale#warnings',
-\    'linter_errors': 'lightline#ale#errors',
-\    'linter_ok': 'lightline#ale#ok'
-\  },
-\  'component_type': {
-\    'linter_checking': 'left',
-\    'linter_warnings': 'warning',
-\    'linter_errors': 'error',
-\    'linter_ok': 'left',
 \  },
 \  'separator': { 'left': '', 'right': '' },
 \  'subseparator': { 'left': '|', 'right': '|' }
