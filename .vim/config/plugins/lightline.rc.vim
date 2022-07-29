@@ -1,6 +1,6 @@
 " ref: https://itchyny.hatenablog.com/entry/20130824/1377351527
-"    : http://itchyny.hatenablog.com/entry/20130828/1377653592
-"    : http://itchyny.hatenablog.com/entry/20130917/1379369171
+"    : https://itchyny.hatenablog.com/entry/20130828/1377653592
+"    : https://itchyny.hatenablog.com/entry/20130917/1379369171
 "    : https://itchyny.hatenablog.com/entry/20130918/1379461406
 "    : https://github.com/itchyny/lightline.vim
 "    : http://qiita.com/yuyuchu3333/items/20a0acfe7e0d0e167ccc
@@ -48,19 +48,6 @@ let g:lightline = {
 \  'separator': { 'left': '', 'right': '' },
 \  'subseparator': { 'left': '|', 'right': '|' }
 \}
-
-" セパレート候補
-" 今のところどれもうまくいかない
-"\  'separator': { 'left': "\u2b80", 'right': "\u2b82" },
-"\  'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
-"\  'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-"\  'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
-"\  'separator': { 'left': '<U+2B80>', 'right': '<U+2B82>' },
-"\  'subseparator': { 'left': '<U+2B81>', 'right': '<U+2B83>' }
-"\  'separator': { 'left': "<U+2B80>", 'right': "<U+2B82>" },
-"\  'subseparator': { 'left': "<U+2B81>", 'right': "<U+2B83>" }
-"\  'separator': { 'left': '⮀', 'right': '⮂' },
-"\  'subseparator': { 'left': '⮁', 'right': '⮃' }
 
 let g:lightline.tabline = {
 \  'left': [
