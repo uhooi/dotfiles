@@ -25,7 +25,7 @@ let g:lightline = {
 \  'active': {
 \    'left': [
 \      [ 'mode', 'paste' ],
-\      [ 'fugitive' ]
+\      [ 'gitbranch' ]
 \    ],
 \    'right': [
 \      [ 'lineinfo' ],
@@ -36,7 +36,7 @@ let g:lightline = {
 \  'component_function': {
 \    'modified': 'LightLineModified',
 \    'readonly': 'LightLineReadonly',
-\    'fugitive': 'LightLineFugitive',
+\    'gitbranch': 'gin#component#branch#unicode',
 \    'filename': 'LightLineFilename',
 \    'fileformat': 'LightLineFileformat',
 \    'filetype': 'LightLineFiletype',
@@ -83,15 +83,6 @@ function! LightLineFilename()
 \     &ft == 'vimshell' ? vimshell#get_status_string() :
 \    '' != expand('%:t') ? expand('%:t') : '[No Name]') .
 \    ('' != LightLineModified() ? ' ' . LightLineModified() : '')
-endfunction
-
-function! LightLineFugitive()
-  if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
-    let branch = fugitive#head()
-    return branch !=# '' ? '⭠ '.branch : ''
-  else
-    return ''
-  endif
 endfunction
 
 function! LightLineFileformat()
