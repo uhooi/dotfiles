@@ -56,8 +56,8 @@ if = "has('nvim')"
 [[plugins]]
 repo = 'uhooi/uhooi.nvim'
 if = "has('nvim')"
-#hook_add = '''
-#  set termguicolors
-#  lua require"uhooi".setup{}
-#'''
+hook_add = '''
+  set termguicolors
+  lua require"uhooi".setup{}
+'''
 
