@@ -45,7 +45,6 @@ set ruler
 set list
 set listchars=tab:>.,trail:-,extends:>,precedes:<
 set wrap
-set laststatus=2
 set cmdheight=2
 set showcmd
 set title
