@@ -33,7 +33,7 @@ on_source = 'denops.vim'
 repo = 'lambdalisue/gin.vim'
 on_source = 'denops.vim'
 hook_source = '''
-  autocmd MyAutoCmd GinComponentPost * call lightline#update()
+  autocmd User GinComponentPost call lightline#update()
 '''
 
 [[plugins]]
