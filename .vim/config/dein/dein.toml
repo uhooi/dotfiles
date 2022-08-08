@@ -48,6 +48,9 @@ hook_add = 'set helplang=ja,en'
 repo = 'tweekmonster/helpful.vim'
 
 [[plugins]]
+repo = 'tpope/vim-characterize'
+
+[[plugins]]
 repo = 'lewis6991/gitsigns.nvim'
 hook_add = '''
 lua <<EOF
