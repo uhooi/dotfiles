@@ -1,0 +1,19 @@
+version: 2
+
+tools:
+  # ref: https://zenn.dev/skanehira/articles/2020-11-16-vim-writing-articles
+  #    : https://twitter.com/mattn_jp/status/1318597599696310274
+  #    : https://gist.github.com/mattn/46a78bcda0f0f300e85e59462371c407
+  markdown-textlint: &markdown-textlint
+    lint-command: 'npx --no-install textlint -f unix --stdin --stdin-filename ${INPUT}'
+    lint-ignore-exit-code: true
+    lint-stdin: true
+    lint-formats:
+      - '%f:%l:%c: %m [%trror/%r]'
+    root-markers:
+      - .textlintrc
+
+languages:
+  markdown:
+    - <<: *markdown-textlint
+

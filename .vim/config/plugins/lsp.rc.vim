@@ -16,7 +16,9 @@ let g:lsp_document_code_action_signs_enabled = 1
 let g:lsp_document_code_action_signs_hint    = {'text': '?'}
 
 " ref: https://blog.ottijp.com/2021/01/10/sourcekit-lsp/
+"    : https://github.com/mattn/vim-lsp-settings/blob/9136c59ee2c74a42b3987d27feed3695cd443c48/README.md#extra-configurations
 let g:lsp_settings = {
-\  'sourcekit-lsp': {'cmd': ['xcrun', 'sourcekit-lsp']}
+\  'sourcekit-lsp': {'cmd': ['xcrun', 'sourcekit-lsp']},
+\  'efm-langserver': {'disabled': v:false}
 \}
 
