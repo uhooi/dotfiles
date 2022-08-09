@@ -8,6 +8,10 @@
 "    : http://note103.hateblo.jp/entry/2016/03/16/172327
 "    : https://thinca.hatenablog.com/entry/20111204/1322932585
 "    : https://qiita.com/t-mochizuki/items/15f4a8d8f52d620cdc05
+"    : https://github.com/prabirshrestha/vim-lsp/pull/783
+"    : https://kitagry.github.io/blog/programmings/2020/08/lightline-vim-lsp/
+"    : https://qiita.com/Chemi-F/items/2190c0c02803655c2379
+"    : https://github.com/prabirshrestha/vim-lsp/blob/68c018eb1a79e0bbeb496f7040f7205b57cf3750/doc/vim-lsp.txt#L1451-L1456
 
 set laststatus=2
 set noshowmode
@@ -25,7 +29,8 @@ let g:lightline = {
 \  'active': {
 \    'left': [
 \      [ 'mode', 'paste' ],
-\      [ 'gitbranch' ]
+\      [ 'gitbranch' ],
+\      [ 'lsp_errors', 'lsp_warnings', 'lsp_ok' ]
 \    ],
 \    'right': [
 \      [ 'lineinfo' ],
@@ -44,6 +49,16 @@ let g:lightline = {
 \    'mode': 'LightLineMode',
 \    'winform' : 'LightLineWinform',
 \    'cwd': 'LightLineCwd',
+\  },
+\  'component_expand': {
+\    'lsp_errors': 'LightLineLSPErrors',
+\    'lsp_warnings': 'LightLineLSPWarnings',
+\    'lsp_ok': 'LightLineLSPOk',
+\  },
+\  'component_type': {
+\    'lsp_errors': 'error',
+\    'lsp_warnings': 'warning',
+\    'lsp_ok': 'middle',
 \  },
 \  'separator': { 'left': '', 'right': '' },
 \  'subseparator': { 'left': '|', 'right': '|' }
@@ -115,4 +130,25 @@ function! LightLineFilepath(n) abort
   let _ = pathshorten(bufname(curbufnr))
   return _ !=# '' ? _ : '[No Name]'
 endfunction
+
+function! LightlineLSPErrors() abort
+  let l:counts = lsp#get_buffer_diagnostics_counts()
+  return l:counts.error == 0 ? '' : printf('✗%d', l:counts.error)
+endfunction
+
+function! LightlineLSPWarnings() abort
+  let l:counts = lsp#get_buffer_diagnostics_counts()
+  return l:counts.warning == 0 ? '' : printf('‼%d', l:counts.warning)
+endfunction
+
+function! LightlineLSPOk() abort
+  let l:counts = lsp#get_buffer_diagnostics_counts()
+  let l:total = l:counts.error + l:counts.warning
+  return l:total == 0 ? '☑' : ''
+endfunction
+
+augroup LightLineOnLSP
+  autocmd!
+  autocmd User lsp_diagnostics_updated call lightline#update()
+augroup END
 
