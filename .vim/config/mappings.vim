@@ -32,6 +32,8 @@ nnoremap ]P P
 " インクリメント、デクリメントを「+」「-」に割り当てる
 nnoremap + <C-a>
 nnoremap - <C-x>
+nnoremap <C-a> +
+nnoremap <C-x> -
 " ウィンドウ関連
 " ref: http://qiita.com/tekkoc/items/98adcadfa4bdc8b5a6ca
 nnoremap sj <C-w>j
