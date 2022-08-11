@@ -13,13 +13,14 @@ SCRIPT_DIR_PATH=$(cd $(dirname $0);pwd)
 ln -fns ${SCRIPT_DIR_PATH}/.vimrc ~/.vimrc
 mkdir ~/.config
 mkdir ~/.config/nvim
-ln -fns ${SCRIPT_DIR_PATH}/.vimrc ~/.config/nvim/init.vim
+ln -fns ${SCRIPT_DIR_PATH}/.vimrc ${SCRIPT_DIR_PATH}/.config/nvim/init.vim
 ln -fns ${SCRIPT_DIR_PATH}/.gvimrc ~/.gvimrc
 ln -fns ${SCRIPT_DIR_PATH}/.xvimrc ~/.xvimrc
 ln -fns ${SCRIPT_DIR_PATH}/.ideavimrc ~/.ideavimrc
 mkdir ~/.vim
 ln -fns ${SCRIPT_DIR_PATH}/.vim/config ~/.vim/config
 ln -fns ${SCRIPT_DIR_PATH}/.vim/snippets ~/.vim/snippets
+ln -fns ${SCRIPT_DIR_PATH}/.config/nvim ~/.config/nvim
 ln -fns ${SCRIPT_DIR_PATH}/.config/ranger ~/.config/ranger
 ln -fns ${SCRIPT_DIR_PATH}/.config/efm-langserver ~/.config/efm-langserver
 ln -fns ${SCRIPT_DIR_PATH}/.bash_profile ~/.bash_profile

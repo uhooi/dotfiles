@@ -6,3 +6,6 @@
 
 gh.rc.vim
 
+# Neovim
+.config/nvim/init.vim
+
