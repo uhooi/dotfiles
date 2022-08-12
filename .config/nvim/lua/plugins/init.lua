@@ -1,6 +1,7 @@
 -- packer.nvim
 
 -- ref: https://github.com/wbthomason/packer.nvim/blob/afab89594f4f702dc3368769c95b782dbdaeaf0a/README.md
+--    : https://github.com/wbthomason/dotfiles/blob/08e10d9cc8d2c5bdd2f947caa2c40206efde8db7/neovim/.config/nvim/lua/plugins.lua
 --    : https://github.com/delphinus/dotfiles/blob/e562d4f8e99793e6ae1cd330c9208dac1d29d407/.config/nvim/lua/core/pack/load.lua
 --    : https://github.com/delphinus/dotfiles/blob/e562d4f8e99793e6ae1cd330c9208dac1d29d407/.config/nvim/lua/modules/opt/init.lua
 --    : https://github.com/craftzdog/dotfiles-public/blob/50344f53c96c241e6d0659ed19507c70771bd971/.config/nvim/lua/plugins.lua
