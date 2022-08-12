@@ -41,6 +41,21 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+  }
+
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      require('indent_blankline').setup {
+        show_current_context = true, -- Require treesitter
+        --show_current_context_start = true, -- Require treesitter
+      }
+    end,
+  }
+
+  use {
     'vim-jp/vimdoc-ja',
     config = function()
       vim.opt.helplang = { 'ja', 'en' }

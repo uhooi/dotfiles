@@ -25,7 +25,24 @@ repo = 'easymotion/vim-easymotion'
 hook_add = 'source ~/.vim/config/plugins/easymotion.rc.vim'
 
 [[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+if = "has('nvim')"
+hook_post_update = 'TSUpdate'
+
+[[plugins]]
+repo = 'lukas-reineke/indent-blankline.nvim'
+if = "has('nvim')"
+hook_add = '''
+lua <<EOF
+  require('indent_blankline').setup {
+    show_current_context = true,
+  }
+EOF
+'''
+
+[[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
+if = "!has('nvim')"
 hook_add = 'source ~/.vim/config/plugins/vimindentguides.rc.vim'
 
 #[[plugins]]
