@@ -2,6 +2,11 @@
 --    : https://github.com/craftzdog/dotfiles-public/blob/50344f53c96c241e6d0659ed19507c70771bd971/.config/nvim/lua/base.lua
 --    : https://zenn.dev/link/comments/147395cfc3dca4
 
+-- Japaneseize the menu
+if vim.fn.has('mac') == 1 then
+  vim.opt.langmenu = 'japanese'
+end
+
 -- Search
 vim.opt.hlsearch = true
 vim.opt.ignorecase = true
