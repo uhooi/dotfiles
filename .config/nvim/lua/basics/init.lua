@@ -81,6 +81,14 @@ vim.opt.writebackup = true
 vim.opt.backup = false
 vim.opt.undodir = '~/.vim/undo'
 
+vim.api.nvim_create_augroup('swapchoice-readonly', {})
+vim.api.nvim_clear_autocmds { group = 'swapchoice-readonly' }
+vim.api.nvim_create_autocmd('SwapExists', {
+  group = 'swapchoice-readonly',
+  pattern = '*',
+  command = "let v:swapchoice = 'o'",
+})
+
 -- Others
 vim.opt.clipboard = { 'unnamed', 'unnamedplus' }
 
