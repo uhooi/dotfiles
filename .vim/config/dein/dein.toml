@@ -13,7 +13,7 @@ repo = 'norcalli/nvim-colorizer.lua'
 if = "has('nvim')"
 hook_add = '''
   set termguicolors
-  autocmd VimEnter * ++nested lua require'colorizer'.setup()
+  autocmd VimEnter * ++nested lua require('colorizer').setup {}
 '''
 
 [[plugins]]
@@ -69,16 +69,16 @@ EOF
 [[plugins]]
 repo = 'delphinus/nekokak.nvim'
 if = "has('nvim')"
-#hook_add = '''
-#  set termguicolors
-#  lua require"nekokak".setup{}
-#'''
+hook_add = '''
+  set termguicolors
+  lua require('nekokak').setup {}
+'''
 
 [[plugins]]
 repo = 'uhooi/uhooi.nvim'
 if = "has('nvim')"
 hook_add = '''
   set termguicolors
-  lua require"uhooi".setup{}
+  lua require('uhooi').setup {}
 '''
 

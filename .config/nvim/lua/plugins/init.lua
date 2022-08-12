@@ -27,7 +27,7 @@ return require('packer').startup(function(use)
     'norcalli/nvim-colorizer.lua',
     config = function()
       vim.opt.termguicolors = true
-      require 'colorizer'.setup()
+      require('colorizer').setup {}
     end,
   }
 
@@ -37,6 +37,22 @@ return require('packer').startup(function(use)
       vim.opt.helplang = { 'ja', 'en' }
     end,
   }
+
+  use {
+    'delphinus/nekokak.nvim',
+    config = function()
+      vim.opt.termguicolors = true
+      require('nekokak').setup {}
+    end,
+  }
+
+use {
+  'uhooi/uhooi.nvim',
+  config = function()
+    vim.opt.termguicolors = true
+    require('uhooi').setup {}
+  end,
+}
 
   -- Colorscheme
   use {
