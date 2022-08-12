@@ -22,12 +22,21 @@ vim.cmd([[
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  -- FIXME: Not work
   use {
     'norcalli/nvim-colorizer.lua',
     config = function()
       vim.opt.termguicolors = true
       require('colorizer').setup {}
+    end,
+  }
+
+  use {
+    'easymotion/vim-easymotion',
+    config = function()
+      vim.keymap.set('', 'f', '<Plug>(easymotion-fl)')
+      vim.keymap.set('', 't', '<Plug>(easymotion-tl)')
+      vim.keymap.set('', 'F', '<Plug>(easymotion-Fl)')
+      vim.keymap.set('', 'T', '<Plug>(easymotion-Tl)')
     end,
   }
 
