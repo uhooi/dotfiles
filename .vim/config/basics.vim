@@ -36,6 +36,7 @@ set virtualedit+=block
 augroup edit
   autocmd!
   autocmd FileType vim setlocal tabstop=2
+  autocmd FileType lua setlocal tabstop=2
   autocmd FileType c,cpp,java setlocal cindent
 augroup END
 
