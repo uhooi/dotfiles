@@ -10,34 +10,34 @@ vim.api.nvim_clear_autocmds { group = 'filetype' }
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   group = 'filetype',
   pattern = '.gitconfig.*',
-  command = 'setlocal filetype=gitconfig',
+  callback = function() vim.opt_local.filetype = 'gitconfig' end,
 })
 
 -- Swift
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   group = 'filetype',
   pattern = 'Package.resolved',
-  command = 'setlocal filetype=json',
+  callback = function() vim.opt_local.filetype = 'json' end,
 })
 
 -- CocoaPods
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   group = 'filetype',
   pattern = { '*.podspec', 'Podfile' },
-  command = 'setlocal filetype=ruby',
+  callback = function() vim.opt_local.filetype = 'ruby' end,
 })
 
 -- fastlane
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   group = 'filetype',
   pattern = 'Fastfile',
-  command = 'setlocal filetype=ruby',
+  callback = function() vim.opt_local.filetype = 'ruby' end,
 })
 
 -- textlint
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   group = 'filetype',
   pattern = '.textlintrc',
-  command = 'setlocal filetype=json',
+  callback = function() vim.opt_local.filetype = 'json' end,
 })
 

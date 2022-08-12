@@ -34,17 +34,17 @@ vim.api.nvim_clear_autocmds { group = 'edit' }
 vim.api.nvim_create_autocmd('FileType', {
   group = 'edit',
   pattern = 'vim',
-  command = 'setlocal tabstop=2',
+  callback = function() vim.opt_local.tabstop = 2 end,
 })
 vim.api.nvim_create_autocmd('FileType', {
   group = 'edit',
   pattern = 'lua',
-  command = 'setlocal tabstop=2',
+  callback = function() vim.opt_local.tabstop = 2 end,
 })
 vim.api.nvim_create_autocmd('FileType', {
   group = 'edit',
   pattern = { 'c', 'cpp', 'java' },
-  command = 'setlocal cindent',
+  callback = function() vim.opt_local.cindent = true end,
 })
 
 -- Display
