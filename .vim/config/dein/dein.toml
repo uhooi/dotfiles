@@ -12,6 +12,7 @@ hook_add = 'source ~/.vim/config/plugins/lightline.rc.vim'
 repo = 'norcalli/nvim-colorizer.lua'
 if = "has('nvim')"
 hook_add = '''
+  set termguicolors
   autocmd VimEnter * ++nested lua require'colorizer'.setup()
 '''
 

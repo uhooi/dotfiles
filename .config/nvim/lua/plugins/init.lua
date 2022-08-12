@@ -22,6 +22,15 @@ vim.cmd([[
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
+  -- FIXME: Not work
+  use {
+    'norcalli/nvim-colorizer.lua',
+    config = function()
+      vim.opt.termguicolors = true
+      require 'colorizer'.setup()
+    end,
+  }
+
   -- Colorscheme
   use {
     'cocopon/iceberg.vim',
