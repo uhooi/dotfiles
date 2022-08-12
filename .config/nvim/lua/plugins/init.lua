@@ -62,6 +62,8 @@ return require('packer').startup(function(use)
     end,
   }
 
+  use { 'tweekmonster/helpful.vim' }
+
   use {
     'delphinus/nekokak.nvim',
     config = function()
