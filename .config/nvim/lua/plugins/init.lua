@@ -31,6 +31,13 @@ return require('packer').startup(function(use)
     end,
   }
 
+  use {
+    'vim-jp/vimdoc-ja',
+    config = function()
+      vim.opt.helplang = { 'ja', 'en' }
+    end,
+  }
+
   -- Colorscheme
   use {
     'cocopon/iceberg.vim',
