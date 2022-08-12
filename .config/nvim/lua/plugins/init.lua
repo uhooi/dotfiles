@@ -65,6 +65,11 @@ return require('packer').startup(function(use)
   use { 'tweekmonster/helpful.vim' }
 
   use {
+    'lewis6991/gitsigns.nvim',
+    config = [[require('plugins.config.gitsigns')]],
+  }
+
+  use {
     'delphinus/nekokak.nvim',
     config = function()
       vim.opt.termguicolors = true

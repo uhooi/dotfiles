@@ -71,12 +71,7 @@ repo = 'tpope/vim-characterize'
 [[plugins]]
 repo = 'lewis6991/gitsigns.nvim'
 if = "has('nvim')"
-hook_add = '''
-lua <<EOF
-  require('gitsigns').setup()
-EOF
-  source ~/.vim/config/plugins/gitsigns.rc.vim
-'''
+hook_add = 'source ~/.vim/config/plugins/gitsigns.rc.vim'
 
 # Not working in Neovim
 #[[plugins]]
