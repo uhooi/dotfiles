@@ -4,7 +4,6 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # エイリアス
-# 参考：http://qiita.com/yutat93/items/b5bb9c0366f21bcbea62
 # Mac
 if [ "$(uname)" == 'Darwin' ]; then
   alias ls='ls --color=auto'
