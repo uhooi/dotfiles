@@ -24,6 +24,12 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    config = function() require('plugins.config.lualine') end,
+  }
+
+  use {
     'norcalli/nvim-colorizer.lua',
     config = function()
       vim.opt.termguicolors = true

@@ -5,7 +5,18 @@ repo = 'Shougo/dein.vim'
 repo = 'haya14busa/dein-command.vim'
 
 [[plugins]]
+repo = 'nvim-lualine/lualine.nvim'
+if = "has('nvim')"
+depends = ['kyazdani42/nvim-web-devicons']
+hook_add = 'source ~/.vim/config/plugins/lualine.rc.vim'
+
+[[plugins]]
+repo = 'kyazdani42/nvim-web-devicons'
+if = "has('nvim')"
+
+[[plugins]]
 repo = 'itchyny/lightline.vim'
+if = "!has('nvim')"
 hook_add = 'source ~/.vim/config/plugins/lightline.rc.vim'
 
 [[plugins]]
