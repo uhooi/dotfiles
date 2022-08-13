@@ -67,7 +67,7 @@ return require('packer').startup(function(use)
 
   use {
     'lewis6991/gitsigns.nvim',
-    config = [[require('plugins.config.gitsigns')]],
+    config = function() require('plugins.config.gitsigns') end,
   }
 
   use {
@@ -86,7 +86,11 @@ use {
   end,
 }
 
-  -- Colorscheme
+  -- textobj {{{
+
+  -- }}}
+
+  -- Colorscheme {{{
   use {
     'cocopon/iceberg.vim',
     config = function()
@@ -96,6 +100,83 @@ use {
       ]])
     end,
   }
+  -- }}}
+
+  -- syntax {{{
+  use {
+    'keith/swift.vim',
+    ft = { 'swift' },
+  }
+
+  use {
+    'keith/xcconfig.vim',
+    cond = function() return vim.fn.expand('%:e') == 'xcconfig' end,
+  }
+
+  use {
+    'udalov/kotlin-vim',
+    ft = { 'kotlin' },
+  }
+
+  use {
+    'dart-lang/dart-vim-plugin',
+    ft = { 'dart' },
+    config = function()
+      vim.g.dart_html_in_string = true
+      vim.g.dart_style_guide = 2
+      vim.g.dart_format_on_save = true
+    end,
+  }
+
+  use {
+    'mechatroner/rainbow_csv',
+    cond = function() return vim.fn.expand('%:e') == 'csv' end,
+  }
+
+  use {
+    'cespare/vim-toml',
+    ft = { 'toml' },
+  }
+
+  use {
+    'aklt/plantuml-syntax',
+    cond = function()
+      local ext = vim.fn.expand('%:e')
+      return ext == 'pu' or ext == 'uml' or ext == 'puml' or ext == 'iuml' or ext == 'plantuml'
+    end,
+  }
+
+  use {
+    'tokorom/vim-review',
+    ft = { 'review' },
+    config = function() require('plugins.config.vim_review') end,
+  }
+
+  use {
+    'kylef/apiblueprint.vim',
+    ft = { 'apiblueprint' },
+  }
+
+  use {
+    'osyo-manga/vim-precious',
+    requires = { 'Shougo/context_filetype.vim' },
+    ft = { 'markdown', 'toml', 'help' },
+  }
+
+  use { 'Shougo/context_filetype.vim' }
+  -- }}}
+
+-- ddc {{{
+
+-- }}}
+
+-- ddu {{{
+
+-- }}}
+
+-- lsp {{{
+
+-- }}}
 
   if packer_bootstrap then
     require('packer').sync()

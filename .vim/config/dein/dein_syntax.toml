@@ -19,9 +19,9 @@ on_ft = ['kotlin']
 repo = 'dart-lang/dart-vim-plugin'
 on_ft = ['dart']
 hook_source = '''
-  let dart_html_in_string=v:true
+  let g:dart_html_in_string = v:true
   let g:dart_style_guide = 2
-  let g:dart_format_on_save = 1
+  let g:dart_format_on_save = v:true
 '''
 
 [[plugins]]
@@ -34,7 +34,7 @@ on_ft = ['toml']
 
 [[plugins]]
 repo = 'aklt/plantuml-syntax'
-on_path = ['\.pu$', '\.uml$', '\.plantuml$']
+on_path = ['\.pu$', '\.uml$', '\.puml$', '\.iuml$', '\.plantuml$']
 
 [[plugins]]
 repo = 'tokorom/vim-review'
