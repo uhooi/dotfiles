@@ -87,7 +87,11 @@ use {
 }
 
   -- textobj {{{
-
+  use { 'kana/vim-textobj-user' }
+  use { 'kana/vim-textobj-entire', requires = { 'kana/vim-textobj-user' } }
+  use { 'kana/vim-textobj-indent', requires = { 'kana/vim-textobj-user' } }
+  use { 'sgur/vim-textobj-parameter', requires = { 'kana/vim-textobj-user' } }
+  use { 'thinca/vim-textobj-between', requires = { 'kana/vim-textobj-user' } }
   -- }}}
 
   -- Colorscheme {{{

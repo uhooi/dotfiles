@@ -3,13 +3,17 @@ repo = 'kana/vim-textobj-user'
 
 [[plugins]]
 repo = 'kana/vim-textobj-entire'
+depends = ['kana/vim-textobj-user']
 
 [[plugins]]
 repo = 'kana/vim-textobj-indent'
+depends = ['kana/vim-textobj-user']
 
 [[plugins]]
 repo = 'sgur/vim-textobj-parameter'
+depends = ['kana/vim-textobj-user']
 
 [[plugins]]
 repo = 'thinca/vim-textobj-between'
+depends = ['kana/vim-textobj-user']
 
