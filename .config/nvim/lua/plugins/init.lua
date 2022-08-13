@@ -176,6 +176,41 @@ use {
   use { 'Shougo/context_filetype.vim' }
   -- }}}
 
+  use {
+    'previm/previm',
+    requires = { 'tyru/open-browser.vim' },
+    ft = { 'markdown' },
+    config = function() require('plugins/config/previm') end,
+  }
+
+  use {
+    'tyru/open-browser.vim',
+    keys = { '<Plug>(openbrowser-smart-search)' },
+    config = function() require('plugins/config/open_browser') end,
+  }
+
+  use {
+    'thinca/vim-showtime',
+    ft = { 'markdown' },
+  }
+
+  use {
+    'rhysd/committia.vim',
+    ft = { 'gitcommit' },
+  }
+
+  -- Denops {{{
+  use { 'vim-denops/denops.vim' }
+  use { 'vim-denops/denops-helloworld.vim', requires = { 'vim-denops/denops.vim' }}
+
+  use { 'lambdalisue/gin.vim', requires = { 'vim-denops/denops.vim' }}
+  -- }}}
+
+  use {
+    'thinca/vim-themis',
+    ft = { 'vim' },
+  }
+
 -- ddc {{{
 
 -- }}}

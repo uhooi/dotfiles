@@ -19,7 +19,7 @@ on_ft = ['markdown']
 
 [[plugins]]
 repo = 'rhysd/committia.vim'
-on_ft = 'gitcommit'
+on_ft = ['gitcommit']
 
 [[plugins]]
 repo = 'vim-denops/denops.vim'
@@ -33,7 +33,9 @@ on_source = 'denops.vim'
 repo = 'lambdalisue/gin.vim'
 on_source = 'denops.vim'
 hook_source = '''
-  autocmd User GinComponentPost call lightline#update()
+  if !has('nvim')
+    autocmd User GinComponentPost call lightline#update()
+  endif
 '''
 
 [[plugins]]
