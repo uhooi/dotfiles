@@ -63,6 +63,7 @@ vim.opt.showcmd = true
 vim.opt.title = true
 vim.opt.cursorline = true
 vim.opt.colorcolumn = { 80 }
+vim.opt.foldmethod = 'marker'
 vim.opt.pumheight = 10
 vim.opt.pumblend = 10
 
