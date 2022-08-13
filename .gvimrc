@@ -30,15 +30,13 @@ endif
 
 if has('win16') || has('win32') || has('win64')
   " Windows
-  "set guifont=Hack:h13
-  set guifont=RictyDiminished\ NF:h10.5:cSHIFTJIS " 半角
-  set guifontwide=RictyDiminished\ NF:h10.5:cSHIFTJIS " 全角
+  set guifont=RictyDiminished\ Nerd\ Font:h10.5:cSHIFTJIS " 半角
+  set guifontwide=RictyDiminished\ Nerd\ Font:h10.5:cSHIFTJIS " 全角
   set linespace=1
 elseif has('mac')
   " Mac
-  "set guifont=Hack:h13
-  set guifont=RictyDiminished\ NF:h13.5 " 半角
-  set guifontwide=RictyDiminished\ NF:h13.5 " 全角
+  set guifont=RictyDiminished\ Nerd\ Font:h18 " 半角
+  set guifontwide=RictyDiminished\ Nerd\ Font:h18 " 全角
   set linespace=1
 else
   " linux
