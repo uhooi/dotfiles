@@ -2,19 +2,25 @@
 
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
+if = "!has('nvim')"
 depends = ['vim-lsp-settings']
 hook_add = 'source ~/.vim/config/plugins/lsp.rc.vim'
 
 [[plugins]]
 repo = 'mattn/vim-lsp-settings'
+if = "!has('nvim')"
 
-# Not work
+[[plugins]]
+repo = 'neovim/nvim-lspconfig'
+if = "has('nvim')"
+
+# FIXME: Not work
 [[plugins]]
 repo = 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 if = "has('nvim')"
 hook_add = '''
-lua <<EOF
-  require("lsp_lines").setup()
+lua << EOF
+  require('lsp_lines').setup()
   vim.diagnostic.config({
     virtual_text = false,
   })
@@ -26,3 +32,8 @@ lua <<EOF
   )
 EOF
 '''
+
+[[plugins]]
+repo = 'hrsh7th/nvim-cmp'
+if = "has('nvim')"
+

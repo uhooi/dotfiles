@@ -180,13 +180,13 @@ use {
     'previm/previm',
     requires = { 'tyru/open-browser.vim' },
     ft = { 'markdown' },
-    config = function() require('plugins/config/previm') end,
+    config = function() require('plugins.config.previm') end,
   }
 
   use {
     'tyru/open-browser.vim',
     keys = { '<Plug>(openbrowser-smart-search)' },
-    config = function() require('plugins/config/open_browser') end,
+    config = function() require('plugins.config.open_browser') end,
   }
 
   use {
@@ -211,15 +211,64 @@ use {
     ft = { 'vim' },
   }
 
--- ddc {{{
+-- lsp {{{
+-- ref: https://github.com/wbthomason/dotfiles/blob/08e10d9cc8d2c5bdd2f947caa2c40206efde8db7/neovim/.config/nvim/lua/plugins.lua
+--    : https://github.com/delphinus/dotfiles/blob/e562d4f8e99793e6ae1cd330c9208dac1d29d407/.config/nvim/lua/modules/lsp/init.lua
+--    : https://zenn.dev/kawarimidoll/articles/367b78f7740e84
+--    : https://zenn.dev/botamotch/articles/21073d78bc68bf
+  use { 'neovim/nvim-lspconfig' }
 
+  use {
+    'williamboman/mason.nvim',
+    requires = { 'williamboman/mason-lspconfig.nvim' },
+    config = function()
+      require('mason').setup()
+      local mason_lspconfig = require('mason-lspconfig')
+      mason_lspconfig.setup()
+      mason_lspconfig.setup_handlers {
+        function(server_name)
+          local capabilities = require('cmp_nvim_lsp')
+            .update_capabilities(
+              vim.lsp.protocol.make_client_capabilities()
+            )
+          require('lspconfig')[server_name].setup {
+            capabilities = capabilities,
+          }
+        end
+      }
+    end,
+  }
+
+  use {
+    'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+    config = function()
+      require('lsp_lines').setup()
+      vim.diagnostic.config {
+        virtual_text = false,
+      }
+      vim.keymap.set(
+        '',
+        '<Leader>l',
+        require('lsp_lines').toggle,
+        { desc = 'Toggle lsp_lines' }
+      )
+    end,
+  }
+
+  use {
+    'hrsh7th/nvim-cmp',
+    requires = {
+      'hrsh7th/cmp-nvim-lsp',
+      { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'nvim-cmp' },
+    },
+    config = function() require('plugins.config.nvim_cmp') end,
+  }
 -- }}}
 
 -- ddu {{{
-
--- }}}
-
--- lsp {{{
 
 -- }}}
 
