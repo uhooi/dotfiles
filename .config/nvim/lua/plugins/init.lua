@@ -194,6 +194,7 @@ use {
     ft = { 'markdown' },
   }
 
+  -- FIXME: Not work
   use {
     'rhysd/committia.vim',
     ft = { 'gitcommit' },
