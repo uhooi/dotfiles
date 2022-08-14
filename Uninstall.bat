@@ -11,17 +11,19 @@ rem ----------------------------------------------------------------
 
 rem dotfilesのシンボリックリンクを削除する
 del %USERPROFILE%\.vimrc
-del %USERPROFILE%\.config\nvim\init.vim
 del %USERPROFILE%\.gvimrc
 del %USERPROFILE%\.ideavimrc
-rmdir %USERPROFILE%\.vim\config
-rmdir %USERPROFILE%\.vim\snippets
+del %USERPROFILE%\.vim\config
+del %USERPROFILE%\.vim\snippets
+del %USERPROFILE%\.config\nvim
+del %APPDATA%\efm-langserver
+del %USERPROFILE%\.config\ranger
 del %USERPROFILE%\.sqliterc
 del %USERPROFILE%\.xpdfrc
 del %USERPROFILE%\.gitignore
 del %USERPROFILE%\.svnignore
+del %USERPROFILE%\.gitconfig
 del %USERPROFILE%\.hyper.js
-
 
 endlocal
 exit

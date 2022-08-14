@@ -11,17 +11,16 @@ SCRIPT_DIR_PATH=$(cd $(dirname $0);pwd)
 
 # dotfilesのシンボリックリンクを作成する
 ln -fns ${SCRIPT_DIR_PATH}/.vimrc ~/.vimrc
-mkdir ~/.config
-mkdir ~/.config/nvim
 ln -fns ${SCRIPT_DIR_PATH}/.gvimrc ~/.gvimrc
 ln -fns ${SCRIPT_DIR_PATH}/.xvimrc ~/.xvimrc
 ln -fns ${SCRIPT_DIR_PATH}/.ideavimrc ~/.ideavimrc
 mkdir ~/.vim
 ln -fns ${SCRIPT_DIR_PATH}/.vim/config ~/.vim/config
 ln -fns ${SCRIPT_DIR_PATH}/.vim/snippets ~/.vim/snippets
+mkdir ~/.config
 ln -fns ${SCRIPT_DIR_PATH}/.config/nvim ~/.config/nvim
-ln -fns ${SCRIPT_DIR_PATH}/.config/ranger ~/.config/ranger
 ln -fns ${SCRIPT_DIR_PATH}/.config/efm-langserver ~/.config/efm-langserver
+ln -fns ${SCRIPT_DIR_PATH}/.config/ranger ~/.config/ranger
 ln -fns ${SCRIPT_DIR_PATH}/.bash_profile ~/.bash_profile
 ln -fns ${SCRIPT_DIR_PATH}/.bashrc ~/.bashrc
 ln -fns ${SCRIPT_DIR_PATH}/.inputrc ~/.inputrc
@@ -36,7 +35,7 @@ ln -fns ${SCRIPT_DIR_PATH}/.swift-package-complete.bash ~/.swift-package-complet
 source ~/.bash_profile
 
 # dein.vimをインストールする
-# 参考：https://github.com/Shougo/dein.vim#quick-start
+# ref: https://github.com/Shougo/dein.vim#quick-start
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
 sh ./installer.sh ~/.cache/dein
 rm -f ./installer.sh
@@ -61,13 +60,13 @@ if [ "$(uname)" == 'Darwin' ]; then
   killall SystemUIServer
 
   # Homebrewをインストールする
-  # 参考：https://docs.brew.sh/Installation
+  # ref: https://docs.brew.sh/Installation
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
   source ~/.bash_profile
 
   # Homebrewで管理しているパッケージをインストールする
-  # 参考：https://tech.gootablog.com/article/homebrew-brewfile/
+  # ref: https://tech.gootablog.com/article/homebrew-brewfile/
   brew bundle
 
   source ~/.bash_profile
