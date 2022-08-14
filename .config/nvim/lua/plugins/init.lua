@@ -217,7 +217,10 @@ use {
 --    : https://github.com/delphinus/dotfiles/blob/e562d4f8e99793e6ae1cd330c9208dac1d29d407/.config/nvim/lua/modules/lsp/init.lua
 --    : https://zenn.dev/kawarimidoll/articles/367b78f7740e84
 --    : https://zenn.dev/botamotch/articles/21073d78bc68bf
-  use { 'neovim/nvim-lspconfig' }
+  use {
+    'neovim/nvim-lspconfig',
+    config = function() require('plugins.config.nvim_lspconfig') end,
+  }
 
   use {
     'williamboman/mason.nvim',
