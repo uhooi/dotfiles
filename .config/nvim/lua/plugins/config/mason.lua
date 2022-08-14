@@ -11,7 +11,6 @@ require('mason').setup {
 local mason_lspconfig = require('mason-lspconfig')
 mason_lspconfig.setup()
 mason_lspconfig.setup_handlers {
-  -- FIXME: Slow startup of language server
   function(server_name)
     local opts = {
       capabilities = require('cmp_nvim_lsp').update_capabilities(
@@ -28,9 +27,10 @@ mason_lspconfig.setup_handlers {
           diagnostics = {
             globals = { 'vim' },
           },
-          workspace = {
-            library = vim.api.nvim_get_runtime_file('', true),
-          },
+          -- Very slow
+          --workspace = {
+          --  library = vim.api.nvim_get_runtime_file('', true),
+          --},
           telemetry = {
             enable = false,
           },
