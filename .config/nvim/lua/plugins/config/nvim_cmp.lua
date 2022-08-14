@@ -1,5 +1,3 @@
--- FIXME: Not work
-
 -- ref: https://github.com/hrsh7th/nvim-cmp/wiki/Language-Server-Specific-Samples
 --    : https://github.com/hrsh7th/dotfiles/blob/477047a6280c2c1f858e94e9073fd20bab05c0c7/.config/nvim/init.vim#L767-L852
 
@@ -19,11 +17,8 @@ cmp.setup {
   },
   sources = cmp.config.sources {
     { name = 'nvim_lsp_signature_help' },
-  }, {
     { name = 'path' },
-  }, {
     { name = 'nvim_lsp' },
-  }, {
     { name = 'buffer' },
   },
 }
@@ -39,7 +34,6 @@ cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources {
     { name = 'path' },
-  }, {
     { name = 'cmdline' },
   },
 })
