@@ -13,7 +13,6 @@ SCRIPT_DIR_PATH=$(cd $(dirname $0);pwd)
 ln -fns ${SCRIPT_DIR_PATH}/.vimrc ~/.vimrc
 mkdir ~/.config
 mkdir ~/.config/nvim
-ln -fns ${SCRIPT_DIR_PATH}/.vimrc ${SCRIPT_DIR_PATH}/.config/nvim/init.vim
 ln -fns ${SCRIPT_DIR_PATH}/.gvimrc ~/.gvimrc
 ln -fns ${SCRIPT_DIR_PATH}/.xvimrc ~/.xvimrc
 ln -fns ${SCRIPT_DIR_PATH}/.ideavimrc ~/.ideavimrc
