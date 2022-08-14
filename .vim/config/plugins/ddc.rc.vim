@@ -1,8 +1,8 @@
 call ddc#custom#patch_global('sources',
-\  ['around', 'nextword', 'file', 'vim-lsp']
+\  ['around', 'file', 'vim-lsp']
 \)
 call ddc#custom#patch_global('cmdlineSources',
-\  ['cmdline-history', 'input', 'file', 'vim-lsp', 'around', 'nextword']
+\  ['cmdline-history', 'input', 'file', 'vim-lsp', 'around']
 \)
 
 call ddc#custom#patch_global('sourceOptions', {
@@ -13,9 +13,6 @@ call ddc#custom#patch_global('sourceOptions', {
 \  },
 \  'around': {
 \    'mark': 'A',
-\  },
-\  'nextword': {
-\    'mark': 'nextword',
 \  },
 \  'file': {
 \    'mark': 'F',
