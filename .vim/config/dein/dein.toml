@@ -69,6 +69,15 @@ repo = 'skanehira/translate.vim'
 hook_add = 'source ~/.vim/config/plugins/translate.rc.vim'
 
 [[plugins]]
+repo = 'rcarriga/nvim-notify'
+if = "has('nvim')"
+hook_add = '''
+lua << EOF
+  vim.notify = require('notify')
+EOF
+'''
+
+[[plugins]]
 repo = 'vim-jp/vimdoc-ja'
 hook_add = 'set helplang=ja,en'
 

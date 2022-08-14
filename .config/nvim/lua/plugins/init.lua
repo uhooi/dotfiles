@@ -63,6 +63,13 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'rcarriga/nvim-notify',
+    config = function()
+      vim.notify = require('notify')
+    end,
+  }
+
+  use {
     'vim-jp/vimdoc-ja',
     config = function()
       vim.opt.helplang = { 'ja', 'en' }
