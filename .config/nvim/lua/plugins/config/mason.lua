@@ -11,7 +11,7 @@ require('mason').setup {
 local mason_lspconfig = require('mason-lspconfig')
 mason_lspconfig.setup()
 mason_lspconfig.setup_handlers {
-  -- FIXME: Not work
+  -- FIXME: Slow startup of language server
   function(server_name)
     local opts = {
       capabilities = require('cmp_nvim_lsp').update_capabilities(
