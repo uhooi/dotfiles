@@ -5,55 +5,18 @@ repo = 'Shougo/dein.vim'
 repo = 'haya14busa/dein-command.vim'
 
 [[plugins]]
-repo = 'nvim-lualine/lualine.nvim'
-if = "has('nvim')"
-depends = ['kyazdani42/nvim-web-devicons']
-hook_add = 'source ~/.vim/config/plugins/lualine.rc.vim'
-
-[[plugins]]
-repo = 'kyazdani42/nvim-web-devicons'
-if = "has('nvim')"
-
-[[plugins]]
 repo = 'itchyny/lightline.vim'
-if = "!has('nvim')"
 hook_add = 'source ~/.vim/config/plugins/lightline.rc.vim'
 
 [[plugins]]
-repo = 'norcalli/nvim-colorizer.lua'
-if = "has('nvim')"
-hook_add = '''
-  set termguicolors
-  autocmd VimEnter * ++nested lua require('colorizer').setup {}
-'''
-
-[[plugins]]
 repo = 'lilydjwg/colorizer'
-if = "!has('nvim')"
 
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
 hook_add = 'source ~/.vim/config/plugins/easymotion.rc.vim'
 
 [[plugins]]
-repo = 'nvim-treesitter/nvim-treesitter'
-if = "has('nvim')"
-hook_post_update = 'TSUpdate'
-
-[[plugins]]
-repo = 'lukas-reineke/indent-blankline.nvim'
-if = "has('nvim')"
-hook_add = '''
-lua <<EOF
-  require('indent_blankline').setup {
-    show_current_context = true,
-  }
-EOF
-'''
-
-[[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
-if = "!has('nvim')"
 hook_add = 'source ~/.vim/config/plugins/vimindentguides.rc.vim'
 
 #[[plugins]]
@@ -69,15 +32,6 @@ repo = 'skanehira/translate.vim'
 hook_add = 'source ~/.vim/config/plugins/translate.rc.vim'
 
 [[plugins]]
-repo = 'rcarriga/nvim-notify'
-if = "has('nvim')"
-hook_add = '''
-lua << EOF
-  vim.notify = require('notify')
-EOF
-'''
-
-[[plugins]]
 repo = 'vim-jp/vimdoc-ja'
 hook_add = 'set helplang=ja,en'
 
@@ -89,28 +43,5 @@ repo = 'tweekmonster/helpful.vim'
 repo = 'tpope/vim-characterize'
 
 [[plugins]]
-repo = 'lewis6991/gitsigns.nvim'
-if = "has('nvim')"
-hook_add = 'source ~/.vim/config/plugins/gitsigns.rc.vim'
-
-# Not working in Neovim
-#[[plugins]]
-#repo = 'mattn/vim-nekokak'
-#if = "!has('nvim')"
-
-[[plugins]]
-repo = 'delphinus/nekokak.nvim'
-if = "has('nvim')"
-hook_add = '''
-  set termguicolors
-  lua require('nekokak').setup {}
-'''
-
-[[plugins]]
-repo = 'uhooi/uhooi.nvim'
-if = "has('nvim')"
-hook_add = '''
-  set termguicolors
-  lua require('uhooi').setup {}
-'''
+repo = 'mattn/vim-nekokak'
 

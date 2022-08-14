@@ -53,9 +53,6 @@ set cursorline
 set colorcolumn=80
 set foldmethod=marker
 set pumheight=10
-if has('nvim')
-  set pumblend=10
-endif
 
 " Font
 set ambiwidth=double
