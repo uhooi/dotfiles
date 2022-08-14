@@ -232,6 +232,8 @@ use {
       { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
       { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
       { 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-vsnip', after = 'nvim-cmp' },
+      { 'hrsh7th/vim-vsnip', after = 'nvim-cmp' },
     },
     config = function() require('plugins.config.nvim_cmp') end,
   }
