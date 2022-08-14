@@ -1,6 +1,6 @@
 " ref: https://github.com/lighttiger2505/.dotfiles/blob/master/.vim/rc/mappings.rc.vim
 "    : https://qiita.com/uhooi/items/58d58c24647f92f1995e
-"    : :h map-table
+"    : https://vim-jp.org/vimdoc-ja/map.html#map-table
 
 " ノーマル、ビジュアル、選択、オペレータ待機
 " 「H, L」で行頭・行末に移動する
@@ -35,17 +35,16 @@ nnoremap - <C-x>
 nnoremap <C-a> +
 nnoremap <C-x> -
 " ウィンドウ関連
-" ref: http://qiita.com/tekkoc/items/98adcadfa4bdc8b5a6ca
+nnoremap sh <C-w>h
 nnoremap sj <C-w>j
 nnoremap sk <C-w>k
 nnoremap sl <C-w>l
-nnoremap sh <C-w>h
 nnoremap sw <C-w>w
 nnoremap sr <C-w>r
+nnoremap sH <C-w>H
 nnoremap sJ <C-w>J
 nnoremap sK <C-w>K
 nnoremap sL <C-w>L
-nnoremap sH <C-w>H
 nnoremap ss <C-w>s
 nnoremap sv <C-w>v
 nmap s+ <C-w>+
