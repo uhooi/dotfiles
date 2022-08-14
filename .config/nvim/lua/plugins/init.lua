@@ -221,38 +221,12 @@ use {
   use {
     'williamboman/mason.nvim',
     requires = { 'williamboman/mason-lspconfig.nvim' },
-    config = function()
-      require('mason').setup()
-      local mason_lspconfig = require('mason-lspconfig')
-      mason_lspconfig.setup()
-      mason_lspconfig.setup_handlers {
-        function(server_name)
-          local capabilities = require('cmp_nvim_lsp')
-            .update_capabilities(
-              vim.lsp.protocol.make_client_capabilities()
-            )
-          require('lspconfig')[server_name].setup {
-            capabilities = capabilities,
-          }
-        end
-      }
-    end,
+    config = function() require('plugins.config.mason') end,
   }
 
   use {
     'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
-    config = function()
-      require('lsp_lines').setup()
-      vim.diagnostic.config {
-        virtual_text = false,
-      }
-      vim.keymap.set(
-        '',
-        '<Leader>l',
-        require('lsp_lines').toggle,
-        { desc = 'Toggle lsp_lines' }
-      )
-    end,
+    config = function() require('plugins.config.lsp_lines') end,
   }
 
   use {
