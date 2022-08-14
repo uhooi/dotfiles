@@ -5,6 +5,9 @@
 local cmp = require('cmp')
 
 cmp.setup {
+  completion = {
+    keyword_length = 3,
+  },
   snippet = {
     expand = function(args)
       vim.fn['vsnip#anonymous'](args.body)
