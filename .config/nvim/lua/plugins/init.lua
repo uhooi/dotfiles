@@ -21,32 +21,11 @@ vim.cmd([[
 ]])
 
 return require('packer').startup(function(use)
+  -- Plugin manager {{{
   use 'wbthomason/packer.nvim'
+  -- }}}
 
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-    config = function() require('plugins.config.lualine') end,
-  }
-
-  use {
-    'norcalli/nvim-colorizer.lua',
-    config = function()
-      vim.opt.termguicolors = true
-      require('colorizer').setup {}
-    end,
-  }
-
-  use {
-    'easymotion/vim-easymotion',
-    config = function()
-      vim.keymap.set('', 'f', '<Plug>(easymotion-fl)')
-      vim.keymap.set('', 't', '<Plug>(easymotion-tl)')
-      vim.keymap.set('', 'F', '<Plug>(easymotion-Fl)')
-      vim.keymap.set('', 'T', '<Plug>(easymotion-Tl)')
-    end,
-  }
-
+  -- Basic {{{
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
@@ -63,14 +42,11 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'nvim-telescope/telescope.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim',
-      'nvim-treesitter/nvim-treesitter',
-      'kyazdani42/nvim-web-devicons',
-      { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
-    },
-    config = function() require('plugins.config.telescope') end,
+    'norcalli/nvim-colorizer.lua',
+    config = function()
+      vim.opt.termguicolors = true
+      require('colorizer').setup {}
+    end,
   }
 
   use {
@@ -88,34 +64,60 @@ return require('packer').startup(function(use)
   }
 
   use { 'tweekmonster/helpful.vim' }
+  -- }}}
 
+  -- statusline {{{
   use {
-    'lewis6991/gitsigns.nvim',
-    config = function() require('plugins.config.gitsigns') end,
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    config = function() require('plugins.config.lualine') end,
   }
+  -- }}}
 
+  -- Motion {{{
   use {
-    'delphinus/nekokak.nvim',
+    'easymotion/vim-easymotion',
     config = function()
-      vim.opt.termguicolors = true
-      require('nekokak').setup {}
+      vim.keymap.set('', 'f', '<Plug>(easymotion-fl)')
+      vim.keymap.set('', 't', '<Plug>(easymotion-tl)')
+      vim.keymap.set('', 'F', '<Plug>(easymotion-Fl)')
+      vim.keymap.set('', 'T', '<Plug>(easymotion-Tl)')
     end,
   }
+  --- }}}
 
+-- textobj {{{
+use { 'kana/vim-textobj-user' }
+use { 'kana/vim-textobj-entire', requires = { 'kana/vim-textobj-user' } }
+use { 'kana/vim-textobj-indent', requires = { 'kana/vim-textobj-user' } }
+use { 'sgur/vim-textobj-parameter', requires = { 'kana/vim-textobj-user' } }
+use { 'thinca/vim-textobj-between', requires = { 'kana/vim-textobj-user' } }
+-- }}}
+
+-- Git {{{
 use {
-  'uhooi/uhooi.nvim',
-  config = function()
-    vim.opt.termguicolors = true
-    require('uhooi').setup {}
-  end,
+  'lewis6991/gitsigns.nvim',
+  config = function() require('plugins.config.gitsigns') end,
 }
 
-  -- textobj {{{
-  use { 'kana/vim-textobj-user' }
-  use { 'kana/vim-textobj-entire', requires = { 'kana/vim-textobj-user' } }
-  use { 'kana/vim-textobj-indent', requires = { 'kana/vim-textobj-user' } }
-  use { 'sgur/vim-textobj-parameter', requires = { 'kana/vim-textobj-user' } }
-  use { 'thinca/vim-textobj-between', requires = { 'kana/vim-textobj-user' } }
+-- FIXME: Not work
+use {
+  'rhysd/committia.vim',
+  ft = { 'gitcommit' },
+}
+--- }}}
+
+  -- Fuzzy finder {{{
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-treesitter/nvim-treesitter',
+      'kyazdani42/nvim-web-devicons',
+      { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+    },
+    config = function() require('plugins.config.telescope') end,
+  }
   -- }}}
 
   -- Colorscheme {{{
@@ -130,7 +132,7 @@ use {
   }
   -- }}}
 
-  -- syntax {{{
+  -- Syntax {{{
   use {
     'keith/swift.vim',
     ft = { 'swift' },
@@ -194,30 +196,6 @@ use {
   use { 'Shougo/context_filetype.vim' }
   -- }}}
 
-  use {
-    'previm/previm',
-    requires = { 'tyru/open-browser.vim' },
-    ft = { 'markdown' },
-    config = function() require('plugins.config.previm') end,
-  }
-
-  use {
-    'tyru/open-browser.vim',
-    keys = { '<Plug>(openbrowser-smart-search)' },
-    config = function() require('plugins.config.open_browser') end,
-  }
-
-  use {
-    'thinca/vim-showtime',
-    ft = { 'markdown' },
-  }
-
-  -- FIXME: Not work
-  use {
-    'rhysd/committia.vim',
-    ft = { 'gitcommit' },
-  }
-
   -- Denops {{{
   use { 'vim-denops/denops.vim' }
   use { 'vim-denops/denops-helloworld.vim', requires = { 'vim-denops/denops.vim' }}
@@ -225,12 +203,7 @@ use {
   use { 'lambdalisue/gin.vim', requires = { 'vim-denops/denops.vim' }}
   -- }}}
 
-  use {
-    'thinca/vim-themis',
-    ft = { 'vim' },
-  }
-
--- lsp {{{
+-- LSP {{{
 -- ref: https://github.com/wbthomason/dotfiles/blob/08e10d9cc8d2c5bdd2f947caa2c40206efde8db7/neovim/.config/nvim/lua/plugins.lua
 --    : https://github.com/delphinus/dotfiles/blob/e562d4f8e99793e6ae1cd330c9208dac1d29d407/.config/nvim/lua/modules/lsp/init.lua
 --    : https://zenn.dev/kawarimidoll/articles/367b78f7740e84
@@ -264,8 +237,49 @@ use {
   }
 -- }}}
 
--- ddu {{{
+-- Preview {{{
+use {
+  'previm/previm',
+  requires = { 'tyru/open-browser.vim' },
+  ft = { 'markdown' },
+  config = function() require('plugins.config.previm') end,
+}
 
+use {
+  'tyru/open-browser.vim',
+  keys = { '<Plug>(openbrowser-smart-search)' },
+  config = function() require('plugins.config.open_browser') end,
+}
+-- }}}
+
+  -- Others {{{
+  use {
+    'thinca/vim-showtime',
+    ft = { 'markdown' },
+  }
+
+  use {
+    'thinca/vim-themis',
+    ft = { 'vim' },
+  }
+  -- }}}
+
+-- Toy {{{
+use {
+  'delphinus/nekokak.nvim',
+  config = function()
+    vim.opt.termguicolors = true
+    require('nekokak').setup {}
+  end,
+}
+
+use {
+'uhooi/uhooi.nvim',
+config = function()
+  vim.opt.termguicolors = true
+  require('uhooi').setup {}
+end,
+}
 -- }}}
 
   if packer_bootstrap then
