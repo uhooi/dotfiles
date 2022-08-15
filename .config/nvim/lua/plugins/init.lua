@@ -8,9 +8,10 @@
 --    : https://github.com/craftzdog/dotfiles-public/blob/50344f53c96c241e6d0659ed19507c70771bd971/.config/nvim/lua/plugins.lua
 
 local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
+    install_path })
   vim.cmd [[packadd packer.nvim]]
 end
 
@@ -199,16 +200,16 @@ return require('packer').startup(function(use)
 
   -- Denops {{{
   use { 'vim-denops/denops.vim' }
-  use { 'vim-denops/denops-helloworld.vim', requires = { 'vim-denops/denops.vim' }}
+  use { 'vim-denops/denops-helloworld.vim', requires = { 'vim-denops/denops.vim' } }
 
-  use { 'lambdalisue/gin.vim', requires = { 'vim-denops/denops.vim' }}
+  use { 'lambdalisue/gin.vim', requires = { 'vim-denops/denops.vim' } }
   -- }}}
 
--- LSP {{{
--- ref: https://github.com/wbthomason/dotfiles/blob/08e10d9cc8d2c5bdd2f947caa2c40206efde8db7/neovim/.config/nvim/lua/plugins.lua
---    : https://github.com/delphinus/dotfiles/blob/e562d4f8e99793e6ae1cd330c9208dac1d29d407/.config/nvim/lua/modules/lsp/init.lua
---    : https://zenn.dev/kawarimidoll/articles/367b78f7740e84
---    : https://zenn.dev/botamotch/articles/21073d78bc68bf
+  -- LSP {{{
+  -- ref: https://github.com/wbthomason/dotfiles/blob/08e10d9cc8d2c5bdd2f947caa2c40206efde8db7/neovim/.config/nvim/lua/plugins.lua
+  --    : https://github.com/delphinus/dotfiles/blob/e562d4f8e99793e6ae1cd330c9208dac1d29d407/.config/nvim/lua/modules/lsp/init.lua
+  --    : https://zenn.dev/kawarimidoll/articles/367b78f7740e84
+  --    : https://zenn.dev/botamotch/articles/21073d78bc68bf
   use {
     'neovim/nvim-lspconfig',
     config = function() require('plugins.config.nvim_lspconfig') end,
@@ -238,22 +239,22 @@ return require('packer').startup(function(use)
     },
     config = function() require('plugins.config.nvim_cmp') end,
   }
--- }}}
+  -- }}}
 
--- Preview {{{
-use {
-  'previm/previm',
-  requires = { 'tyru/open-browser.vim' },
-  ft = { 'markdown' },
-  config = function() require('plugins.config.previm') end,
-}
+  -- Preview {{{
+  use {
+    'previm/previm',
+    requires = { 'tyru/open-browser.vim' },
+    ft = { 'markdown' },
+    config = function() require('plugins.config.previm') end,
+  }
 
-use {
-  'tyru/open-browser.vim',
-  keys = { '<Plug>(openbrowser-smart-search)' },
-  config = function() require('plugins.config.open_browser') end,
-}
--- }}}
+  use {
+    'tyru/open-browser.vim',
+    keys = { '<Plug>(openbrowser-smart-search)' },
+    config = function() require('plugins.config.open_browser') end,
+  }
+  -- }}}
 
   -- Others {{{
   use {
@@ -267,26 +268,25 @@ use {
   }
   -- }}}
 
--- Toy {{{
-use {
-  'delphinus/nekokak.nvim',
-  config = function()
-    vim.opt.termguicolors = true
-    require('nekokak').setup {}
-  end,
-}
+  -- Toy {{{
+  use {
+    'delphinus/nekokak.nvim',
+    config = function()
+      vim.opt.termguicolors = true
+      require('nekokak').setup {}
+    end,
+  }
 
-use {
-'uhooi/uhooi.nvim',
-config = function()
-  vim.opt.termguicolors = true
-  require('uhooi').setup {}
-end,
-}
--- }}}
+  use {
+    'uhooi/uhooi.nvim',
+    config = function()
+      vim.opt.termguicolors = true
+      require('uhooi').setup {}
+    end,
+  }
+  -- }}}
 
   if packer_bootstrap then
     require('packer').sync()
   end
 end)
-
