@@ -18,6 +18,7 @@ vim.fn.sign_define(
   { text = '', texthl = 'LspDiagnosticsSignInformation', numhl = 'LspDiagnosticsSignInformation' }
 )
 
+-- ref: https://zenn.dev/botamotch/articles/21073d78bc68bf
 vim.keymap.set('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', { noremap = true})
 vim.keymap.set('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true})
 vim.keymap.set('n', 'gf', '<Cmd>lua vim.lsp.buf.formatting()<CR>', { noremap = true})
