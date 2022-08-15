@@ -19,12 +19,11 @@ vim.fn.sign_define(
 )
 
 -- ref: https://zenn.dev/botamotch/articles/21073d78bc68bf
-vim.keymap.set('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', { noremap = true})
-vim.keymap.set('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true})
-vim.keymap.set('n', 'gf', '<Cmd>lua vim.lsp.buf.formatting()<CR>', { noremap = true})
-vim.keymap.set('n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>', { noremap = true})
-vim.keymap.set('n', 'gn', '<Cmd>lua vim.lsp.buf.rename()<CR>', { noremap = true})
-vim.keymap.set('n', 'ga', '<Cmd>lua vim.lsp.buf.code_action()<CR>', { noremap = true})
+vim.keymap.set('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', { noremap = true })
+vim.keymap.set('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true })
+vim.keymap.set('n', 'gf', '<Cmd>lua vim.lsp.buf.formatting()<CR>', { noremap = true })
+vim.keymap.set('n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>', { noremap = true })
+vim.keymap.set('n', 'gn', '<Cmd>lua vim.lsp.buf.rename()<CR>', { noremap = true })
+vim.keymap.set('n', 'ga', '<Cmd>lua vim.lsp.buf.code_action()<CR>', { noremap = true })
 vim.keymap.set('n', 'g]', '<Cmd>lua vim.diagnostic.goto_next()<CR>')
 vim.keymap.set('n', 'g[', '<Cmd>lua vim.diagnostic.goto_prev()<CR>')
-
