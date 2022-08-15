@@ -9,7 +9,7 @@ null_ls.setup {
     --    : https://zenn.dev/koga1020/scraps/46a160c9aec061
     null_ls.builtins.diagnostics.textlint.with {
       filetypes = { 'markdown' },
-      prefer_local = "node_modules/.bin",
+      prefer_local = 'node_modules/.bin',
     },
   },
 }
