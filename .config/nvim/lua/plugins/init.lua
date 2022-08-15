@@ -87,26 +87,26 @@ return require('packer').startup(function(use)
   }
   --- }}}
 
--- textobj {{{
-use { 'kana/vim-textobj-user' }
-use { 'kana/vim-textobj-entire', requires = { 'kana/vim-textobj-user' } }
-use { 'kana/vim-textobj-indent', requires = { 'kana/vim-textobj-user' } }
-use { 'sgur/vim-textobj-parameter', requires = { 'kana/vim-textobj-user' } }
-use { 'thinca/vim-textobj-between', requires = { 'kana/vim-textobj-user' } }
--- }}}
+  -- textobj {{{
+  use { 'kana/vim-textobj-user' }
+  use { 'kana/vim-textobj-entire', requires = { 'kana/vim-textobj-user' } }
+  use { 'kana/vim-textobj-indent', requires = { 'kana/vim-textobj-user' } }
+  use { 'sgur/vim-textobj-parameter', requires = { 'kana/vim-textobj-user' } }
+  use { 'thinca/vim-textobj-between', requires = { 'kana/vim-textobj-user' } }
+  -- }}}
 
--- Git {{{
-use {
-  'lewis6991/gitsigns.nvim',
-  config = function() require('plugins.config.gitsigns') end,
-}
+  -- Git {{{
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = function() require('plugins.config.gitsigns') end,
+  }
 
--- FIXME: Not work
-use {
-  'rhysd/committia.vim',
-  ft = { 'gitcommit' },
-}
---- }}}
+  -- FIXME: Not work
+  use {
+    'rhysd/committia.vim',
+    ft = { 'gitcommit' },
+  }
+  --- }}}
 
   -- Fuzzy finder {{{
   use {
