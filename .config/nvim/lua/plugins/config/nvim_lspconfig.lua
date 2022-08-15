@@ -1,5 +1,4 @@
 --FIXME: Not work
-
 -- ref: https://www.reddit.com/r/neovim/comments/oiyq17/lsp_diagnostic_icons_in_gutter/
 --    : https://github.com/LunarVim/LunarVim/blob/359b6fd8e44bc2ad5088aada3f9c037fb85b19af/lua/lsp/init.lua#L2-L17
 vim.fn.sign_define(
