@@ -19,15 +19,9 @@ vim.fn.sign_define(
 )
 
 -- ref: https://neovim.io/doc/user/lsp.html
+--    : https://github.com/neovim/nvim-lspconfig/blob/da7461b596d70fa47b50bf3a7acfaef94c47727d/doc/lspconfig.txt#L444-L476
 --    : https://zenn.dev/botamotch/articles/21073d78bc68bf
-vim.keymap.set('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', { noremap = true })
-vim.keymap.set('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true })
-vim.keymap.set('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', { noremap = true })
-vim.keymap.set('n', 'gi', '<Cmd>lua vim.lsp.buf.implementation()<CR>', { noremap = true })
-vim.keymap.set('n', 'gt', '<Cmd>lua vim.lsp.buf.type_definition()<CR>', { noremap = true })
-vim.keymap.set('n', 'gf', '<Cmd>lua vim.lsp.buf.formatting()<CR>', { noremap = true })
-vim.keymap.set('n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>', { noremap = true })
-vim.keymap.set('n', 'gn', '<Cmd>lua vim.lsp.buf.rename()<CR>', { noremap = true })
-vim.keymap.set('n', 'ga', '<Cmd>lua vim.lsp.buf.code_action()<CR>', { noremap = true })
-vim.keymap.set('n', 'g]', '<Cmd>lua vim.diagnostic.goto_next()<CR>', { noremap = true })
-vim.keymap.set('n', 'g[', '<Cmd>lua vim.diagnostic.goto_prev()<CR>', { noremap = true })
+local opts = { noremap = true }
+vim.keymap.set('n', 'g]', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', 'g[', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', 'gl', vim.diagnostic.setloclist, opts)
