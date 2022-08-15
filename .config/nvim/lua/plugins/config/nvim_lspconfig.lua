@@ -25,5 +25,5 @@ vim.keymap.set('n', 'gf', '<Cmd>lua vim.lsp.buf.formatting()<CR>', { noremap = t
 vim.keymap.set('n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>', { noremap = true })
 vim.keymap.set('n', 'gn', '<Cmd>lua vim.lsp.buf.rename()<CR>', { noremap = true })
 vim.keymap.set('n', 'ga', '<Cmd>lua vim.lsp.buf.code_action()<CR>', { noremap = true })
-vim.keymap.set('n', 'g]', '<Cmd>lua vim.diagnostic.goto_next()<CR>')
-vim.keymap.set('n', 'g[', '<Cmd>lua vim.diagnostic.goto_prev()<CR>')
+vim.keymap.set('n', 'g]', '<Cmd>lua vim.diagnostic.goto_next()<CR>', { noremap = true })
+vim.keymap.set('n', 'g[', '<Cmd>lua vim.diagnostic.goto_prev()<CR>', { noremap = true })
