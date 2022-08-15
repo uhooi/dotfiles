@@ -59,6 +59,11 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'numToStr/FTerm.nvim',
+    config = function () require('plugins.config.fterm') end,
+  }
+
+  use {
     'vim-jp/vimdoc-ja',
     config = function()
       vim.opt.helplang = { 'ja', 'en' }
