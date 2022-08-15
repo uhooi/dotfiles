@@ -1,2 +1,1 @@
-vim.keymap.set('n', '<C-p>', ':PrevimOpen<CR>', { noremap = true })
-
+vim.keymap.set('n', '<C-p>', '<Cmd>PrevimOpen<CR>', { noremap = true })
