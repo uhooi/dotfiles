@@ -222,6 +222,12 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'jose-elias-alvarez/null-ls.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function() require('plugins.config.null_ls') end,
+  }
+
+  use {
     'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
     config = function() require('plugins.config.lsp_lines') end,
   }
