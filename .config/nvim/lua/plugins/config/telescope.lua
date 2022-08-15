@@ -2,6 +2,7 @@
 --    : https://github.com/delphinus/dotfiles/blob/e562d4f8e99793e6ae1cd330c9208dac1d29d407/.config/nvim/lua/modules/telescope/config.lua
 
 require('telescope').load_extension('fzf')
+require('telescope').load_extension('ui-select')
 
 local telescope_builtin = require('telescope.builtin')
 vim.keymap.set('n', '<Leader>f', telescope_builtin.find_files, { noremap = true })

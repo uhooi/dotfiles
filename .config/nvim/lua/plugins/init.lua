@@ -117,6 +117,7 @@ return require('packer').startup(function(use)
       'nvim-treesitter/nvim-treesitter',
       'kyazdani42/nvim-web-devicons',
       { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+      use { 'nvim-telescope/telescope-ui-select.nvim' },
     },
     config = function() require('plugins.config.telescope') end,
   }
