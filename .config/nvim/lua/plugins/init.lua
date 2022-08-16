@@ -36,12 +36,21 @@ return require('packer').startup(function(use)
 
   use {
     'lukas-reineke/indent-blankline.nvim',
+    requires = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
       require('indent_blankline').setup {
         show_current_context = true, -- Require treesitter
         --show_current_context_start = true, -- Require treesitter
       }
     end,
+  }
+
+  -- FIXME: Not work
+  use {
+    'haringsrob/nvim_context_vt',
+    requires = { 'nvim-treesitter/nvim-treesitter' },
+    ft = { 'dart' },
+    config = function() require('nvim_context_vt').setup {} end,
   }
 
   use {
