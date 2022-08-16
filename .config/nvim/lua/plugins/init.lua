@@ -53,6 +53,11 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'petertriho/nvim-scrollbar',
+    config = function() require('scrollbar').setup() end,
+  }
+
+  use {
     'rcarriga/nvim-notify',
     config = function()
       vim.notify = require('notify')
