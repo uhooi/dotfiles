@@ -49,7 +49,7 @@
     mr = merge
     ps = push
     psd = push -d
-    psf = push -f
+    psf = push --force-with-lease
     rb = rebase
     rbc = rebase --continue
     rmc = rm --cached
