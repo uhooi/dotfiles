@@ -6,7 +6,7 @@ require('gitsigns').setup {
     topdelete = { hl = 'GitSignsDelete', text = '‾', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
     changedelete = { hl = 'GitSignsChange', text = '~', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
   },
-  signcolumn = false, -- Toggle with `:Gitsigns toggle_signs`
+  signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
   numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
   linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
   word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
@@ -40,3 +40,7 @@ require('gitsigns').setup {
   },
 }
 
+-- TODO: Change GitSignsCurrentLineBlame highlight
+-- ref: https://github.com/lewis6991/gitsigns.nvim/wiki/FAQ#how-do-i-change-the-color-of-x
+--vim.api.nvim_set_hl(0, 'GitsignsCurrentLineBlame', { link = 'Comment' }) -- Somehow white
+--vim.cmd([[highlight link GitSignsCurrentLineBlame Comment]]) -- Somehow white
