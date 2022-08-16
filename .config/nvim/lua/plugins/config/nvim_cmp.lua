@@ -4,8 +4,15 @@
 --    : https://zenn.dev/botamotch/articles/21073d78bc68bf
 
 local cmp = require('cmp')
+local lspkind = require('lspkind')
 
 cmp.setup {
+  formatting = {
+    format = lspkind.cmp_format {
+      mode = 'symbol_text',
+      maxwidth = 50,
+    },
+  },
   completion = {
     keyword_length = 3,
   },
@@ -53,4 +60,3 @@ cmp.setup.cmdline(':', {
     { name = 'cmdline' },
   },
 })
-

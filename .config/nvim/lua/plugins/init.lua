@@ -249,6 +249,7 @@ return require('packer').startup(function(use)
       { 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'nvim-cmp' },
       { 'hrsh7th/cmp-vsnip', after = 'nvim-cmp' },
       { 'hrsh7th/vim-vsnip', after = 'nvim-cmp' },
+      { 'onsails/lspkind.nvim' },
     },
     config = function() require('plugins.config.nvim_cmp') end,
   }
