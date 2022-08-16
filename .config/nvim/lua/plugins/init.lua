@@ -62,6 +62,11 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'windwp/nvim-autopairs',
+    config = function() require('nvim-autopairs').setup {} end,
+  }
+
+  use {
     'petertriho/nvim-scrollbar',
     config = function() require('scrollbar').setup() end,
   }
