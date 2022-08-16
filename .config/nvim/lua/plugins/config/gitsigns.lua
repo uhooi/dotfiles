@@ -40,7 +40,6 @@ require('gitsigns').setup {
   },
 }
 
--- TODO: Change GitSignsCurrentLineBlame highlight
+-- TODO: Not work correctly
 -- ref: https://github.com/lewis6991/gitsigns.nvim/wiki/FAQ#how-do-i-change-the-color-of-x
---vim.api.nvim_set_hl(0, 'GitsignsCurrentLineBlame', { link = 'Comment' }) -- Somehow white
---vim.cmd([[highlight link GitSignsCurrentLineBlame Comment]]) -- Somehow white
+--vim.api.nvim_set_hl(0, 'GitsignsCurrentLineBlame', { link = 'Comment' })
