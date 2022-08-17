@@ -45,7 +45,7 @@ mason_lspconfig.setup_handlers {
           diagnostics = {
             globals = { 'vim' },
           },
-          -- Very slow
+          -- FIXME: Very slow
           --workspace = {
           --  library = vim.api.nvim_get_runtime_file('', true),
           --},
