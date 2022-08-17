@@ -2,18 +2,20 @@
 --    : https://github.com/craftzdog/dotfiles-public/blob/50344f53c96c241e6d0659ed19507c70771bd971/.config/nvim/lua/base.lua
 --    : https://zenn.dev/link/comments/147395cfc3dca4
 
--- Japaneseize the menu
+-- Japaneseize the menu {{{
 if vim.fn.has('mac') == 1 then
   vim.opt.langmenu = 'japanese'
 end
+-- }}}
 
--- Search
+-- Search {{{
 vim.opt.hlsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.wrapscan = true
+-- }}}
 
--- Edit
+-- Edit {{{
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 0
 vim.opt.shiftwidth = 0
@@ -46,8 +48,9 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'c', 'cpp', 'java' },
   callback = function() vim.opt_local.cindent = true end,
 })
+-- }}}
 
--- Display
+-- Display {{{
 vim.opt.number = true
 vim.opt.ruler = true
 vim.opt.list = true
@@ -66,18 +69,22 @@ vim.opt.colorcolumn = { 80 }
 vim.opt.foldmethod = 'marker'
 vim.opt.pumheight = 10
 vim.opt.pumblend = 10
+-- }}}
 
--- Font
+-- Font {{{
 vim.opt.ambiwidth = double
+-- }}}
 
--- Cursor
+-- Cursor {{{
 vim.opt.whichwrap = 'b,s,h,l'
 vim.opt.scrolloff = 15
+-- }}}
 
--- Mouse
+-- Mouse {{{
 vim.opt.mouse = 'a'
+-- }}}
 
--- File
+-- File {{{
 vim.opt.writebackup = true
 vim.opt.backup = false
 vim.opt.undodir = '~/.vim/undo'
@@ -89,7 +96,9 @@ vim.api.nvim_create_autocmd('SwapExists', {
   pattern = '*',
   command = "let v:swapchoice = 'o'",
 })
+-- }}}
 
--- Others
+-- Others {{{
 vim.opt.clipboard = { 'unnamed', 'unnamedplus' }
+-- }}}
 
