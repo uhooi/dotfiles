@@ -16,6 +16,9 @@ repo = 'easymotion/vim-easymotion'
 hook_add = 'source ~/.vim/config/plugins/easymotion.rc.vim'
 
 [[plugins]]
+repo = 'tomtom/tcomment_vim'
+
+[[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
 hook_add = 'source ~/.vim/config/plugins/vimindentguides.rc.vim'
 

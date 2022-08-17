@@ -66,6 +66,8 @@ return require('packer').startup(function(use)
     config = function() require('nvim-autopairs').setup {} end,
   }
 
+  use { 'tomtom/tcomment_vim' }
+
   use {
     'petertriho/nvim-scrollbar',
     config = function() require('scrollbar').setup() end,
