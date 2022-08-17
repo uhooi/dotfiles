@@ -29,7 +29,7 @@ vim.opt.matchpairs:append { '<:>' }
 vim.opt.wildmenu = true
 vim.opt.wildignorecase = true
 vim.opt.formatoptions:append { 'mM' }
-vim.opt.nrformats = alpha
+vim.opt.nrformats = 'alpha'
 vim.opt.virtualedit:append { 'block' }
 vim.api.nvim_create_augroup('edit', {})
 vim.api.nvim_clear_autocmds { group = 'edit' }
@@ -72,7 +72,7 @@ vim.opt.pumblend = 10
 -- }}}
 
 -- Font {{{
-vim.opt.ambiwidth = double
+vim.opt.ambiwidth = 'double'
 -- }}}
 
 -- Cursor {{{
@@ -101,4 +101,3 @@ vim.api.nvim_create_autocmd('SwapExists', {
 -- Others {{{
 vim.opt.clipboard = { 'unnamed', 'unnamedplus' }
 -- }}}
-
