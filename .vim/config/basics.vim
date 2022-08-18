@@ -1,23 +1,26 @@
 " ref: https://qiita.com/uhooi/items/292a98f45600c1e31b3e
 
-" Pythonのパスを明示的に指定する
+" Pythonのパスを明示的に指定する {{{
 " ∵Neovimでは違うPythonを見ているため
 " ref: https://qiita.com/uhooi/items/8a023c24c004ec0c8b84#pythonのパスを指定
 let g:python_host_prog = system('(type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(pyenv global | grep python2)/bin/python") || echo -n $(which python2)')
 let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(pyenv global | grep python3)/bin/python") || echo -n $(which python3)')
+" }}}
 
-" メニューの日本語化（メニュー表示前に行う必要がある）
+" メニューの日本語化（メニュー表示前に行う必要がある） {{{
 if has('mac')
   set langmenu=japanese
 endif
+" }}}
 
-" Search
+" Search {{{
 set hlsearch
 set ignorecase
 set smartcase
 set wrapscan
+" }}}
 
-" Edit
+" Edit {{{
 set tabstop=4
 set softtabstop=0
 set shiftwidth=0
@@ -39,8 +42,9 @@ augroup edit
   autocmd FileType lua setlocal tabstop=2
   autocmd FileType c,cpp,java setlocal cindent
 augroup END
+" }}}
 
-" Display
+" Display {{{
 set number
 set ruler
 set list
@@ -53,18 +57,22 @@ set cursorline
 set colorcolumn=80
 set foldmethod=marker
 set pumheight=10
+" }}}
 
-" Font
+" Font {{{
 set ambiwidth=double
+" }}}
 
-" Cursor
+" Cursor {{{
 set whichwrap=b,s,h,l
 set scrolloff=15
+" }}}
 
-" Mouse
+" Mouse {{{
 set mouse=a
+" }}}
 
-" File
+" File {{{
 set writebackup
 set nobackup
 set undodir=~/.vim/undo
@@ -75,6 +83,9 @@ augroup swapchoice-readonly
   autocmd!
   autocmd SwapExists * let v:swapchoice = 'o'
 augroup END
+" }}}
 
+" Others {{{
 set clipboard=unnamed,unnamedplus " レジスタを指定せずにクリップボードを使用する
+" }}}
 
