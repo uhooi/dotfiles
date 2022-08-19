@@ -59,10 +59,6 @@ set foldmethod=marker
 set pumheight=10
 " }}}
 
-" Font {{{
-set ambiwidth=double
-" }}}
-
 " Cursor {{{
 set whichwrap=b,s,h,l
 set scrolloff=15

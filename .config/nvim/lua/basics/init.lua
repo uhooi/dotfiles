@@ -71,10 +71,6 @@ vim.opt.pumheight = 10
 vim.opt.pumblend = 10
 -- }}}
 
--- Font {{{
-vim.opt.ambiwidth = 'double'
--- }}}
-
 -- Cursor {{{
 vim.opt.whichwrap = 'b,s,h,l'
 vim.opt.scrolloff = 15
