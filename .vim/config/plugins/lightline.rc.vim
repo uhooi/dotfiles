@@ -60,8 +60,8 @@ let g:lightline = {
 \    'lsp_warnings': 'warning',
 \    'lsp_ok': 'middle',
 \  },
-\  'separator': { 'left': '', 'right': '' },
-\  'subseparator': { 'left': '|', 'right': '|' }
+\  'separator': { 'left': '', 'right': '' },
+\  'subseparator': { 'left': '', 'right': '' }
 \}
 
 let g:lightline.tabline = {
