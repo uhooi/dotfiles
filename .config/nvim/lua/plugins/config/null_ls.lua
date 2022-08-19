@@ -1,9 +1,6 @@
 -- ref: https://github.com/delphinus/dotfiles/blob/e562d4f8e99793e6ae1cd330c9208dac1d29d407/.config/nvim/lua/modules/lsp/config.lua#L440-L665
 
 local null_ls = require("null-ls")
-local h = require("null-ls.helpers")
-local methods = require("null-ls.methods")
-local FORMATTING = methods.internal.FORMATTING
 
 null_ls.setup {
   on_attach = function(_, bufnr)
@@ -32,25 +29,10 @@ null_ls.setup {
       filetypes = { 'markdown' },
       prefer_local = 'node_modules/.bin',
     },
-    -- formatting: textlint
-    -- ref: https://github.com/jose-elias-alvarez/null-ls.nvim/blob/8c90ccf7ffbdeb49da415837ec45e6ac457d5c60/lua/null-ls/builtins/diagnostics/textlint.lua
-    --    : https://github.com/jose-elias-alvarez/null-ls.nvim/blob/8c90ccf7ffbdeb49da415837ec45e6ac457d5c60/lua/null-ls/builtins/formatting/markdownlint.lua
-    --    : https://github.com/delphinus/dotfiles/blob/e562d4f8e99793e6ae1cd330c9208dac1d29d407/.config/nvim/lua/modules/lsp/config.lua#L539-L550
-    h.make_builtin {
-      name = "textlint",
-      meta = {
-        url = "https://github.com/textlint/textlint",
-        description = "The pluggable linting tool for text and Markdown.",
-      },
-      method = FORMATTING,
+    -- ref: https://github.com/jose-elias-alvarez/null-ls.nvim/pull/1013
+    null_ls.builtins.formatting.textlint.with {
       filetypes = { 'markdown' },
       prefer_local = 'node_modules/.bin',
-      generator_opts = {
-        command = "textlint",
-        args = { "--fix", "$FILENAME" },
-        to_temp_file = true,
-      },
-      factory = h.formatter_factory,
     },
   },
 }
