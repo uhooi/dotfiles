@@ -1,21 +1,19 @@
---FIXME: Not work
--- ref: https://www.reddit.com/r/neovim/comments/oiyq17/lsp_diagnostic_icons_in_gutter/
---    : https://github.com/LunarVim/LunarVim/blob/359b6fd8e44bc2ad5088aada3f9c037fb85b19af/lua/lsp/init.lua#L2-L17
+-- ref: https://github.com/neovim/neovim/commit/a5bbb932f9094098bd656d3f6be3c58344576709
 vim.fn.sign_define(
-  'LspDiagnosticsSignError',
-  { text = '', texthl = 'LspDiagnosticsSignError', numhl = 'LspDiagnosticsSignError' }
+  'DiagnosticSignError',
+  { text = '', texthl = 'DiagnosticSignError', numhl = 'DiagnosticSignError' }
 )
 vim.fn.sign_define(
-  'LspDiagnosticsSignWarning',
-  { text = '', texthl = 'LspDiagnosticsSignWarning', numhl = 'LspDiagnosticsSignWarning' }
+  'DiagnosticSignWarn',
+  { text = '', texthl = 'DiagnosticSignWarn', numhl = 'DiagnosticSignWarn' }
 )
 vim.fn.sign_define(
-  'LspDiagnosticsSignHint',
-  { text = '', texthl = 'LspDiagnosticsSignHint', numhl = 'LspDiagnosticsSignHint' }
+  'DiagnosticSignHint',
+  { text = '', texthl = 'DiagnosticSignHint', numhl = 'DiagnosticSignHint' }
 )
 vim.fn.sign_define(
-  'LspDiagnosticsSignInformation',
-  { text = '', texthl = 'LspDiagnosticsSignInformation', numhl = 'LspDiagnosticsSignInformation' }
+  'DiagnosticSignInfo',
+  { text = '', texthl = 'DiagnosticSignInfo', numhl = 'DiagnosticSignInfo' }
 )
 
 -- ref: https://neovim.io/doc/user/lsp.html
