@@ -4,7 +4,7 @@ fterm.setup {
   border = 'rounded',
 }
 
-vim.keymap.set({ 'n', 't' }, '<Leader>t', fterm.toggle, { noremap = true })
+vim.keymap.set({ 'n', 't' }, '<Leader>t', fterm.toggle)
 
 vim.api.nvim_create_user_command('FTermOpen', fterm.open, { bang = true })
 vim.api.nvim_create_user_command('FTermClose', fterm.close, { bang = true })

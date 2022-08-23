@@ -4,7 +4,7 @@ local null_ls = require("null-ls")
 
 null_ls.setup {
   on_attach = function(_, bufnr)
-    local bufopts = { noremap = true, buffer = bufnr }
+    local bufopts = { buffer = bufnr }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
