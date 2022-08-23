@@ -34,5 +34,6 @@ null_ls.setup {
       filetypes = { 'markdown' },
       prefer_local = 'node_modules/.bin',
     },
+    null_ls.builtins.formatting.yamlfmt,
   },
 }
