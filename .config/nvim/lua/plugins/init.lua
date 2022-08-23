@@ -81,8 +81,8 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'numToStr/FTerm.nvim',
-    config = function() require('plugins.config.fterm') end,
+    'akinsho/toggleterm.nvim',
+    config = function() require('plugins.config.toggleterm') end,
   }
 
   use {
