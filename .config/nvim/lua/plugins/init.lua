@@ -68,6 +68,11 @@ return require('packer').startup(function(use)
 
   use { 'tomtom/tcomment_vim' }
 
+  -- use {
+  --   'github/copilot.vim',
+  --   config = function() require('plugins.config.copilot') end,
+  -- }
+
   use {
     'petertriho/nvim-scrollbar',
     config = function() require('scrollbar').setup() end,
