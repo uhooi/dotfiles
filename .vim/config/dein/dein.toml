@@ -24,11 +24,7 @@ hook_add = 'source ~/.vim/config/plugins/vimindentguides.rc.vim'
 
 #[[plugins]]
 #repo = 'github/copilot.vim'
-#hook_add = '''
-#  let g:copilot_no_maps = v:true
-#  let g:copilot_hide_during_completion = 0
-#  inoremap <script><silent><nowait><expr> <C-g> copilot#Accept()
-#'''
+#hook_add = 'source ~/.vim/config/plugins/copilot.rc.vim'
 
 [[plugins]]
 repo = 'skanehira/translate.vim'
