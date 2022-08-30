@@ -112,10 +112,10 @@ return require('packer').startup(function(use)
   use {
     'easymotion/vim-easymotion',
     config = function()
-      vim.keymap.set('', 'f', '<Plug>(easymotion-fl)')
-      vim.keymap.set('', 't', '<Plug>(easymotion-tl)')
-      vim.keymap.set('', 'F', '<Plug>(easymotion-Fl)')
-      vim.keymap.set('', 'T', '<Plug>(easymotion-Tl)')
+      vim.keymap.set('n', 'f', '<Plug>(easymotion-fl)')
+      vim.keymap.set('n', 't', '<Plug>(easymotion-tl)')
+      vim.keymap.set('n', 'F', '<Plug>(easymotion-Fl)')
+      vim.keymap.set('n', 'T', '<Plug>(easymotion-Tl)')
     end,
   }
   --- }}}

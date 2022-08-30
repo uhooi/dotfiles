@@ -1,5 +1,5 @@
-map f <Plug>(easymotion-fl)
-map t <Plug>(easymotion-tl)
-map F <Plug>(easymotion-Fl)
-map T <Plug>(easymotion-Tl)
+nmap f <Plug>(easymotion-fl)
+nmap t <Plug>(easymotion-tl)
+nmap F <Plug>(easymotion-Fl)
+nmap T <Plug>(easymotion-Tl)
 
