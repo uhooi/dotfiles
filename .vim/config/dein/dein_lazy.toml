@@ -32,11 +32,7 @@ on_source = 'denops.vim'
 [[plugins]]
 repo = 'lambdalisue/gin.vim'
 on_source = 'denops.vim'
-hook_source = '''
-  if !has('nvim')
-    autocmd User GinComponentPost call lightline#update()
-  endif
-'''
+hook_source = 'source ~/.vim/config/plugins/gin.rc.vim'
 
 [[plugins]]
 repo = 'thinca/vim-themis'
