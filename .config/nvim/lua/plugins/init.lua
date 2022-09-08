@@ -54,6 +54,15 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'delphinus/cellwidths.nvim',
+    config = function()
+      require('cellwidths').setup {
+        name = 'default',
+      }
+    end,
+  }
+
+  use {
     'norcalli/nvim-colorizer.lua',
     config = function()
       vim.opt.termguicolors = true
