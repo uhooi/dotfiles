@@ -35,17 +35,17 @@ vim.api.nvim_create_augroup('edit', {})
 vim.api.nvim_clear_autocmds { group = 'edit' }
 vim.api.nvim_create_autocmd('FileType', {
   group = 'edit',
-  pattern = 'vim',
+  pattern = '*.vim',
   callback = function() vim.opt_local.tabstop = 2 end,
 })
 vim.api.nvim_create_autocmd('FileType', {
   group = 'edit',
-  pattern = 'lua',
+  pattern = '*.lua',
   callback = function() vim.opt_local.tabstop = 2 end,
 })
 vim.api.nvim_create_autocmd('FileType', {
   group = 'edit',
-  pattern = { 'c', 'cpp', 'java' },
+  pattern = { '*.c', '*.cpp', '*.java' },
   callback = function() vim.opt_local.cindent = true end,
 })
 -- }}}
