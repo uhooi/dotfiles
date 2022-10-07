@@ -95,6 +95,16 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'folke/noice.nvim',
+    event = 'VimEnter',
+    requires = {
+      'MunifTanjim/nui.nvim',
+      'rcarriga/nvim-notify',
+    },
+    config = function() require('plugins.config.noice') end,
+  }
+
+  use {
     'akinsho/toggleterm.nvim',
     config = function() require('plugins.config.toggleterm') end,
   }
