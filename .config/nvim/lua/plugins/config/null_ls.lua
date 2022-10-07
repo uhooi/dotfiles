@@ -19,7 +19,9 @@ null_ls.setup {
     vim.keymap.set('n', 'gn', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-    vim.keymap.set('n', 'gf', vim.lsp.buf.formatting, bufopts)
+    vim.keymap.set('n', 'gf', function()
+      vim.lsp.buf.format { async = true }
+    end, bufopts)
   end,
   sources = {
     -- ref: https://github.com/jose-elias-alvarez/null-ls.nvim/blob/8c90ccf7ffbdeb49da415837ec45e6ac457d5c60/doc/BUILTINS.md

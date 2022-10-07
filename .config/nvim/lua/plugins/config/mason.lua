@@ -34,7 +34,9 @@ mason_lspconfig.setup_handlers {
       vim.keymap.set('n', 'gn', vim.lsp.buf.rename, bufopts)
       vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, bufopts)
       vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-      vim.keymap.set('n', 'gf', vim.lsp.buf.formatting, bufopts)
+      vim.keymap.set('n', 'gf', function()
+        vim.lsp.buf.format { async = true }
+      end, bufopts)
     end
     if server_name == 'sumneko_lua' then
       -- ref: https://github.com/neovim/nvim-lspconfig/blob/da7461b596d70fa47b50bf3a7acfaef94c47727d/doc/server_configurations.md#sumneko_lua
