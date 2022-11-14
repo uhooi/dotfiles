@@ -14,7 +14,7 @@ mason_lspconfig.setup()
 mason_lspconfig.setup_handlers {
   function(server_name)
     local opts = {
-      capabilities = require('cmp_nvim_lsp').update_capabilities(
+      capabilities = require('cmp_nvim_lsp').default_capabilities(
         vim.lsp.protocol.make_client_capabilities()
       )
     }
