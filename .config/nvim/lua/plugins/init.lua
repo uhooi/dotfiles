@@ -177,12 +177,17 @@ return require('packer').startup(function(use)
   -- Colorscheme {{{
   use {
     'cocopon/iceberg.vim',
-    config = function()
-      vim.cmd([[
-        set background=dark
-        autocmd VimEnter * ++nested colorscheme iceberg
-      ]])
-    end,
+    -- config = function()
+    --   vim.cmd([[
+    --     set background=dark
+    --     autocmd VimEnter * ++nested colorscheme iceberg
+    --   ]])
+    -- end,
+  }
+
+  use {
+    'folke/tokyonight.nvim',
+    config = function() require('plugins.config.tokyonight') end,
   }
   -- }}}
 
