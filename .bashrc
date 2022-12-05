@@ -69,3 +69,7 @@ fi
 # 参考：https://qiita.com/vimyum/items/44478a51ef3a6f49804f#日本語を表示する
 export LANG=ja_JP.UTF-8
 
+# direnv
+# 参考：https://github.com/direnv/direnv/blob/357825f4ddcc8d7ef62a6276b60d9aa36449ac96/docs/hook.md#bash
+eval "$(direnv hook bash)"
+
