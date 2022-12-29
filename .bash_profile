@@ -69,13 +69,6 @@ if [ -d "${MAVEN_HOME}" ]; then
   export PATH="${MAVEN_HOME}/bin:$PATH"
 fi
 
-# Mint
-# 参考：https://qiita.com/uhooi/items/6a41a623b13f6ef4ddf0
-if which mint >/dev/null; then
-  export MINT_PATH="${HOME}/.mint/lib"
-  export MINT_LINK_PATH="${HOME}/.mint/bin"
-fi
-
 # Androidアプリ開発
 export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/Contents/Home
 if [ -d "${JAVA_HOME}" ]; then
