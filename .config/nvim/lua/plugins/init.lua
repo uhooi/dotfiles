@@ -75,6 +75,8 @@ return require('packer').startup(function(use)
     config = function() require('nvim-autopairs').setup {} end,
   }
 
+  use { 'dkarter/bullets.vim' }
+
   use { 'tomtom/tcomment_vim' }
 
   -- use {
