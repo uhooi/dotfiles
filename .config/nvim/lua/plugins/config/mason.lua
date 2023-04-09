@@ -38,8 +38,8 @@ mason_lspconfig.setup_handlers {
         vim.lsp.buf.format { async = true }
       end, bufopts)
     end
-    if server_name == 'sumneko_lua' then
-      -- ref: https://github.com/neovim/nvim-lspconfig/blob/da7461b596d70fa47b50bf3a7acfaef94c47727d/doc/server_configurations.md#sumneko_lua
+    if server_name == 'lua_ls' then
+      -- ref: https://github.com/neovim/nvim-lspconfig/blob/27e9e1d2638ffd133b06f314a49ac55825cb1017/doc/server_configurations.md#lua_ls
       opts.settings = {
         Lua = {
           runtime = {
