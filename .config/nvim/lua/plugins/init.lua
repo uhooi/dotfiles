@@ -255,6 +255,17 @@ return require('packer').startup(function(use)
   use { 'Shougo/context_filetype.vim' }
   -- }}}
 
+  -- HTML {{{
+  use {
+    'mattn/emmet-vim',
+    ft = { 'html', 'css', 'javascript', 'typescript', 'vue', 'svelte', 'markdown' },
+    config = function()
+      vim.g.user_emmet_mode = 'i'
+      vim.g.user_emmet_install_global = 0
+    end,
+  }
+  -- }}}
+
   -- Denops {{{
   use { 'vim-denops/denops.vim' }
   use { 'vim-denops/denops-helloworld.vim', requires = { 'vim-denops/denops.vim' } }
