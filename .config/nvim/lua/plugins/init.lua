@@ -110,6 +110,14 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons',
+    },
+    config = function() require('plugins.config.nvim_tree') end,
+  }
+
+  use {
     'vim-jp/vimdoc-ja',
     config = function()
       vim.opt.helplang = { 'ja', 'en' }
