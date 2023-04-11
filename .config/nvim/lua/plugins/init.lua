@@ -117,6 +117,8 @@ return require('packer').startup(function(use)
     config = function() require('plugins.config.nvim_tree') end,
   }
 
+  use { 'stevearc/dressing.nvim' }
+
   use {
     'vim-jp/vimdoc-ja',
     config = function()
