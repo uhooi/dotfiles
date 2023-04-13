@@ -63,11 +63,8 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'norcalli/nvim-colorizer.lua',
-    config = function()
-      vim.opt.termguicolors = true
-      require('colorizer').setup {}
-    end,
+    'uga-rosa/ccc.nvim',
+    config = function() require('plugins.config.ccc') end,
   }
 
   use {
