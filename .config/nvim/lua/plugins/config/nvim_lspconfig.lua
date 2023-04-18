@@ -22,3 +22,6 @@ vim.fn.sign_define(
 vim.keymap.set('n', 'g]', vim.diagnostic.goto_next)
 vim.keymap.set('n', 'g[', vim.diagnostic.goto_prev)
 vim.keymap.set('n', 'gl', vim.diagnostic.setloclist)
+
+local lspconfig = require('lspconfig')
+lspconfig.sourcekit.setup {}
