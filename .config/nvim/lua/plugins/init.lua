@@ -102,8 +102,8 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'akinsho/toggleterm.nvim',
-    config = function() require('plugins.config.toggleterm') end,
+    'uga-rosa/ugaterm.nvim',
+    config = function() require('plugins.config.ugaterm') end,
   }
 
   use {
