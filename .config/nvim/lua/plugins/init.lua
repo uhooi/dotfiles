@@ -136,12 +136,24 @@ return require('packer').startup(function(use)
 
   -- Motion {{{
   use {
-    'easymotion/vim-easymotion',
+    'phaazon/hop.nvim',
     config = function()
-      vim.keymap.set('n', 'f', '<Plug>(easymotion-fl)')
-      vim.keymap.set('n', 't', '<Plug>(easymotion-tl)')
-      vim.keymap.set('n', 'F', '<Plug>(easymotion-Fl)')
-      vim.keymap.set('n', 'T', '<Plug>(easymotion-Tl)')
+      local hop = require('hop')
+      hop.setup {}
+
+      local directions = require('hop.hint').HintDirection
+      vim.keymap.set('n', 'f', function()
+        hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true })
+      end, { remap = true })
+      vim.keymap.set('n', 'F', function()
+        hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
+      end, { remap = true })
+      vim.keymap.set('n', 't', function()
+        hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })
+      end, { remap = true })
+      vim.keymap.set('n', 'T', function()
+        hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
+      end, { remap = true })
     end,
   }
   --- }}}
