@@ -1,7 +1,7 @@
 {
   "apiblueprint.vim": { "branch": "master", "commit": "776b9863e32a8ba59bf8a9656770a77c148c6e9c" },
   "bullets.vim": { "branch": "master", "commit": "746f92ae05cdcc988857d8e76418326f07af9494" },
-  "ccc.nvim": { "branch": "main", "commit": "9cc3d1b8609e8b06f4e95b555822345c6456aee7" },
+  "ccc.nvim": { "branch": "main", "commit": "c1e253943f7619b85f2a5480a63fff8d22ddb54f" },
   "cellwidths.nvim": { "branch": "main", "commit": "0543349bf65b7c7d8792bd6da730123463bdd149" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
   "cmp-cmdline": { "branch": "main", "commit": "5af1bb7d722ef8a96658f01d6eb219c4cf746b32" },
