@@ -8,6 +8,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup {
+  -- Configuration {{{
+  ui = {
+    border = 'single', -- FIXME: Not work
+  },
+  -- }}}
+
   -- API {{{
   { 'nvim-lua/plenary.nvim', lazy = true },
 
