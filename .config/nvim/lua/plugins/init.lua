@@ -262,11 +262,11 @@ require('lazy').setup({
   },
   -- }}}
 
--- Denops {{{
-{ 'vim-denops/denops.vim', lazy = true },
-{ 'vim-denops/denops-helloworld.vim', dependencies = { 'vim-denops/denops.vim' } },
-{ 'lambdalisue/gin.vim', dependencies = { 'vim-denops/denops.vim' } },
--- }}}
+  -- Denops {{{
+  { 'vim-denops/denops.vim', lazy = true, enabled = false },
+  { 'vim-denops/denops-helloworld.vim', enabled = false, dependencies = { 'vim-denops/denops.vim' } },
+  { 'lambdalisue/gin.vim', enabled = false, dependencies = { 'vim-denops/denops.vim' } },
+  -- }}}
 
   -- LSP {{{
   {
