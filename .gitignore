@@ -9,3 +9,5 @@ gh.rc.vim
 # packer.nvim
 packer_compiled.lua
 
+# Lua
+.luarc.json
