@@ -25,8 +25,7 @@ require('lazy').setup({
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
       require('indent_blankline').setup {
-        show_current_context = true, -- Require treesitter
-        --show_current_context_start = true, -- Require treesitter
+        show_current_context = true,
       }
     end,
   },
