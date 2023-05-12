@@ -153,7 +153,7 @@ require('lazy').setup {
 --- }}}
 
   -- textobj {{{
-  { 'kana/vim-textobj-user' },
+  { 'kana/vim-textobj-user', lazy = true },
   { 'kana/vim-textobj-entire', dependencies = { 'kana/vim-textobj-user' } },
   { 'kana/vim-textobj-indent', dependencies = { 'kana/vim-textobj-user' } },
   { 'sgur/vim-textobj-parameter', dependencies = { 'kana/vim-textobj-user' } },
