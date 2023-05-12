@@ -166,11 +166,7 @@ require('lazy').setup {
     config = function() require('plugins.config.gitsigns') end,
   },
 
-  -- FIXME: Not work
-  {
-    'rhysd/committia.vim',
-    ft = { 'gitcommit' },
-  },
+  { 'rhysd/committia.vim' },
   --- }}}
 
   -- Fuzzy finder {{{
