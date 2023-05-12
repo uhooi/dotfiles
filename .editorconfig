@@ -1,0 +1,7 @@
+# ref: https://github.com/CppCXY/EmmyLuaCodeStyle/blob/28bff899e7590f594b15146ea5f3a791268d1427/lua.template.editorconfig
+
+# see https://github.com/CppCXY/EmmyLuaCodeStyle
+[*.lua]
+# [basic]
+indent_style = space
+indent_size = 2
