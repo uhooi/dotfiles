@@ -31,23 +31,6 @@ vim.opt.wildignorecase = true
 vim.opt.formatoptions:append { 'mM' }
 vim.opt.nrformats = 'alpha'
 vim.opt.virtualedit:append { 'block' }
-vim.api.nvim_create_augroup('edit', {})
-vim.api.nvim_clear_autocmds { group = 'edit' }
-vim.api.nvim_create_autocmd('FileType', {
-  group = 'edit',
-  pattern = '*.vim',
-  callback = function() vim.opt_local.tabstop = 2 end,
-})
-vim.api.nvim_create_autocmd('FileType', {
-  group = 'edit',
-  pattern = '*.lua',
-  callback = function() vim.opt_local.tabstop = 2 end,
-})
-vim.api.nvim_create_autocmd('FileType', {
-  group = 'edit',
-  pattern = { '*.c', '*.cpp', '*.java' },
-  callback = function() vim.opt_local.cindent = true end,
-})
 -- }}}
 
 -- Display {{{
