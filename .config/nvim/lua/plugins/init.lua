@@ -8,6 +8,15 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
+  -- Colorscheme {{{
+  {
+    'folke/tokyonight.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function() require('plugins.config.tokyonight') end,
+  },
+  -- }}}
+
   -- API {{{
   { 'nvim-lua/plenary.nvim', lazy = true },
 
@@ -110,15 +119,6 @@ require('lazy').setup({
   { 'tweekmonster/helpful.vim' },
   -- }}}
 
-  -- Colorscheme {{{
-  {
-    'folke/tokyonight.nvim',
-    lazy = false,
-    priority = 1000,
-    config = function() require('plugins.config.tokyonight') end,
-  },
-  -- }}}
-
   -- statusline {{{
   {
     'nvim-lualine/lualine.nvim',
@@ -187,18 +187,6 @@ require('lazy').setup({
     config = function() require('plugins.config.telescope') end,
   },
   -- }}}
-
-  -- Colorscheme {{{
-  {
-    'cocopon/iceberg.vim',
-    -- config = function()
-    --   vim.cmd([[
-    --     set background=dark
-    --     autocmd VimEnter * ++nested colorscheme iceberg
-    --   ]])
-    -- end,
-  },
--- }}}
 
   -- Syntax {{{
   {
