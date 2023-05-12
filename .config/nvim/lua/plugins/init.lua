@@ -315,7 +315,7 @@ require('lazy').setup({
     },
     config = function() require('plugins.config.nvim_cmp') end,
   },
--- }}}
+  -- }}}
 
   -- Preview {{{
   {
