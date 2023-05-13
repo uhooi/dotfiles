@@ -45,5 +45,6 @@ null_ls.setup {
       prefer_local = 'node_modules/.bin',
     },
     null_ls.builtins.formatting.yamlfmt,
+    null_ls.builtins.formatting.stylua, -- `brew install stylua`
   },
 }
