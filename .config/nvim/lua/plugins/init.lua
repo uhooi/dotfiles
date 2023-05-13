@@ -1,9 +1,15 @@
 -- lazy.nvim
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    'git', 'clone', '--depth', '1', 'https://github.com/folke/lazy.nvim.git', '--branch=stable', lazypath,
-  })
+  vim.fn.system {
+    'git',
+    'clone',
+    '--depth',
+    '1',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable',
+    lazypath,
+  }
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -13,12 +19,14 @@ require('lazy').setup({
     'folke/tokyonight.nvim',
     lazy = false,
     priority = 1000,
-    config = function() require('plugins.config.tokyonight') end,
+    config = function()
+      require('plugins.config.tokyonight')
+    end,
   },
   -- }}}
 
   -- API {{{
-  { 'nvim-lua/plenary.nvim', lazy = true },
+  { 'nvim-lua/plenary.nvim',       lazy = true },
 
   {
     'nvim-treesitter/nvim-treesitter',
@@ -44,7 +52,9 @@ require('lazy').setup({
     'haringsrob/nvim_context_vt',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     ft = { 'dart' },
-    config = function() require('nvim_context_vt').setup {} end,
+    config = function()
+      require('nvim_context_vt').setup {}
+    end,
   },
 
   {
@@ -58,12 +68,16 @@ require('lazy').setup({
 
   {
     'uga-rosa/ccc.nvim',
-    config = function() require('plugins.config.ccc') end,
+    config = function()
+      require('plugins.config.ccc')
+    end,
   },
 
   {
     'windwp/nvim-autopairs',
-    config = function() require('nvim-autopairs').setup {} end,
+    config = function()
+      require('nvim-autopairs').setup {}
+    end,
   },
 
   { 'dkarter/bullets.vim' },
@@ -77,15 +91,19 @@ require('lazy').setup({
 
   {
     'petertriho/nvim-scrollbar',
-    config = function() require('scrollbar').setup() end,
+    config = function()
+      require('scrollbar').setup()
+    end,
   },
 
   {
     'rcarriga/nvim-notify',
-    config = function() require('plugins.config.nvim_notify') end,
+    config = function()
+      require('plugins.config.nvim_notify')
+    end,
   },
 
-  { 'MunifTanjim/nui.nvim', lazy = true },
+  { 'MunifTanjim/nui.nvim',  lazy = true },
   {
     'folke/noice.nvim',
     event = 'VimEnter',
@@ -93,18 +111,24 @@ require('lazy').setup({
       'MunifTanjim/nui.nvim',
       'rcarriga/nvim-notify',
     },
-    config = function() require('plugins.config.noice') end,
+    config = function()
+      require('plugins.config.noice')
+    end,
   },
 
   {
     'uga-rosa/ugaterm.nvim',
-    config = function() require('plugins.config.ugaterm') end,
+    config = function()
+      require('plugins.config.ugaterm')
+    end,
   },
 
   {
     'nvim-tree/nvim-tree.lua',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = function() require('plugins.config.nvim_tree') end,
+    config = function()
+      require('plugins.config.nvim_tree')
+    end,
   },
 
   { 'stevearc/dressing.nvim' },
@@ -123,7 +147,9 @@ require('lazy').setup({
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = function() require('plugins.config.lualine') end,
+    config = function()
+      require('plugins.config.lualine')
+    end,
   },
   -- }}}
 
@@ -136,25 +162,25 @@ require('lazy').setup({
 
       local directions = require('hop.hint').HintDirection
       vim.keymap.set('n', 'f', function()
-        hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true })
+        hop.hint_char1 { direction = directions.AFTER_CURSOR, current_line_only = true }
       end, { remap = true })
       vim.keymap.set('n', 'F', function()
-        hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
+        hop.hint_char1 { direction = directions.BEFORE_CURSOR, current_line_only = true }
       end, { remap = true })
       vim.keymap.set('n', 't', function()
-        hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })
+        hop.hint_char1 { direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 }
       end, { remap = true })
       vim.keymap.set('n', 'T', function()
-        hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
+        hop.hint_char1 { direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 }
       end, { remap = true })
     end,
   },
---- }}}
+  --- }}}
 
   -- textobj {{{
-  { 'kana/vim-textobj-user', lazy = true },
-  { 'kana/vim-textobj-entire', dependencies = { 'kana/vim-textobj-user' } },
-  { 'kana/vim-textobj-indent', dependencies = { 'kana/vim-textobj-user' } },
+  { 'kana/vim-textobj-user',      lazy = true },
+  { 'kana/vim-textobj-entire',    dependencies = { 'kana/vim-textobj-user' } },
+  { 'kana/vim-textobj-indent',    dependencies = { 'kana/vim-textobj-user' } },
   { 'sgur/vim-textobj-parameter', dependencies = { 'kana/vim-textobj-user' } },
   { 'thinca/vim-textobj-between', dependencies = { 'kana/vim-textobj-user' } },
   -- }}}
@@ -162,7 +188,9 @@ require('lazy').setup({
   -- Git {{{
   {
     'lewis6991/gitsigns.nvim',
-    config = function() require('plugins.config.gitsigns') end,
+    config = function()
+      require('plugins.config.gitsigns')
+    end,
   },
 
   { 'rhysd/committia.vim' },
@@ -174,7 +202,7 @@ require('lazy').setup({
     lazy = true,
     build = 'make',
   },
-  {'nvim-telescope/telescope-ui-select.nvim', lazy = true },
+  { 'nvim-telescope/telescope-ui-select.nvim', lazy = true },
   {
     'nvim-telescope/telescope.nvim',
     dependencies = {
@@ -184,7 +212,9 @@ require('lazy').setup({
       'nvim-telescope/telescope-fzf-native.nvim',
       'nvim-telescope/telescope-ui-select.nvim',
     },
-    config = function() require('plugins.config.telescope') end,
+    config = function()
+      require('plugins.config.telescope')
+    end,
   },
   -- }}}
 
@@ -196,7 +226,9 @@ require('lazy').setup({
 
   {
     'keith/xcconfig.vim',
-    cond = function() return vim.fn.expand('%:e') == 'xcconfig' end,
+    cond = function()
+      return vim.fn.expand('%:e') == 'xcconfig'
+    end,
   },
 
   {
@@ -216,7 +248,9 @@ require('lazy').setup({
 
   {
     'mechatroner/rainbow_csv',
-    cond = function() return vim.fn.expand('%:e') == 'csv' end,
+    cond = function()
+      return vim.fn.expand('%:e') == 'csv'
+    end,
   },
 
   {
@@ -235,7 +269,9 @@ require('lazy').setup({
   {
     'tokorom/vim-review',
     ft = { 'review' },
-    config = function() require('plugins.config.vim_review') end,
+    config = function()
+      require('plugins.config.vim_review')
+    end,
   },
 
   {
@@ -243,7 +279,7 @@ require('lazy').setup({
     ft = { 'apiblueprint' },
   },
 
-  { 'Shougo/context_filetype.vim', lazy = true },
+  { 'Shougo/context_filetype.vim',      lazy = true },
   {
     'osyo-manga/vim-precious',
     dependencies = { 'Shougo/context_filetype.vim' },
@@ -263,43 +299,51 @@ require('lazy').setup({
   -- }}}
 
   -- Denops {{{
-  { 'vim-denops/denops.vim', lazy = true, enabled = false },
+  { 'vim-denops/denops.vim',            lazy = true,     enabled = false },
   { 'vim-denops/denops-helloworld.vim', enabled = false, dependencies = { 'vim-denops/denops.vim' } },
-  { 'lambdalisue/gin.vim', enabled = false, dependencies = { 'vim-denops/denops.vim' } },
+  { 'lambdalisue/gin.vim',              enabled = false, dependencies = { 'vim-denops/denops.vim' } },
   -- }}}
 
   -- LSP {{{
   {
     'neovim/nvim-lspconfig',
-    config = function() require('plugins.config.nvim_lspconfig') end,
+    config = function()
+      require('plugins.config.nvim_lspconfig')
+    end,
   },
 
-  { 'williamboman/mason-lspconfig.nvim', lazy = true },
+  { 'williamboman/mason-lspconfig.nvim',   lazy = true },
   {
     'williamboman/mason.nvim',
     dependencies = { 'williamboman/mason-lspconfig.nvim' },
-    config = function() require('plugins.config.mason') end,
+    config = function()
+      require('plugins.config.mason')
+    end,
   },
 
   {
     'jose-elias-alvarez/null-ls.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
-    config = function() require('plugins.config.null_ls') end,
+    config = function()
+      require('plugins.config.null_ls')
+    end,
   },
 
   {
     url = 'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
-    config = function() require('plugins.config.lsp_lines') end,
+    config = function()
+      require('plugins.config.lsp_lines')
+    end,
   },
 
-  { 'hrsh7th/cmp-nvim-lsp', lazy = true },
-  { 'hrsh7th/cmp-buffer', lazy = true },
-  { 'hrsh7th/cmp-path', lazy = true },
-  { 'hrsh7th/cmp-cmdline', lazy = true },
+  { 'hrsh7th/cmp-nvim-lsp',                lazy = true },
+  { 'hrsh7th/cmp-buffer',                  lazy = true },
+  { 'hrsh7th/cmp-path',                    lazy = true },
+  { 'hrsh7th/cmp-cmdline',                 lazy = true },
   { 'hrsh7th/cmp-nvim-lsp-signature-help', lazy = true },
-  { 'hrsh7th/cmp-vsnip', lazy = true },
-  { 'hrsh7th/vim-vsnip', lazy = true },
-  { 'onsails/lspkind.nvim', lazy = true },
+  { 'hrsh7th/cmp-vsnip',                   lazy = true },
+  { 'hrsh7th/vim-vsnip',                   lazy = true },
+  { 'onsails/lspkind.nvim',                lazy = true },
   {
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
@@ -313,7 +357,9 @@ require('lazy').setup({
       'hrsh7th/vim-vsnip',
       'onsails/lspkind.nvim',
     },
-    config = function() require('plugins.config.nvim_cmp') end,
+    config = function()
+      require('plugins.config.nvim_cmp')
+    end,
   },
   -- }}}
 
@@ -321,14 +367,18 @@ require('lazy').setup({
   {
     'tyru/open-browser.vim',
     keys = { '<Plug>(openbrowser-smart-search)' },
-    config = function() require('plugins.config.open_browser') end,
+    config = function()
+      require('plugins.config.open_browser')
+    end,
   },
 
   {
     'previm/previm',
     dependencies = { 'tyru/open-browser.vim' },
     ft = { 'markdown' },
-    config = function() require('plugins.config.previm') end,
+    config = function()
+      require('plugins.config.previm')
+    end,
   },
   -- }}}
 

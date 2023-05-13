@@ -1,4 +1,3 @@
 vim.opt.termguicolors = true
 
-vim.notify = require('notify').setup {
-}
+vim.notify = require('notify').setup {}
