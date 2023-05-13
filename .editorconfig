@@ -1,7 +1,13 @@
-# ref: https://github.com/CppCXY/EmmyLuaCodeStyle/blob/28bff899e7590f594b15146ea5f3a791268d1427/lua.template.editorconfig
+root = true
 
-# see https://github.com/CppCXY/EmmyLuaCodeStyle
+# ref: https://neovim.io/doc/user/editorconfig.html
+# ref: https://github.com/CppCXY/EmmyLuaCodeStyle/blob/28bff899e7590f594b15146ea5f3a791268d1427/lua.template.editorconfig
+# ref: https://github.com/neovim/neovim/blob/f76e1ac92eda9cb364a9de49422b45a035256ca6/.editorconfig
+
 [*.lua]
-# [basic]
 indent_style = space
 indent_size = 2
+tab_width = 4
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
