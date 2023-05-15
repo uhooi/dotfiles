@@ -13,7 +13,7 @@
   "committia.vim": { "branch": "master", "commit": "0b4df1a7f48ffbc23b009bd14d58ee1be541917c" },
   "context_filetype.vim": { "branch": "master", "commit": "e276626e441eee2c624b9192113f1484bc2bc0f3" },
   "dart-vim-plugin": { "branch": "master", "commit": "81e50e80329e5eac2c115f45585b1838a614d07a" },
-  "dressing.nvim": { "branch": "master", "commit": "66e4990240f92e31b0d5e4df6deb6bb0160ae832" },
+  "dressing.nvim": { "branch": "master", "commit": "540d6e7115fb32b5035ddaf0c1a26cbffb855dac" },
   "emmet-vim": { "branch": "master", "commit": "def5d57a1ae5afb1b96ebe83c4652d1c03640f4d" },
   "gitsigns.nvim": { "branch": "main", "commit": "814158f6c4b1724c039fcefe79b0be72c9131c2d" },
   "helpful.vim": { "branch": "master", "commit": "2cc9afd8998b7ac3ec104e6da57606814b3e554a" },
