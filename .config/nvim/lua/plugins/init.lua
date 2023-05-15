@@ -417,7 +417,7 @@ require('lazy').setup({
     'delphinus/nekokak.nvim',
     config = function()
       vim.opt.termguicolors = true
-      require('nekokak').setup {}
+      require('nekokak').setup()
     end,
   },
 
@@ -425,7 +425,7 @@ require('lazy').setup({
     'uhooi/uhooi.nvim',
     config = function()
       vim.opt.termguicolors = true
-      require('uhooi').setup {}
+      require('uhooi').setup()
     end,
   },
   -- }}}
