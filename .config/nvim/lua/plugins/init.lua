@@ -392,6 +392,11 @@ require('lazy').setup({
       require('plugins.config.nvim_cmp')
     end,
   },
+
+  {
+    'SmiteshP/nvim-navic',
+    dependencies = { 'neovim/nvim-lspconfig' },
+  },
   -- }}}
 
   -- Preview {{{
