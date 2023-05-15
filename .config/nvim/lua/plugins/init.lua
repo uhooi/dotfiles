@@ -75,6 +75,14 @@ require('lazy').setup({
   },
 
   {
+    'folke/todo-comments.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('plugins.config.todo_comments')
+    end,
+  },
+
+  {
     'delphinus/cellwidths.nvim',
     config = function()
       require('cellwidths').setup {
