@@ -51,6 +51,14 @@ require('lazy').setup({
     end,
   },
 
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    config = function()
+      require('plugins.config.treesitter_context')
+    end,
+  },
+
   -- FIXME: Not work
   {
     'haringsrob/nvim_context_vt',
