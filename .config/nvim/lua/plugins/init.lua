@@ -198,6 +198,18 @@ require('lazy').setup({
   },
 
   { 'rhysd/committia.vim' },
+
+  {
+    'pwntester/octo.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+      'nvim-tree/nvim-web-devicons',
+    },
+    config = function()
+      require('plugins.config.octo')
+    end,
+  },
   --- }}}
 
   -- Fuzzy finder {{{
