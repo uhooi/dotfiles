@@ -35,11 +35,6 @@ mason_lspconfig.setup_handlers {
   function(server_name)
     local opts = {
       capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
-      on_attach = function(client, bufnr)
-        if client.server_capabilities.documentSymbolProvider then
-          require('nvim-navic').attach(client, bufnr)
-        end
-      end,
     }
     if server_name == 'lua_ls' then
       -- ref: https://github.com/neovim/nvim-lspconfig/blob/27e9e1d2638ffd133b06f314a49ac55825cb1017/doc/server_configurations.md#lua_ls

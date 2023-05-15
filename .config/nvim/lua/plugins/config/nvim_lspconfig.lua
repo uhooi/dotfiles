@@ -21,9 +21,15 @@ vim.keymap.set('n', 'gl', vim.diagnostic.setloclist)
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
-    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    local bufnr = ev.buf
+    if client.server_capabilities.documentSymbolProvider then
+      require('nvim-navic').attach(client, bufnr)
+    end
 
-    local bufopts = { buffer = ev.buf }
+    vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+    local bufopts = { buffer = bufnr }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
