@@ -42,6 +42,11 @@ require('lazy').setup({
 
   -- Basic {{{
   {
+    'RRethy/vim-illuminate',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+  },
+
+  {
     'lukas-reineke/indent-blankline.nvim',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
