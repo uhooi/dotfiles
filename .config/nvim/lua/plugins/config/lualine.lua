@@ -1,26 +1,24 @@
-local lsp_names = {
-  function()
-    local servers = vim
-        .iter(vim.lsp.get_active_clients { bufnr = 0 })
-        :map(function(server)
-          if server.name == 'null-ls' then
-            return ('null-ls(%s)'):format(table.concat(
-              vim
-              .iter(require('null-ls.sources').get_available(vim.bo.filetype))
-              :map(function(source)
-                return source.name
-              end)
-              :totable(),
-              ','
-            ))
-          else
-            return server.name
-          end
-        end)
-        :totable()
-    return table.concat(servers, ', ')
-  end,
-}
+local lsp_names = function()
+  local servers = vim
+    .iter(vim.lsp.get_active_clients { bufnr = 0 })
+    :map(function(server)
+      if server.name == 'null-ls' then
+        return ('null-ls(%s)'):format(table.concat(
+          vim
+            .iter(require('null-ls.sources').get_available(vim.bo.filetype))
+            :map(function(source)
+              return source.name
+            end)
+            :totable(),
+          ','
+        ))
+      else
+        return server.name
+      end
+    end)
+    :totable()
+  return table.concat(servers, ', ')
+end
 
 require('lualine').setup {
   options = {
