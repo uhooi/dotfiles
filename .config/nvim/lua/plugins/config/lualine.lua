@@ -31,7 +31,7 @@ require('lualine').setup {
     lualine_a = { 'mode' },
     lualine_b = { 'branch', 'diff', 'diagnostics' },
     lualine_c = {},
-    lualine_x = { lsp_names },
+    lualine_x = { lsp_names }, -- FIXME: Not shown
     lualine_y = { 'encoding', 'fileformat', 'filetype' },
     lualine_z = { 'progress', 'location' },
   },
