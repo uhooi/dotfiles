@@ -1,23 +1,17 @@
 local lsp_names = function()
-  local servers = vim
-    .iter(vim.lsp.get_active_clients { bufnr = 0 })
-    :map(function(server)
-      if server.name == 'null-ls' then
-        return ('null-ls(%s)'):format(table.concat(
-          vim
-            .iter(require('null-ls.sources').get_available(vim.bo.filetype))
-            :map(function(source)
-              return source.name
-            end)
-            :totable(),
-          ','
-        ))
-      else
-        return server.name
+  local clients = {}
+  for _, client in ipairs(vim.lsp.get_active_clients { bufnr = 0 }) do
+    if client.name == 'null-ls' then
+      local sources = {}
+      for _, source in ipairs(require('null-ls.sources').get_available(vim.bo.filetype)) do
+        table.insert(sources, source.name)
       end
-    end)
-    :totable()
-  return table.concat(servers, ', ')
+      table.insert(clients, 'null-ls(' .. table.concat(sources, ', ') .. ')')
+    else
+      table.insert(clients, client.name)
+    end
+  end
+  return ' ' .. table.concat(clients, ', ')
 end
 
 require('lualine').setup {
@@ -29,7 +23,7 @@ require('lualine').setup {
     lualine_a = { 'mode' },
     lualine_b = { 'branch', 'diff', 'diagnostics' },
     lualine_c = {},
-    lualine_x = { lsp_names }, -- FIXME: Not shown
+    lualine_x = { lsp_names },
     lualine_y = { 'encoding', 'fileformat', 'filetype' },
     lualine_z = { 'progress', 'location' },
   },
