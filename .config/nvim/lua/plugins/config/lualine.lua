@@ -35,16 +35,14 @@ require('lualine').setup {
     lualine_y = {},
     lualine_z = { 'tabs' },
   },
-  winbar = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {
-      'navic',
-      color_correction = nil,
-      navic_opts = nil,
-    },
-    lualine_x = {},
-    lualine_y = {},
-    lualine_z = {},
-  },
+  -- barbecue.nvim uses winbar, so lualine does not use it
+  -- ref: https://github.com/utilyre/barbecue.nvim/issues/70#issuecomment-1430373391
+  -- winbar = {
+  --   lualine_a = {},
+  --   lualine_b = {},
+  --   lualine_c = {},
+  --   lualine_x = {},
+  --   lualine_y = {},
+  --   lualine_z = {},
+  -- },
 }

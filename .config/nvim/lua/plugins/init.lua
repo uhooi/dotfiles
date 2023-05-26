@@ -401,8 +401,14 @@ require('lazy').setup({
   },
 
   {
-    'SmiteshP/nvim-navic',
-    dependencies = { 'neovim/nvim-lspconfig' },
+    'utilyre/barbecue.nvim',
+    dependencies = {
+      'SmiteshP/nvim-navic',
+      'nvim-tree/nvim-web-devicons',
+    },
+    config = function()
+      require('plugins.config.barbecue')
+    end,
   },
   -- }}}
 
