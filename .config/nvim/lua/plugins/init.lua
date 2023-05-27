@@ -109,10 +109,10 @@ require('lazy').setup({
 
   { 'tomtom/tcomment_vim' },
 
-  -- {
-  --   'github/copilot.vim',
-  --   config = function() require('plugins.config.copilot') end,
-  -- },
+  {
+    'github/copilot.vim',
+    config = function() require('plugins.config.copilot') end,
+  },
 
   {
     'petertriho/nvim-scrollbar',
