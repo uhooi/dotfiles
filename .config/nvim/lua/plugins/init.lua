@@ -221,6 +221,11 @@ require('lazy').setup({
   { 'rhysd/committia.vim' },
 
   {
+    'sindrets/diffview.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+  },
+
+  {
     'pwntester/octo.nvim',
     dependencies = {
       'nvim-lua/plenary.nvim',

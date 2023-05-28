@@ -15,6 +15,7 @@
   "context_filetype.vim": { "branch": "master", "commit": "512db78eb08f284a71bdd83b3ff27026334a3ab2" },
   "copilot.vim": { "branch": "release", "commit": "1358e8e45ecedc53daf971924a0541ddf6224faf" },
   "dart-vim-plugin": { "branch": "master", "commit": "81e50e80329e5eac2c115f45585b1838a614d07a" },
+  "diffview.nvim": { "branch": "main", "commit": "bff58a6ea3e081ca50049700f9848b2f84ea57be" },
   "dressing.nvim": { "branch": "master", "commit": "f19cbd56f7f8cad212c58a7285d09c5d9c273896" },
   "emmet-vim": { "branch": "master", "commit": "def5d57a1ae5afb1b96ebe83c4652d1c03640f4d" },
   "gitsigns.nvim": { "branch": "main", "commit": "f868d82a36f7f7f5e110eb0a9659993984f59875" },
