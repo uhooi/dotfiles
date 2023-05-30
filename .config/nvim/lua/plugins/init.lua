@@ -400,13 +400,12 @@ require('lazy').setup({
   },
 
   {
-    'utilyre/barbecue.nvim',
+    'Bekaboo/dropbar.nvim',
     dependencies = {
-      'SmiteshP/nvim-navic',
       'nvim-tree/nvim-web-devicons',
     },
     config = function()
-      require('plugins.config.barbecue')
+      require('plugins.config.dropbar')
     end,
   },
   -- }}}

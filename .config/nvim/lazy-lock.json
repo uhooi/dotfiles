@@ -1,6 +1,5 @@
 {
   "apiblueprint.vim": { "branch": "master", "commit": "776b9863e32a8ba59bf8a9656770a77c148c6e9c" },
-  "barbecue.nvim": { "branch": "main", "commit": "cd7e7da622d68136e13721865b4d919efd6325ed" },
   "bullets.vim": { "branch": "master", "commit": "746f92ae05cdcc988857d8e76418326f07af9494" },
   "ccc.nvim": { "branch": "main", "commit": "78aed26e18a087501be0475443b5a623adbf6290" },
   "cellwidths.nvim": { "branch": "main", "commit": "ccc834e6991bfd27a3404b0c63935d97af25f5f4" },
@@ -17,6 +16,7 @@
   "dart-vim-plugin": { "branch": "master", "commit": "81e50e80329e5eac2c115f45585b1838a614d07a" },
   "diffview.nvim": { "branch": "main", "commit": "bff58a6ea3e081ca50049700f9848b2f84ea57be" },
   "dressing.nvim": { "branch": "master", "commit": "f19cbd56f7f8cad212c58a7285d09c5d9c273896" },
+  "dropbar.nvim": { "branch": "master", "commit": "82f7ae042723466b0f4c0754113b10bcca50bd39" },
   "emmet-vim": { "branch": "master", "commit": "def5d57a1ae5afb1b96ebe83c4652d1c03640f4d" },
   "gitsigns.nvim": { "branch": "main", "commit": "f868d82a36f7f7f5e110eb0a9659993984f59875" },
   "helpful.vim": { "branch": "master", "commit": "dda892115de6e51157a2ee8df9b1a6ea663decd2" },
