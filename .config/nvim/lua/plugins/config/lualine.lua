@@ -11,7 +11,7 @@ local lsp_names = function()
       table.insert(clients, client.name)
     end
   end
-  return ' ' .. table.concat(clients, ', ')
+  return ' ' .. table.concat(clients, ', ')
 end
 
 require('lualine').setup {
