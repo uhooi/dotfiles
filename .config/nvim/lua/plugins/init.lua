@@ -47,6 +47,15 @@ require('lazy').setup({
   },
 
   {
+    'lukas-reineke/virt-column.nvim',
+    config = function()
+      require('virt-column').setup {
+        char = '│',
+      }
+    end,
+  },
+
+  {
     'lukas-reineke/indent-blankline.nvim',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
