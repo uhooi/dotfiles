@@ -30,7 +30,7 @@ require('lazy').setup({
   -- }}}
 
   -- API {{{
-  { 'nvim-lua/plenary.nvim',       lazy = true },
+  { 'nvim-lua/plenary.nvim', lazy = true },
 
   {
     'nvim-treesitter/nvim-treesitter',
@@ -111,7 +111,9 @@ require('lazy').setup({
 
   {
     'github/copilot.vim',
-    config = function() require('plugins.config.copilot') end,
+    config = function()
+      require('plugins.config.copilot')
+    end,
   },
 
   {
@@ -128,7 +130,7 @@ require('lazy').setup({
     end,
   },
 
-  { 'MunifTanjim/nui.nvim',  lazy = true },
+  { 'MunifTanjim/nui.nvim', lazy = true },
   {
     'folke/noice.nvim',
     event = 'VimEnter',
@@ -182,30 +184,15 @@ require('lazy').setup({
   {
     'phaazon/hop.nvim',
     config = function()
-      local hop = require('hop')
-      hop.setup {}
-
-      local directions = require('hop.hint').HintDirection
-      vim.keymap.set('n', 'f', function()
-        hop.hint_char1 { direction = directions.AFTER_CURSOR, current_line_only = true }
-      end, { remap = true })
-      vim.keymap.set('n', 'F', function()
-        hop.hint_char1 { direction = directions.BEFORE_CURSOR, current_line_only = true }
-      end, { remap = true })
-      vim.keymap.set('n', 't', function()
-        hop.hint_char1 { direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 }
-      end, { remap = true })
-      vim.keymap.set('n', 'T', function()
-        hop.hint_char1 { direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 }
-      end, { remap = true })
+      require('plugins.config.hop')
     end,
   },
   --- }}}
 
   -- textobj {{{
-  { 'kana/vim-textobj-user',      lazy = true },
-  { 'kana/vim-textobj-entire',    dependencies = { 'kana/vim-textobj-user' } },
-  { 'kana/vim-textobj-indent',    dependencies = { 'kana/vim-textobj-user' } },
+  { 'kana/vim-textobj-user', lazy = true },
+  { 'kana/vim-textobj-entire', dependencies = { 'kana/vim-textobj-user' } },
+  { 'kana/vim-textobj-indent', dependencies = { 'kana/vim-textobj-user' } },
   { 'sgur/vim-textobj-parameter', dependencies = { 'kana/vim-textobj-user' } },
   { 'thinca/vim-textobj-between', dependencies = { 'kana/vim-textobj-user' } },
   -- }}}
@@ -321,7 +308,7 @@ require('lazy').setup({
     ft = { 'apiblueprint' },
   },
 
-  { 'Shougo/context_filetype.vim',      lazy = true },
+  { 'Shougo/context_filetype.vim', lazy = true },
   {
     'osyo-manga/vim-precious',
     dependencies = { 'Shougo/context_filetype.vim' },
@@ -341,9 +328,9 @@ require('lazy').setup({
   -- }}}
 
   -- Denops {{{
-  { 'vim-denops/denops.vim',            lazy = true,     enabled = false },
+  { 'vim-denops/denops.vim', lazy = true, enabled = false },
   { 'vim-denops/denops-helloworld.vim', enabled = false, dependencies = { 'vim-denops/denops.vim' } },
-  { 'lambdalisue/gin.vim',              enabled = false, dependencies = { 'vim-denops/denops.vim' } },
+  { 'lambdalisue/gin.vim', enabled = false, dependencies = { 'vim-denops/denops.vim' } },
   -- }}}
 
   -- LSP {{{
@@ -354,7 +341,7 @@ require('lazy').setup({
     end,
   },
 
-  { 'williamboman/mason-lspconfig.nvim',   lazy = true },
+  { 'williamboman/mason-lspconfig.nvim', lazy = true },
   {
     'williamboman/mason.nvim',
     dependencies = { 'williamboman/mason-lspconfig.nvim' },
@@ -378,15 +365,15 @@ require('lazy').setup({
     end,
   },
 
-  { 'hrsh7th/cmp-nvim-lsp',                lazy = true },
-  { 'hrsh7th/cmp-buffer',                  lazy = true },
-  { 'hrsh7th/cmp-path',                    lazy = true },
-  { 'hrsh7th/cmp-cmdline',                 lazy = true },
+  { 'hrsh7th/cmp-nvim-lsp', lazy = true },
+  { 'hrsh7th/cmp-buffer', lazy = true },
+  { 'hrsh7th/cmp-path', lazy = true },
+  { 'hrsh7th/cmp-cmdline', lazy = true },
   { 'hrsh7th/cmp-nvim-lsp-signature-help', lazy = true },
-  { 'hrsh7th/cmp-emoji',                   lazy = true },
-  { 'hrsh7th/cmp-vsnip',                   lazy = true },
-  { 'hrsh7th/vim-vsnip',                   lazy = true },
-  { 'onsails/lspkind.nvim',                lazy = true },
+  { 'hrsh7th/cmp-emoji', lazy = true },
+  { 'hrsh7th/cmp-vsnip', lazy = true },
+  { 'hrsh7th/vim-vsnip', lazy = true },
+  { 'onsails/lspkind.nvim', lazy = true },
   {
     'hrsh7th/nvim-cmp',
     dependencies = {
