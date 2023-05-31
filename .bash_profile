@@ -128,3 +128,8 @@ if [ -d "${FLUTTER_HOME}" ]; then
   export PATH="${FLUTTER_HOME}/bin:$PATH"
 fi
 
+# Neovim
+export NEOVIM_HOME=$HOME/.local/nvim
+if [ -d "${NEOVIM_HOME}" ]; then
+  export PATH="${NEOVIM_HOME}/bin:$PATH"
+fi
