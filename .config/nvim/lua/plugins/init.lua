@@ -220,6 +220,11 @@ require('lazy').setup({
   },
 
   {
+    'akinsho/git-conflict.nvim',
+    config = true,
+  },
+
+  {
     'pwntester/octo.nvim',
     dependencies = {
       'nvim-lua/plenary.nvim',
