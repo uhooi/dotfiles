@@ -7,6 +7,18 @@ telescope.load_extension('ui-select')
 -- FIXME: Error
 --telescope.load_extension('noice')
 
+-- ref: https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#mapping-esc-to-quit-in-insert-mode
+local telescope_actions = require('telescope.actions')
+telescope.setup {
+  defaults = {
+    mappings = {
+      i = {
+        ['<Esc>'] = telescope_actions.close,
+      },
+    },
+  },
+}
+
 -- ref: https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#live-grep-from-project-git-root-with-fallback
 local function live_grep_from_git_root()
   local filepath = vim.api.nvim_buf_get_name(0)
