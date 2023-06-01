@@ -8,19 +8,14 @@ telescope.load_extension('ui-select')
 --telescope.load_extension('noice')
 
 -- ref: https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#live-grep-from-project-git-root-with-fallback
-local function live_grep_from_project_git_root()
-  local function is_git_repo()
-    vim.fn.system('git rev-parse --is-inside-work-tree')
-    return vim.v.shell_error == 0
-  end
-
-  local function get_git_root()
-    return print(vim.fn.system('git rev-parse --show-superproject-working-tree --show-toplevel | head -1'))
-  end
+local function live_grep_from_git_root()
+  local filepath = vim.api.nvim_buf_get_name(0)
+  local dirpath = vim.fs.dirname(filepath)
+  local git_root = vim.fs.find('.git', { path = dirpath, upward = true })[2]
 
   local opts = {}
-  if is_git_repo() then
-    opts = { cwd = get_git_root() }
+  if git_root then
+    opts = { cwd = git_root }
   end
 
   require('telescope.builtin').live_grep(opts)
@@ -28,7 +23,7 @@ end
 
 local telescope_builtin = require('telescope.builtin')
 vim.keymap.set('n', '<Leader>f', telescope_builtin.git_files)
-vim.keymap.set('n', '<Leader>g', live_grep_from_project_git_root)
+vim.keymap.set('n', '<Leader>g', live_grep_from_git_root)
 vim.keymap.set('n', '<Leader>b', telescope_builtin.buffers)
 vim.keymap.set('n', '<Leader>h', telescope_builtin.help_tags)
 vim.keymap.set('n', '<Leader>n', '<Cmd>Noice telescope<CR>')
