@@ -1,16 +1,22 @@
 local lsp_names = function()
-  local clients = {}
-  for _, client in ipairs(vim.lsp.get_active_clients { bufnr = 0 }) do
-    if client.name == 'null-ls' then
-      local sources = {}
-      for _, source in ipairs(require('null-ls.sources').get_available(vim.bo.filetype)) do
-        table.insert(sources, source.name)
+  local clients = vim
+    .iter(vim.lsp.get_active_clients { bufnr = 0 })
+    :map(function(client)
+      if client.name == 'null-ls' then
+        return ('null-ls(%s)'):format(table.concat(
+          vim
+            .iter(require('null-ls.sources').get_available(vim.bo.filetype))
+            :map(function(source)
+              return source.name
+            end)
+            :totable(),
+          ', '
+        ))
+      else
+        return client.name
       end
-      table.insert(clients, 'null-ls(' .. table.concat(sources, ', ') .. ')')
-    else
-      table.insert(clients, client.name)
-    end
-  end
+    end)
+    :totable()
   return ' ' .. table.concat(clients, ', ')
 end
 
