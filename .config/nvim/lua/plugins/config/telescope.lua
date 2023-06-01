@@ -4,8 +4,7 @@
 local telescope = require('telescope')
 telescope.load_extension('fzf')
 telescope.load_extension('ui-select')
--- FIXME: Error
---telescope.load_extension('noice')
+-- telescope.load_extension('noice') -- FIXME: Error
 
 -- ref: https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#mapping-esc-to-quit-in-insert-mode
 local telescope_actions = require('telescope.actions')
