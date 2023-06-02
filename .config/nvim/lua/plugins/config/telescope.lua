@@ -55,8 +55,8 @@ local function grep_string_from_git_root()
 end
 
 vim.keymap.set('n', '<Leader>F', telescope_builtin.git_files)
-vim.keymap.set('n', '<Leader>f', live_grep_from_git_root)
-vim.keymap.set('n', '<Leader>G', grep_string_from_git_root)
+vim.keymap.set('n', '<Leader>f', live_grep_from_git_root) -- FIXME: Not searched recursively
+vim.keymap.set('n', '<Leader>G', grep_string_from_git_root) -- FIXME: Not searched recursively
 vim.keymap.set('n', '<Leader>b', telescope_builtin.buffers)
 vim.keymap.set('n', '<Leader>h', telescope_builtin.help_tags)
 vim.keymap.set('n', '<Leader>n', '<Cmd>Noice telescope<CR>')
