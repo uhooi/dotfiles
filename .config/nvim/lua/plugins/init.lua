@@ -462,6 +462,8 @@ require('lazy').setup({
       require('uhooi').setup()
     end,
   },
+
+  { 'seandewar/nvimesweeper' },
   -- }}}
 }, {
   -- Configuration {{{
