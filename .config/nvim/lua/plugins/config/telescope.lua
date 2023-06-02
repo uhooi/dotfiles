@@ -31,6 +31,15 @@ local function get_git_dirpath()
   })[1]
 end
 
+-- ref: https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#falling-back-to-find_files-if-git_files-cant-find-a-git-directory
+local function project_files()
+  if get_git_dirpath() then
+    return telescope_builtin.git_files()
+  else
+    return telescope_builtin.find_files()
+  end
+end
+
 -- ref: https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#live-grep-from-project-git-root-with-fallback
 local function live_grep_from_git_root()
   local opts = {}
@@ -54,7 +63,7 @@ local function grep_string_from_git_root()
   telescope_builtin.grep_string(opts)
 end
 
-vim.keymap.set('n', '<Leader>F', telescope_builtin.git_files)
+vim.keymap.set('n', '<Leader>F', project_files)
 vim.keymap.set('n', '<Leader>f', live_grep_from_git_root) -- FIXME: Not searched recursively
 vim.keymap.set('n', '<Leader>G', grep_string_from_git_root) -- FIXME: Not searched recursively
 vim.keymap.set('n', '<Leader>b', telescope_builtin.buffers)
