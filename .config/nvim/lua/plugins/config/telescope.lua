@@ -67,7 +67,10 @@ vim.keymap.set('n', '<Leader>F', project_files)
 vim.keymap.set('n', '<Leader>f', live_grep_from_project) -- FIXME: Not searched recursively
 vim.keymap.set('n', '<Leader>G', grep_string_from_project) -- FIXME: Not searched recursively
 vim.keymap.set('n', '<Leader>b', telescope_builtin.buffers)
-vim.keymap.set('n', '<Leader>h', telescope_builtin.help_tags)
+vim.keymap.set('n', '<Leader>r', telescope_builtin.oldfiles)
+vim.keymap.set('n', '<Leader>hc', telescope_builtin.command_history)
+vim.keymap.set('n', '<Leader>hs', telescope_builtin.search_history)
+vim.keymap.set('n', '<Leader>H', telescope_builtin.help_tags)
 vim.keymap.set('n', '<Leader>n', '<Cmd>Noice telescope<CR>')
 vim.keymap.set('n', '<Leader>gc', telescope_builtin.git_commits)
 vim.keymap.set('n', '<Leader>gf', telescope_builtin.git_bcommits)
