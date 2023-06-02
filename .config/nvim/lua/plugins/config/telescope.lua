@@ -34,8 +34,9 @@ end
 -- ref: https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#live-grep-from-project-git-root-with-fallback
 local function live_grep_from_git_root()
   local opts = {}
-  if get_git_dirpath() then
-    local git_root = vim.fs.dirname(get_git_dirpath())
+  local git_dirpath = get_git_dirpath()
+  if git_dirpath then
+    local git_root = vim.fs.dirname(git_dirpath)
     opts = { cwd = git_root }
   end
 
@@ -44,8 +45,9 @@ end
 
 local function grep_string_from_git_root()
   local opts = {}
-  if get_git_dirpath() then
-    local git_root = vim.fs.dirname(get_git_dirpath())
+  local git_dirpath = get_git_dirpath()
+  if git_dirpath then
+    local git_root = vim.fs.dirname(git_dirpath)
     opts = { cwd = git_root }
   end
 
