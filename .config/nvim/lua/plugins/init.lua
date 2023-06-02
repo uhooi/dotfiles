@@ -106,9 +106,9 @@ require('lazy').setup({
   },
 
   {
-    'windwp/nvim-autopairs',
+    'hrsh7th/nvim-insx',
     config = function()
-      require('nvim-autopairs').setup {}
+      require('insx.preset.standard').setup()
     end,
   },
 
