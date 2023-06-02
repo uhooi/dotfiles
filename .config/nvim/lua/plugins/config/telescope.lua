@@ -20,17 +20,23 @@ telescope.setup {
 
 local telescope_builtin = require('telescope.builtin')
 
-local function get_git_root()
+local function get_git_dirpath()
   local filepath = vim.api.nvim_buf_get_name(0)
   local dirpath = vim.fs.dirname(filepath)
-  return vim.fs.find('.git', { path = dirpath, upward = true })[2]
+  return vim.fs.find('.git', {
+    path = dirpath,
+    upward = true,
+    stop = vim.loop.os_homedir(),
+    type = 'directory',
+  })[1]
 end
 
 -- ref: https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#live-grep-from-project-git-root-with-fallback
 local function live_grep_from_git_root()
   local opts = {}
-  if get_git_root() then
-    opts = { cwd = get_git_root() }
+  if get_git_dirpath() then
+    local git_root = vim.fs.dirname(get_git_dirpath())
+    opts = { cwd = git_root }
   end
 
   telescope_builtin.live_grep(opts)
@@ -38,8 +44,9 @@ end
 
 local function grep_string_from_git_root()
   local opts = {}
-  if get_git_root() then
-    opts = { cwd = get_git_root() }
+  if get_git_dirpath() then
+    local git_root = vim.fs.dirname(get_git_dirpath())
+    opts = { cwd = git_root }
   end
 
   telescope_builtin.grep_string(opts)
