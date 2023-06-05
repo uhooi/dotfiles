@@ -26,7 +26,7 @@ local function get_git_dirpath()
   return vim.fs.find('.git', {
     path = dirpath,
     upward = true,
-    stop = vim.loop.os_homedir(),
+    stop = vim.uv.os_homedir(),
     type = 'directory',
   })[1]
 end
