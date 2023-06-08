@@ -77,8 +77,8 @@ local function grep_string_from_project()
 end
 
 vim.keymap.set('n', '<Leader>F', project_files)
-vim.keymap.set('n', '<Leader>f', live_grep_from_project) -- FIXME: Not searched recursively
-vim.keymap.set('n', '<Leader>G', grep_string_from_project) -- FIXME: Not searched recursively
+vim.keymap.set('n', '<Leader>f', live_grep_from_project)
+vim.keymap.set('n', '<Leader>G', grep_string_from_project)
 vim.keymap.set('n', '<Leader>b', telescope_builtin.buffers)
 vim.keymap.set('n', '<Leader>r', telescope_builtin.oldfiles)
 vim.keymap.set('n', '<Leader>hc', telescope_builtin.command_history)
