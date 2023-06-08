@@ -251,6 +251,7 @@ require('lazy').setup({
     build = 'make',
   },
   { 'nvim-telescope/telescope-ui-select.nvim', lazy = true },
+  { 'nvim-telescope/telescope-ghq.nvim', lazy = true },
   {
     'nvim-telescope/telescope.nvim',
     dependencies = {
@@ -259,6 +260,7 @@ require('lazy').setup({
       'nvim-tree/nvim-web-devicons',
       'nvim-telescope/telescope-fzf-native.nvim',
       'nvim-telescope/telescope-ui-select.nvim',
+      'nvim-telescope/telescope-ghq.nvim',
     },
     config = function()
       require('plugins.config.telescope')
