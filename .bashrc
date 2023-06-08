@@ -11,6 +11,7 @@ fi
 alias g='git'
 # ref: https://tokizuoh.hatenablog.com/entry/2022/09/10/104017
 #    : https://qiita.com/IzumiSy/items/b44b384468d8f2f9dc71
+shopt -s autocd
 alias cdg='`ghq list -p | peco`'
 
 # 定数
