@@ -9,6 +9,7 @@ if [ "$(uname)" == 'Darwin' ]; then
   alias ls='ls --color=auto'
 fi
 alias g='git'
+alias cdg='cd $(ghq list -p | peco)'
 
 # 定数
 # M1 Mac
