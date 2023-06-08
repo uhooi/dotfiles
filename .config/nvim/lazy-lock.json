@@ -1,4 +1,5 @@
 {
+  "SmoothCursor.nvim": { "branch": "main", "commit": "b61173fb107455f18099715b88d86002579f2736" },
   "apiblueprint.vim": { "branch": "master", "commit": "776b9863e32a8ba59bf8a9656770a77c148c6e9c" },
   "bullets.vim": { "branch": "master", "commit": "746f92ae05cdcc988857d8e76418326f07af9494" },
   "ccc.nvim": { "branch": "main", "commit": "dd85d91080fbb4399505e595eef90f190d21aeab" },

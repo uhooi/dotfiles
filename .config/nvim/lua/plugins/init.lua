@@ -151,6 +151,13 @@ require('lazy').setup({
   },
 
   {
+    'gen740/SmoothCursor.nvim',
+    config = function()
+      require('plugins.config.smooth_cursor')
+    end,
+  },
+
+  {
     'uga-rosa/ugaterm.nvim',
     config = function()
       require('plugins.config.ugaterm')
