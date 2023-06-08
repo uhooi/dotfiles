@@ -16,6 +16,18 @@ telescope.setup {
         ['<Esc>'] = telescope_actions.close,
       },
     },
+    -- ref: https://github.com/nvim-telescope/telescope.nvim/issues/1173
+    --    : https://github.com/nvim-telescope/telescope.nvim/blob/9a82b5b73eba8c8d71bacedd062d20fe6d3c791a/doc/telescope.txt#L529-L547
+    vimgrep_arguments = {
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case',
+      '--hidden',
+    },
   },
 }
 
