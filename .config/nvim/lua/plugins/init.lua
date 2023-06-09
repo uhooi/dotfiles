@@ -395,7 +395,14 @@ require('lazy').setup({
   { 'hrsh7th/cmp-vsnip', lazy = true },
   { 'hrsh7th/vim-vsnip', lazy = true },
   { 'onsails/lspkind.nvim', lazy = true },
-  { 'delphinus/cmp-ghq', dependencies = { 'nvim-lua/plenary.nvim' }, lazy = true },
+  {
+    'delphinus/cmp-ghq',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    lazy = true,
+    config = function()
+      require('cmp_ghq').setup()
+    end,
+  },
   {
     'hrsh7th/nvim-cmp',
     dependencies = {
