@@ -400,7 +400,7 @@ require('lazy').setup({
     dependencies = { 'nvim-lua/plenary.nvim' },
     lazy = true,
     config = function()
-      require('cmp_ghq').setup()
+      require('cmp_ghq').setup {}
     end,
   },
   {
