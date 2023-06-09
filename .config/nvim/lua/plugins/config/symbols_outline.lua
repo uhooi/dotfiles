@@ -1,4 +1,5 @@
 require('symbols-outline').setup {
+  -- ref: https://github.com/simrat39/symbols-outline.nvim/pull/225
   symbols = {
     File = { icon = '󰈔', hl = '@text.uri' },
     Module = { icon = '󰆧', hl = '@namespace' },
