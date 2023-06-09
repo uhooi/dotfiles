@@ -172,6 +172,13 @@ require('lazy').setup({
     end,
   },
 
+  {
+    'simrat39/symbols-outline.nvim',
+    config = function()
+      require('plugins.config.symbols_outline')
+    end,
+  },
+
   { 'stevearc/dressing.nvim' },
 
   {
