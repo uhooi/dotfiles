@@ -4,13 +4,21 @@
 --    : https://zenn.dev/botamotch/articles/21073d78bc68bf
 
 local cmp = require('cmp')
+local cmp_types = require('cmp.types')
 local lspkind = require('lspkind')
 
 cmp.setup {
   formatting = {
+    -- ref: https://github.com/onsails/lspkind.nvim/pull/30
+    fields = {
+      cmp.ItemField.Kind,
+      cmp.ItemField.Abbr,
+      cmp.ItemField.Menu,
+    },
     format = lspkind.cmp_format {
-      mode = 'symbol_text',
+      mode = 'symbol',
       maxwidth = 50,
+      ellipsis_char = '…',
       menu = {
         buffer = 'buffer',
         cmdline = 'cmdline',
@@ -23,6 +31,18 @@ cmp.setup {
         vsnip = 'vsnip',
       },
     },
+    before = function(entry, vim_item)
+      local word = entry:get_insert_text()
+      if entry.completion_item.insertTextFormat == cmp_types.lsp.InsertTextFormat.Snippet then
+        word = vim.lsp.util.parse_snippet(word)
+      end
+      word = word:gsub('\n', '')
+      if entry.completion_item.insertTextFormat == cmp_types.lsp.InsertTextFormat.Snippet then
+        word = word .. '…'
+      end
+      vim_item.abbr = word
+      return vim_item
+    end,
   },
   completion = {
     keyword_length = 1,
