@@ -11,6 +11,16 @@ cmp.setup {
     format = lspkind.cmp_format {
       mode = 'symbol_text',
       maxwidth = 50,
+      menu = {
+        buffer = 'buffer',
+        cmdline = 'cmdline',
+        emoji = 'emoji',
+        ghq = 'ghq',
+        nvim_lsp = 'lsp',
+        nvim_lsp_signature_help = 'signature',
+        path = 'path',
+        vsnip = 'vsnip',
+      },
     },
   },
   completion = {
@@ -39,8 +49,8 @@ cmp.setup {
   },
   sources = cmp.config.sources {
     { name = 'nvim_lsp_signature_help' },
-    { name = 'path' },
     { name = 'nvim_lsp' },
+    { name = 'path' },
     { name = 'ghq' },
     { name = 'emoji' },
     { name = 'vsnip' },
