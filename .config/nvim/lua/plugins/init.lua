@@ -404,6 +404,7 @@ require('lazy').setup({
       require('cmp_ghq').setup {}
     end,
   },
+  { 'uga-rosa/cmp-latex-symbol', lazy = true },
   { 'onsails/lspkind.nvim', lazy = true },
   {
     'hrsh7th/nvim-cmp',
@@ -419,6 +420,7 @@ require('lazy').setup({
       'hrsh7th/vim-vsnip',
       'ray-x/cmp-treesitter',
       'delphinus/cmp-ghq',
+      'uga-rosa/cmp-latex-symbol',
       'onsails/lspkind.nvim',
     },
     config = function()
