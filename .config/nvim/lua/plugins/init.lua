@@ -395,7 +395,7 @@ require('lazy').setup({
   { 'hrsh7th/cmp-emoji', lazy = true },
   { 'hrsh7th/cmp-vsnip', lazy = true },
   { 'hrsh7th/vim-vsnip', lazy = true },
-  { 'onsails/lspkind.nvim', lazy = true },
+  { 'ray-x/cmp-treesitter', lazy = true },
   {
     'delphinus/cmp-ghq',
     dependencies = { 'nvim-lua/plenary.nvim' },
@@ -404,6 +404,7 @@ require('lazy').setup({
       require('cmp_ghq').setup {}
     end,
   },
+  { 'onsails/lspkind.nvim', lazy = true },
   {
     'hrsh7th/nvim-cmp',
     dependencies = {
@@ -416,8 +417,9 @@ require('lazy').setup({
       'hrsh7th/cmp-emoji',
       'hrsh7th/cmp-vsnip',
       'hrsh7th/vim-vsnip',
-      'onsails/lspkind.nvim',
+      'ray-x/cmp-treesitter',
       'delphinus/cmp-ghq',
+      'onsails/lspkind.nvim',
     },
     config = function()
       require('plugins.config.nvim_cmp')
