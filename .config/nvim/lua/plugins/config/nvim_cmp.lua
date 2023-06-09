@@ -16,6 +16,7 @@ cmp.setup {
         cmdline = 'cmdline',
         emoji = 'emoji',
         ghq = 'ghq',
+        nvim_lua = 'lua',
         nvim_lsp = 'lsp',
         nvim_lsp_signature_help = 'signature',
         path = 'path',
@@ -50,6 +51,7 @@ cmp.setup {
   sources = cmp.config.sources {
     { name = 'nvim_lsp_signature_help' },
     { name = 'nvim_lsp' },
+    { name = 'nvim_lua' },
     { name = 'path' },
     { name = 'ghq' },
     { name = 'emoji' },
