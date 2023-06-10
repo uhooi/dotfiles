@@ -22,6 +22,7 @@ cmp.setup {
       menu = {
         buffer = 'buffer',
         cmdline = 'cmdline',
+        dictionary = 'dictionary',
         emoji = 'emoji',
         ghq = 'ghq',
         latex_symbol = 'latex',
@@ -79,6 +80,7 @@ cmp.setup {
     { name = 'ghq' },
     { name = 'latex_symbol' },
     { name = 'emoji' },
+    { name = 'dictionary', keyword_length = 2 },
     { name = 'vsnip' },
     { name = 'buffer' },
   },
@@ -88,6 +90,7 @@ cmp.setup.cmdline('/', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
     { name = 'buffer' },
+    { name = 'dictionary', keyword_length = 2 },
   },
 })
 
@@ -96,6 +99,7 @@ cmp.setup.cmdline(':', {
   sources = cmp.config.sources {
     { name = 'path' },
     { name = 'cmdline' },
+    { name = 'dictionary', keyword_length = 2 },
   },
 })
 

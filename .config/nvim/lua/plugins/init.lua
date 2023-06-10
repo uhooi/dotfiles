@@ -412,6 +412,14 @@ require('lazy').setup({
     end,
   },
   { 'uga-rosa/cmp-latex-symbol', lazy = true },
+  {
+    'uga-rosa/cmp-dictionary',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    lazy = true,
+    config = function()
+      require('plugins.config.cmp_dictionary')
+    end,
+  },
   { 'onsails/lspkind.nvim', lazy = true },
   {
     'hrsh7th/nvim-cmp',
