@@ -436,6 +436,7 @@ require('lazy').setup({
       'ray-x/cmp-treesitter',
       'delphinus/cmp-ghq',
       'uga-rosa/cmp-latex-symbol',
+      'uga-rosa/cmp-dictionary',
       'onsails/lspkind.nvim',
     },
     config = function()
