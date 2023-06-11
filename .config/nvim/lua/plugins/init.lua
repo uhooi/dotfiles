@@ -420,6 +420,13 @@ require('lazy').setup({
       require('plugins.config.cmp_dictionary')
     end,
   },
+  {
+    'uga-rosa/cmp-dynamic',
+    lazy = true,
+    config = function()
+      require('plugins.config.cmp_dynamic')
+    end,
+  },
   { 'onsails/lspkind.nvim', lazy = true },
   {
     'hrsh7th/nvim-cmp',
@@ -437,6 +444,7 @@ require('lazy').setup({
       'delphinus/cmp-ghq',
       'uga-rosa/cmp-latex-symbol',
       'uga-rosa/cmp-dictionary',
+      'uga-rosa/cmp-dynamic',
       'onsails/lspkind.nvim',
     },
     config = function()
