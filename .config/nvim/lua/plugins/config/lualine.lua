@@ -1,3 +1,5 @@
+local icons = require('plugins.config.shared.icons')
+
 local lsp_names = function()
   local clients = vim
     .iter(vim.lsp.get_active_clients { bufnr = 0 })
@@ -17,7 +19,7 @@ local lsp_names = function()
       end
     end)
     :totable()
-  return ' ' .. table.concat(clients, ', ')
+  return icons.lsp .. ' ' .. table.concat(clients, ', ')
 end
 
 require('lualine').setup {
