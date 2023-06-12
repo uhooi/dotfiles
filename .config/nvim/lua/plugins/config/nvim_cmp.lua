@@ -6,6 +6,7 @@
 local cmp = require('cmp')
 local cmp_types = require('cmp.types')
 local lspkind = require('lspkind')
+local icons = require('shared.icons')
 
 cmp.setup {
   formatting = {
@@ -34,6 +35,33 @@ cmp.setup {
         path = 'path',
         treesitter = 'treesitter',
         vsnip = 'vsnip',
+      },
+      symbol_map = {
+        Text = icons.text,
+        Method = icons.method,
+        Function = icons.func,
+        Constructor = icons.constructor,
+        Field = icons.field,
+        Variable = icons.variable,
+        Class = icons.class,
+        Interface = icons.interface,
+        Module = icons.module,
+        Property = icons.property,
+        Unit = icons.unit,
+        Value = icons.value,
+        Enum = icons.enum,
+        Keyword = icons.keyword,
+        Snippet = icons.snippet,
+        Color = icons.color,
+        File = icons.file,
+        Reference = icons.reference,
+        Folder = icons.folder,
+        EnumMember = icons.enum_member,
+        Constant = icons.constant,
+        Struct = icons.struct,
+        Event = icons.event,
+        Operator = icons.operator,
+        TypeParameter = icons.type_parameter,
       },
     },
     before = function(entry, vim_item)
