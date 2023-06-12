@@ -1,4 +1,4 @@
-local icons = require('shared.icons')
+local icons = require('plugins.config.shared.icons')
 
 require('dropbar').setup {
   icons = {

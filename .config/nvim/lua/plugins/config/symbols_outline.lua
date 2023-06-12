@@ -1,4 +1,4 @@
-local icons = require('shared.icons')
+local icons = require('plugins.config.shared.icons')
 require('symbols-outline').setup {
   symbols = {
     File = { icon = icons.file, hl = '@text.uri' },

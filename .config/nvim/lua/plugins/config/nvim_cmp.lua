@@ -6,7 +6,7 @@
 local cmp = require('cmp')
 local cmp_types = require('cmp.types')
 local lspkind = require('lspkind')
-local icons = require('shared.icons')
+local icons = require('plugins.config.shared.icons')
 
 cmp.setup {
   formatting = {
