@@ -112,7 +112,7 @@ cmp.setup {
     { name = 'emoji' },
     { name = 'dynamic' },
     { name = 'calc' },
-    { name = 'dictionary', keyword_length = 2 },
+    { name = 'dictionary', keyword_length = 3 },
     { name = 'vsnip' },
     { name = 'buffer' },
   },
@@ -122,7 +122,7 @@ cmp.setup.cmdline('/', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
     { name = 'buffer' },
-    { name = 'dictionary', keyword_length = 2 },
+    { name = 'dictionary', keyword_length = 3 },
   },
 })
 
@@ -131,7 +131,7 @@ cmp.setup.cmdline(':', {
   sources = cmp.config.sources {
     { name = 'path' },
     { name = 'cmdline' },
-    { name = 'dictionary', keyword_length = 2 },
+    { name = 'dictionary', keyword_length = 3 },
   },
 })
 
