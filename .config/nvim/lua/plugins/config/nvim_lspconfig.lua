@@ -1,6 +1,22 @@
 -- Language servers not managed by mason-lspconfig
 local lspconfig = require('lspconfig')
-lspconfig.sourcekit.setup {}
+lspconfig.sourcekit.setup {
+  -- Use iOS SDK (UIKit etc.)
+  -- ref: https://qiita.com/niusounds/items/5a39b65b54939814a9f9
+  cmd = {
+    'sourcekit-lsp',
+    '-Xswiftc',
+    '-sdk',
+    '-Xswiftc',
+    -- '`xcrun --sdk iphonesimulator --show-sdk-path`',
+    '/Applications/Xcode-15.0.0-Beta.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator17.0.sdk',
+    '-Xswiftc',
+    '-target',
+    '-Xswiftc',
+    -- 'x86_64-apple-ios`xcrun --sdk iphonesimulator --show-sdk-platform-version`-simulator',
+    'x86_64-apple-ios17.0-simulator',
+  },
+}
 
 -- ref: https://github.com/neovim/neovim/commit/a5bbb932f9094098bd656d3f6be3c58344576709
 vim.fn.sign_define(
