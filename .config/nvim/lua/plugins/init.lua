@@ -402,7 +402,6 @@ require('lazy').setup({
   { 'hrsh7th/cmp-emoji', lazy = true },
   { 'hrsh7th/cmp-calc', lazy = true },
   { 'hrsh7th/cmp-vsnip', lazy = true },
-  { 'hrsh7th/vim-vsnip', lazy = true },
   { 'ray-x/cmp-treesitter', lazy = true },
   {
     'delphinus/cmp-ghq',
@@ -442,6 +441,7 @@ require('lazy').setup({
       'hrsh7th/cmp-calc',
       'hrsh7th/cmp-vsnip',
       'hrsh7th/vim-vsnip',
+      'rafamadriz/friendly-snippets',
       'ray-x/cmp-treesitter',
       'delphinus/cmp-ghq',
       'uga-rosa/cmp-latex-symbol',
@@ -463,6 +463,11 @@ require('lazy').setup({
       require('plugins.config.dropbar')
     end,
   },
+  -- }}}
+
+  -- Snippet {{{
+  { 'hrsh7th/vim-vsnip', lazy = true },
+  { 'rafamadriz/friendly-snippets', lazy = true },
   -- }}}
 
   -- Preview {{{
