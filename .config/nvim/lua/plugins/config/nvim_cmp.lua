@@ -101,7 +101,7 @@ cmp.setup {
     ['<CR>'] = cmp.mapping.confirm { select = true },
     ['<C-e>'] = cmp.mapping.abort(),
   },
-  sources = cmp.config.sources {
+  sources = {
     { name = 'nvim_lsp_signature_help' },
     { name = 'treesitter' },
     { name = 'nvim_lsp' },
@@ -128,7 +128,7 @@ cmp.setup.cmdline({ '/', '?' }, {
 
 cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources {
+  sources = {
     { name = 'path' },
     { name = 'cmdline' },
     { name = 'dictionary', keyword_length = 3 },
