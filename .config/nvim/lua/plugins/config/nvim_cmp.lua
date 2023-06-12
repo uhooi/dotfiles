@@ -103,7 +103,6 @@ cmp.setup {
   },
   sources = {
     { name = 'nvim_lsp_signature_help' },
-    { name = 'treesitter' },
     { name = 'nvim_lsp' },
     { name = 'nvim_lua' },
     { name = 'path' },
@@ -112,9 +111,10 @@ cmp.setup {
     { name = 'emoji' },
     { name = 'dynamic' },
     { name = 'calc' },
-    { name = 'dictionary', keyword_length = 3 },
     { name = 'vsnip' },
+    { name = 'treesitter' },
     { name = 'buffer' },
+    { name = 'dictionary', keyword_length = 3 },
   },
 }
 
