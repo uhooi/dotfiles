@@ -134,7 +134,3 @@ cmp.setup.cmdline(':', {
     { name = 'dictionary', keyword_length = 3 },
   },
 })
-
--- Use nvim-autopairs
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
