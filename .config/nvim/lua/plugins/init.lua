@@ -197,11 +197,25 @@ require('lazy').setup({
   -- statusline {{{
   {
     'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+      'delphinus/characterize.nvim',
+      'delphinus/eaw.nvim',
+    },
     config = function()
       require('plugins.config.lualine')
     end,
   },
+
+  {
+    'delphinus/characterize.nvim',
+    lazy = true,
+    config = function()
+      require('characterize').setup {}
+    end,
+  },
+  { 'delphinus/eaw.nvim', lazy = true },
+
   -- }}}
 
   -- winbar {{{
