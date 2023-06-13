@@ -73,7 +73,7 @@ require('dropbar').setup {
   },
   menu = {
     win_configs = {
-      border = 'single',
+      border = 'rounded',
     },
   },
 }

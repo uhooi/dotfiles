@@ -544,7 +544,7 @@ require('lazy').setup({
 }, {
   -- Configuration {{{
   ui = {
-    border = 'single',
+    border = 'rounded',
   },
   -- }}}
 })
