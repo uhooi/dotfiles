@@ -58,17 +58,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gf', function()
       vim.lsp.buf.format { async = true }
     end, bufopts)
-
-    -- ref: https://vi.stackexchange.com/questions/39074/user-borders-around-lsp-floating-windows
-    vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
-      border = 'rounded',
-    })
-    vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-      border = 'rounded',
-    })
-    vim.diagnostic.config {
-      float = { border = 'rounded' },
-    }
   end,
 })
 
