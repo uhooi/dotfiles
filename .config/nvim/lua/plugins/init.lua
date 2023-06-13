@@ -204,6 +204,18 @@ require('lazy').setup({
   },
   -- }}}
 
+  -- winbar {{{
+  {
+    'Bekaboo/dropbar.nvim',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
+    config = function()
+      require('plugins.config.dropbar')
+    end,
+  },
+  -- }}}
+
   -- Motion {{{
   {
     'phaazon/hop.nvim',
@@ -395,7 +407,9 @@ require('lazy').setup({
       require('plugins.config.lsp_lines')
     end,
   },
+  -- }}}
 
+  -- Completion {{{
   { 'hrsh7th/cmp-nvim-lsp', lazy = true },
   { 'hrsh7th/cmp-nvim-lua', lazy = true },
   { 'hrsh7th/cmp-buffer', lazy = true },
@@ -454,16 +468,6 @@ require('lazy').setup({
     },
     config = function()
       require('plugins.config.nvim_cmp')
-    end,
-  },
-
-  {
-    'Bekaboo/dropbar.nvim',
-    dependencies = {
-      'nvim-tree/nvim-web-devicons',
-    },
-    config = function()
-      require('plugins.config.dropbar')
     end,
   },
   -- }}}
