@@ -6,8 +6,7 @@ if not vim.uv.fs_stat(lazypath) then
   vim.fn.system {
     'git',
     'clone',
-    '--depth',
-    '1',
+    '--filter=blob:none',
     'https://github.com/folke/lazy.nvim.git',
     '--branch=stable',
     lazypath,
@@ -18,6 +17,10 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Setup {{{
 require('lazy').setup({
+  -- Plugin manager {{{
+  { 'folke/lazy.nvim' },
+  -- }}}
+
   -- Colorscheme {{{
   {
     'folke/tokyonight.nvim',
