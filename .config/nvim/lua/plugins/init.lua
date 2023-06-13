@@ -215,7 +215,6 @@ require('lazy').setup({
     end,
   },
   { 'delphinus/eaw.nvim', lazy = true },
-
   -- }}}
 
   -- winbar {{{
