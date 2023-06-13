@@ -12,23 +12,22 @@ require('mason').setup {
 local mason_lspconfig = require('mason-lspconfig')
 
 mason_lspconfig.setup {
-  -- FIXME: Error
-  -- ensure_installed = {
-  --   'bashls',
-  --   'cssls',
-  --   'denols',
-  --   'elmls',
-  --   'gopls',
-  --   'groovyls',
-  --   'html',
-  --   'kotlin_language_server',
-  --   'lua_ls',
-  --   'omnisharp',
-  --   'solargraph',
-  --   'taplo',
-  --   'tsserver',
-  --   'vimls',
-  -- },
+  ensure_installed = {
+    'bashls',
+    'cssls',
+    'denols',
+    'elmls',
+    'gopls',
+    'groovyls',
+    'html',
+    'kotlin_language_server',
+    'lua_ls',
+    'omnisharp',
+    'solargraph',
+    'taplo',
+    'tsserver',
+    'vimls',
+  },
 }
 
 mason_lspconfig.setup_handlers {
