@@ -23,6 +23,7 @@ mason_lspconfig.setup {
     'kotlin_language_server',
     'lua_ls',
     'omnisharp',
+    'rust_analyzer',
     'solargraph',
     'taplo',
     'tsserver',
