@@ -50,6 +50,13 @@ require('lazy').setup({
   },
 
   {
+    'tzachar/highlight-undo.nvim',
+    config = function()
+      require('plugins.config.highlight_undo')
+    end,
+  },
+
+  {
     'lukas-reineke/virt-column.nvim',
     config = function()
       require('plugins.config.virt_column')
