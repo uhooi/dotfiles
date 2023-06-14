@@ -1,6 +1,7 @@
 {
   "SmoothCursor.nvim": { "branch": "main", "commit": "b61173fb107455f18099715b88d86002579f2736" },
   "apiblueprint.vim": { "branch": "master", "commit": "776b9863e32a8ba59bf8a9656770a77c148c6e9c" },
+  "blackjack.nvim": { "branch": "main", "commit": "4145567d7c38cd3c693f3a07b6d713ce4c5a42aa" },
   "bullets.vim": { "branch": "master", "commit": "746f92ae05cdcc988857d8e76418326f07af9494" },
   "ccc.nvim": { "branch": "main", "commit": "4a0ddaf787cc82796e84ab8a7f70d086f250aeb6" },
   "cellwidths.nvim": { "branch": "main", "commit": "ccc834e6991bfd27a3404b0c63935d97af25f5f4" },

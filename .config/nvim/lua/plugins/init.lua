@@ -106,6 +106,7 @@ require('lazy').setup({
         name = 'default',
       }
     end,
+    enabled = false,
   },
 
   {
@@ -554,6 +555,17 @@ require('lazy').setup({
   },
 
   { 'seandewar/nvimesweeper' },
+
+  {
+    'alanfortlink/blackjack.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('blackjack').setup {
+        card_style = 'large',
+        suit_style = 'black',
+      }
+    end,
+  },
   -- }}}
 }, {
   -- Configuration {{{
