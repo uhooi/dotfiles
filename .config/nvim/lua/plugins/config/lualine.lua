@@ -56,7 +56,18 @@ require('lualine').setup {
     lualine_b = { 'diagnostics' },
     lualine_c = { char_info },
     lualine_x = { lsp_names },
-    lualine_y = { 'encoding', 'fileformat', 'filetype' },
+    lualine_y = {
+      'encoding',
+      {
+        'fileformat',
+        symbols = {
+          unix = ' unix', -- nf-dev-linux
+          dos = ' dos', -- nf-dev-windows
+          mac = ' mac', -- nf-dev-apple
+        },
+      },
+      'filetype',
+    },
     lualine_z = { 'progress', 'location' },
   },
   tabline = {
