@@ -71,7 +71,17 @@ require('lualine').setup {
     lualine_z = { 'progress', 'location' },
   },
   tabline = {
-    lualine_a = { 'branch', 'diff' },
+    lualine_a = {
+      'branch',
+      {
+        'diff',
+        symbols = {
+          added = '󰐖 ', -- nf-md-plus_box
+          modified = '󱗜 ', -- nf-md-circle_box
+          removed = '󰍵 ', -- nf-md-minus_box
+        },
+      },
+    },
     lualine_b = {},
     lualine_c = {},
     lualine_x = {},
