@@ -59,6 +59,11 @@ mason_lspconfig.setup_handlers {
           format = {
             enable = false, -- Use StyLua
           },
+          -- ref: https://github.com/LuaLS/lua-language-server/wiki/Tips#inlay-hints
+          --    : https://github.com/LuaLS/lua-language-server/wiki/Settings#hint
+          hint = {
+            enable = true,
+          },
         },
       }
     end

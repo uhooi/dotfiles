@@ -58,6 +58,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gf', function()
       vim.lsp.buf.format { async = true }
     end, bufopts)
+
+    -- Setup lsp-inlayhints.nvim
+    if not (ev.data and ev.data.client_id) then
+      return
+    end
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    require('lsp-inlayhints').on_attach(client, bufnr)
   end,
 })
 
