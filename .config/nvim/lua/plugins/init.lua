@@ -392,9 +392,26 @@ require('lazy').setup({
   -- }}}
 
   -- Denops {{{
-  { 'vim-denops/denops.vim', lazy = true, enabled = false },
-  { 'vim-denops/denops-helloworld.vim', enabled = false, dependencies = { 'vim-denops/denops.vim' } },
+  { 'vim-denops/denops.vim', lazy = true },
+
+  { 'vim-denops/denops-helloworld.vim', dependencies = { 'vim-denops/denops.vim' } },
+
   { 'lambdalisue/gin.vim', enabled = false, dependencies = { 'vim-denops/denops.vim' } },
+
+  {
+    'delphinus/skkeleton_indicator.nvim',
+    lazy = true,
+    config = function()
+      require('plugins.config.skkeleton_indicator')
+    end,
+  },
+  {
+    'vim-skk/skkeleton',
+    dependencies = { 'vim-denops/denops.vim', 'delphinus/skkeleton_indicator.nvim' },
+    config = function()
+      require('plugins.config.skkeleton')
+    end,
+  },
   -- }}}
 
   -- LSP {{{
@@ -473,6 +490,7 @@ require('lazy').setup({
       require('plugins.config.cmp_dynamic')
     end,
   },
+  { 'rinx/cmp-skkeleton', lazy = true },
   { 'onsails/lspkind.nvim', lazy = true },
   {
     'hrsh7th/nvim-cmp',
@@ -493,6 +511,7 @@ require('lazy').setup({
       'uga-rosa/cmp-latex-symbol',
       'uga-rosa/cmp-dictionary',
       'uga-rosa/cmp-dynamic',
+      'rinx/cmp-skkeleton',
       'onsails/lspkind.nvim',
     },
     config = function()
