@@ -1,6 +1,6 @@
 local icons = require('plugins.config.shared.icons')
 
-local lsp_names = function()
+local function lsp_names()
   local clients = vim
     .iter(vim.lsp.get_active_clients { bufnr = 0 })
     :map(function(client)
@@ -23,7 +23,7 @@ local lsp_names = function()
 end
 
 -- ref: https://github.com/delphinus/dotfiles/blob/3dd1d9304114983a7ad00a3a04e964c861a99425/.config/nvim/lua/modules/start/config/lualine.lua#L282-L308
-local char_info = function()
+local function char_info()
   local characterize = require('characterize')
   local char = characterize.cursor_char()
   local results = characterize.info_table(char)
