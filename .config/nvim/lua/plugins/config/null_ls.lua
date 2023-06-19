@@ -1,5 +1,4 @@
 -- ref: https://github.com/delphinus/dotfiles/blob/e562d4f8e99793e6ae1cd330c9208dac1d29d407/.config/nvim/lua/modules/lsp/config.lua#L440-L665
-
 local null_ls = require('null-ls')
 
 null_ls.setup {
@@ -27,10 +26,10 @@ null_ls.setup {
     null_ls.builtins.formatting.yamlfmt,
     null_ls.builtins.formatting.stylua, -- `brew install stylua`
     null_ls.builtins.diagnostics.swiftlint.with {
-      prefer_local = '.mint/lib/packages/github.com_realm_SwiftLint/build/0.50.3',
+      prefer_local = '.mint/lib/packages/github.com_realm_SwiftLint/build/0.52.2',
     },
     null_ls.builtins.formatting.swiftlint.with {
-      prefer_local = '.mint/lib/packages/github.com_realm_SwiftLint/build/0.50.3',
+      prefer_local = '.mint/lib/packages/github.com_realm_SwiftLint/build/0.52.2',
     },
   },
 }
