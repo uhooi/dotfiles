@@ -490,7 +490,7 @@ require('lazy').setup({
       require('plugins.config.cmp_dynamic')
     end,
   },
-  { 'rinx/cmp-skkeleton', lazy = true },
+  { 'uga-rosa/cmp-skkeleton', lazy = true },
   { 'onsails/lspkind.nvim', lazy = true },
   {
     'hrsh7th/nvim-cmp',
@@ -511,7 +511,7 @@ require('lazy').setup({
       'uga-rosa/cmp-latex-symbol',
       'uga-rosa/cmp-dictionary',
       'uga-rosa/cmp-dynamic',
-      'rinx/cmp-skkeleton',
+      'uga-rosa/cmp-skkeleton',
       'onsails/lspkind.nvim',
     },
     config = function()
