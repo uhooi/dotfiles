@@ -2,7 +2,7 @@
 --    : https://github.com/uga-rosa/dotfiles/blob/60bb2d9c3d9f3b0d23138de6cda2b7d24f02ea3d/nvim/lua/rc/plugins/skk.lua
 
 local skk_dictionaries_dir = '~/.config/nvim/lua/plugins/config/dictionaries/skk/'
-vim.fn['skkeleton#config'] = {
+vim.fn['skkeleton#config'] {
   eggLikeNewline = true,
   globalDictionaries = {
     skk_dictionaries_dir .. 'SKK-JISYO.L',
