@@ -33,7 +33,7 @@ cmp.setup {
         nvim_lua = 'lua',
         nvim_lsp_signature_help = 'signature',
         path = 'path',
-        skk = 'skk',
+        skkeleton = 'skkeleton',
         treesitter = 'treesitter',
         vsnip = 'vsnip',
       },
@@ -103,7 +103,7 @@ cmp.setup {
     ['<C-e>'] = cmp.mapping.abort(),
   },
   sources = {
-    { name = 'skk' },
+    { name = 'skkeleton' },
     { name = 'nvim_lsp_signature_help' },
     { name = 'nvim_lsp' },
     { name = 'nvim_lua' },
@@ -123,7 +123,7 @@ cmp.setup {
 cmp.setup.cmdline({ '/', '?' }, {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
-    { name = 'skk' },
+    { name = 'skkeleton' },
     { name = 'buffer' },
     { name = 'dictionary', keyword_length = 3 },
   },
@@ -132,7 +132,7 @@ cmp.setup.cmdline({ '/', '?' }, {
 cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
-    { name = 'skk' },
+    { name = 'skkeleton' },
     { name = 'path' },
     { name = 'cmdline' },
     { name = 'dictionary', keyword_length = 3 },
