@@ -412,6 +412,8 @@ require('lazy').setup({
       require('plugins.config.skkeleton')
     end,
   },
+
+  { 'willelz/skk-tutorial.vim', dependencies = { 'vim-denops/denops.vim' } },
   -- }}}
 
   -- LSP {{{
