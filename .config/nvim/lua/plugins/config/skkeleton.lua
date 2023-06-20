@@ -2,7 +2,10 @@
 --    : https://github.com/uga-rosa/dotfiles/blob/60bb2d9c3d9f3b0d23138de6cda2b7d24f02ea3d/nvim/lua/rc/plugins/skk.lua
 
 local skk_dictionaries_dir = '~/.config/nvim/lua/plugins/config/dictionaries/skk/'
+local skk_temp_dir = '/tmp/.skkeleton/'
+
 vim.fn['skkeleton#config'] {
+  completionRankFile = skk_temp_dir .. 'completion_rank.txt',
   eggLikeNewline = true,
   globalDictionaries = {
     skk_dictionaries_dir .. 'SKK-JISYO.L',
