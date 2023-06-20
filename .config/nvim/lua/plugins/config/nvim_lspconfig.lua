@@ -34,6 +34,28 @@ vim.keymap.set('n', 'g]', vim.diagnostic.goto_next)
 vim.keymap.set('n', 'g[', vim.diagnostic.goto_prev)
 vim.keymap.set('n', 'gl', vim.diagnostic.setloclist)
 
+-- ref: https://github.com/lvimuser/lsp-inlayhints.nvim/blob/d981f65c9ae0b6062176f0accb9c151daeda6f16/lua/lsp-inlayhints/config.lua#L1-L20
+local function setInlayHintHL()
+  local has_hl, hl = pcall(vim.api.nvim_get_hl_by_name, 'LspInlayHint', true)
+  if has_hl and (hl['foreground'] or hl['background']) then
+    return
+  end
+
+  hl = vim.api.nvim_get_hl_by_name('Comment', true)
+  local foreground = string.format('#%06x', hl['foreground'] or 0)
+  if #foreground < 3 then
+    foreground = ''
+  end
+
+  hl = vim.api.nvim_get_hl_by_name('CursorLine', true)
+  local background = string.format('#%06x', hl['background'] or 0)
+  if #background < 3 then
+    background = ''
+  end
+
+  vim.api.nvim_set_hl(0, 'LspInlayHint', { fg = foreground, bg = background })
+end
+
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
@@ -59,12 +81,18 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.lsp.buf.format { async = true }
     end, bufopts)
 
-    -- Setup lsp-inlayhints.nvim
+    -- Setup inlay hints
+    -- ref: https://github.com/neovim/neovim/pull/23984
+    --    : https://github.com/delphinus/dotfiles/commit/a37126f4cabfab7f22b8d031a111b36087a17a00
     if not (ev.data and ev.data.client_id) then
       return
     end
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
-    require('lsp-inlayhints').on_attach(client, bufnr)
+    if client.supports_method('textDocument/inlayHint') then
+      vim.lsp.buf.inlay_hint(bufnr, true)
+      -- vim.keymap.set('n', 'gh', vim.lsp.buf.inlay_hint(bufnr), bufopts) -- TODO: Not work
+      setInlayHintHL()
+    end
   end,
 })
 

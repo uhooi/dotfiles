@@ -448,13 +448,6 @@ require('lazy').setup({
       require('plugins.config.lsp_lines')
     end,
   },
-
-  {
-    'lvimuser/lsp-inlayhints.nvim',
-    config = function()
-      require('plugins.config.lsp_inlayhints')
-    end,
-  },
   -- }}}
 
   -- Completion {{{
