@@ -94,6 +94,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     -- Inlay hints {{{
     -- ref: https://github.com/neovim/neovim/pull/23984
+    --    : https://github.com/lvimuser/lsp-inlayhints.nvim/blob/d981f65c9ae0b6062176f0accb9c151daeda6f16/README.md?plain=1#L19-L37
     --    : https://github.com/delphinus/dotfiles/commit/a37126f4cabfab7f22b8d031a111b36087a17a00
     --    : https://github.com/uga-rosa/dotfiles/blob/37f49735f3720ca984b165c883f48f3c55bbb8c6/nvim/lua/rc/plugins/lsp.lua#L87-L98
     if not (ev.data and ev.data.client_id) then
