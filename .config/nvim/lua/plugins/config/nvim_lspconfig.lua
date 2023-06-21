@@ -1,8 +1,11 @@
--- Language servers not managed by mason-lspconfig
+-- Language servers (Not managed by mason-lspconfig) {{{
 local lspconfig = require('lspconfig')
+
+-- SourceKit-LSP {{{
 lspconfig.sourcekit.setup {
   -- Use iOS SDK (UIKit etc.)
   -- ref: https://qiita.com/niusounds/items/5a39b65b54939814a9f9
+  -- TODO: Make version dynamic
   cmd = {
     'sourcekit-lsp',
     '-Xswiftc',
@@ -17,7 +20,10 @@ lspconfig.sourcekit.setup {
     'x86_64-apple-ios17.0-simulator',
   },
 }
+-- }}}
+-- }}}
 
+-- Signs {{{
 -- ref: https://github.com/neovim/neovim/commit/a5bbb932f9094098bd656d3f6be3c58344576709
 vim.fn.sign_define(
   'DiagnosticSignError',
@@ -26,14 +32,18 @@ vim.fn.sign_define(
 vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn', numhl = 'DiagnosticSignWarn' })
 vim.fn.sign_define('DiagnosticSignHint', { text = '󰌶', texthl = 'DiagnosticSignHint', numhl = 'DiagnosticSignHint' })
 vim.fn.sign_define('DiagnosticSignInfo', { text = '', texthl = 'DiagnosticSignInfo', numhl = 'DiagnosticSignInfo' })
+-- }}}
 
+-- Keymaps {{{
 -- ref: https://neovim.io/doc/user/lsp.html
 --    : https://github.com/neovim/nvim-lspconfig/blob/da7461b596d70fa47b50bf3a7acfaef94c47727d/doc/lspconfig.txt#L444-L476
 --    : https://zenn.dev/botamotch/articles/21073d78bc68bf
 vim.keymap.set('n', 'g]', vim.diagnostic.goto_next)
 vim.keymap.set('n', 'g[', vim.diagnostic.goto_prev)
 vim.keymap.set('n', 'gl', vim.diagnostic.setloclist)
+-- }}}
 
+-- Functions {{{
 -- ref: https://github.com/lvimuser/lsp-inlayhints.nvim/blob/d981f65c9ae0b6062176f0accb9c151daeda6f16/lua/lsp-inlayhints/config.lua#L1-L20
 local function setInlayHintHL()
   local has_hl, hl = pcall(vim.api.nvim_get_hl_by_name, 'LspInlayHint', true)
@@ -55,7 +65,9 @@ local function setInlayHintHL()
 
   vim.api.nvim_set_hl(0, 'LspInlayHint', { fg = foreground, bg = background })
 end
+-- }}}
 
+-- LspAttach {{{
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
@@ -97,5 +109,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
   end,
 })
+-- }}}
 
+-- UI {{{
 require('lspconfig.ui.windows').default_options.border = 'rounded'
+-- }}}
