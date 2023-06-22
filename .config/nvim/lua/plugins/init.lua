@@ -153,6 +153,7 @@ require('lazy').setup({
       require('satellite').setup {
         handlers = {
           marks = {
+            enable = false,
             show_builtins = true,
           },
         },
