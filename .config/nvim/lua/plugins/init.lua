@@ -142,6 +142,15 @@ require('lazy').setup({
   },
 
   {
+    'lewis6991/satellite.nvim',
+    enabled = false,
+    dependencies = { 'lewis6991/gitsigns.nvim' },
+    config = function()
+      require('satellite').setup()
+    end,
+  },
+
+  {
     'rcarriga/nvim-notify',
     config = function()
       require('plugins.config.nvim_notify')

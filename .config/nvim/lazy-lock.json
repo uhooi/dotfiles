@@ -66,6 +66,7 @@
   "plenary.nvim": { "branch": "master", "commit": "36aaceb6e93addd20b1b18f94d86aecc552f30c4" },
   "previm": { "branch": "master", "commit": "dcda34b72f6b224602b02a179d4f35e06e53d465" },
   "rainbow_csv": { "branch": "master", "commit": "7453a3f9679f0c753ec9d77f9ea8588778f35aeb" },
+  "satellite.nvim": { "branch": "main", "commit": "22c8cc5283c9533677e4b86b9d25d3beeca04667" },
   "skk-tutorial.vim": { "branch": "main", "commit": "5d1171ac66cf9cd04c7538f16c846f2f2e83bb51" },
   "skkeleton": { "branch": "main", "commit": "96bd8f8b0c8821b1406d82478a32e7d0771841df" },
   "skkeleton_indicator.nvim": { "branch": "main", "commit": "a64ff9b764a4cbd004588f5e3aa7d9d5f48b29a2" },
