@@ -135,15 +135,7 @@ require('lazy').setup({
   },
 
   {
-    'petertriho/nvim-scrollbar',
-    config = function()
-      require('scrollbar').setup()
-    end,
-  },
-
-  {
     'lewis6991/satellite.nvim',
-    enabled = false,
     dependencies = { 'lewis6991/gitsigns.nvim' },
     config = function()
       require('satellite').setup()
