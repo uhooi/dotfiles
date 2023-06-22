@@ -253,6 +253,15 @@ require('lazy').setup({
       require('plugins.config.hop')
     end,
   },
+
+  {
+    'folke/flash.nvim',
+    event = 'VeryLazy',
+    enabled = false,
+    config = function()
+      require('flash').setup()
+    end,
+  },
   --- }}}
 
   -- textobj {{{
