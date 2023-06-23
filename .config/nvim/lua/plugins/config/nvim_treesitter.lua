@@ -14,6 +14,7 @@ require('nvim-treesitter.configs').setup {
     'gitcommit',
     'gitignore',
     'go',
+    'graphql',
     'html',
     'java',
     'javascript',
@@ -38,8 +39,10 @@ require('nvim-treesitter.configs').setup {
     'vimdoc',
     'yaml',
   },
-  sync_install = true,
   highlight = {
-    enable = true,
+    enable = false,
+  },
+  incremental_selection = {
+    enable = false,
   },
 }
