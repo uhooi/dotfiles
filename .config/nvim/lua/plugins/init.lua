@@ -38,6 +38,9 @@ require('lazy').setup({
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
+    config = function()
+      require('plugins.config.nvim_treesitter')
+    end,
   },
 
   { 'nvim-tree/nvim-web-devicons', lazy = true },
