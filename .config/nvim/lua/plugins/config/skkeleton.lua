@@ -1,4 +1,5 @@
 -- ref: https://github.com/delphinus/dotfiles/blob/3dd1d9304114983a7ad00a3a04e964c861a99425/.config/nvim/lua/modules/cmp/config.lua
+--    : https://github.com/delphinus/dotfiles/blob/a6670cd510c4e5f6bd731186431723be6002a794/.config/nvim/lua/lazies/cmp.lua#L115-L165
 --    : https://github.com/uga-rosa/dotfiles/blob/60bb2d9c3d9f3b0d23138de6cda2b7d24f02ea3d/nvim/lua/rc/plugins/skk.lua
 
 local dictionaries_dir = '~/.config/nvim/lua/plugins/config/dictionaries/skk/'
@@ -21,5 +22,10 @@ vim.fn['skkeleton#config'] {
   showCandidatesCount = 1,
   userJisyo = skkeleton_dir .. 'user_jisyo.txt',
 }
+
+vim.fn['skkeleton#register_kanatable']('rom', {
+  ['('] = { '（', '' },
+  [')'] = { '）', '' },
+})
 
 vim.keymap.set({ 'i', 'c' }, '<C-j>', '<Plug>(skkeleton-toggle)')
