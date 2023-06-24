@@ -122,7 +122,11 @@ require('lazy').setup({
   {
     'hrsh7th/nvim-insx',
     config = function()
-      require('insx.preset.standard').setup()
+      require('insx.preset.standard').setup {
+        cmdline = {
+          enabled = true,
+        },
+      }
     end,
   },
 
