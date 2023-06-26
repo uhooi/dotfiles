@@ -44,20 +44,15 @@ vim.keymap.set('n', 'gl', vim.diagnostic.setloclist)
 
 -- Functions {{{
 -- ref: https://github.com/lvimuser/lsp-inlayhints.nvim/blob/d981f65c9ae0b6062176f0accb9c151daeda6f16/lua/lsp-inlayhints/config.lua#L1-L20
-local function setInlayHintHL()
-  local has_hl, hl = pcall(vim.api.nvim_get_hl_by_name, 'LspInlayHint', true)
-  if has_hl and (hl['foreground'] or hl['background']) then
-    return
-  end
-
-  hl = vim.api.nvim_get_hl_by_name('Comment', true)
-  local foreground = string.format('#%06x', hl['foreground'] or 0)
+local function setLspInlayHintHL()
+  local hl = vim.api.nvim_get_hl(0, { name = 'Comment' })
+  local foreground = string.format('#%06x', hl['fg'] or 0)
   if #foreground < 3 then
     foreground = ''
   end
 
-  hl = vim.api.nvim_get_hl_by_name('CursorLine', true)
-  local background = string.format('#%06x', hl['background'] or 0)
+  hl = vim.api.nvim_get_hl(0, { name = 'CursorLine' })
+  local background = string.format('#%06x', hl['bg'] or 0)
   if #background < 3 then
     background = ''
   end
@@ -103,7 +98,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
     if client.supports_method('textDocument/inlayHint') then
-      setInlayHintHL()
+      setLspInlayHintHL()
 
       vim.lsp.buf.inlay_hint(bufnr, true)
 
