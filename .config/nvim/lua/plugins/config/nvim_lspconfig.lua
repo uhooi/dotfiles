@@ -97,10 +97,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
 
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
-    if client.supports_method('textDocument/inlayHint') then
+    local supports_inlay_hint = client.supports_method('textDocument/inlayHint')
+    if supports_inlay_hint or client.name == 'sourcekit' then
       set_lsp_inlay_hint_hl()
 
-      vim.lsp.buf.inlay_hint(bufnr, true)
+      if supports_inlay_hint then
+        vim.lsp.buf.inlay_hint(bufnr, true)
+      end
 
       vim.api.nvim_create_autocmd('InsertLeave', {
         callback = function()
