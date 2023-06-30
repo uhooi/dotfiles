@@ -26,6 +26,7 @@
   "dart-vim-plugin": { "branch": "master", "commit": "0ba32c911178e6701d3f76d754c8138a7c7c2e6f" },
   "denops-helloworld.vim": { "branch": "main", "commit": "b10c2bf9027e9952020c6482a96b9b5bd23d8264" },
   "denops.vim": { "branch": "main", "commit": "62b1d22b3e60fcc9e570a531a5af1e4b2393c15a" },
+  "dial.nvim": { "branch": "master", "commit": "b3916370c24c498117a4c790b2752c437dab661a" },
   "diffview.nvim": { "branch": "main", "commit": "766a4f210e67e522659302dc6bd8a8d3b8c08c54" },
   "dressing.nvim": { "branch": "master", "commit": "e6eff7a5a950a853c3903d906dbcea03f778db5f" },
   "dropbar.nvim": { "branch": "master", "commit": "2cc0381cd7ef1d69d289a36715a3ea817bee2691" },
