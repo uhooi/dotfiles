@@ -32,8 +32,9 @@ vim.keymap.set('n', 'P', ']P')
 vim.keymap.set('n', ']p', 'p')
 vim.keymap.set('n', ']P', 'P')
 
-vim.keymap.set('n', '+', '<C-a>')
-vim.keymap.set('n', '-', '<C-x>')
+-- Use dial.nvim
+-- vim.keymap.set('n', '+', '<C-a>')
+-- vim.keymap.set('n', '-', '<C-x>')
 vim.keymap.set('n', '<C-a>', '+')
 vim.keymap.set('n', '<C-x>', '-')
 
