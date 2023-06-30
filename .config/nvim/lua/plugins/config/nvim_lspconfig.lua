@@ -99,7 +99,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
 
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
-    local supports_inlay_hint = client.supports_method('textDocument/inlayHint')
+    local supports_inlay_hint = client.server_capabilities.inlayHintProvider
     if supports_inlay_hint or client.name == 'sourcekit' then
       set_lsp_inlay_hint_hl()
 
