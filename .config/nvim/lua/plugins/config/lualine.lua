@@ -1,6 +1,6 @@
-local icons = require('plugins.config.shared.icons')
-
+-- {{{ Functions
 local function lsp_names()
+  local icons = require('plugins.config.shared.icons')
   local clients = vim
     .iter(vim.lsp.get_active_clients { bufnr = 0 })
     :map(function(client)
@@ -45,7 +45,9 @@ local function char_info()
   end
   return text
 end
+-- }}}
 
+-- {{{ Setup
 require('lualine').setup {
   options = {
     component_separators = { left = '', right = '' },
@@ -98,3 +100,4 @@ require('lualine').setup {
   --   lualine_z = {},
   -- },
 }
+-- }}}
