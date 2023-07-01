@@ -189,6 +189,18 @@ require('lazy').setup({
   },
 
   {
+    'folke/which-key.nvim',
+    event = 'VeryLazy',
+    init = function()
+      vim.opt.timeout = true
+      vim.opt.timeoutlen = 300
+    end,
+    config = function()
+      require('plugins.config.which_key')
+    end,
+  },
+
+  {
     'gen740/SmoothCursor.nvim',
     config = function()
       require('plugins.config.smooth_cursor')

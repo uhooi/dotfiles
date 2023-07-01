@@ -95,5 +95,6 @@
   "vim-vsnip": { "branch": "master", "commit": "7753ba9c10429c29d25abfd11b4c60b76718c438" },
   "vimdoc-ja": { "branch": "master", "commit": "3223ad58fd7ad66afb2ceb2cec56df988b752328" },
   "virt-column.nvim": { "branch": "master", "commit": "93b40ea038f676f5a72d7d1f2336fe7b051fc0ce" },
+  "which-key.nvim": { "branch": "main", "commit": "d871f2b664afd5aed3dc1d1573bef2fb24ce0484" },
   "xcconfig.vim": { "branch": "master", "commit": "5d1a2f138770b913aa0118b4989734c112486e1b" }
 }
