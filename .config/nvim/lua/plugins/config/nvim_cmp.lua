@@ -102,7 +102,7 @@ cmp.setup {
     ['<CR>'] = cmp.mapping.confirm { select = true },
     ['<C-e>'] = cmp.mapping.abort(),
   },
-  sources = {
+  sources = cmp.config.sources({
     { name = 'skkeleton' },
     { name = 'nvim_lsp_signature_help' },
     { name = 'nvim_lsp' },
@@ -116,25 +116,28 @@ cmp.setup {
     { name = 'calc' },
     { name = 'treesitter' },
     { name = 'buffer' },
-    { name = 'dictionary', keyword_length = 3 },
-  },
+  }, {
+    { name = 'dictionary' },
+  }),
 }
 
 cmp.setup.cmdline({ '/', '?' }, {
   mapping = cmp.mapping.preset.cmdline(),
-  sources = {
+  sources = cmp.config.sources({
     { name = 'skkeleton' },
     { name = 'buffer' },
-    { name = 'dictionary', keyword_length = 3 },
-  },
+  }, {
+    { name = 'dictionary' },
+  }),
 })
 
 cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
-  sources = {
+  sources = cmp.config.sources({
     { name = 'skkeleton' },
     { name = 'path' },
     { name = 'cmdline' },
-    { name = 'dictionary', keyword_length = 3 },
-  },
+  }, {
+    { name = 'dictionary' },
+  }),
 })
