@@ -1,4 +1,23 @@
 -- {{{ Functions
+-- ref: https://github.com/delphinus/skkeleton_indicator.nvim/issues/17#issuecomment-1616243044
+--    : https://github.com/vim-skk/skkeleton/blob/581c7e66c465381cfbb64300440679891b64d59d/doc/skkeleton.jax#L143-L152
+local function skkeleton_mode()
+  local _, mode = pcall(vim.fn['skkeleton#mode'])
+  if mode == 'hira' then
+    return 'かな'
+  elseif mode == 'kata' then
+    return 'カナ'
+  elseif mode == 'hankata' then
+    return '半ｶﾅ'
+  elseif mode == 'zenkaku' then
+    return '全英'
+  elseif mode == 'abbrev' then
+    return 'abbrev'
+  else
+    return 'ASCII'
+  end
+end
+
 local function lsp_names()
   local icons = require('plugins.config.shared.icons')
   local clients = vim
@@ -55,9 +74,9 @@ require('lualine').setup {
   },
   sections = {
     lualine_a = { 'mode' },
-    lualine_b = { 'diagnostics' },
+    lualine_b = { skkeleton_mode },
     lualine_c = { char_info },
-    lualine_x = { lsp_names },
+    lualine_x = {},
     lualine_y = {
       'encoding',
       {
@@ -86,9 +105,9 @@ require('lualine').setup {
     },
     lualine_b = {},
     lualine_c = {},
-    lualine_x = {},
+    lualine_x = { lsp_names },
     lualine_y = {},
-    lualine_z = {},
+    lualine_z = { 'diagnostics' },
   },
   -- dropbar.nvim uses winbar, so lualine does not use it
   -- winbar = {
