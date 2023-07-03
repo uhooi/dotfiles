@@ -2,19 +2,21 @@
 -- ref: https://github.com/delphinus/skkeleton_indicator.nvim/issues/17#issuecomment-1616243044
 --    : https://github.com/vim-skk/skkeleton/blob/581c7e66c465381cfbb64300440679891b64d59d/doc/skkeleton.jax#L143-L152
 local function skkeleton_mode()
+  local skk_utils = require('plugins.config.shared.skk_utils')
+
   local _, mode = pcall(vim.fn['skkeleton#mode'])
   if mode == 'hira' then
-    return 'かな'
+    return skk_utils.mode_texts.hira
   elseif mode == 'kata' then
-    return 'カナ'
+    return skk_utils.mode_texts.kata
   elseif mode == 'hankata' then
-    return '半ｶﾅ'
+    return skk_utils.mode_texts.hankata
   elseif mode == 'zenkaku' then
-    return '全英'
+    return skk_utils.mode_texts.zenkaku
   elseif mode == 'abbrev' then
-    return 'abbrev'
+    return skk_utils.mode_texts.abbrev
   else
-    return 'ASCII'
+    return skk_utils.mode_texts.ascii
   end
 end
 
