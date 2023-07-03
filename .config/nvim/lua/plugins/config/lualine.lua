@@ -1,10 +1,14 @@
+local skk_utils = require('plugins.config.shared.skk_utils')
+
 -- {{{ Functions
 -- ref: https://github.com/delphinus/skkeleton_indicator.nvim/issues/17#issuecomment-1616243044
 --    : https://github.com/vim-skk/skkeleton/blob/581c7e66c465381cfbb64300440679891b64d59d/doc/skkeleton.jax#L143-L152
 local function skkeleton_mode()
-  local skk_utils = require('plugins.config.shared.skk_utils')
+  if vim.api.nvim_get_mode().mode ~= 'i' then
+    return ''
+  end
 
-  local _, mode = pcall(vim.fn['skkeleton#mode'])
+  local mode = vim.g['skkeleton#mode']
   if mode == 'hira' then
     return skk_utils.mode_texts.hira
   elseif mode == 'kata' then
@@ -17,6 +21,26 @@ local function skkeleton_mode()
     return skk_utils.mode_texts.abbrev
   else
     return skk_utils.mode_texts.ascii
+  end
+end
+
+-- ref: https://github.com/vim-skk/skkeleton/blob/581c7e66c465381cfbb64300440679891b64d59d/doc/skkeleton.jax#L154-L163
+local function skkeleton_state()
+  if vim.api.nvim_get_mode().mode ~= 'i' then
+    return ''
+  end
+
+  local phase = vim.g['skkeleton#state'].phase
+  if phase == 'input' then
+    return skk_utils.phase_texts.input
+  elseif phase == 'input:okurinasi' then
+    return skk_utils.phase_texts.input_okurinasi
+  elseif phase == 'input:okuriari' then
+    return skk_utils.phase_texts.input_okuriari
+  elseif phase == 'henkan' then
+    return skk_utils.phase_texts.henkan
+  else
+    return ''
   end
 end
 
@@ -76,7 +100,7 @@ require('lualine').setup {
   },
   sections = {
     lualine_a = { 'mode' },
-    lualine_b = { skkeleton_mode },
+    lualine_b = { skkeleton_mode, skkeleton_state },
     lualine_c = { char_info },
     lualine_x = {},
     lualine_y = {
