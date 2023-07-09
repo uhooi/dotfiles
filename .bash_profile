@@ -30,7 +30,7 @@ fi
 # ref: https://github.com/pyenv/pyenv#installation
 #    : http://qiita.com/hedgehoCrow/items/0733c63c690450b14dcf
 #    : http://qiita.com/niwak2/items/5490607be32202ce1314
-export PYENV_ROOT="$HOME/.pyenv"
+PYENV_ROOT="$HOME/.pyenv"
 if [ -d "${PYENV_ROOT}" ]; then
   export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init -)"
@@ -39,14 +39,14 @@ fi
 
 # jEnv
 # ref: http://www.jenv.be
-export JENV_ROOT="$HOME/.jenv"
+JENV_ROOT="$HOME/.jenv"
 if [ -d "${JENV_ROOT}" ]; then
   export PATH="$JENV_ROOT/bin:$PATH"
   eval "$(jenv init -)"
 fi
 
 # rbenv
-export RBENV_ROOT="$HOME/.rbenv"
+RBENV_ROOT="$HOME/.rbenv"
 if [ -d "${RBENV_ROOT}" ]; then
   export PATH="${RBENV_ROOT}/bin:$PATH"
   eval "$(rbenv init -)"
@@ -54,32 +54,32 @@ fi
 
 # nodebrew
 # ref: https://qiita.com/taketakekaho/items/dd08cf01b4fe86b2e218
-export NODEBREW_DIR="${HOME}/.nodebrew"
+NODEBREW_DIR="${HOME}/.nodebrew"
 if [ -d "${NODEBREW_DIR}" ]; then
   export PATH=${NODEBREW_DIR}/current/bin:$PATH
 fi
 
 # Maven
 # ref: https://qiita.com/yhayashi30/items/dd0e47aea01d65c8a1b4
-export MAVEN_HOME="/usr/local/opt/maven@3.6"
+MAVEN_HOME="/usr/local/opt/maven@3.6"
 if [ -d "${MAVEN_HOME}" ]; then
   export PATH="${MAVEN_HOME}/bin:$PATH"
 fi
 
 # Androidアプリ開発
-export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jbr/Contents/Home
+JAVA_HOME=/Applications/Android\ Studio.app/Contents/jbr/Contents/Home
 if [ -d "${JAVA_HOME}" ]; then
   export PATH="${JAVA_HOME}/bin:$PATH"
 fi
 
-export ANDROID_HOME=${HOME}/Library/Android/sdk
+ANDROID_HOME=${HOME}/Library/Android/sdk
 if [ -d "${ANDROID_HOME}" ]; then
   export PATH="${ANDROID_HOME}/bin:$PATH"
 fi
 
 # Platform-Tools( `adb` コマンドなど)
 # ref: https://qiita.com/uhooi/items/a3dcc15f7e15ae11d1d6
-export ANDROID_TOOL_PATH=${ANDROID_HOME}/platform-tools
+ANDROID_TOOL_PATH=${ANDROID_HOME}/platform-tools
 if [ -d "${ANDROID_TOOL_PATH}" ]; then
   export PATH="${ANDROID_TOOL_PATH}:$PATH"
 fi
@@ -87,9 +87,9 @@ fi
 # Homebrew
 # ref: https://qiita.com/aiorange19/items/5ffaefc85f912f60c2fa
 if [ "$(uname -m)" = "arm64" ]; then
-  export HOMEBREW_HOME=/opt/homebrew
+  HOMEBREW_HOME=/opt/homebrew
 else
-  export HOMEBREW_HOME=/usr/local
+  HOMEBREW_HOME=/usr/local
 fi
 if [ -d "${HOMEBREW_HOME}" ]; then
   export PATH="${HOMEBREW_HOME}/bin:$PATH"
@@ -98,7 +98,7 @@ fi
 # diff-highlight
 # ref: https://udomomo.hatenablog.com/entry/2019/12/01/181404
 #    : https://github.com/git/git/tree/master/contrib/diff-highlight
-export DIFF_HIGHLIGHT_HOME=${HOMEBREW_HOME}/share/git-core/contrib/diff-highlight
+DIFF_HIGHLIGHT_HOME=${HOMEBREW_HOME}/share/git-core/contrib/diff-highlight
 if [ -d "${DIFF_HIGHLIGHT_HOME}" ]; then
   export PATH="${DIFF_HIGHLIGHT_HOME}:$PATH"
 fi
@@ -107,20 +107,20 @@ fi
 # Mac標準のLibreSSLでなくHomebrewでインストールしたOpenSSLを参照するようにする
 # ∵Dangerでエラーが発生するため
 # ref: https://qiita.com/moroi/items/53d60d1d6885795a0f6f
-export OPENSSL_HOME="${HOMEBREW_HOME}/bin/opt/openssl"
+OPENSSL_HOME="${HOMEBREW_HOME}/bin/opt/openssl"
 if [ -d "${OPENSSL_HOME}" ]; then
   export PATH="${OPENSSL_HOME}/bin:$PATH"
 fi
 
 # Flutter
 # ref: https://docs.flutter.dev/get-started/install/macos
-export FLUTTER_HOME="${HOME}/development/flutter"
+FLUTTER_HOME="${HOME}/development/flutter"
 if [ -d "${FLUTTER_HOME}" ]; then
   export PATH="${FLUTTER_HOME}/bin:$PATH"
 fi
 
 # Neovim
-export NEOVIM_HOME=$HOME/.local/nvim
+NEOVIM_HOME=$HOME/.local/nvim
 if [ -d "${NEOVIM_HOME}" ]; then
   export PATH="${NEOVIM_HOME}/bin:$PATH"
 fi
