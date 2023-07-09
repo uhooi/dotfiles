@@ -20,6 +20,7 @@ mason_lspconfig.setup {
     'gopls',
     'groovyls',
     'html',
+    'jsonls',
     'kotlin_language_server',
     'lua_ls',
     'omnisharp',
