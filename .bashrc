@@ -59,6 +59,11 @@ if [ "$(uname)" == 'Darwin' ]; then
   source ${HOMEBREW_ETC_PATH}/bash_completion
 fi
 
+# Swift Package Manager
+# 補完を有効にする
+# ref: https://github.com/apple/swift-package-manager/blob/main/Documentation/Usage.md#bash
+source ~/.swift-package-complete.bash
+
 # Hyperで日本語を使えるようにする
 # ref: https://qiita.com/vimyum/items/44478a51ef3a6f49804f#日本語を表示する
 export LANG=ja_JP.UTF-8
