@@ -4,7 +4,7 @@ _swift() {
     cur="${COMP_WORDS[COMP_CWORD]}"
     prev="${COMP_WORDS[COMP_CWORD-1]}"
     COMPREPLY=()
-    opts="run build test package help -h --help"
+    opts="-h --help run build test package help"
     if [[ $COMP_CWORD == "1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
@@ -34,13 +34,53 @@ _swift() {
     COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
 }
 _swift_run() {
-    opts="-Xcc -Xswiftc -Xlinker -Xcxx --configuration -c --build-path --cache-path --enable-repository-cache --disable-repository-cache --chdir -C --package-path --multiroot-data-file --enable-prefetching --disable-prefetching --verbose -v --disable-sandbox --manifest-cache --destination --triple --sdk --toolchain --static-swift-stdlib --no-static-swift-stdlib --skip-update --sanitize --enable-code-coverage --disable-code-coverage --force-resolved-versions --disable-automatic-resolution --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --trace-resolver --jobs -j --enable-build-manifest-caching --disable-build-manifest-caching --emit-swift-module-separately --use-integrated-swift-driver --experimental-explicit-module-build --print-manifest-job-graph --build-system --netrc --netrc-optional --netrc-file --skip-build --build-tests --repl -h --help"
+    opts="--package-path --cache-path --config-path --security-path --scratch-path --pkg-config-path --enable-dependency-cache --disable-dependency-cache --enable-build-manifest-caching --disable-build-manifest-caching --manifest-cache --verbose -v --very-verbose --vv --disable-sandbox --netrc --enable-netrc --disable-netrc --netrc-file --enable-keychain --disable-keychain --resolver-fingerprint-checking --enable-prefetching --disable-prefetching --force-resolved-versions --disable-automatic-resolution --only-use-versions-from-resolved-file --skip-update --disable-scm-to-registry-transformation --use-registry-identity-for-scm --replace-scm-with-registry --configuration -c -Xcc -Xswiftc -Xlinker -Xcxx --triple --sdk --toolchain --sanitize --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --jobs -j --emit-swift-module-separately --use-integrated-swift-driver --explicit-target-dependency-import-check --experimental-explicit-module-build --build-system --enable-dead-strip --disable-dead-strip --static-swift-stdlib --no-static-swift-stdlib --repl --debugger --run --skip-build --build-tests --version -help -h --help"
     opts="$opts $(swift package completion-tool list-executables)"
     if [[ $COMP_CWORD == "$1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
     fi
     case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
+        --netrc-file)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
         -Xcc)
             
             return
@@ -55,38 +95,6 @@ _swift_run() {
         ;;
         -Xcxx)
             
-            return
-        ;;
-        --configuration|-c)
-            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
-            return
-        ;;
-        --build-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --cache-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --chdir|-C)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --package-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --multiroot-data-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --manifest-cache)
-            
-            return
-        ;;
-        --destination)
-            COMPREPLY=( $(compgen -f -- "$cur") )
             return
         ;;
         --triple)
@@ -109,24 +117,64 @@ _swift_run() {
             
             return
         ;;
-        --build-system)
-            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
+        --explicit-target-dependency-import-check)
+            
             return
         ;;
-        --netrc-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
+        --build-system)
+            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
             return
         ;;
     esac
     COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
 }
 _swift_build() {
-    opts="-Xcc -Xswiftc -Xlinker -Xcxx --configuration -c --build-path --cache-path --enable-repository-cache --disable-repository-cache --chdir -C --package-path --multiroot-data-file --enable-prefetching --disable-prefetching --verbose -v --disable-sandbox --manifest-cache --destination --triple --sdk --toolchain --static-swift-stdlib --no-static-swift-stdlib --skip-update --sanitize --enable-code-coverage --disable-code-coverage --force-resolved-versions --disable-automatic-resolution --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --trace-resolver --jobs -j --enable-build-manifest-caching --disable-build-manifest-caching --emit-swift-module-separately --use-integrated-swift-driver --experimental-explicit-module-build --print-manifest-job-graph --build-system --netrc --netrc-optional --netrc-file --build-tests --show-bin-path --target --product -h --help"
+    opts="--package-path --cache-path --config-path --security-path --scratch-path --pkg-config-path --enable-dependency-cache --disable-dependency-cache --enable-build-manifest-caching --disable-build-manifest-caching --manifest-cache --verbose -v --very-verbose --vv --disable-sandbox --netrc --enable-netrc --disable-netrc --netrc-file --enable-keychain --disable-keychain --resolver-fingerprint-checking --enable-prefetching --disable-prefetching --force-resolved-versions --disable-automatic-resolution --only-use-versions-from-resolved-file --skip-update --disable-scm-to-registry-transformation --use-registry-identity-for-scm --replace-scm-with-registry --configuration -c -Xcc -Xswiftc -Xlinker -Xcxx --triple --sdk --toolchain --sanitize --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --jobs -j --emit-swift-module-separately --use-integrated-swift-driver --explicit-target-dependency-import-check --experimental-explicit-module-build --build-system --enable-dead-strip --disable-dead-strip --static-swift-stdlib --no-static-swift-stdlib --build-tests --show-bin-path --print-manifest-job-graph --target --product --version -help -h --help"
     if [[ $COMP_CWORD == "$1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
     fi
     case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
+        --netrc-file)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
         -Xcc)
             
             return
@@ -141,38 +189,6 @@ _swift_build() {
         ;;
         -Xcxx)
             
-            return
-        ;;
-        --configuration|-c)
-            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
-            return
-        ;;
-        --build-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --cache-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --chdir|-C)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --package-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --multiroot-data-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --manifest-cache)
-            
-            return
-        ;;
-        --destination)
-            COMPREPLY=( $(compgen -f -- "$cur") )
             return
         ;;
         --triple)
@@ -195,12 +211,12 @@ _swift_build() {
             
             return
         ;;
-        --build-system)
-            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
+        --explicit-target-dependency-import-check)
+            
             return
         ;;
-        --netrc-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
+        --build-system)
+            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
             return
         ;;
         --target)
@@ -215,12 +231,52 @@ _swift_build() {
     COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
 }
 _swift_test() {
-    opts="-Xcc -Xswiftc -Xlinker -Xcxx --configuration -c --build-path --cache-path --enable-repository-cache --disable-repository-cache --chdir -C --package-path --multiroot-data-file --enable-prefetching --disable-prefetching --verbose -v --disable-sandbox --manifest-cache --destination --triple --sdk --toolchain --static-swift-stdlib --no-static-swift-stdlib --skip-update --sanitize --enable-code-coverage --disable-code-coverage --force-resolved-versions --disable-automatic-resolution --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --trace-resolver --jobs -j --enable-build-manifest-caching --disable-build-manifest-caching --emit-swift-module-separately --use-integrated-swift-driver --experimental-explicit-module-build --print-manifest-job-graph --build-system --netrc --netrc-optional --netrc-file --skip-build --parallel --num-workers --list-tests -l --show-codecov-path -s --specifier --filter --skip --xunit-output --test-product -h --help"
+    opts="--package-path --cache-path --config-path --security-path --scratch-path --pkg-config-path --enable-dependency-cache --disable-dependency-cache --enable-build-manifest-caching --disable-build-manifest-caching --manifest-cache --verbose -v --very-verbose --vv --disable-sandbox --netrc --enable-netrc --disable-netrc --netrc-file --enable-keychain --disable-keychain --resolver-fingerprint-checking --enable-prefetching --disable-prefetching --force-resolved-versions --disable-automatic-resolution --only-use-versions-from-resolved-file --skip-update --disable-scm-to-registry-transformation --use-registry-identity-for-scm --replace-scm-with-registry --configuration -c -Xcc -Xswiftc -Xlinker -Xcxx --triple --sdk --toolchain --sanitize --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --jobs -j --emit-swift-module-separately --use-integrated-swift-driver --explicit-target-dependency-import-check --experimental-explicit-module-build --build-system --enable-dead-strip --disable-dead-strip --static-swift-stdlib --no-static-swift-stdlib --skip-build --test-product --parallel --num-workers --list-tests -l --show-codecov-path --show-code-coverage-path --show-coverage-path -s --specifier --filter --skip --xunit-output --enable-testable-imports --disable-testable-imports --enable-code-coverage --disable-code-coverage --version -help -h --help list generate-linuxmain"
     if [[ $COMP_CWORD == "$1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
     fi
     case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
+        --netrc-file)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
         -Xcc)
             
             return
@@ -235,38 +291,6 @@ _swift_test() {
         ;;
         -Xcxx)
             
-            return
-        ;;
-        --configuration|-c)
-            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
-            return
-        ;;
-        --build-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --cache-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --chdir|-C)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --package-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --multiroot-data-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --manifest-cache)
-            
-            return
-        ;;
-        --destination)
-            COMPREPLY=( $(compgen -f -- "$cur") )
             return
         ;;
         --triple)
@@ -289,12 +313,16 @@ _swift_test() {
             
             return
         ;;
+        --explicit-target-dependency-import-check)
+            
+            return
+        ;;
         --build-system)
             COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
             return
         ;;
-        --netrc-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
+        --test-product)
+            
             return
         ;;
         --num-workers)
@@ -317,20 +345,66 @@ _swift_test() {
             COMPREPLY=( $(compgen -d -- "$cur") )
             return
         ;;
-        --test-product)
-            
+    esac
+    case ${COMP_WORDS[$1]} in
+        (list)
+            _swift_test_list $(($1+1))
             return
-        ;;
+            ;;
+        (generate-linuxmain)
+            _swift_test_generate-linuxmain $(($1+1))
+            return
+            ;;
     esac
     COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
 }
-_swift_package() {
-    opts="-Xcc -Xswiftc -Xlinker -Xcxx --configuration -c --build-path --cache-path --enable-repository-cache --disable-repository-cache --chdir -C --package-path --multiroot-data-file --enable-prefetching --disable-prefetching --verbose -v --disable-sandbox --manifest-cache --destination --triple --sdk --toolchain --static-swift-stdlib --no-static-swift-stdlib --skip-update --sanitize --enable-code-coverage --disable-code-coverage --force-resolved-versions --disable-automatic-resolution --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --trace-resolver --jobs -j --enable-build-manifest-caching --disable-build-manifest-caching --emit-swift-module-separately --use-integrated-swift-driver --experimental-explicit-module-build --print-manifest-job-graph --build-system --netrc --netrc-optional --netrc-file clean purge-cache reset update describe init _format experimental-api-diff dump-symbol-graph dump-pif dump-package edit unedit config resolve fetch show-dependencies tools-version generate-xcodeproj compute-checksum archive-source completion-tool -h --help"
+_swift_test_list() {
+    opts="--skip-build --test-product --version -help -h --help"
     if [[ $COMP_CWORD == "$1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
     fi
     case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
+        --netrc-file)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
         -Xcc)
             
             return
@@ -345,38 +419,6 @@ _swift_package() {
         ;;
         -Xcxx)
             
-            return
-        ;;
-        --configuration|-c)
-            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
-            return
-        ;;
-        --build-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --cache-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --chdir|-C)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --package-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --multiroot-data-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --manifest-cache)
-            
-            return
-        ;;
-        --destination)
-            COMPREPLY=( $(compgen -f -- "$cur") )
             return
         ;;
         --triple)
@@ -399,12 +441,204 @@ _swift_package() {
             
             return
         ;;
+        --explicit-target-dependency-import-check)
+            
+            return
+        ;;
         --build-system)
             COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
             return
         ;;
+        --test-product)
+            
+            return
+        ;;
+    esac
+    COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
+}
+_swift_test_generate-linuxmain() {
+    opts="--version -help -h --help"
+    if [[ $COMP_CWORD == "$1" ]]; then
+        COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
+        return
+    fi
+    case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
         --netrc-file)
             COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
+        -Xcc)
+            
+            return
+        ;;
+        -Xswiftc)
+            
+            return
+        ;;
+        -Xlinker)
+            
+            return
+        ;;
+        -Xcxx)
+            
+            return
+        ;;
+        --triple)
+            
+            return
+        ;;
+        --sdk)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --toolchain)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --sanitize)
+            
+            return
+        ;;
+        --jobs|-j)
+            
+            return
+        ;;
+        --explicit-target-dependency-import-check)
+            
+            return
+        ;;
+        --build-system)
+            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
+            return
+        ;;
+    esac
+    COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
+}
+_swift_package() {
+    opts="--package-path --cache-path --config-path --security-path --scratch-path --pkg-config-path --enable-dependency-cache --disable-dependency-cache --enable-build-manifest-caching --disable-build-manifest-caching --manifest-cache --verbose -v --very-verbose --vv --disable-sandbox --netrc --enable-netrc --disable-netrc --netrc-file --enable-keychain --disable-keychain --resolver-fingerprint-checking --enable-prefetching --disable-prefetching --force-resolved-versions --disable-automatic-resolution --only-use-versions-from-resolved-file --skip-update --disable-scm-to-registry-transformation --use-registry-identity-for-scm --replace-scm-with-registry --configuration -c -Xcc -Xswiftc -Xlinker -Xcxx --triple --sdk --toolchain --sanitize --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --jobs -j --emit-swift-module-separately --use-integrated-swift-driver --explicit-target-dependency-import-check --experimental-explicit-module-build --build-system --enable-dead-strip --disable-dead-strip --static-swift-stdlib --no-static-swift-stdlib --version -help -h --help clean purge-cache reset update describe init _format diagnose-api-breaking-changes experimental-api-diff dump-symbol-graph dump-pif dump-package edit unedit config resolve fetch show-dependencies tools-version compute-checksum archive-source completion-tool plugin default-command"
+    if [[ $COMP_CWORD == "$1" ]]; then
+        COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
+        return
+    fi
+    case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
+        --netrc-file)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
+        -Xcc)
+            
+            return
+        ;;
+        -Xswiftc)
+            
+            return
+        ;;
+        -Xlinker)
+            
+            return
+        ;;
+        -Xcxx)
+            
+            return
+        ;;
+        --triple)
+            
+            return
+        ;;
+        --sdk)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --toolchain)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --sanitize)
+            
+            return
+        ;;
+        --jobs|-j)
+            
+            return
+        ;;
+        --explicit-target-dependency-import-check)
+            
+            return
+        ;;
+        --build-system)
+            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
             return
         ;;
     esac
@@ -435,6 +669,10 @@ _swift_package() {
             ;;
         (_format)
             _swift_package__format $(($1+1))
+            return
+            ;;
+        (diagnose-api-breaking-changes)
+            _swift_package_diagnose-api-breaking-changes $(($1+1))
             return
             ;;
         (experimental-api-diff)
@@ -481,10 +719,6 @@ _swift_package() {
             _swift_package_tools-version $(($1+1))
             return
             ;;
-        (generate-xcodeproj)
-            _swift_package_generate-xcodeproj $(($1+1))
-            return
-            ;;
         (compute-checksum)
             _swift_package_compute-checksum $(($1+1))
             return
@@ -497,16 +731,64 @@ _swift_package() {
             _swift_package_completion-tool $(($1+1))
             return
             ;;
+        (plugin)
+            _swift_package_plugin $(($1+1))
+            return
+            ;;
+        (default-command)
+            _swift_package_default-command $(($1+1))
+            return
+            ;;
     esac
     COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
 }
 _swift_package_clean() {
-    opts="-Xcc -Xswiftc -Xlinker -Xcxx --configuration -c --build-path --cache-path --enable-repository-cache --disable-repository-cache --chdir -C --package-path --multiroot-data-file --enable-prefetching --disable-prefetching --verbose -v --disable-sandbox --manifest-cache --destination --triple --sdk --toolchain --static-swift-stdlib --no-static-swift-stdlib --skip-update --sanitize --enable-code-coverage --disable-code-coverage --force-resolved-versions --disable-automatic-resolution --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --trace-resolver --jobs -j --enable-build-manifest-caching --disable-build-manifest-caching --emit-swift-module-separately --use-integrated-swift-driver --experimental-explicit-module-build --print-manifest-job-graph --build-system --netrc --netrc-optional --netrc-file -h --help"
+    opts="--version -help -h --help"
     if [[ $COMP_CWORD == "$1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
     fi
     case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
+        --netrc-file)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
         -Xcc)
             
             return
@@ -521,38 +803,6 @@ _swift_package_clean() {
         ;;
         -Xcxx)
             
-            return
-        ;;
-        --configuration|-c)
-            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
-            return
-        ;;
-        --build-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --cache-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --chdir|-C)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --package-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --multiroot-data-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --manifest-cache)
-            
-            return
-        ;;
-        --destination)
-            COMPREPLY=( $(compgen -f -- "$cur") )
             return
         ;;
         --triple)
@@ -575,24 +825,64 @@ _swift_package_clean() {
             
             return
         ;;
-        --build-system)
-            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
+        --explicit-target-dependency-import-check)
+            
             return
         ;;
-        --netrc-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
+        --build-system)
+            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
             return
         ;;
     esac
     COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
 }
 _swift_package_purge-cache() {
-    opts="-Xcc -Xswiftc -Xlinker -Xcxx --configuration -c --build-path --cache-path --enable-repository-cache --disable-repository-cache --chdir -C --package-path --multiroot-data-file --enable-prefetching --disable-prefetching --verbose -v --disable-sandbox --manifest-cache --destination --triple --sdk --toolchain --static-swift-stdlib --no-static-swift-stdlib --skip-update --sanitize --enable-code-coverage --disable-code-coverage --force-resolved-versions --disable-automatic-resolution --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --trace-resolver --jobs -j --enable-build-manifest-caching --disable-build-manifest-caching --emit-swift-module-separately --use-integrated-swift-driver --experimental-explicit-module-build --print-manifest-job-graph --build-system --netrc --netrc-optional --netrc-file -h --help"
+    opts="--version -help -h --help"
     if [[ $COMP_CWORD == "$1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
     fi
     case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
+        --netrc-file)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
         -Xcc)
             
             return
@@ -607,38 +897,6 @@ _swift_package_purge-cache() {
         ;;
         -Xcxx)
             
-            return
-        ;;
-        --configuration|-c)
-            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
-            return
-        ;;
-        --build-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --cache-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --chdir|-C)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --package-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --multiroot-data-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --manifest-cache)
-            
-            return
-        ;;
-        --destination)
-            COMPREPLY=( $(compgen -f -- "$cur") )
             return
         ;;
         --triple)
@@ -661,24 +919,64 @@ _swift_package_purge-cache() {
             
             return
         ;;
-        --build-system)
-            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
+        --explicit-target-dependency-import-check)
+            
             return
         ;;
-        --netrc-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
+        --build-system)
+            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
             return
         ;;
     esac
     COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
 }
 _swift_package_reset() {
-    opts="-Xcc -Xswiftc -Xlinker -Xcxx --configuration -c --build-path --cache-path --enable-repository-cache --disable-repository-cache --chdir -C --package-path --multiroot-data-file --enable-prefetching --disable-prefetching --verbose -v --disable-sandbox --manifest-cache --destination --triple --sdk --toolchain --static-swift-stdlib --no-static-swift-stdlib --skip-update --sanitize --enable-code-coverage --disable-code-coverage --force-resolved-versions --disable-automatic-resolution --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --trace-resolver --jobs -j --enable-build-manifest-caching --disable-build-manifest-caching --emit-swift-module-separately --use-integrated-swift-driver --experimental-explicit-module-build --print-manifest-job-graph --build-system --netrc --netrc-optional --netrc-file -h --help"
+    opts="--version -help -h --help"
     if [[ $COMP_CWORD == "$1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
     fi
     case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
+        --netrc-file)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
         -Xcc)
             
             return
@@ -693,38 +991,6 @@ _swift_package_reset() {
         ;;
         -Xcxx)
             
-            return
-        ;;
-        --configuration|-c)
-            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
-            return
-        ;;
-        --build-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --cache-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --chdir|-C)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --package-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --multiroot-data-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --manifest-cache)
-            
-            return
-        ;;
-        --destination)
-            COMPREPLY=( $(compgen -f -- "$cur") )
             return
         ;;
         --triple)
@@ -747,24 +1013,64 @@ _swift_package_reset() {
             
             return
         ;;
-        --build-system)
-            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
+        --explicit-target-dependency-import-check)
+            
             return
         ;;
-        --netrc-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
+        --build-system)
+            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
             return
         ;;
     esac
     COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
 }
 _swift_package_update() {
-    opts="-Xcc -Xswiftc -Xlinker -Xcxx --configuration -c --build-path --cache-path --enable-repository-cache --disable-repository-cache --chdir -C --package-path --multiroot-data-file --enable-prefetching --disable-prefetching --verbose -v --disable-sandbox --manifest-cache --destination --triple --sdk --toolchain --static-swift-stdlib --no-static-swift-stdlib --skip-update --sanitize --enable-code-coverage --disable-code-coverage --force-resolved-versions --disable-automatic-resolution --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --trace-resolver --jobs -j --enable-build-manifest-caching --disable-build-manifest-caching --emit-swift-module-separately --use-integrated-swift-driver --experimental-explicit-module-build --print-manifest-job-graph --build-system --netrc --netrc-optional --netrc-file --dry-run -n -h --help"
+    opts="--dry-run -n --version -help -h --help"
     if [[ $COMP_CWORD == "$1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
     fi
     case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
+        --netrc-file)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
         -Xcc)
             
             return
@@ -779,38 +1085,6 @@ _swift_package_update() {
         ;;
         -Xcxx)
             
-            return
-        ;;
-        --configuration|-c)
-            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
-            return
-        ;;
-        --build-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --cache-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --chdir|-C)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --package-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --multiroot-data-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --manifest-cache)
-            
-            return
-        ;;
-        --destination)
-            COMPREPLY=( $(compgen -f -- "$cur") )
             return
         ;;
         --triple)
@@ -833,24 +1107,64 @@ _swift_package_update() {
             
             return
         ;;
-        --build-system)
-            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
+        --explicit-target-dependency-import-check)
+            
             return
         ;;
-        --netrc-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
+        --build-system)
+            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
             return
         ;;
     esac
     COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
 }
 _swift_package_describe() {
-    opts="-Xcc -Xswiftc -Xlinker -Xcxx --configuration -c --build-path --cache-path --enable-repository-cache --disable-repository-cache --chdir -C --package-path --multiroot-data-file --enable-prefetching --disable-prefetching --verbose -v --disable-sandbox --manifest-cache --destination --triple --sdk --toolchain --static-swift-stdlib --no-static-swift-stdlib --skip-update --sanitize --enable-code-coverage --disable-code-coverage --force-resolved-versions --disable-automatic-resolution --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --trace-resolver --jobs -j --enable-build-manifest-caching --disable-build-manifest-caching --emit-swift-module-separately --use-integrated-swift-driver --experimental-explicit-module-build --print-manifest-job-graph --build-system --netrc --netrc-optional --netrc-file --type -h --help"
+    opts="--type --version -help -h --help"
     if [[ $COMP_CWORD == "$1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
     fi
     case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
+        --netrc-file)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
         -Xcc)
             
             return
@@ -865,38 +1179,6 @@ _swift_package_describe() {
         ;;
         -Xcxx)
             
-            return
-        ;;
-        --configuration|-c)
-            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
-            return
-        ;;
-        --build-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --cache-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --chdir|-C)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --package-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --multiroot-data-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --manifest-cache)
-            
-            return
-        ;;
-        --destination)
-            COMPREPLY=( $(compgen -f -- "$cur") )
             return
         ;;
         --triple)
@@ -919,12 +1201,12 @@ _swift_package_describe() {
             
             return
         ;;
-        --build-system)
-            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
+        --explicit-target-dependency-import-check)
+            
             return
         ;;
-        --netrc-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
+        --build-system)
+            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
             return
         ;;
         --type)
@@ -935,12 +1217,52 @@ _swift_package_describe() {
     COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
 }
 _swift_package_init() {
-    opts="-Xcc -Xswiftc -Xlinker -Xcxx --configuration -c --build-path --cache-path --enable-repository-cache --disable-repository-cache --chdir -C --package-path --multiroot-data-file --enable-prefetching --disable-prefetching --verbose -v --disable-sandbox --manifest-cache --destination --triple --sdk --toolchain --static-swift-stdlib --no-static-swift-stdlib --skip-update --sanitize --enable-code-coverage --disable-code-coverage --force-resolved-versions --disable-automatic-resolution --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --trace-resolver --jobs -j --enable-build-manifest-caching --disable-build-manifest-caching --emit-swift-module-separately --use-integrated-swift-driver --experimental-explicit-module-build --print-manifest-job-graph --build-system --netrc --netrc-optional --netrc-file --type --name -h --help"
+    opts="--type --name --version -help -h --help"
     if [[ $COMP_CWORD == "$1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
     fi
     case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
+        --netrc-file)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
         -Xcc)
             
             return
@@ -955,38 +1277,6 @@ _swift_package_init() {
         ;;
         -Xcxx)
             
-            return
-        ;;
-        --configuration|-c)
-            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
-            return
-        ;;
-        --build-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --cache-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --chdir|-C)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --package-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --multiroot-data-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --manifest-cache)
-            
-            return
-        ;;
-        --destination)
-            COMPREPLY=( $(compgen -f -- "$cur") )
             return
         ;;
         --triple)
@@ -1009,12 +1299,12 @@ _swift_package_init() {
             
             return
         ;;
-        --build-system)
-            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
+        --explicit-target-dependency-import-check)
+            
             return
         ;;
-        --netrc-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
+        --build-system)
+            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
             return
         ;;
         --type)
@@ -1029,12 +1319,52 @@ _swift_package_init() {
     COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
 }
 _swift_package__format() {
-    opts="-Xcc -Xswiftc -Xlinker -Xcxx --configuration -c --build-path --cache-path --enable-repository-cache --disable-repository-cache --chdir -C --package-path --multiroot-data-file --enable-prefetching --disable-prefetching --verbose -v --disable-sandbox --manifest-cache --destination --triple --sdk --toolchain --static-swift-stdlib --no-static-swift-stdlib --skip-update --sanitize --enable-code-coverage --disable-code-coverage --force-resolved-versions --disable-automatic-resolution --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --trace-resolver --jobs -j --enable-build-manifest-caching --disable-build-manifest-caching --emit-swift-module-separately --use-integrated-swift-driver --experimental-explicit-module-build --print-manifest-job-graph --build-system --netrc --netrc-optional --netrc-file -h --help"
+    opts="--version -help -h --help"
     if [[ $COMP_CWORD == "$1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
     fi
     case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
+        --netrc-file)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
         -Xcc)
             
             return
@@ -1049,38 +1379,6 @@ _swift_package__format() {
         ;;
         -Xcxx)
             
-            return
-        ;;
-        --configuration|-c)
-            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
-            return
-        ;;
-        --build-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --cache-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --chdir|-C)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --package-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --multiroot-data-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --manifest-cache)
-            
-            return
-        ;;
-        --destination)
-            COMPREPLY=( $(compgen -f -- "$cur") )
             return
         ;;
         --triple)
@@ -1103,110 +1401,182 @@ _swift_package__format() {
             
             return
         ;;
+        --explicit-target-dependency-import-check)
+            
+            return
+        ;;
         --build-system)
             COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
             return
         ;;
+    esac
+    COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
+}
+_swift_package_diagnose-api-breaking-changes() {
+    opts="--breakage-allowlist-path --products --targets --baseline-dir --regenerate-baseline --version -help -h --help"
+    if [[ $COMP_CWORD == "$1" ]]; then
+        COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
+        return
+    fi
+    case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
         --netrc-file)
             COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
+        -Xcc)
+            
+            return
+        ;;
+        -Xswiftc)
+            
+            return
+        ;;
+        -Xlinker)
+            
+            return
+        ;;
+        -Xcxx)
+            
+            return
+        ;;
+        --triple)
+            
+            return
+        ;;
+        --sdk)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --toolchain)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --sanitize)
+            
+            return
+        ;;
+        --jobs|-j)
+            
+            return
+        ;;
+        --explicit-target-dependency-import-check)
+            
+            return
+        ;;
+        --build-system)
+            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
+            return
+        ;;
+        --breakage-allowlist-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --products)
+            
+            return
+        ;;
+        --targets)
+            
+            return
+        ;;
+        --baseline-dir)
+            COMPREPLY=( $(compgen -d -- "$cur") )
             return
         ;;
     esac
     COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
 }
 _swift_package_experimental-api-diff() {
-    opts="-Xcc -Xswiftc -Xlinker -Xcxx --configuration -c --build-path --cache-path --enable-repository-cache --disable-repository-cache --chdir -C --package-path --multiroot-data-file --enable-prefetching --disable-prefetching --verbose -v --disable-sandbox --manifest-cache --destination --triple --sdk --toolchain --static-swift-stdlib --no-static-swift-stdlib --skip-update --sanitize --enable-code-coverage --disable-code-coverage --force-resolved-versions --disable-automatic-resolution --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --trace-resolver --jobs -j --enable-build-manifest-caching --disable-build-manifest-caching --emit-swift-module-separately --use-integrated-swift-driver --experimental-explicit-module-build --print-manifest-job-graph --build-system --netrc --netrc-optional --netrc-file --invert-baseline -h --help"
+    opts="--version -help -h --help"
     if [[ $COMP_CWORD == "$1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
     fi
-    case $prev in
-        -Xcc)
-            
-            return
-        ;;
-        -Xswiftc)
-            
-            return
-        ;;
-        -Xlinker)
-            
-            return
-        ;;
-        -Xcxx)
-            
-            return
-        ;;
-        --configuration|-c)
-            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
-            return
-        ;;
-        --build-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --cache-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --chdir|-C)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --package-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --multiroot-data-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --manifest-cache)
-            
-            return
-        ;;
-        --destination)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --triple)
-            
-            return
-        ;;
-        --sdk)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --toolchain)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --sanitize)
-            
-            return
-        ;;
-        --jobs|-j)
-            
-            return
-        ;;
-        --build-system)
-            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
-            return
-        ;;
-        --netrc-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-    esac
     COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
 }
 _swift_package_dump-symbol-graph() {
-    opts="-Xcc -Xswiftc -Xlinker -Xcxx --configuration -c --build-path --cache-path --enable-repository-cache --disable-repository-cache --chdir -C --package-path --multiroot-data-file --enable-prefetching --disable-prefetching --verbose -v --disable-sandbox --manifest-cache --destination --triple --sdk --toolchain --static-swift-stdlib --no-static-swift-stdlib --skip-update --sanitize --enable-code-coverage --disable-code-coverage --force-resolved-versions --disable-automatic-resolution --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --trace-resolver --jobs -j --enable-build-manifest-caching --disable-build-manifest-caching --emit-swift-module-separately --use-integrated-swift-driver --experimental-explicit-module-build --print-manifest-job-graph --build-system --netrc --netrc-optional --netrc-file -h --help"
+    opts="--pretty-print --skip-synthesized-members --minimum-access-level --skip-inherited-docs --include-spi-symbols --emit-extension-block-symbols --omit-extension-block-symbols --version -help -h --help"
     if [[ $COMP_CWORD == "$1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
     fi
     case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
+        --netrc-file)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
         -Xcc)
             
             return
@@ -1221,38 +1591,6 @@ _swift_package_dump-symbol-graph() {
         ;;
         -Xcxx)
             
-            return
-        ;;
-        --configuration|-c)
-            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
-            return
-        ;;
-        --build-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --cache-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --chdir|-C)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --package-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --multiroot-data-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --manifest-cache)
-            
-            return
-        ;;
-        --destination)
-            COMPREPLY=( $(compgen -f -- "$cur") )
             return
         ;;
         --triple)
@@ -1275,24 +1613,68 @@ _swift_package_dump-symbol-graph() {
             
             return
         ;;
+        --explicit-target-dependency-import-check)
+            
+            return
+        ;;
         --build-system)
             COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
             return
         ;;
-        --netrc-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
+        --minimum-access-level)
+            COMPREPLY=( $(compgen -W "private fileprivate internal public open" -- "$cur") )
             return
         ;;
     esac
     COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
 }
 _swift_package_dump-pif() {
-    opts="-Xcc -Xswiftc -Xlinker -Xcxx --configuration -c --build-path --cache-path --enable-repository-cache --disable-repository-cache --chdir -C --package-path --multiroot-data-file --enable-prefetching --disable-prefetching --verbose -v --disable-sandbox --manifest-cache --destination --triple --sdk --toolchain --static-swift-stdlib --no-static-swift-stdlib --skip-update --sanitize --enable-code-coverage --disable-code-coverage --force-resolved-versions --disable-automatic-resolution --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --trace-resolver --jobs -j --enable-build-manifest-caching --disable-build-manifest-caching --emit-swift-module-separately --use-integrated-swift-driver --experimental-explicit-module-build --print-manifest-job-graph --build-system --netrc --netrc-optional --netrc-file --preserve-structure -h --help"
+    opts="--preserve-structure --version -help -h --help"
     if [[ $COMP_CWORD == "$1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
     fi
     case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
+        --netrc-file)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
         -Xcc)
             
             return
@@ -1307,38 +1689,6 @@ _swift_package_dump-pif() {
         ;;
         -Xcxx)
             
-            return
-        ;;
-        --configuration|-c)
-            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
-            return
-        ;;
-        --build-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --cache-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --chdir|-C)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --package-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --multiroot-data-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --manifest-cache)
-            
-            return
-        ;;
-        --destination)
-            COMPREPLY=( $(compgen -f -- "$cur") )
             return
         ;;
         --triple)
@@ -1361,24 +1711,64 @@ _swift_package_dump-pif() {
             
             return
         ;;
-        --build-system)
-            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
+        --explicit-target-dependency-import-check)
+            
             return
         ;;
-        --netrc-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
+        --build-system)
+            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
             return
         ;;
     esac
     COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
 }
 _swift_package_dump-package() {
-    opts="-Xcc -Xswiftc -Xlinker -Xcxx --configuration -c --build-path --cache-path --enable-repository-cache --disable-repository-cache --chdir -C --package-path --multiroot-data-file --enable-prefetching --disable-prefetching --verbose -v --disable-sandbox --manifest-cache --destination --triple --sdk --toolchain --static-swift-stdlib --no-static-swift-stdlib --skip-update --sanitize --enable-code-coverage --disable-code-coverage --force-resolved-versions --disable-automatic-resolution --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --trace-resolver --jobs -j --enable-build-manifest-caching --disable-build-manifest-caching --emit-swift-module-separately --use-integrated-swift-driver --experimental-explicit-module-build --print-manifest-job-graph --build-system --netrc --netrc-optional --netrc-file -h --help"
+    opts="--version -help -h --help"
     if [[ $COMP_CWORD == "$1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
     fi
     case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
+        --netrc-file)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
         -Xcc)
             
             return
@@ -1393,38 +1783,6 @@ _swift_package_dump-package() {
         ;;
         -Xcxx)
             
-            return
-        ;;
-        --configuration|-c)
-            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
-            return
-        ;;
-        --build-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --cache-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --chdir|-C)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --package-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --multiroot-data-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --manifest-cache)
-            
-            return
-        ;;
-        --destination)
-            COMPREPLY=( $(compgen -f -- "$cur") )
             return
         ;;
         --triple)
@@ -1447,24 +1805,64 @@ _swift_package_dump-package() {
             
             return
         ;;
-        --build-system)
-            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
+        --explicit-target-dependency-import-check)
+            
             return
         ;;
-        --netrc-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
+        --build-system)
+            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
             return
         ;;
     esac
     COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
 }
 _swift_package_edit() {
-    opts="-Xcc -Xswiftc -Xlinker -Xcxx --configuration -c --build-path --cache-path --enable-repository-cache --disable-repository-cache --chdir -C --package-path --multiroot-data-file --enable-prefetching --disable-prefetching --verbose -v --disable-sandbox --manifest-cache --destination --triple --sdk --toolchain --static-swift-stdlib --no-static-swift-stdlib --skip-update --sanitize --enable-code-coverage --disable-code-coverage --force-resolved-versions --disable-automatic-resolution --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --trace-resolver --jobs -j --enable-build-manifest-caching --disable-build-manifest-caching --emit-swift-module-separately --use-integrated-swift-driver --experimental-explicit-module-build --print-manifest-job-graph --build-system --netrc --netrc-optional --netrc-file --revision --branch --path -h --help"
+    opts="--revision --branch --path --version -help -h --help"
     if [[ $COMP_CWORD == "$1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
     fi
     case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
+        --netrc-file)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
         -Xcc)
             
             return
@@ -1479,38 +1877,6 @@ _swift_package_edit() {
         ;;
         -Xcxx)
             
-            return
-        ;;
-        --configuration|-c)
-            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
-            return
-        ;;
-        --build-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --cache-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --chdir|-C)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --package-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --multiroot-data-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --manifest-cache)
-            
-            return
-        ;;
-        --destination)
-            COMPREPLY=( $(compgen -f -- "$cur") )
             return
         ;;
         --triple)
@@ -1533,12 +1899,12 @@ _swift_package_edit() {
             
             return
         ;;
-        --build-system)
-            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
+        --explicit-target-dependency-import-check)
+            
             return
         ;;
-        --netrc-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
+        --build-system)
+            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
             return
         ;;
         --revision)
@@ -1557,12 +1923,52 @@ _swift_package_edit() {
     COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
 }
 _swift_package_unedit() {
-    opts="-Xcc -Xswiftc -Xlinker -Xcxx --configuration -c --build-path --cache-path --enable-repository-cache --disable-repository-cache --chdir -C --package-path --multiroot-data-file --enable-prefetching --disable-prefetching --verbose -v --disable-sandbox --manifest-cache --destination --triple --sdk --toolchain --static-swift-stdlib --no-static-swift-stdlib --skip-update --sanitize --enable-code-coverage --disable-code-coverage --force-resolved-versions --disable-automatic-resolution --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --trace-resolver --jobs -j --enable-build-manifest-caching --disable-build-manifest-caching --emit-swift-module-separately --use-integrated-swift-driver --experimental-explicit-module-build --print-manifest-job-graph --build-system --netrc --netrc-optional --netrc-file --force -h --help"
+    opts="--force --version -help -h --help"
     if [[ $COMP_CWORD == "$1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
     fi
     case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
+        --netrc-file)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
         -Xcc)
             
             return
@@ -1577,38 +1983,6 @@ _swift_package_unedit() {
         ;;
         -Xcxx)
             
-            return
-        ;;
-        --configuration|-c)
-            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
-            return
-        ;;
-        --build-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --cache-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --chdir|-C)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --package-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --multiroot-data-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --manifest-cache)
-            
-            return
-        ;;
-        --destination)
-            COMPREPLY=( $(compgen -f -- "$cur") )
             return
         ;;
         --triple)
@@ -1631,19 +2005,19 @@ _swift_package_unedit() {
             
             return
         ;;
-        --build-system)
-            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
+        --explicit-target-dependency-import-check)
+            
             return
         ;;
-        --netrc-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
+        --build-system)
+            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
             return
         ;;
     esac
     COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
 }
 _swift_package_config() {
-    opts="set-mirror unset-mirror get-mirror -h --help"
+    opts="--version -help -h --help set-mirror unset-mirror get-mirror"
     if [[ $COMP_CWORD == "$1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
@@ -1665,12 +2039,52 @@ _swift_package_config() {
     COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
 }
 _swift_package_config_set-mirror() {
-    opts="-Xcc -Xswiftc -Xlinker -Xcxx --configuration -c --build-path --cache-path --enable-repository-cache --disable-repository-cache --chdir -C --package-path --multiroot-data-file --enable-prefetching --disable-prefetching --verbose -v --disable-sandbox --manifest-cache --destination --triple --sdk --toolchain --static-swift-stdlib --no-static-swift-stdlib --skip-update --sanitize --enable-code-coverage --disable-code-coverage --force-resolved-versions --disable-automatic-resolution --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --trace-resolver --jobs -j --enable-build-manifest-caching --disable-build-manifest-caching --emit-swift-module-separately --use-integrated-swift-driver --experimental-explicit-module-build --print-manifest-job-graph --build-system --netrc --netrc-optional --netrc-file --package-url --original-url --mirror-url -h --help"
+    opts="--package-url --original-url --mirror-url --version -help -h --help"
     if [[ $COMP_CWORD == "$1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
     fi
     case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
+        --netrc-file)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
         -Xcc)
             
             return
@@ -1685,38 +2099,6 @@ _swift_package_config_set-mirror() {
         ;;
         -Xcxx)
             
-            return
-        ;;
-        --configuration|-c)
-            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
-            return
-        ;;
-        --build-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --cache-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --chdir|-C)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --package-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --multiroot-data-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --manifest-cache)
-            
-            return
-        ;;
-        --destination)
-            COMPREPLY=( $(compgen -f -- "$cur") )
             return
         ;;
         --triple)
@@ -1739,12 +2121,12 @@ _swift_package_config_set-mirror() {
             
             return
         ;;
-        --build-system)
-            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
+        --explicit-target-dependency-import-check)
+            
             return
         ;;
-        --netrc-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
+        --build-system)
+            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
             return
         ;;
         --package-url)
@@ -1763,12 +2145,52 @@ _swift_package_config_set-mirror() {
     COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
 }
 _swift_package_config_unset-mirror() {
-    opts="-Xcc -Xswiftc -Xlinker -Xcxx --configuration -c --build-path --cache-path --enable-repository-cache --disable-repository-cache --chdir -C --package-path --multiroot-data-file --enable-prefetching --disable-prefetching --verbose -v --disable-sandbox --manifest-cache --destination --triple --sdk --toolchain --static-swift-stdlib --no-static-swift-stdlib --skip-update --sanitize --enable-code-coverage --disable-code-coverage --force-resolved-versions --disable-automatic-resolution --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --trace-resolver --jobs -j --enable-build-manifest-caching --disable-build-manifest-caching --emit-swift-module-separately --use-integrated-swift-driver --experimental-explicit-module-build --print-manifest-job-graph --build-system --netrc --netrc-optional --netrc-file --package-url --original-url --mirror-url -h --help"
+    opts="--package-url --original-url --mirror-url --version -help -h --help"
     if [[ $COMP_CWORD == "$1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
     fi
     case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
+        --netrc-file)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
         -Xcc)
             
             return
@@ -1783,38 +2205,6 @@ _swift_package_config_unset-mirror() {
         ;;
         -Xcxx)
             
-            return
-        ;;
-        --configuration|-c)
-            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
-            return
-        ;;
-        --build-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --cache-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --chdir|-C)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --package-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --multiroot-data-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --manifest-cache)
-            
-            return
-        ;;
-        --destination)
-            COMPREPLY=( $(compgen -f -- "$cur") )
             return
         ;;
         --triple)
@@ -1837,12 +2227,12 @@ _swift_package_config_unset-mirror() {
             
             return
         ;;
-        --build-system)
-            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
+        --explicit-target-dependency-import-check)
+            
             return
         ;;
-        --netrc-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
+        --build-system)
+            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
             return
         ;;
         --package-url)
@@ -1861,12 +2251,52 @@ _swift_package_config_unset-mirror() {
     COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
 }
 _swift_package_config_get-mirror() {
-    opts="-Xcc -Xswiftc -Xlinker -Xcxx --configuration -c --build-path --cache-path --enable-repository-cache --disable-repository-cache --chdir -C --package-path --multiroot-data-file --enable-prefetching --disable-prefetching --verbose -v --disable-sandbox --manifest-cache --destination --triple --sdk --toolchain --static-swift-stdlib --no-static-swift-stdlib --skip-update --sanitize --enable-code-coverage --disable-code-coverage --force-resolved-versions --disable-automatic-resolution --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --trace-resolver --jobs -j --enable-build-manifest-caching --disable-build-manifest-caching --emit-swift-module-separately --use-integrated-swift-driver --experimental-explicit-module-build --print-manifest-job-graph --build-system --netrc --netrc-optional --netrc-file --package-url --original-url -h --help"
+    opts="--package-url --original-url --version -help -h --help"
     if [[ $COMP_CWORD == "$1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
     fi
     case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
+        --netrc-file)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
         -Xcc)
             
             return
@@ -1881,38 +2311,6 @@ _swift_package_config_get-mirror() {
         ;;
         -Xcxx)
             
-            return
-        ;;
-        --configuration|-c)
-            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
-            return
-        ;;
-        --build-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --cache-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --chdir|-C)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --package-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --multiroot-data-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --manifest-cache)
-            
-            return
-        ;;
-        --destination)
-            COMPREPLY=( $(compgen -f -- "$cur") )
             return
         ;;
         --triple)
@@ -1935,12 +2333,12 @@ _swift_package_config_get-mirror() {
             
             return
         ;;
-        --build-system)
-            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
+        --explicit-target-dependency-import-check)
+            
             return
         ;;
-        --netrc-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
+        --build-system)
+            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
             return
         ;;
         --package-url)
@@ -1955,12 +2353,52 @@ _swift_package_config_get-mirror() {
     COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
 }
 _swift_package_resolve() {
-    opts="-Xcc -Xswiftc -Xlinker -Xcxx --configuration -c --build-path --cache-path --enable-repository-cache --disable-repository-cache --chdir -C --package-path --multiroot-data-file --enable-prefetching --disable-prefetching --verbose -v --disable-sandbox --manifest-cache --destination --triple --sdk --toolchain --static-swift-stdlib --no-static-swift-stdlib --skip-update --sanitize --enable-code-coverage --disable-code-coverage --force-resolved-versions --disable-automatic-resolution --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --trace-resolver --jobs -j --enable-build-manifest-caching --disable-build-manifest-caching --emit-swift-module-separately --use-integrated-swift-driver --experimental-explicit-module-build --print-manifest-job-graph --build-system --netrc --netrc-optional --netrc-file --version --branch --revision -h --help"
+    opts="--version --branch --revision --version -help -h --help"
     if [[ $COMP_CWORD == "$1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
     fi
     case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
+        --netrc-file)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
         -Xcc)
             
             return
@@ -1975,38 +2413,6 @@ _swift_package_resolve() {
         ;;
         -Xcxx)
             
-            return
-        ;;
-        --configuration|-c)
-            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
-            return
-        ;;
-        --build-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --cache-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --chdir|-C)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --package-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --multiroot-data-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --manifest-cache)
-            
-            return
-        ;;
-        --destination)
-            COMPREPLY=( $(compgen -f -- "$cur") )
             return
         ;;
         --triple)
@@ -2029,12 +2435,12 @@ _swift_package_resolve() {
             
             return
         ;;
-        --build-system)
-            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
+        --explicit-target-dependency-import-check)
+            
             return
         ;;
-        --netrc-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
+        --build-system)
+            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
             return
         ;;
         --version)
@@ -2053,12 +2459,52 @@ _swift_package_resolve() {
     COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
 }
 _swift_package_fetch() {
-    opts="-Xcc -Xswiftc -Xlinker -Xcxx --configuration -c --build-path --cache-path --enable-repository-cache --disable-repository-cache --chdir -C --package-path --multiroot-data-file --enable-prefetching --disable-prefetching --verbose -v --disable-sandbox --manifest-cache --destination --triple --sdk --toolchain --static-swift-stdlib --no-static-swift-stdlib --skip-update --sanitize --enable-code-coverage --disable-code-coverage --force-resolved-versions --disable-automatic-resolution --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --trace-resolver --jobs -j --enable-build-manifest-caching --disable-build-manifest-caching --emit-swift-module-separately --use-integrated-swift-driver --experimental-explicit-module-build --print-manifest-job-graph --build-system --netrc --netrc-optional --netrc-file --version --branch --revision -h --help"
+    opts="--version --branch --revision --version -help -h --help"
     if [[ $COMP_CWORD == "$1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
     fi
     case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
+        --netrc-file)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
         -Xcc)
             
             return
@@ -2073,38 +2519,6 @@ _swift_package_fetch() {
         ;;
         -Xcxx)
             
-            return
-        ;;
-        --configuration|-c)
-            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
-            return
-        ;;
-        --build-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --cache-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --chdir|-C)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --package-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --multiroot-data-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --manifest-cache)
-            
-            return
-        ;;
-        --destination)
-            COMPREPLY=( $(compgen -f -- "$cur") )
             return
         ;;
         --triple)
@@ -2127,12 +2541,12 @@ _swift_package_fetch() {
             
             return
         ;;
-        --build-system)
-            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
+        --explicit-target-dependency-import-check)
+            
             return
         ;;
-        --netrc-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
+        --build-system)
+            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
             return
         ;;
         --version)
@@ -2151,12 +2565,52 @@ _swift_package_fetch() {
     COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
 }
 _swift_package_show-dependencies() {
-    opts="-Xcc -Xswiftc -Xlinker -Xcxx --configuration -c --build-path --cache-path --enable-repository-cache --disable-repository-cache --chdir -C --package-path --multiroot-data-file --enable-prefetching --disable-prefetching --verbose -v --disable-sandbox --manifest-cache --destination --triple --sdk --toolchain --static-swift-stdlib --no-static-swift-stdlib --skip-update --sanitize --enable-code-coverage --disable-code-coverage --force-resolved-versions --disable-automatic-resolution --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --trace-resolver --jobs -j --enable-build-manifest-caching --disable-build-manifest-caching --emit-swift-module-separately --use-integrated-swift-driver --experimental-explicit-module-build --print-manifest-job-graph --build-system --netrc --netrc-optional --netrc-file --format -h --help"
+    opts="--format --output-path -o --version -help -h --help"
     if [[ $COMP_CWORD == "$1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
     fi
     case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
+        --netrc-file)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
         -Xcc)
             
             return
@@ -2171,38 +2625,6 @@ _swift_package_show-dependencies() {
         ;;
         -Xcxx)
             
-            return
-        ;;
-        --configuration|-c)
-            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
-            return
-        ;;
-        --build-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --cache-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --chdir|-C)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --package-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --multiroot-data-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --manifest-cache)
-            
-            return
-        ;;
-        --destination)
-            COMPREPLY=( $(compgen -f -- "$cur") )
             return
         ;;
         --triple)
@@ -2225,28 +2647,72 @@ _swift_package_show-dependencies() {
             
             return
         ;;
+        --explicit-target-dependency-import-check)
+            
+            return
+        ;;
         --build-system)
             COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
             return
         ;;
-        --netrc-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
         --format)
             
+            return
+        ;;
+        --output-path|-o)
+            COMPREPLY=( $(compgen -d -- "$cur") )
             return
         ;;
     esac
     COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
 }
 _swift_package_tools-version() {
-    opts="-Xcc -Xswiftc -Xlinker -Xcxx --configuration -c --build-path --cache-path --enable-repository-cache --disable-repository-cache --chdir -C --package-path --multiroot-data-file --enable-prefetching --disable-prefetching --verbose -v --disable-sandbox --manifest-cache --destination --triple --sdk --toolchain --static-swift-stdlib --no-static-swift-stdlib --skip-update --sanitize --enable-code-coverage --disable-code-coverage --force-resolved-versions --disable-automatic-resolution --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --trace-resolver --jobs -j --enable-build-manifest-caching --disable-build-manifest-caching --emit-swift-module-separately --use-integrated-swift-driver --experimental-explicit-module-build --print-manifest-job-graph --build-system --netrc --netrc-optional --netrc-file --format --set-current --set -h --help"
+    opts="--set-current --set --version -help -h --help"
     if [[ $COMP_CWORD == "$1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
     fi
     case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
+        --netrc-file)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
         -Xcc)
             
             return
@@ -2261,38 +2727,6 @@ _swift_package_tools-version() {
         ;;
         -Xcxx)
             
-            return
-        ;;
-        --configuration|-c)
-            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
-            return
-        ;;
-        --build-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --cache-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --chdir|-C)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --package-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --multiroot-data-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --manifest-cache)
-            
-            return
-        ;;
-        --destination)
-            COMPREPLY=( $(compgen -f -- "$cur") )
             return
         ;;
         --triple)
@@ -2315,16 +2749,12 @@ _swift_package_tools-version() {
             
             return
         ;;
+        --explicit-target-dependency-import-check)
+            
+            return
+        ;;
         --build-system)
             COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
-            return
-        ;;
-        --netrc-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --format)
-            
             return
         ;;
         --set)
@@ -2334,107 +2764,53 @@ _swift_package_tools-version() {
     esac
     COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
 }
-_swift_package_generate-xcodeproj() {
-    opts="-Xcc -Xswiftc -Xlinker -Xcxx --configuration -c --build-path --cache-path --enable-repository-cache --disable-repository-cache --chdir -C --package-path --multiroot-data-file --enable-prefetching --disable-prefetching --verbose -v --disable-sandbox --manifest-cache --destination --triple --sdk --toolchain --static-swift-stdlib --no-static-swift-stdlib --skip-update --sanitize --enable-code-coverage --disable-code-coverage --force-resolved-versions --disable-automatic-resolution --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --trace-resolver --jobs -j --enable-build-manifest-caching --disable-build-manifest-caching --emit-swift-module-separately --use-integrated-swift-driver --experimental-explicit-module-build --print-manifest-job-graph --build-system --netrc --netrc-optional --netrc-file --xcconfig-overrides --output --legacy-scheme-generator --watch --skip-extra-files -h --help"
-    if [[ $COMP_CWORD == "$1" ]]; then
-        COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
-        return
-    fi
-    case $prev in
-        -Xcc)
-            
-            return
-        ;;
-        -Xswiftc)
-            
-            return
-        ;;
-        -Xlinker)
-            
-            return
-        ;;
-        -Xcxx)
-            
-            return
-        ;;
-        --configuration|-c)
-            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
-            return
-        ;;
-        --build-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --cache-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --chdir|-C)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --package-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --multiroot-data-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --manifest-cache)
-            
-            return
-        ;;
-        --destination)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --triple)
-            
-            return
-        ;;
-        --sdk)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --toolchain)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --sanitize)
-            
-            return
-        ;;
-        --jobs|-j)
-            
-            return
-        ;;
-        --build-system)
-            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
-            return
-        ;;
-        --netrc-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --xcconfig-overrides)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --output)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-    esac
-    COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
-}
 _swift_package_compute-checksum() {
-    opts="-Xcc -Xswiftc -Xlinker -Xcxx --configuration -c --build-path --cache-path --enable-repository-cache --disable-repository-cache --chdir -C --package-path --multiroot-data-file --enable-prefetching --disable-prefetching --verbose -v --disable-sandbox --manifest-cache --destination --triple --sdk --toolchain --static-swift-stdlib --no-static-swift-stdlib --skip-update --sanitize --enable-code-coverage --disable-code-coverage --force-resolved-versions --disable-automatic-resolution --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --trace-resolver --jobs -j --enable-build-manifest-caching --disable-build-manifest-caching --emit-swift-module-separately --use-integrated-swift-driver --experimental-explicit-module-build --print-manifest-job-graph --build-system --netrc --netrc-optional --netrc-file -h --help"
+    opts="--version -help -h --help"
     if [[ $COMP_CWORD == "$1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
     fi
     case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
+        --netrc-file)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
         -Xcc)
             
             return
@@ -2449,38 +2825,6 @@ _swift_package_compute-checksum() {
         ;;
         -Xcxx)
             
-            return
-        ;;
-        --configuration|-c)
-            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
-            return
-        ;;
-        --build-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --cache-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --chdir|-C)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --package-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --multiroot-data-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --manifest-cache)
-            
-            return
-        ;;
-        --destination)
-            COMPREPLY=( $(compgen -f -- "$cur") )
             return
         ;;
         --triple)
@@ -2503,24 +2847,64 @@ _swift_package_compute-checksum() {
             
             return
         ;;
-        --build-system)
-            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
+        --explicit-target-dependency-import-check)
+            
             return
         ;;
-        --netrc-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
+        --build-system)
+            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
             return
         ;;
     esac
     COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
 }
 _swift_package_archive-source() {
-    opts="-Xcc -Xswiftc -Xlinker -Xcxx --configuration -c --build-path --cache-path --enable-repository-cache --disable-repository-cache --chdir -C --package-path --multiroot-data-file --enable-prefetching --disable-prefetching --verbose -v --disable-sandbox --manifest-cache --destination --triple --sdk --toolchain --static-swift-stdlib --no-static-swift-stdlib --skip-update --sanitize --enable-code-coverage --disable-code-coverage --force-resolved-versions --disable-automatic-resolution --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --trace-resolver --jobs -j --enable-build-manifest-caching --disable-build-manifest-caching --emit-swift-module-separately --use-integrated-swift-driver --experimental-explicit-module-build --print-manifest-job-graph --build-system --netrc --netrc-optional --netrc-file -o --output -h --help"
+    opts="-o --output --version -help -h --help"
     if [[ $COMP_CWORD == "$1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
     fi
     case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
+        --netrc-file)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
         -Xcc)
             
             return
@@ -2535,38 +2919,6 @@ _swift_package_archive-source() {
         ;;
         -Xcxx)
             
-            return
-        ;;
-        --configuration|-c)
-            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
-            return
-        ;;
-        --build-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --cache-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --chdir|-C)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --package-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --multiroot-data-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --manifest-cache)
-            
-            return
-        ;;
-        --destination)
-            COMPREPLY=( $(compgen -f -- "$cur") )
             return
         ;;
         --triple)
@@ -2589,12 +2941,12 @@ _swift_package_archive-source() {
             
             return
         ;;
-        --build-system)
-            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
+        --explicit-target-dependency-import-check)
+            
             return
         ;;
-        --netrc-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
+        --build-system)
+            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
             return
         ;;
         -o|--output)
@@ -2605,13 +2957,53 @@ _swift_package_archive-source() {
     COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
 }
 _swift_package_completion-tool() {
-    opts="-Xcc -Xswiftc -Xlinker -Xcxx --configuration -c --build-path --cache-path --enable-repository-cache --disable-repository-cache --chdir -C --package-path --multiroot-data-file --enable-prefetching --disable-prefetching --verbose -v --disable-sandbox --manifest-cache --destination --triple --sdk --toolchain --static-swift-stdlib --no-static-swift-stdlib --skip-update --sanitize --enable-code-coverage --disable-code-coverage --force-resolved-versions --disable-automatic-resolution --auto-index-store --enable-index-store --disable-index-store --enable-parseable-module-interfaces --trace-resolver --jobs -j --enable-build-manifest-caching --disable-build-manifest-caching --emit-swift-module-separately --use-integrated-swift-driver --experimental-explicit-module-build --print-manifest-job-graph --build-system --netrc --netrc-optional --netrc-file -h --help"
-    opts="$opts generate-bash-script generate-zsh-script generate-fish-script list-dependencies list-executables"
+    opts="--version -help -h --help"
+    opts="$opts generate-bash-script generate-zsh-script generate-fish-script list-dependencies list-executables list-snippets"
     if [[ $COMP_CWORD == "$1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
     fi
     case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
+        --netrc-file)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
         -Xcc)
             
             return
@@ -2626,38 +3018,6 @@ _swift_package_completion-tool() {
         ;;
         -Xcxx)
             
-            return
-        ;;
-        --configuration|-c)
-            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
-            return
-        ;;
-        --build-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --cache-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --chdir|-C)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --package-path)
-            COMPREPLY=( $(compgen -d -- "$cur") )
-            return
-        ;;
-        --multiroot-data-file)
-            COMPREPLY=( $(compgen -f -- "$cur") )
-            return
-        ;;
-        --manifest-cache)
-            
-            return
-        ;;
-        --destination)
-            COMPREPLY=( $(compgen -f -- "$cur") )
             return
         ;;
         --triple)
@@ -2680,19 +3040,215 @@ _swift_package_completion-tool() {
             
             return
         ;;
+        --explicit-target-dependency-import-check)
+            
+            return
+        ;;
         --build-system)
             COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
+            return
+        ;;
+    esac
+    COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
+}
+_swift_package_plugin() {
+    opts="--list --allow-writing-to-package-directory --allow-writing-to-directory --version -help -h --help"
+    if [[ $COMP_CWORD == "$1" ]]; then
+        COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
+        return
+    fi
+    case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
             return
         ;;
         --netrc-file)
             COMPREPLY=( $(compgen -f -- "$cur") )
             return
         ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
+        -Xcc)
+            
+            return
+        ;;
+        -Xswiftc)
+            
+            return
+        ;;
+        -Xlinker)
+            
+            return
+        ;;
+        -Xcxx)
+            
+            return
+        ;;
+        --triple)
+            
+            return
+        ;;
+        --sdk)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --toolchain)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --sanitize)
+            
+            return
+        ;;
+        --jobs|-j)
+            
+            return
+        ;;
+        --explicit-target-dependency-import-check)
+            
+            return
+        ;;
+        --build-system)
+            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
+            return
+        ;;
+        --allow-writing-to-directory)
+            
+            return
+        ;;
+    esac
+    COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
+}
+_swift_package_default-command() {
+    opts="--allow-writing-to-package-directory --allow-writing-to-directory --version -help -h --help"
+    if [[ $COMP_CWORD == "$1" ]]; then
+        COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
+        return
+    fi
+    case $prev in
+        --package-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --cache-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --security-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --scratch-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --pkg-config-path)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --manifest-cache)
+            
+            return
+        ;;
+        --netrc-file)
+            COMPREPLY=( $(compgen -f -- "$cur") )
+            return
+        ;;
+        --resolver-fingerprint-checking)
+            
+            return
+        ;;
+        --configuration|-c)
+            COMPREPLY=( $(compgen -W "debug release" -- "$cur") )
+            return
+        ;;
+        -Xcc)
+            
+            return
+        ;;
+        -Xswiftc)
+            
+            return
+        ;;
+        -Xlinker)
+            
+            return
+        ;;
+        -Xcxx)
+            
+            return
+        ;;
+        --triple)
+            
+            return
+        ;;
+        --sdk)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --toolchain)
+            COMPREPLY=( $(compgen -d -- "$cur") )
+            return
+        ;;
+        --sanitize)
+            
+            return
+        ;;
+        --jobs|-j)
+            
+            return
+        ;;
+        --explicit-target-dependency-import-check)
+            
+            return
+        ;;
+        --build-system)
+            COMPREPLY=( $(compgen -W "native xcode" -- "$cur") )
+            return
+        ;;
+        --allow-writing-to-directory)
+            
+            return
+        ;;
     esac
     COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
 }
 _swift_help() {
-    opts="-h --help"
+    opts=""
     if [[ $COMP_CWORD == "$1" ]]; then
         COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
         return
