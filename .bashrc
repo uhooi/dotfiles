@@ -1,11 +1,10 @@
 # ref: https://qiita.com/magicant/items/d3bb7ea1192e63fba850
 
 # Variables {{{
-if [ "$(uname -m)" = "arm64" ]; then
-  readonly HOMEBREW_ETC_PATH="/opt/homebrew/etc"
-# Intel Mac
+if [ "$(uname -m)" = 'arm64' ]; then
+  readonly HOMEBREW_ETC_PATH='/opt/homebrew/etc'
 else
-  readonly HOMEBREW_ETC_PATH="/usr/local/etc"
+  readonly HOMEBREW_ETC_PATH='/usr/local/etc'
 fi
 # }}}
 

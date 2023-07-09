@@ -86,7 +86,7 @@ fi
 
 # Homebrew
 # ref: https://qiita.com/aiorange19/items/5ffaefc85f912f60c2fa
-if [ "$(uname -m)" = "arm64" ]; then
+if [ "$(uname -m)" = 'arm64' ]; then
   HOMEBREW_HOME=/opt/homebrew
 else
   HOMEBREW_HOME=/usr/local
