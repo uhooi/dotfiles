@@ -14,4 +14,5 @@ require('skkeleton_indicator').setup {
   zenkakuText = skk_utils.mode_texts.zenkaku,
   border = 'rounded',
   row = 1,
+  col = 0,
 }
