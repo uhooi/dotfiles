@@ -13,4 +13,5 @@ require('skkeleton_indicator').setup {
   hankataText = skk_utils.mode_texts.hankata,
   zenkakuText = skk_utils.mode_texts.zenkaku,
   border = 'rounded',
+  row = 1,
 }
