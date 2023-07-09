@@ -31,6 +31,7 @@ mason_lspconfig.setup {
     'taplo',
     'tsserver',
     'vimls',
+    'yamlls',
   },
 }
 
