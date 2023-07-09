@@ -8,11 +8,11 @@ vim.keymap.set('', 'L', '$')
 vim.keymap.set('', '0', 'H')
 vim.keymap.set('', '$', 'L')
 
--- Disable Arrow keys
-vim.keymap.set('', '<Left>', '<Nop>')
-vim.keymap.set('', '<Down>', '<Nop>')
-vim.keymap.set('', '<Up>', '<Nop>')
-vim.keymap.set('', '<Right>', '<Nop>')
+local arrow_keys_desc = 'Disable Arrow keys'
+vim.keymap.set('', '<Left>', '<Nop>', { desc = arrow_keys_desc })
+vim.keymap.set('', '<Down>', '<Nop>', { desc = arrow_keys_desc })
+vim.keymap.set('', '<Up>', '<Nop>', { desc = arrow_keys_desc })
+vim.keymap.set('', '<Right>', '<Nop>', { desc = arrow_keys_desc })
 
 -- TODO: E81: スクリプト以外で<SID>が使われました
 --vim.keymap.set('n', 'gj', 'gj<SID>g', { remap = true })
@@ -72,10 +72,10 @@ vim.keymap.set('n', 's>', '<C-w>>')
 vim.keymap.set('n', 's<', '<C-w><')
 vim.keymap.set('n', 's', '<Nop>')
 
-vim.keymap.set('i', '<C-h>', '<Left>')
-vim.keymap.set('i', '<C-j>', '<Down>')
-vim.keymap.set('i', '<C-k>', '<Up>')
-vim.keymap.set('i', '<C-l>', '<Right>')
+-- vim.keymap.set('i', '<C-h>', '<Left>')
+-- vim.keymap.set('i', '<C-j>', '<Down>')
+-- vim.keymap.set('i', '<C-k>', '<Up>')
+-- vim.keymap.set('i', '<C-l>', '<Right>')
 if vim.fn.has('mac') == 0 then
   vim.keymap.set('i', '<Left>', '<Nop>')
   vim.keymap.set('i', '<Down>', '<Nop>')
