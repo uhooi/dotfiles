@@ -24,8 +24,12 @@ vim.fn['skkeleton#config'] {
 }
 
 vim.fn['skkeleton#register_kanatable']('rom', {
+  [' '] = { '　', '' },
+  ['~'] = { '〜', '' },
   ['('] = { '（', '' },
   [')'] = { '）', '' },
+  ['{'] = { '｛', '' },
+  ['}'] = { '｝', '' },
 })
 
 vim.keymap.set({ 'i', 'c' }, '<C-j>', '<Plug>(skkeleton-toggle)')
