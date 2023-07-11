@@ -498,6 +498,13 @@ require('lazy').setup({
       require('plugins.config.lsp_lines')
     end,
   },
+
+  {
+    'kosayoda/nvim-lightbulb',
+    config = function()
+      require('plugins.config.nvim_lightbulb')
+    end,
+  },
   -- }}}
 
   -- Completion {{{
