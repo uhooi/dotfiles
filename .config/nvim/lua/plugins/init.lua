@@ -264,7 +264,7 @@ require('lazy').setup({
   { 'delphinus/eaw.nvim', lazy = true },
   -- }}}
 
-  -- tabline {{{
+  -- Buffers {{{
   {
     'tomiis4/BufferTabs.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
