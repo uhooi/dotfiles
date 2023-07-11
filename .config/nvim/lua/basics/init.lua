@@ -53,6 +53,7 @@ vim.opt.foldmethod = 'marker'
 vim.opt.pumheight = 10
 vim.opt.pumblend = 10
 vim.opt.signcolumn = 'yes'
+vim.opt.laststatus = 3
 -- }}}
 
 -- Cursor {{{
