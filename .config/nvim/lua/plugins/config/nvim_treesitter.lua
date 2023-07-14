@@ -34,6 +34,7 @@ require('nvim-treesitter.configs').setup {
     'sql',
     'swift',
     'toml',
+    'tsx',
     'typescript',
     'vim',
     'vimdoc',
