@@ -47,7 +47,7 @@ end
 local function lsp_names()
   local icons = require('plugins.config.shared.icons')
   local clients = vim
-    .iter(vim.lsp.get_active_clients { bufnr = 0 })
+    .iter(vim.lsp.get_clients { bufnr = 0 })
     :map(function(client)
       if client.name == 'null-ls' then
         return ('null-ls(%s)'):format(table.concat(
