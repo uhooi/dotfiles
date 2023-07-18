@@ -81,6 +81,7 @@
   "ugaterm.nvim": { "branch": "main", "commit": "5008021c13b3d1cb999c8e95e39655f3e1994848" },
   "uhooi.nvim": { "branch": "main", "commit": "d42a8f1fd97edddd54796b892d000d00d71cf41e" },
   "vim-illuminate": { "branch": "master", "commit": "a2907275a6899c570d16e95b9db5fd921c167502" },
+  "vim-mustache-handlebars": { "branch": "master", "commit": "0153fe03a919add2d6cf2d41b2d5b6e1188bc0e0" },
   "vim-precious": { "branch": "master", "commit": "8df741e52e3886be9daaac5c02f8eac62168f379" },
   "vim-review": { "branch": "master", "commit": "a8a0f5b7ee2d4e9a858d2f2fa13eefd9bad450ff" },
   "vim-showtime": { "branch": "master", "commit": "ec87f959e6c56319e84292acfe28d43dc8dd0973" },

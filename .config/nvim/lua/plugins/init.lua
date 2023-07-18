@@ -412,6 +412,14 @@ require('lazy').setup({
     ft = { 'apiblueprint' },
   },
 
+  {
+    'mustache/vim-mustache-handlebars',
+    cond = function()
+      local ext = vim.fn.expand('%:e')
+      return ext == 'mustache' or ext == 'hbs'
+    end,
+  },
+
   { 'Shougo/context_filetype.vim', lazy = true },
   {
     'osyo-manga/vim-precious',

@@ -42,6 +42,15 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   end,
 })
 
+-- Mustache
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  group = 'filetype',
+  pattern = '*.mustache',
+  callback = function()
+    vim.opt_local.filetype = 'mustache'
+  end,
+})
+
 -- textlint
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   group = 'filetype',
