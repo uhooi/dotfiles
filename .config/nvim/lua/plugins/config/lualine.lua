@@ -1,5 +1,3 @@
-local skk_utils = require('plugins.config.shared.skk_utils')
-
 -- {{{ Functions
 -- ref: https://github.com/delphinus/skkeleton_indicator.nvim/issues/17#issuecomment-1616243044
 --    : https://github.com/vim-skk/skkeleton/blob/581c7e66c465381cfbb64300440679891b64d59d/doc/skkeleton.jax#L143-L152
@@ -10,17 +8,17 @@ local function skkeleton_mode()
 
   local mode = vim.g['skkeleton#mode']
   if mode == 'hira' then
-    return skk_utils.mode_texts.hira
+    return 'かな'
   elseif mode == 'kata' then
-    return skk_utils.mode_texts.kata
+    return 'カナ'
   elseif mode == 'hankata' then
-    return skk_utils.mode_texts.hankata
+    return '半ｶﾅ'
   elseif mode == 'zenkaku' then
-    return skk_utils.mode_texts.zenkaku
+    return '全英'
   elseif mode == 'abbrev' then
-    return skk_utils.mode_texts.abbrev
+    return 'abbrev'
   else
-    return skk_utils.mode_texts.ascii
+    return 'ASCII'
   end
 end
 
@@ -32,13 +30,13 @@ local function skkeleton_state()
 
   local phase = vim.g['skkeleton#state'].phase
   if phase == 'input' then
-    return skk_utils.phase_texts.input
+    return '直接入力'
   elseif phase == 'input:okurinasi' then
-    return skk_utils.phase_texts.input_okurinasi
+    return '送りなし入力'
   elseif phase == 'input:okuriari' then
-    return skk_utils.phase_texts.input_okuriari
+    return '送りあり入力'
   elseif phase == 'henkan' then
-    return skk_utils.phase_texts.henkan
+    return '変換'
   else
     return ''
   end
