@@ -3,6 +3,7 @@ vim.api.nvim_set_hl(0, 'SkkeletonIndicatorHira', { fg = '#ee8432', bg = 'none', 
 vim.api.nvim_set_hl(0, 'SkkeletonIndicatorKata', { fg = '#82A64F', bg = 'none', bold = true })
 vim.api.nvim_set_hl(0, 'SkkeletonIndicatorHankata', { fg = '#a481d0', bg = 'none', bold = true })
 vim.api.nvim_set_hl(0, 'SkkeletonIndicatorZenkaku', { fg = '#F8D648', bg = 'none', bold = true })
+vim.api.nvim_set_hl(0, 'SkkeletonIndicatorAbbrev', { fg = '#e5e9f0', bg = 'none', bold = true })
 
 require('skkeleton_indicator').setup {
   eijiText = ' ＠ ',
@@ -10,6 +11,7 @@ require('skkeleton_indicator').setup {
   kataText = ' ア ',
   hankataText = ' ｶﾅ ',
   zenkakuText = ' 英 ',
+  abbrevText = 'abbr',
   border = 'rounded',
   row = 1,
   col = 0,
