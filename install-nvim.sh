@@ -10,6 +10,7 @@
 
 CURRENT_DIR=`dirname $0`
 NVIM_ROOT=${HOME}/ghq/github.com/neovim/neovim
+NVIM_INSTALL_DIR=${HOME}/.local/nvim
 
 cd ${NVIM_ROOT}
 
@@ -18,7 +19,7 @@ git rebase origin/master
 
 make \
   CMAKE_BUILD_TYPE=Release \
-  CMAKE_INSTALL_PREFIX=${HOME}/.local/nvim
+  CMAKE_INSTALL_PREFIX=${NVIM_INSTALL_DIR}
 
 make install
 
