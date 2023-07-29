@@ -5,6 +5,7 @@
 # 引数: なし
 # 戻値: なし
 # 備考: なし
+# 参考: https://qiita.com/uhooi/items/95ffbfc1270df79f1fbd
 # ----
 
 CURRENT_DIR=`dirname $0`
