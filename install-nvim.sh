@@ -8,9 +8,15 @@
 # 参考: https://qiita.com/uhooi/items/95ffbfc1270df79f1fbd
 # ----
 
+# Variables {{{
+
 CURRENT_DIR=`dirname $0`
 NVIM_ROOT=${HOME}/ghq/github.com/neovim/neovim
 NVIM_INSTALL_DIR=${HOME}/.local/nvim
+
+# }}}
+
+# Main {{{
 
 cd ${NVIM_ROOT}
 
@@ -24,3 +30,5 @@ make \
 make install
 
 cd ${CURRENT_DIR}
+
+# }}}
