@@ -1,11 +1,15 @@
 -- ref: https://github.com/delphinus/dotfiles/blob/e562d4f8e99793e6ae1cd330c9208dac1d29d407/.config/nvim/lua/modules/telescope/init.lua
 --    : https://github.com/delphinus/dotfiles/blob/e562d4f8e99793e6ae1cd330c9208dac1d29d407/.config/nvim/lua/modules/telescope/config.lua
 
+-- Extensions {{{
 local telescope = require('telescope')
 telescope.load_extension('fzf')
 telescope.load_extension('ui-select')
+telescope.load_extension('frecency')
 telescope.load_extension('ghq')
+-- }}}
 
+-- Setup {{{
 -- ref: https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#mapping-esc-to-quit-in-insert-mode
 local telescope_actions = require('telescope.actions')
 telescope.setup {
@@ -29,7 +33,9 @@ telescope.setup {
     },
   },
 }
+-- }}}
 
+-- Functions {{{
 local telescope_builtin = require('telescope.builtin')
 
 local function get_git_dirpath()
@@ -74,13 +80,16 @@ local function grep_string_from_project()
 
   telescope_builtin.grep_string(opts)
 end
+-- }}}
 
+-- Keymaps {{{
 vim.keymap.set('n', '<Leader>F', project_files)
 vim.keymap.set('n', '<Leader>f', live_grep_from_project)
 vim.keymap.set('n', '<Leader>G', grep_string_from_project)
 vim.keymap.set('n', '<Leader>b', telescope_builtin.buffers)
 vim.keymap.set('n', '<Leader>r', telescope_builtin.oldfiles)
 vim.keymap.set('n', '<Leader>hc', telescope_builtin.command_history)
+vim.keymap.set('n', '<Leader>hf', telescope.extensions.frecency.frecency)
 vim.keymap.set('n', '<Leader>hs', telescope_builtin.search_history)
 vim.keymap.set('n', '<Leader>H', telescope_builtin.help_tags)
 vim.keymap.set('n', '<Leader>n', '<Cmd>Telescope notify<CR>')
@@ -90,3 +99,4 @@ vim.keymap.set('n', '<Leader>gb', telescope_builtin.git_branches)
 vim.keymap.set('n', '<Leader>gs', telescope_builtin.git_status)
 vim.keymap.set('n', '<Leader>gt', telescope_builtin.git_stash)
 vim.keymap.set('n', '<Leader>gl', '<Cmd>Telescope ghq list<CR>')
+--- }}}
