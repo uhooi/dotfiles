@@ -501,6 +501,7 @@ require('lazy').setup({
 
   {
     'kosayoda/nvim-lightbulb',
+    enabled = false,
     config = function()
       require('plugins.config.nvim_lightbulb')
     end,
