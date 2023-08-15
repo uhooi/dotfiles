@@ -8,6 +8,22 @@ local cmp_types = require('cmp.types')
 local lspkind = require('lspkind')
 local icons = require('plugins.config.shared.icons')
 
+local sources = {
+  -- ref: https://github.com/hrsh7th/cmp-buffer/blob/3022dbc9166796b644a841a02de8dd1cc1d311fa/README.md#visible-buffers
+  visible_buffers = {
+    name = 'buffer',
+    option = {
+      get_bufnrs = function()
+        local bufs = {}
+        for _, win in ipairs(vim.api.nvim_list_wins()) do
+          bufs[vim.api.nvim_win_get_buf(win)] = true
+        end
+        return vim.tbl_keys(bufs)
+      end,
+    },
+  },
+}
+
 cmp.setup {
   formatting = {
     -- ref: https://github.com/onsails/lspkind.nvim/pull/30
@@ -115,7 +131,7 @@ cmp.setup {
     { name = 'dynamic' },
     { name = 'calc' },
     { name = 'treesitter' },
-    { name = 'buffer' },
+    sources.visible_buffers,
   }, {
     { name = 'dictionary' },
   }),
