@@ -334,7 +334,7 @@ require('lazy').setup({
     build = 'make',
   },
   { 'nvim-telescope/telescope-ui-select.nvim', lazy = true },
-  { 'nvim-telescope/telescope-frecency.nvim', lazy = true, dependencies = { 'kkharji/sqlite.lua' } },
+  { 'nvim-telescope/telescope-frecency.nvim', lazy = true },
   { 'nvim-telescope/telescope-ghq.nvim', lazy = true },
   {
     'nvim-telescope/telescope.nvim',
