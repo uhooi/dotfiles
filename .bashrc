@@ -13,6 +13,8 @@ if [ "$(uname)" == 'Darwin' ]; then
   alias ls='ls --color=auto'
 fi
 
+alias eza='eza --icons'
+
 alias g='git'
 
 # ref: https://tokizuoh.hatenablog.com/entry/2022/09/10/104017
