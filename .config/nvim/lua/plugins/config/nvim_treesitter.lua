@@ -1,5 +1,5 @@
-require('nvim-treesitter.configs').setup {
-  ensure_installed = {
+require('nvim-treesitter').setup {
+  ensure_install = {
     'bash',
     'c',
     'c_sharp',
@@ -39,11 +39,5 @@ require('nvim-treesitter.configs').setup {
     'vim',
     'vimdoc',
     'yaml',
-  },
-  highlight = {
-    enable = false,
-  },
-  incremental_selection = {
-    enable = false,
   },
 }
