@@ -23,6 +23,13 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
     vim.opt_local.filetype = 'json'
   end,
 })
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  group = 'filetype',
+  pattern = '*.xcstrings',
+  callback = function()
+    vim.opt_local.filetype = 'json'
+  end,
+})
 
 -- CocoaPods
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
