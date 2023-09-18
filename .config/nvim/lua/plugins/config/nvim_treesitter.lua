@@ -29,6 +29,7 @@ require('nvim-treesitter.configs').setup {
     'php',
     'python',
     'query',
+    'regex',
     'ruby',
     'rust',
     'sql',
