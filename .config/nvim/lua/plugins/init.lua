@@ -105,12 +105,12 @@ require('lazy').setup({
 
   {
     'delphinus/cellwidths.nvim',
+    enabled = false,
     config = function()
       require('cellwidths').setup {
         name = 'default',
       }
     end,
-    enabled = false,
   },
 
   {
@@ -179,6 +179,7 @@ require('lazy').setup({
   { 'MunifTanjim/nui.nvim', lazy = true },
   {
     'folke/noice.nvim',
+    enabled = false, -- FIXME: Errors occur
     event = 'VimEnter',
     dependencies = {
       'MunifTanjim/nui.nvim',
