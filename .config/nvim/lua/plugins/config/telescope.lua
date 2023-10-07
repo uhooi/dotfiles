@@ -1,13 +1,7 @@
 -- ref: https://github.com/delphinus/dotfiles/blob/e562d4f8e99793e6ae1cd330c9208dac1d29d407/.config/nvim/lua/modules/telescope/init.lua
 --    : https://github.com/delphinus/dotfiles/blob/e562d4f8e99793e6ae1cd330c9208dac1d29d407/.config/nvim/lua/modules/telescope/config.lua
 
--- Extensions {{{
 local telescope = require('telescope')
-telescope.load_extension('fzf')
-telescope.load_extension('ui-select')
-telescope.load_extension('frecency')
-telescope.load_extension('ghq')
--- }}}
 
 -- Setup {{{
 -- ref: https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#mapping-esc-to-quit-in-insert-mode
