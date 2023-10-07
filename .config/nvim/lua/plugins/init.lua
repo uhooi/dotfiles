@@ -32,7 +32,7 @@ require('lazy').setup({
   },
   -- }}}
 
-  -- API {{{
+  -- Library {{{
   { 'nvim-lua/plenary.nvim', lazy = true },
 
   {
@@ -45,6 +45,8 @@ require('lazy').setup({
   },
 
   { 'nvim-tree/nvim-web-devicons', lazy = true },
+
+  { 'MunifTanjim/nui.nvim', lazy = true },
   -- }}}
 
   -- Basic {{{
@@ -178,10 +180,8 @@ require('lazy').setup({
     end,
   },
 
-  { 'MunifTanjim/nui.nvim', lazy = true },
   {
     'folke/noice.nvim',
-    enabled = false, -- FIXME: Errors occur
     event = 'VimEnter',
     dependencies = {
       'MunifTanjim/nui.nvim',
