@@ -34,6 +34,7 @@
   "emmet-vim": { "branch": "master", "commit": "def5d57a1ae5afb1b96ebe83c4652d1c03640f4d" },
   "flash.nvim": { "branch": "main", "commit": "6d76c5dee65181ab55cbdfb0760260e800d643f4" },
   "friendly-snippets": { "branch": "main", "commit": "43727c2ff84240e55d4069ec3e6158d74cb534b6" },
+  "gin.vim": { "branch": "main", "commit": "8e659fcb5af0f0ade8cf4ee9fd0fb88dfa56689b" },
   "git-conflict.nvim": { "branch": "main", "commit": "896261933afe2fddf6fb043d9cd4d88301b151a9" },
   "gitlinker.nvim": { "branch": "master", "commit": "cc59f732f3d043b626c8702cb725c82e54d35c25" },
   "gitsigns.nvim": { "branch": "main", "commit": "ff01d34daaed72f271a8ffa088a7e839a60c640f" },

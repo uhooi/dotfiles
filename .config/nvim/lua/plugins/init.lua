@@ -483,7 +483,7 @@ require('lazy').setup({
 
   { 'vim-denops/denops-helloworld.vim', dependencies = { 'vim-denops/denops.vim' } },
 
-  { 'lambdalisue/gin.vim', enabled = false, dependencies = { 'vim-denops/denops.vim' } },
+  { 'lambdalisue/gin.vim', dependencies = { 'vim-denops/denops.vim' } },
 
   {
     'delphinus/skkeleton_indicator.nvim',
@@ -494,7 +494,10 @@ require('lazy').setup({
   },
   {
     'vim-skk/skkeleton',
-    dependencies = { 'vim-denops/denops.vim', 'delphinus/skkeleton_indicator.nvim' },
+    dependencies = {
+      'vim-denops/denops.vim',
+      'delphinus/skkeleton_indicator.nvim',
+    },
     config = function()
       require('plugins.config.skkeleton')
     end,
