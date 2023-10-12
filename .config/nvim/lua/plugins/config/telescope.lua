@@ -26,11 +26,6 @@ telescope.setup {
       '--hidden',
     },
   },
-  extensions = {
-    frecency = {
-      use_sqlite = false,
-    },
-  },
 }
 -- }}}
 
