@@ -102,3 +102,11 @@ vim.keymap.set('n', '<Leader>gs', telescope_builtin.git_status)
 vim.keymap.set('n', '<Leader>gt', telescope_builtin.git_stash)
 vim.keymap.set('n', '<Leader>gl', '<Cmd>Telescope ghq list<CR>')
 --- }}}
+
+-- Extensions {{{
+telescope.load_extension('fzf')
+telescope.load_extension('ui-select')
+telescope.load_extension('frecency')
+telescope.load_extension('ghq')
+telescope.load_extension('egrepify')
+-- }}}

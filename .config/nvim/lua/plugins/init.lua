@@ -340,47 +340,11 @@ require('lazy').setup({
   --- }}}
 
   -- Fuzzy finder {{{
-  {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    lazy = true,
-    build = 'make',
-    config = function()
-      require('telescope').load_extension('fzf')
-    end,
-  },
-
-  {
-    'nvim-telescope/telescope-ui-select.nvim',
-    lazy = true,
-    config = function()
-      require('telescope').load_extension('ui-select')
-    end,
-  },
-
-  {
-    'nvim-telescope/telescope-frecency.nvim',
-    lazy = true,
-    config = function()
-      require('telescope').load_extension('frecency')
-    end,
-  },
-
-  {
-    'nvim-telescope/telescope-ghq.nvim',
-    lazy = true,
-    config = function()
-      require('telescope').load_extension('ghq')
-    end,
-  },
-
-  {
-    'fdschmidt93/telescope-egrepify.nvim',
-    lazy = true,
-    config = function()
-      require('telescope').load_extension('egrepify')
-    end,
-  },
-
+  { 'nvim-telescope/telescope-fzf-native.nvim', lazy = true, build = 'make' },
+  { 'nvim-telescope/telescope-ui-select.nvim', lazy = true },
+  { 'nvim-telescope/telescope-frecency.nvim', lazy = true },
+  { 'nvim-telescope/telescope-ghq.nvim', lazy = true },
+  { 'fdschmidt93/telescope-egrepify.nvim', lazy = true },
   {
     'nvim-telescope/telescope.nvim',
     dependencies = {
