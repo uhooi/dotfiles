@@ -26,6 +26,11 @@ telescope.setup {
       '--hidden',
     },
   },
+  extensions = {
+    frecency = {
+      show_scores = true,
+    },
+  },
 }
 -- }}}
 
