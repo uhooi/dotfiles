@@ -459,6 +459,22 @@ require('lazy').setup({
   { 'lambdalisue/gin.vim', dependencies = { 'vim-denops/denops.vim' } },
 
   {
+    'lambdalisue/kensaku.vim',
+    lazy = true,
+    dependencies = {
+      'vim-denops/denops.vim',
+    },
+  },
+  { 'lambdalisue/kensaku-command.vim', dependencies = { 'lambdalisue/kensaku.vim' } },
+  {
+    'lambdalisue/kensaku-search.vim',
+    dependencies = { 'lambdalisue/kensaku.vim' },
+    config = function()
+      require('plugins.config.kensaku_search')
+    end,
+  },
+
+  {
     'delphinus/skkeleton_indicator.nvim',
     lazy = true,
     config = function()
