@@ -8,6 +8,10 @@ local telescope = require('telescope')
 local telescope_actions = require('telescope.actions')
 telescope.setup {
   defaults = {
+    winblend = 10,
+    prompt_prefix = '❯❯❯ ',
+    selection_caret = '❯ ',
+    dynamic_preview_title = true,
     mappings = {
       i = {
         ['<Esc>'] = telescope_actions.close,
