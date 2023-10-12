@@ -1,5 +1,5 @@
 # ref: https://github.com/JohnnyMorganz/StyLua/blob/c8d51468502fc34735751dcc8364d3abc6bc9144/README.md#options
-# ref: https://github.com/neovim/neovim/blob/f76e1ac92eda9cb364a9de49422b45a035256ca6/.stylua.toml
+#    : https://github.com/neovim/neovim/blob/f76e1ac92eda9cb364a9de49422b45a035256ca6/.stylua.toml
 
 # column_width = 120
 # line_endings = "Unix"
