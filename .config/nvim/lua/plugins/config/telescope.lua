@@ -66,7 +66,7 @@ local function live_grep_from_project()
     opts = { cwd = git_root }
   end
 
-  telescope_builtin.live_grep(opts)
+  telescope.extensions.egrepify.egrepify(opts)
 end
 
 local function grep_string_from_project()

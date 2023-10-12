@@ -374,6 +374,14 @@ require('lazy').setup({
   },
 
   {
+    'fdschmidt93/telescope-egrepify.nvim',
+    lazy = true,
+    config = function()
+      require('telescope').load_extension('egrepify')
+    end,
+  },
+
+  {
     'nvim-telescope/telescope.nvim',
     dependencies = {
       'nvim-lua/plenary.nvim',
@@ -383,6 +391,7 @@ require('lazy').setup({
       'nvim-telescope/telescope-ui-select.nvim',
       'nvim-telescope/telescope-frecency.nvim',
       'nvim-telescope/telescope-ghq.nvim',
+      'fdschmidt93/telescope-egrepify.nvim',
     },
     config = function()
       require('plugins.config.telescope')
