@@ -273,6 +273,7 @@ require('lazy').setup({
     'Bekaboo/dropbar.nvim',
     dependencies = {
       'nvim-tree/nvim-web-devicons',
+      'nvim-telescope/telescope-fzf-native.nvim',
     },
     config = function()
       require('plugins.config.dropbar')
