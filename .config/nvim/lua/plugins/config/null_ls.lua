@@ -24,7 +24,7 @@ null_ls.setup {
       filetypes = { 'markdown' },
       prefer_local = 'node_modules/.bin',
     },
-    null_ls.builtins.formatting.yamlfmt,
+    -- null_ls.builtins.formatting.yamlfmt,
     null_ls.builtins.formatting.stylua, -- `brew install stylua`
     null_ls.builtins.diagnostics.swiftlint.with {
       prefer_local = '.mint/lib/packages/github.com_realm_SwiftLint/build/0.52.2', -- TODO: Make version dynamic
