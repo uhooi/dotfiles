@@ -328,6 +328,19 @@ require('lazy').setup({
   },
 
   {
+    'NeogitOrg/neogit',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+      'sindrets/diffview.nvim',
+      'ibhagwan/fzf-lua',
+    },
+    config = function()
+      require('neogit').setup()
+    end,
+  },
+
+  {
     'pwntester/octo.nvim',
     dependencies = {
       'nvim-lua/plenary.nvim',
@@ -360,6 +373,15 @@ require('lazy').setup({
     },
     config = function()
       require('plugins.config.telescope')
+    end,
+  },
+
+  -- Must run `brew install fzf`
+  {
+    'ibhagwan/fzf-lua',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require('fzf-lua').setup()
     end,
   },
   -- }}}
