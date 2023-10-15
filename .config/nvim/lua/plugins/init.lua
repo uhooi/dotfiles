@@ -386,6 +386,15 @@ require('lazy').setup({
   },
   -- }}}
 
+  -- Search {{{
+  {
+    'cshuaimin/ssr.nvim',
+    config = function()
+      require('plugins.config.ssr')
+    end,
+  },
+  -- }}}
+
   -- Syntax {{{
   {
     'keith/swift.vim',

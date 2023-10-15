@@ -75,6 +75,7 @@
   "skk-tutorial.vim": { "branch": "main", "commit": "5d1171ac66cf9cd04c7538f16c846f2f2e83bb51" },
   "skkeleton": { "branch": "main", "commit": "cf83df9e6044fef71df359a0aca89ae85d60dd5b" },
   "skkeleton_indicator.nvim": { "branch": "main", "commit": "8acf07b2cde9307f04f65a0253a754de153ab7f5" },
+  "ssr.nvim": { "branch": "main", "commit": "10d51ddaaba0cd03ccf9ae51620d6e8cad27f1e4" },
   "swift.vim": { "branch": "master", "commit": "bb62135c4364c84b56499f4b54e1a6b8eca72eec" },
   "symbols-outline.nvim": { "branch": "master", "commit": "512791925d57a61c545bc303356e8a8f7869763c" },
   "tcomment_vim": { "branch": "master", "commit": "90eaf759099bcd47aa0471f974109d7fd78e4eea" },
