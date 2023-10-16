@@ -32,4 +32,4 @@ require('symbols-outline').setup {
   },
 }
 
-vim.keymap.set('n', '<Leader>s', '<Cmd>SymbolsOutline<CR>')
+vim.keymap.set('n', '<Leader>so', '<Cmd>SymbolsOutline<CR>')
