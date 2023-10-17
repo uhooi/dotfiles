@@ -11,21 +11,22 @@
 # Variables {{{
 
 CURRENT_DIR=`dirname $0`
-NVIM_ROOT=${HOME}/ghq/github.com/neovim/neovim
-NVIM_INSTALL_DIR=${HOME}/.local/nvim
+ROOT=${HOME}/ghq/github.com/neovim/neovim
+INSTALL_DIR=${HOME}/.local/nvim
+MAIN_BRANCH=master
 
 # }}}
 
 # Main {{{
 
-cd ${NVIM_ROOT}
+cd ${ROOT}
 
 git fetch --prune origin
-git rebase origin/master
+git rebase origin/${MAIN_BRANCH}
 
 make \
   CMAKE_BUILD_TYPE=Release \
-  CMAKE_INSTALL_PREFIX=${NVIM_INSTALL_DIR}
+  CMAKE_INSTALL_PREFIX=${INSTALL_DIR}
 
 make install
 
