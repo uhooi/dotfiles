@@ -12,6 +12,7 @@
 
 CURRENT_DIR=`dirname $0`
 ROOT=${HOME}/ghq/github.com/vim/vim
+INSTALL_DIR=${HOME}/.local/vim
 MAIN_BRANCH=master
 
 # }}}
@@ -25,7 +26,10 @@ git rebase origin/${MAIN_BRANCH}
 
 cd src/
 
+make distclean
+
 ./configure \
+  --prefix=${INSTALL_DIR} \
   --with-features=huge \
   --enable-gui=gtk2 \
   --enable-perlinterp \
@@ -36,11 +40,9 @@ cd src/
   --with-luajit \
   --enable-fail-if-missing
 
-make distclean
-
 make
 
-sudo make install
+make install prefix=${INSTALL_DIR}
 
 cd ${CURRENT_DIR}
 

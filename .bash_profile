@@ -119,6 +119,12 @@ if [ -d "${FLUTTER_HOME}" ]; then
   export PATH="${FLUTTER_HOME}/bin:$PATH"
 fi
 
+# Vim
+export VIM_HOME=$HOME/.local/vim
+if [ -d "${VIM_HOME}" ]; then
+  export PATH="${VIM_HOME}/bin:$PATH"
+fi
+
 # Neovim
 # ref: https://qiita.com/uhooi/items/95ffbfc1270df79f1fbd
 NEOVIM_HOME=$HOME/.local/nvim
