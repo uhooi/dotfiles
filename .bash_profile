@@ -120,6 +120,7 @@ if [ -d "${FLUTTER_HOME}" ]; then
 fi
 
 # Neovim
+# ref: https://qiita.com/uhooi/items/95ffbfc1270df79f1fbd
 NEOVIM_HOME=$HOME/.local/nvim
 if [ -d "${NEOVIM_HOME}" ]; then
   export PATH="${NEOVIM_HOME}/bin:$PATH"
