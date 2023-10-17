@@ -26,23 +26,27 @@ git rebase origin/${MAIN_BRANCH}
 
 cd src/
 
-make distclean
+make distclean \
+  | tee vim_make_distclean.log
 
 ./configure \
+  --enable-cscope \
+  --enable-fail-if-missing \
+  --enable-luainterp=yes \
+  --enable-perlinterp=yes \
+  --enable-python3interp=yes \
+  --enable-rubyinterp=yes \
   --prefix=${INSTALL_DIR} \
-  --with-features=huge \
-  --enable-gui=gtk2 \
-  --enable-perlinterp \
-  --enable-pythoninterp \
-  --enable-python3interp \
-  --enable-rubyinterp \
-  --enable-luainterp \
-  --with-luajit \
-  --enable-fail-if-missing
+  --with-compiledby=uhooi \
+  --with-lua-prefix=/opt/homebrew/Cellar/lua/5.4.6/ \
+  --with-tlib=ncurses \
+  | tee vim_configure.log
 
-make
+make \
+  | tee vim_make.log
 
-make install prefix=${INSTALL_DIR}
+make install prefix=${INSTALL_DIR} \
+  | tee vim_make_install.log
 
 cd ${CURRENT_DIR}
 
