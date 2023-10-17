@@ -38,7 +38,7 @@ make distclean \
   --enable-rubyinterp=yes \
   --prefix=${INSTALL_DIR} \
   --with-compiledby=uhooi \
-  --with-lua-prefix=/opt/homebrew/Cellar/lua/5.4.6/ \
+  --with-lua-prefix=/opt/homebrew/Cellar/lua/5.4.6 \
   --with-tlib=ncurses \
   | tee vim_configure.log
 
