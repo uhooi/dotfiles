@@ -660,6 +660,10 @@ require('lazy').setup({
 
   -- Others {{{
   {
+    'dstein64/vim-startuptime',
+  },
+
+  {
     'thinca/vim-showtime',
     ft = { 'markdown' },
   },

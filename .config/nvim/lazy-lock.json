@@ -93,6 +93,7 @@
   "vim-precious": { "branch": "master", "commit": "8df741e52e3886be9daaac5c02f8eac62168f379" },
   "vim-review": { "branch": "master", "commit": "a8a0f5b7ee2d4e9a858d2f2fa13eefd9bad450ff" },
   "vim-showtime": { "branch": "master", "commit": "ec87f959e6c56319e84292acfe28d43dc8dd0973" },
+  "vim-startuptime": { "branch": "master", "commit": "454b3de856b7bd298700de33d79774ca9b9e3875" },
   "vim-textobj-between": { "branch": "master", "commit": "fa7723c08b1f2d55e1a30ba720d2fd4db27cb1e8" },
   "vim-textobj-entire": { "branch": "master", "commit": "64a856c9dff3425ed8a863b9ec0a21dbaee6fb3a" },
   "vim-textobj-indent": { "branch": "master", "commit": "deb76867c302f933c8f21753806cbf2d8461b548" },
