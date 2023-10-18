@@ -32,12 +32,13 @@ make distclean
   --enable-cscope \
   --enable-fail-if-missing \
   --enable-luainterp=yes \
+  --with-lua-prefix=/opt/homebrew/Cellar/lua/5.4.6 \
   --enable-perlinterp=yes \
   --enable-python3interp=yes \
+  --with-python3-command=python \
   --enable-rubyinterp=yes \
   --prefix=${INSTALL_DIR} \
   --with-compiledby=uhooi \
-  --with-lua-prefix=/opt/homebrew/Cellar/lua/5.4.6 \
   --with-tlib=ncurses \
   CFLAGS='-I/opt/homebrew/include'
 
