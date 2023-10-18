@@ -26,6 +26,7 @@ null_ls.setup {
     },
     -- null_ls.builtins.formatting.yamlfmt,
     null_ls.builtins.formatting.stylua, -- `brew install stylua`
+    null_ls.builtins.diagnostics.vint, -- `brew install vint`
     null_ls.builtins.diagnostics.swiftlint.with {
       prefer_local = '.mint/lib/packages/github.com_realm_SwiftLint/build/0.52.2', -- TODO: Make version dynamic
     },
