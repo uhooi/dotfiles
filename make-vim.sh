@@ -26,8 +26,7 @@ git rebase origin/${MAIN_BRANCH}
 
 cd src/
 
-make distclean \
-  | tee vim_make_distclean.log
+make distclean
 
 ./configure \
   --enable-cscope \
@@ -40,13 +39,11 @@ make distclean \
   --with-compiledby=uhooi \
   --with-lua-prefix=/opt/homebrew/Cellar/lua/5.4.6 \
   --with-tlib=ncurses \
-  | tee vim_configure.log
+  CFLAGS='-I/opt/homebrew/include'
 
-make \
-  | tee vim_make.log
+make
 
-make install prefix=${INSTALL_DIR} \
-  | tee vim_make_install.log
+make install prefix=${INSTALL_DIR}
 
 cd ${CURRENT_DIR}
 
