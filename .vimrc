@@ -24,7 +24,6 @@ augroup END
 
 source ~/.vim/config/filetypes.vim
 source ~/.vim/config/basics.vim
-source ~/.vim/config/plugins.vim
 source ~/.vim/config/mappings.vim
 
 syntax enable
