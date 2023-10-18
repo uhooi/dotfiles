@@ -9,10 +9,7 @@ fi
 # }}}
 
 # Aliases {{{
-if [ "$(uname)" == 'Darwin' ]; then
-  alias ls='ls --color=auto'
-fi
-
+alias ls='eza --icons'
 alias eza='eza --icons'
 
 alias g='git'
