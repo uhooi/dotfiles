@@ -5,6 +5,7 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # Exports {{{
+
 # プロンプトの表示を変更する
 # 値をダブルコーテーションで括るとGit情報が表示されないため、シングルコーテーションで括る
 # ref: https://jaxx2104.info/mac-terminal-prompt-linux-like/
@@ -138,4 +139,9 @@ fi
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# Man
+# ManをNeovimで開く
+export MANPAGER='nvim +Man!'
+
 # }}}
