@@ -84,7 +84,7 @@ cmp.setup {
     before = function(entry, vim_item)
       local word = entry:get_insert_text()
       if entry.completion_item.insertTextFormat == cmp_types.lsp.InsertTextFormat.Snippet then
-        word = vim.lsp.util.parse_snippet(word)
+        word = vim.lsp.util.parse_snippet_grammar(word)
       end
       word = word:gsub('\n', '')
       if entry.completion_item.insertTextFormat == cmp_types.lsp.InsertTextFormat.Snippet then
