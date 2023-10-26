@@ -566,6 +566,13 @@ require('lazy').setup({
   },
 
   {
+    'VidocqH/lsp-lens.nvim',
+    config = function()
+      require('lsp-lens').setup()
+    end,
+  },
+
+  {
     'kosayoda/nvim-lightbulb',
     enabled = false,
     config = function()
