@@ -53,6 +53,7 @@
   "lualine.nvim": { "branch": "master", "commit": "2248ef254d0a1488a72041cfb45ca9caada6d994" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "40301e1c74bc0946eece13edf2b1c561cc497491" },
   "mason.nvim": { "branch": "main", "commit": "cd7835b15f5a4204fc37e0aa739347472121a54c" },
+  "modicator.nvim": { "branch": "main", "commit": "1940afc3db7635e60934ca72774626a6c9a525d3" },
   "nekokak.nvim": { "branch": "main", "commit": "2bf8ed0ed369306abf487531512c5260858b2533" },
   "neogit": { "branch": "master", "commit": "01dc0a7e237a4d6d053cea2503f5dd1a81c1e310" },
   "noice.nvim": { "branch": "main", "commit": "92433164e2f7118d4122c7674c3834d9511722ba" },

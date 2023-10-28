@@ -271,6 +271,21 @@ require('lazy').setup({
     end,
   },
   { 'delphinus/eaw.nvim', lazy = true },
+
+  {
+    'mawkler/modicator.nvim',
+    event = 'ModeChanged',
+    dependencies = {
+      'folke/tokyonight.nvim',
+      'nvim-lualine/lualine.nvim',
+    },
+    config = function()
+      vim.o.cursorline = true
+      vim.o.number = true
+      vim.o.termguicolors = true
+      require('modicator').setup()
+    end,
+  },
   -- }}}
 
   -- winbar {{{
