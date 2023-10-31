@@ -583,7 +583,7 @@ require('lazy').setup({
   {
     'VidocqH/lsp-lens.nvim',
     config = function()
-      require('lsp-lens').setup()
+      require('plugins.config.lsp_lens')
     end,
   },
 
