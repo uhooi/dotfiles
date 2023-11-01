@@ -31,8 +31,10 @@ ln -fns ${SCRIPT_DIR_PATH}/.svnignore ~/.svnignore
 ln -fns ${SCRIPT_DIR_PATH}/.gitconfig ~/.gitconfig
 ln -fns ${SCRIPT_DIR_PATH}/.hyper.js ~/.hyper.js
 ln -fns ${SCRIPT_DIR_PATH}/.swift-package-complete.bash ~/.swift-package-complete.bash
+# AquaSKK
 ln -fns ${SCRIPT_DIR_PATH}/Library/Application\ Support/AquaSKK/kana-rule.conf ~/Library/Application\ Support/AquaSKK/kana-rule.conf
 ln -fns ${SCRIPT_DIR_PATH}/Library/Application\ Support/AquaSKK/keymap.conf ~/Library/Application\ Support/AquaSKK/keymap.conf
+ln -fns ${SCRIPT_DIR_PATH}/Library/Application\ Support/AquaSKK/SKK-JISYO.jawiki ~/Library/Application\ Support/AquaSKK/SKK-JISYO.jawiki
 
 source ~/.bash_profile
 
