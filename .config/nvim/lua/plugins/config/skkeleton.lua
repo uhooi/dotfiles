@@ -14,6 +14,7 @@ vim.fn['skkeleton#config'] {
     dictionaries_dir .. 'SKK-JISYO.geo',
     dictionaries_dir .. 'SKK-JISYO.station',
     dictionaries_dir .. 'SKK-JISYO.propernoun',
+    dictionaries_dir .. 'SKK-JISYO.jawiki',
   },
   keepState = false,
   markerHenkan = '▽ ',
