@@ -28,6 +28,7 @@ rm ~/.hyper.js
 rm ~/.swift-package-complete.bash
 rm ~/Library/Application\ Support/AquaSKK/kana-rule.conf
 rm ~/Library/Application\ Support/AquaSKK/keymap.conf
+rm ~/Library/Application\ Support/AquaSKK/SKK-JISYO.jawiki
 
 # dein.vimをアンインストールする
 rm -r ~/.cache/dein
