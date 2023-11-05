@@ -113,7 +113,12 @@ require('lualine').setup {
       },
       'filetype',
     },
-    lualine_z = { 'progress', 'location' },
+    lualine_z = {
+      {
+        'datetime',
+        style = '%H:%M',
+      },
+    },
   },
   tabline = {
     lualine_a = {
