@@ -1,13 +1,6 @@
 " ref: https://qiita.com/uhooi/items/292a98f45600c1e31b3e
 
-" Pythonのパスを明示的に指定する {{{
-" ∵Neovimでは違うPythonを見ているため
-" ref: https://qiita.com/uhooi/items/8a023c24c004ec0c8b84#pythonのパスを指定
-let g:python_host_prog = system('(type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(pyenv global | grep python2)/bin/python") || echo -n $(which python2)')
-let g:python3_host_prog = system('(type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(pyenv global | grep python3)/bin/python") || echo -n $(which python3)')
-" }}}
-
-" メニューの日本語化（メニュー表示前に行う必要がある） {{{
+" Japaneseize the menu {{{
 if has('mac')
   set langmenu=japanese
 endif
@@ -36,12 +29,6 @@ set wildignorecase
 set formatoptions+=mM
 set nrformats=alpha
 set virtualedit+=block
-augroup edit
-  autocmd!
-  autocmd FileType vim setlocal tabstop=2
-  autocmd FileType lua setlocal tabstop=2
-  autocmd FileType c,cpp,java setlocal cindent
-augroup END
 " }}}
 
 " Display {{{
@@ -57,6 +44,7 @@ set cursorline
 set colorcolumn=80
 set foldmethod=marker
 set pumheight=10
+set signcolumn=yes
 " }}}
 
 " Cursor {{{

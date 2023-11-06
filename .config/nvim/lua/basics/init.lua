@@ -70,6 +70,7 @@ vim.opt.writebackup = true
 vim.opt.backup = false
 vim.opt.undodir = '~/.vim/undo'
 
+-- ref: http://itchyny.hatenablog.com/entry/2014/12/25/090000
 vim.api.nvim_create_augroup('swapchoice-readonly', {})
 vim.api.nvim_clear_autocmds { group = 'swapchoice-readonly' }
 vim.api.nvim_create_autocmd('SwapExists', {
