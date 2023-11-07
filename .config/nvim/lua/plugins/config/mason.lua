@@ -42,6 +42,7 @@ mason_lspconfig.setup_handlers {
     }
     if server_name == 'lua_ls' then
       -- ref: https://github.com/neovim/nvim-lspconfig/blob/27e9e1d2638ffd133b06f314a49ac55825cb1017/doc/server_configurations.md#lua_ls
+      --    : https://luals.github.io/wiki/settings/
       --    : https://github.com/uga-rosa/dotfiles/blob/f2770a2b210cfdeec43c8a7508e88929f724ac34/nvim/rc/lsp.toml#L110-L133
       opts.settings = {
         Lua = {
