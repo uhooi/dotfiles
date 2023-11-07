@@ -52,8 +52,8 @@ mason_lspconfig.setup_handlers {
             globals = { 'vim' },
           },
           workspace = {
-            library = vim.api.nvim_get_runtime_file('', true),
             checkThirdParty = false,
+            library = vim.api.nvim_get_runtime_file('', true),
           },
           telemetry = {
             enable = false,
