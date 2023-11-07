@@ -248,6 +248,15 @@ require('lazy').setup({
   },
 
   { 'tweekmonster/helpful.vim' },
+
+  {
+    'folke/neodev.nvim',
+    config = function()
+      require('neodev').setup {
+        library = { plugins = { 'nvim-dap-ui' }, types = true },
+      }
+    end,
+  },
   -- }}}
 
   -- statusline {{{
@@ -592,6 +601,34 @@ require('lazy').setup({
     enabled = false,
     config = function()
       require('plugins.config.nvim_lightbulb')
+    end,
+  },
+  -- }}}
+
+  -- DAP {{{
+  {
+    'mfussenegger/nvim-dap',
+    dependencies = {
+      'wojciech-kulik/xcodebuild.nvim',
+    },
+    config = function()
+      require('plugins.config.nvim_dap')
+    end,
+  },
+
+  {
+    'rcarriga/nvim-dap-ui',
+    dependencies = { 'mfussenegger/nvim-dap' },
+    config = function()
+      require('dapui').setup()
+    end,
+  },
+
+  {
+    'wojciech-kulik/xcodebuild.nvim',
+    dependencies = { 'nvim-telescope/telescope.nvim' },
+    config = function()
+      require('plugins.config.xcodebuild')
     end,
   },
   -- }}}
