@@ -48,7 +48,7 @@ local function lsp_names()
     .iter(vim.lsp.get_clients { bufnr = 0 })
     :map(function(client)
       if client.name == 'null-ls' then
-        return ('null-ls(%s)'):format(table.concat(
+        return ('null-ls[%s](' .. client.id .. ')'):format(table.concat(
           vim
             .iter(require('null-ls.sources').get_available(vim.bo.filetype))
             :map(function(source)
@@ -58,7 +58,7 @@ local function lsp_names()
           ', '
         ))
       else
-        return client.name
+        return client.name .. '(' .. client.id .. ')'
       end
     end)
     :totable()
