@@ -8,6 +8,7 @@ augroup filetype
 
   " Swift
   autocmd BufRead,BufNewFile Package.resolved setlocal filetype=json
+  autocmd BufRead,BufNewFile *.xcstrings setlocal filetype=json
 
   " CocoaPods
   autocmd BufRead,BufNewFile *.podspec setlocal filetype=ruby
@@ -15,6 +16,9 @@ augroup filetype
 
   " fastlane
   autocmd BufRead,BufNewFile Fastfile setlocal filetype=ruby
+
+  " Mustache
+  autocmd BufRead,BufNewFile *.mustache setlocal filetype=mustache
 
   " textlint
   autocmd BufRead,BufNewFile .textlintrc setlocal filetype=json
