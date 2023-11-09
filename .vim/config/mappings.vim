@@ -64,13 +64,6 @@ nnoremap <script> <SID>ws< <C-w><<SID>ws
 nmap <SID>ws <Nop>
 
 " 挿入
-" エスケープでIMEをOFFにする(通常モードに戻るときにIMEをOFFにしたいため)
-"inoremap <ESC> <ESC>:set iminsert=0<CR>
-" コントロールでカーソル移動を通常モードと同様のキーバインドで行う
-inoremap <C-h> <Left>
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-l> <Right>
 " 挿入モード時に矢印キーを無効にする
 " ∵Vimのキーバインドに慣れるため
 " Macの場合、日本語入力がおかしくなる不具合があるため無効にしない

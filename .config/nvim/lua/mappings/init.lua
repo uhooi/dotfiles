@@ -72,10 +72,6 @@ vim.keymap.set('n', 's>', '<C-w>>')
 vim.keymap.set('n', 's<', '<C-w><')
 vim.keymap.set('n', 's', '<Nop>')
 
--- vim.keymap.set('i', '<C-h>', '<Left>')
--- vim.keymap.set('i', '<C-j>', '<Down>')
--- vim.keymap.set('i', '<C-k>', '<Up>')
--- vim.keymap.set('i', '<C-l>', '<Right>')
 if vim.fn.has('mac') == 0 then
   vim.keymap.set('i', '<Left>', '<Nop>')
   vim.keymap.set('i', '<Down>', '<Nop>')
