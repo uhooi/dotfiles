@@ -1,6 +1,7 @@
 " dpp.vim
 
 " ref: https://github.com/Shougo/dpp.vim
+"   : https://github.com/Shougo/shougo-s-github/blob/78f2690dfa162cceee43a81babe540a7df604b19/vim/rc/dpp.vim
 
 " Setup
 " 1. Clone repositories.  

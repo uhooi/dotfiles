@@ -1,15 +1,18 @@
+// ref: https://github.com/Shougo/shougo-s-github/blob/78f2690dfa162cceee43a81babe540a7df604b19/vim/rc/dpp.ts
+
 import {
   BaseConfig,
+  ConfigReturn,
   ContextBuilder,
   Dpp,
   Plugin,
-} from "https://deno.land/x/dpp_vim@v0.0.2/types.ts";
-import { Denops, fn } from "https://deno.land/x/dpp_vim@v0.0.2/deps.ts";
+} from "https://deno.land/x/dpp_vim@v0.0.7/types.ts";
+import { Denops, fn } from "https://deno.land/x/dpp_vim@v0.0.7/deps.ts";
 
 type Toml = {
   hooks_file?: string;
   ftplugins?: Record<string, string>;
-  plugins: Plugin[];
+  plugins?: Plugin[];
 };
 
 type LazyMakeStateResult = {
@@ -23,10 +26,7 @@ export class Config extends BaseConfig {
     contextBuilder: ContextBuilder;
     basePath: string;
     dpp: Dpp;
-  }): Promise<{
-    plugins: Plugin[];
-    stateLines: string[];
-  }> {
+  }): Promise<ConfigReturn> {
     args.contextBuilder.setGlobal({
       protocols: ["git"],
     });
@@ -35,28 +35,34 @@ export class Config extends BaseConfig {
 
     // Load toml plugins
     const tomls: Toml[] = [];
-    tomls.push(
-      await args.dpp.extAction(
-        args.denops,
-        context,
-        options,
-        "toml",
-        "load",
-        {
-          path: "~/.cache/dpp/dpp.toml",
-          options: {
-            lazy: false,
+    for (
+      const toml of [
+        "~/.cache/dpp/dpp.toml",
+      ]
+    ) {
+      tomls.push(
+        await args.dpp.extAction(
+          args.denops,
+          context,
+          options,
+          "toml",
+          "load",
+          {
+            path: toml,
+            options: {
+              lazy: false,
+            },
           },
-        },
-      ) as Toml,
-    );
+        ) as Toml,
+      );
+    }
 
     // Merge toml results
     const recordPlugins: Record<string, Plugin> = {};
     const ftplugins: Record<string, string> = {};
     const hooksFiles: string[] = [];
     for (const toml of tomls) {
-      for (const plugin of toml.plugins) {
+      for (const plugin of toml.plugins ?? []) {
         recordPlugins[plugin.name] = plugin;
       }
 
