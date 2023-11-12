@@ -104,22 +104,22 @@ vim.api.nvim_create_autocmd('LspAttach', {
       set_lsp_inlay_hint_hl()
 
       if supports_inlay_hint then
-        vim.lsp.inlay_hint(bufnr, true)
+        vim.lsp.inlay_hint.enable(bufnr, true)
       end
 
       vim.api.nvim_create_autocmd('InsertLeave', {
         callback = function()
-          vim.lsp.inlay_hint(bufnr, true)
+          vim.lsp.inlay_hint.enable(bufnr, true)
         end,
       })
       vim.api.nvim_create_autocmd('InsertEnter', {
         callback = function()
-          vim.lsp.inlay_hint(bufnr, false)
+          vim.lsp.inlay_hint.enable(bufnr, false)
         end,
       })
 
       vim.keymap.set('n', 'gh', function()
-        vim.lsp.inlay_hint(bufnr)
+        vim.lsp.inlay_hint.enable(bufnr, vim.lsp.inlay_hint.is_enabled() == false)
       end, bufopts)
     end
     -- }}}
