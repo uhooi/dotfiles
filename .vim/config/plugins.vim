@@ -6,7 +6,7 @@ const s:dpp_base = '~/.cache/dpp/'
 
 " Set dpp source path (required)
 const s:dpp_src = s:dpp_base .. 'repos/github.com/Shougo/dpp.vim'
-const s:denops_src = s:dpp_base .. 'repos/github.com/denops/denops.vim'
+const s:denops_src = s:dpp_base .. 'repos/github.com/vim-denops/denops.vim'
 
 " Set dpp extensions and protocols path
 const s:dpp_extensions = [
