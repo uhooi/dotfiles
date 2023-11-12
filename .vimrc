@@ -9,6 +9,7 @@ scriptencoding utf-8
 " ref: https://github.com/vim-jp/reading-vimrc/wiki/vimrcアンチパターン
 "    : https://eh-career.com/engineerhub/entry/2019/01/28/103000
 "    : https://vim-jp.org/vimdoc-ja/filetype.html
+"    : https://x.com/the_uhooi/status/1535812617083576320
 
 filetype off
 filetype plugin indent off
@@ -16,7 +17,7 @@ filetype plugin indent off
 let g:mapleader = ","
 noremap \ ,
 
-" Set augroup.
+" Set augroup
 " ref: https://github.com/Shougo/shougo-s-github/blob/959a1069654d90f56bbb8b2f5a5f6d065010d102/vim/rc/vimrc
 augroup MyAutoCmd
   autocmd!
@@ -24,6 +25,7 @@ augroup END
 
 source ~/.vim/config/filetypes.vim
 source ~/.vim/config/basics.vim
+source ~/.vim/config/plugins.vim
 source ~/.vim/config/mappings.vim
 
 syntax enable
