@@ -1,5 +1,32 @@
 " dpp.vim
+
 " ref: https://github.com/Shougo/dpp.vim
+
+" Setup
+" 1. Clone repositories.  
+"     ```shell
+"     $ ghq get https://github.com/Shougo/dpp.vim.git
+"     $ ghq get https://github.com/vim-denops/denops.vim.git
+"     $ ghq get https://github.com/Shougo/dpp-ext-installer.git
+"     $ ghq get https://github.com/Shougo/dpp-ext-lazy.git
+"     $ ghq get https://github.com/Shougo/dpp-ext-toml.git
+"     $ ghq get https://github.com/Shougo/dpp-protocol-git.git
+"     ```
+" 2. Make directories.  
+"    ```shell
+"    $ mkdir -p ~/.cache/dpp/repos/github.com/Shougo
+"    $ mkdir -p ~/.cache/dpp/repos/github.com/vim-denops
+"    ```
+" 3. Create symbolic links.  
+"    ```shell
+"    $ ln -fns ~/ghq/github.com/Shougo/dpp.vim/ ~/.cache/dpp/repos/github.com/Shougo/dpp.vim
+"    $ ln -fns ~/ghq/github.com/vim-denops/denops.vim/ ~/.cache/dpp/repos/github.com/vim-denops/denops.vim
+"    $ ln -fns ~/ghq/github.com/Shougo/dpp-ext-installer/ ~/.cache/dpp/repos/github.com/Shougo/dpp-ext-installer
+"    $ ln -fns ~/ghq/github.com/Shougo/dpp-ext-lazy/ ~/.cache/dpp/repos/github.com/Shougo/dpp-ext-lazy
+"    $ ln -fns ~/ghq/github.com/Shougo/dpp-ext-toml/ ~/.cache/dpp/repos/github.com/Shougo/dpp-ext-toml
+"    $ ln -fns ~/ghq/github.com/Shougo/dpp-protocol-git/ ~/.cache/dpp/repos/github.com/Shougo/dpp-protocol-git
+"    $ ln -fns ~/ghq/github.com/dotfiles/uhooi/.vim/config/dpp/* ~/.cache/dpp/
+"    ```
 
 " Set dpp base path (required)
 const s:dpp_base = '~/.cache/dpp/'
