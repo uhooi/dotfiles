@@ -32,4 +32,6 @@ make install
 
 cd ${CURRENT_DIR}
 
+nvim --version
+
 # }}}

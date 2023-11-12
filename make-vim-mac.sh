@@ -48,4 +48,6 @@ make install prefix=${INSTALL_DIR}
 
 cd ${CURRENT_DIR}
 
+vim --version
+
 # }}}
