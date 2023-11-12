@@ -43,7 +43,7 @@ export class Config extends BaseConfig {
         "toml",
         "load",
         {
-          path: "./dpp.toml",
+          path: "~/.cache/dpp/dpp.toml",
           options: {
             lazy: false,
           },
