@@ -145,3 +145,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 export MANPAGER='nvim +Man!'
 
 # }}}
+
+# Shell Integration
+# ref: https://iterm2.com/documentation-shell-integration.html
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
