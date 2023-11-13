@@ -31,6 +31,10 @@
 
 " Set dpp base path (required)
 const s:dpp_base = '~/.cache/dpp/'
+" TODO: Not work
+if !isdirectory(s:dpp_base)
+  call mkdir(s:dpp_base, 'p')
+endif
 
 " Set dpp source path (required)
 const s:dpp_src = s:dpp_base .. 'repos/github.com/Shougo/dpp.vim'
