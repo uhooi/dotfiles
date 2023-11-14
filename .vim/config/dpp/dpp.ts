@@ -1,4 +1,5 @@
 // ref: https://github.com/Shougo/shougo-s-github/blob/78f2690dfa162cceee43a81babe540a7df604b19/vim/rc/dpp.ts
+//    : https://github.com/Shougo/shougo-s-github/blob/313d998ce4ddd8e0ac8cdc30b9968ff0824d12a5/vim/rc/dpp.ts
 
 import {
   BaseConfig,
@@ -36,7 +37,7 @@ export class Config extends BaseConfig {
     // Load toml plugins
     const tomls: Toml[] = [];
     for (
-      const toml of [
+      const tomlFile of [
         "./dpp.toml",
       ]
     ) {
@@ -48,7 +49,7 @@ export class Config extends BaseConfig {
           "toml",
           "load",
           {
-            path: toml,
+            path: tomlFile,
             options: {
               lazy: false,
             },
