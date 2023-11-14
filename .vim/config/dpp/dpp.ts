@@ -37,7 +37,7 @@ export class Config extends BaseConfig {
     const tomls: Toml[] = [];
     for (
       const toml of [
-        "./dpp/dpp.toml",
+        "./dpp.toml",
       ]
     ) {
       tomls.push(
