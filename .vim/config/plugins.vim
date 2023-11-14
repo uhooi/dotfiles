@@ -13,12 +13,7 @@
 "     $ ghq get https://github.com/Shougo/dpp-ext-toml.git
 "     $ ghq get https://github.com/Shougo/dpp-protocol-git.git
 "     ```
-" 2. Make directories.  
-"    ```shell
-"    $ mkdir -p ~/.cache/dpp/repos/github.com/Shougo
-"    $ mkdir -p ~/.cache/dpp/repos/github.com/vim-denops
-"    ```
-" 3. Create symbolic links.  
+" 2. Create symbolic links.  
 "    ```shell
 "    $ ln -fns ~/ghq/github.com/Shougo/dpp.vim/ ~/.cache/dpp/repos/github.com/Shougo/dpp.vim
 "    $ ln -fns ~/ghq/github.com/vim-denops/denops.vim/ ~/.cache/dpp/repos/github.com/vim-denops/denops.vim
@@ -30,15 +25,22 @@
 "    ```
 
 " Set dpp base path (required)
-const s:dpp_base = '~/.cache/dpp/'
-" TODO: Not work
+const s:dpp_base = expand('~/.cache/dpp/')
 if !isdirectory(s:dpp_base)
   call mkdir(s:dpp_base, 'p')
 endif
 
 " Set dpp source path (required)
 const s:dpp_src = s:dpp_base .. 'repos/github.com/Shougo/dpp.vim'
+if !isdirectory(s:dpp_base .. 'repos/github.com/Shougo')
+  call mkdir(s:dpp_base .. 'repos/github.com/Shougo', 'p')
+endif
+
+" Set denops source path
 const s:denops_src = s:dpp_base .. 'repos/github.com/vim-denops/denops.vim'
+if !isdirectory(s:dpp_base .. 'repos/github.com/vim-denops/')
+  call mkdir(s:dpp_base .. 'repos/github.com/vim-denops/', 'p')
+endif
 
 " Set dpp extensions and protocols path
 const s:dpp_extensions = [
