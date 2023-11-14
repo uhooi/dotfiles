@@ -3,6 +3,9 @@
 " ref: https://github.com/Shougo/dpp.vim
 "    : https://github.com/Shougo/shougo-s-github/blob/78f2690dfa162cceee43a81babe540a7df604b19/vim/rc/dpp.vim
 
+" Setup
+" 1. Run `cp ./dpp/* ~/.cache/dpp/`
+
 " Set dpp base path (required)
 const s:dpp_base = expand('~/.cache/dpp/')
 if !isdirectory(s:dpp_base)
@@ -50,5 +53,5 @@ if dpp#min#load_state(s:dpp_base)
   endif
   execute 'set runtimepath^=' .. s:denops_dir
   autocmd User DenopsReady
-  \  call dpp#make_state(s:dpp_base, './dpp/dpp.ts')
+  \  call dpp#make_state(s:dpp_base, s:dpp_base .. 'dpp.ts')
 endif
