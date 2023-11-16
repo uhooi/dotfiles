@@ -39,7 +39,7 @@
   "git-conflict.nvim": { "branch": "main", "commit": "896261933afe2fddf6fb043d9cd4d88301b151a9" },
   "gitlinker.nvim": { "branch": "master", "commit": "cc59f732f3d043b626c8702cb725c82e54d35c25" },
   "gitsigns.nvim": { "branch": "main", "commit": "af0f583cd35286dd6f0e3ed52622728703237e50" },
-  "helpful.vim": { "branch": "master", "commit": "25c4e7e0536da72aff5f71f14487024c53265372" },
+  "helpful.vim": { "branch": "master", "commit": "665d30abcb37cba78ccaf3edf01216580b5c17cd" },
   "highlight-undo.nvim": { "branch": "main", "commit": "50a6884a8476be04ecce8f1c4ed692c5000ef0a1" },
   "indent-blankline.nvim": { "branch": "master", "commit": "29be0919b91fb59eca9e90690d76014233392bef" },
   "kensaku-command.vim": { "branch": "main", "commit": "d14e13d67e53b597806951f7ccabc40fe6a574fb" },
