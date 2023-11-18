@@ -60,5 +60,13 @@ if dpp#min#load_state(s:dpp_base)
   execute 'set runtimepath^=' .. s:denops_dir
 
   autocmd User DenopsReady
-  \  call dpp#make_state(s:dpp_base, s:dpp_config_file)
+  \  : echohl WarningMsg
+  \  | echomsg 'dpp load_state() is failed'
+  \  | echohl NONE
+  \  | call dpp#make_state(s:dpp_base, s:dpp_config_file)
 endif
+
+autocmd User Dpp:makeStatePost
+\  : echohl WarningMsg
+\  | echomsg 'dpp make_state() is done'
+\  | echohl NONE
