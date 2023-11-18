@@ -3,13 +3,15 @@
 " ref: https://github.com/Shougo/dpp.vim
 "    : https://github.com/Shougo/shougo-s-github/blob/78f2690dfa162cceee43a81babe540a7df604b19/vim/rc/dpp.vim
 
-" Setup
-" 1. Run `cp ./dpp/* ~/.cache/dpp/`
-
 " Set dpp base path (required)
 const s:dpp_base = expand('~/.cache/dpp/')
 if !isdirectory(s:dpp_base)
   call mkdir(s:dpp_base, 'p')
+endif
+
+" Copy my dpp config files
+if !filereadable(s:dpp_base .. 'dpp.ts')
+  execute '!cp -f ./dpp/* ' .. s:dpp_base
 endif
 
 " Set dpp source path (required)
