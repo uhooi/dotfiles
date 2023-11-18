@@ -555,6 +555,7 @@ require('lazy').setup({
   -- }}}
 
   -- LSP {{{
+  -- ref: https://github.com/wookayin/dotfiles/blob/ad1b4f90f58f922b85860095830fe6625814bbf2/nvim/lua/plugins/ide.lua#L27-L38
   {
     'neovim/nvim-lspconfig',
     dependencies = { 'williamboman/mason.nvim' },
