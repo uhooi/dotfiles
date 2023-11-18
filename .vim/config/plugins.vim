@@ -10,7 +10,8 @@ if !isdirectory(s:dpp_base)
 endif
 
 " Copy my dpp config files
-if !filereadable(s:dpp_base .. 'dpp.ts')
+const s:dpp_config_file = s:dpp_base .. 'dpp.ts'
+if !filereadable(s:dpp_config_file)
   execute '!cp -f ./dpp/* ' .. s:dpp_base
 endif
 
@@ -40,6 +41,8 @@ if !isdirectory(s:dpp_dir)
   execute '!git clone https://' .. s:dpp_src s:dpp_dir
 endif
 execute 'set runtimepath^=' .. s:dpp_dir
+
+" Clone repository and set plugin runtime path
 for plugin in s:dpp_plugins
   let dir = s:dpp_base .. 'repos/' .. plugin
   if !isdirectory(dir)
@@ -49,11 +52,13 @@ for plugin in s:dpp_plugins
 endfor
 
 if dpp#min#load_state(s:dpp_base)
+  " Clone repository and set denops runtime path
   const s:denops_dir = s:dpp_base .. 'repos/' .. s:denops_src
   if !isdirectory(s:denops_dir)
     execute '!git clone https://' .. s:denops_src s:denops_dir
   endif
   execute 'set runtimepath^=' .. s:denops_dir
+
   autocmd User DenopsReady
-  \  call dpp#make_state(s:dpp_base, s:dpp_base .. 'dpp.ts')
+  \  call dpp#make_state(s:dpp_base, s:dpp_config_file)
 endif
