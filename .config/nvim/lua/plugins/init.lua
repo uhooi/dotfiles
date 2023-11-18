@@ -62,7 +62,12 @@ require('lazy').setup({
     end,
   },
 
-  { 'HiPhish/rainbow-delimiters.nvim' },
+  {
+    'HiPhish/rainbow-delimiters.nvim',
+    config = function()
+      require('plugins.config.rainbow_delimiters')
+    end,
+  },
 
   {
     'lukas-reineke/virt-column.nvim',
