@@ -21,6 +21,7 @@ vim.fn['skkeleton#config'] {
   markerHenkanSelect = '▼ ',
   registerConvertResult = true,
   showCandidatesCount = 1,
+  -- useSkkServer = true, -- FIXME: Freeze
   userJisyo = skkeleton_dir .. 'user_jisyo.txt',
 }
 
