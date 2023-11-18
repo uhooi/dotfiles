@@ -238,6 +238,14 @@ require('lazy').setup({
   { 'stevearc/dressing.nvim' },
 
   {
+    'nvim-zh/colorful-winsep.nvim',
+    event = 'WinNew',
+    config = function()
+      require('plugins.config.colorful_winsep')
+    end,
+  },
+
+  {
     'vim-jp/vimdoc-ja',
     config = function()
       vim.opt.helplang = { 'ja', 'en' }
