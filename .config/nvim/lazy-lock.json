@@ -76,6 +76,7 @@
   "open-browser.vim": { "branch": "master", "commit": "7d4c1d8198e889d513a030b5a83faa07606bac27" },
   "plenary.nvim": { "branch": "master", "commit": "50012918b2fc8357b87cff2a7f7f0446e47da174" },
   "previm": { "branch": "master", "commit": "2b2e4a8002877741e9f584b9b3751ed0d47e5952" },
+  "rainbow-delimiters.nvim": { "branch": "master", "commit": "7cf719975b3ebe0f63fb4f8b63cd2c0b2b0bde23" },
   "satellite.nvim": { "branch": "main", "commit": "7911fa8137c77258ba509ba875ea52c6d59737e8" },
   "skk-tutorial.vim": { "branch": "main", "commit": "5d1171ac66cf9cd04c7538f16c846f2f2e83bb51" },
   "skkeleton": { "branch": "main", "commit": "276dedd33d036cd399fcd293a54b1553825a35ae" },

@@ -42,7 +42,8 @@ require('nvim-treesitter.configs').setup {
     'yaml',
   },
   highlight = {
-    enable = false,
+    enable = true,
+    disable = {},
   },
   incremental_selection = {
     enable = false,
