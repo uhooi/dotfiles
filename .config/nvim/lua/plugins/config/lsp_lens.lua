@@ -1,8 +1,20 @@
 require('lsp-lens').setup {
   sections = {
     definition = false,
-    references = true,
-    implements = true,
+    references = function(count)
+      if count == 1 then
+        return count .. ' reference'
+      else
+        return count .. ' references'
+      end
+    end,
+    implements = function(count)
+      if count == 1 then
+        return count .. ' implement'
+      else
+        return count .. ' implements'
+      end
+    end,
     git_authors = true,
   },
 }
