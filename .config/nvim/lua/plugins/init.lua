@@ -273,6 +273,7 @@ require('lazy').setup({
   -- statusline {{{
   {
     'nvim-lualine/lualine.nvim',
+    enabled = false, -- Use nouget.nvim
     dependencies = {
       'nvim-tree/nvim-web-devicons',
       'delphinus/characterize.nvim',
@@ -294,6 +295,7 @@ require('lazy').setup({
 
   {
     'mawkler/modicator.nvim',
+    enabled = false,
     event = 'ModeChanged',
     dependencies = {
       'folke/tokyonight.nvim',
@@ -304,6 +306,17 @@ require('lazy').setup({
       vim.o.number = true
       vim.o.termguicolors = true
       require('modicator').setup()
+    end,
+  },
+
+  {
+    'MunifTanjim/nougat.nvim',
+    dependencies = {
+      'delphinus/characterize.nvim',
+      'delphinus/eaw.nvim',
+    },
+    config = function()
+      require('plugins.config.nouget')
     end,
   },
   -- }}}
