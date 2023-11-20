@@ -164,17 +164,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.lsp.inlay_hint.enable(bufnr, true)
       end
 
-      vim.api.nvim_create_autocmd('InsertLeave', {
-        callback = function()
-          vim.lsp.inlay_hint.enable(bufnr, true)
-        end,
-      })
-      vim.api.nvim_create_autocmd('InsertEnter', {
-        callback = function()
-          vim.lsp.inlay_hint.enable(bufnr, false)
-        end,
-      })
-
       vim.keymap.set('n', 'gh', function()
         vim.lsp.inlay_hint.enable(bufnr, not vim.lsp.inlay_hint.is_enabled())
       end, bufopts)
