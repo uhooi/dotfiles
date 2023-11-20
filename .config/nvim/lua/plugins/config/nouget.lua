@@ -223,18 +223,6 @@ stl:add_item(nut.buf.filetype {
   sep_right = sep.right_half_circle_solid(true),
 })
 stl:add_item(sep.space())
-local diagnostic_count = stl:add_item(nut.buf.diagnostic_count {
-  hl = { bg = color.bg4 },
-  sep_left = sep.left_half_circle_solid(true),
-  sep_right = sep.right_half_circle_solid(true),
-  config = {
-    error = { prefix = icon.diagnostic.error .. ' ', fg = color.red },
-    warn = { prefix = icon.diagnostic.warn .. ' ', fg = color.yellow },
-    info = { prefix = icon.diagnostic.info .. ' ', fg = color.blue },
-    hint = { prefix = icon.diagnostic.hint .. ' ', fg = color.green },
-  },
-})
-stl:add_item(paired_space(diagnostic_count))
 stl:add_item(ruler)
 stl:add_item(sep.space())
 
@@ -293,5 +281,20 @@ local gitstatus = tal:add_item(nut.git.status.create {
   sep_right = sep.right_half_circle_solid(true),
 })
 tal:add_item(paired_space(gitstatus))
+tal:add_item(sep.space())
+tal:add_item(nut.spacer())
+tal:add_item(nut.truncation_point())
+local diagnostic_count = tal:add_item(nut.buf.diagnostic_count {
+  hl = { bg = color.bg4 },
+  sep_left = sep.left_half_circle_solid(true),
+  sep_right = sep.right_half_circle_solid(true),
+  config = {
+    error = { prefix = icon.diagnostic.error .. ' ', fg = color.red },
+    warn = { prefix = icon.diagnostic.warn .. ' ', fg = color.yellow },
+    info = { prefix = icon.diagnostic.info .. ' ', fg = color.blue },
+    hint = { prefix = icon.diagnostic.hint .. ' ', fg = color.green },
+  },
+})
+tal:add_item(paired_space(diagnostic_count))
 bar_util.set_tabline(tal)
 -- }}}
