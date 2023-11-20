@@ -70,10 +70,10 @@ return {
   variable = '', -- nf-cod-symbol_variable
   while_statement = '󰑖', -- nf-md-repeat
   diagnostic = {
-    error = '',
-    hint = '󰌶',
-    info = '',
-    warn = '',
+    error = '', -- nf-fa-times_circle
+    hint = '', -- nf-fa-lightbulb_o
+    info = '', -- nf-fa-info_circle
+    warn = '', -- nf-fa-warning
   },
   git = {
     added = '󰐖', -- nf-md-plus_box
