@@ -7,6 +7,7 @@ local bar_util = require('nougat.bar.util')
 local Item = require('nougat.item')
 local sep = require('nougat.separator')
 local icon = require('plugins.config.shared.icon')
+local skkeleton_util = require('plugins.config.shared.skkeleton_util')
 -- }}}
 
 -- nut {{{
@@ -102,6 +103,34 @@ local mode = nut.mode {
     },
   },
 }
+-- }}}
+
+-- skkeleton {{{
+local skkeleton = (function()
+  local item = Item {
+    sep_left = sep.left_half_circle_solid(true),
+    content = {
+      Item {
+        hl = { bg = 'fg', fg = color.bg },
+        hidden = function(_, _)
+          return skkeleton_util.get_mode == ''
+        end,
+        content = skkeleton_util.get_mode,
+      },
+      Item {
+        hl = { bg = 'fg', fg = color.bg },
+        hidden = function(_, _)
+          return skkeleton_util.get_state == ''
+        end,
+        prefix = ' ',
+        content = skkeleton_util.get_state,
+      },
+    },
+    sep_right = sep.right_half_circle_solid(true),
+  }
+
+  return item
+end)()
 -- }}}
 
 -- filename {{{
@@ -212,6 +241,8 @@ end
 -- statusline {{{
 local stl = Bar('statusline')
 stl:add_item(mode)
+stl:add_item(sep.space())
+stl:add_item(skkeleton)
 stl:add_item(sep.space())
 stl:add_item(filename)
 stl:add_item(sep.space())
