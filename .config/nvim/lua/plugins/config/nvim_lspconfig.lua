@@ -1,3 +1,5 @@
+local icon = require('plugins.config.shared.icon')
+
 -- mason.nvim {{{
 require('mason').setup {
   ui = {
@@ -83,11 +85,20 @@ lspconfig.sourcekit.setup {
 -- ref: https://github.com/neovim/neovim/commit/a5bbb932f9094098bd656d3f6be3c58344576709
 vim.fn.sign_define(
   'DiagnosticSignError',
-  { text = '', texthl = 'DiagnosticSignError', numhl = 'DiagnosticSignError' }
+  { text = icon.diagnostic.error, texthl = 'DiagnosticSignError', numhl = 'DiagnosticSignError' }
 )
-vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn', numhl = 'DiagnosticSignWarn' })
-vim.fn.sign_define('DiagnosticSignHint', { text = '󰌶', texthl = 'DiagnosticSignHint', numhl = 'DiagnosticSignHint' })
-vim.fn.sign_define('DiagnosticSignInfo', { text = '', texthl = 'DiagnosticSignInfo', numhl = 'DiagnosticSignInfo' })
+vim.fn.sign_define(
+  'DiagnosticSignWarn',
+  { text = icon.diagnostic.warn, texthl = 'DiagnosticSignWarn', numhl = 'DiagnosticSignWarn' }
+)
+vim.fn.sign_define(
+  'DiagnosticSignHint',
+  { text = icon.diagnostic.hint, texthl = 'DiagnosticSignHint', numhl = 'DiagnosticSignHint' }
+)
+vim.fn.sign_define(
+  'DiagnosticSignInfo',
+  { text = icon.diagnostic.info, texthl = 'DiagnosticSignInfo', numhl = 'DiagnosticSignInfo' }
+)
 -- }}}
 
 -- Keymaps {{{

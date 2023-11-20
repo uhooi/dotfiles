@@ -252,7 +252,8 @@ local gitstatus = stl:add_item(nut.git.status.create {
     nut.git.status.count('removed', {
       hl = { bg = color.red },
       prefix = function(_, ctx)
-        return (ctx.gitstatus.added > 0 or ctx.gitstatus.changed > 0) and ' ' .. icon.git.removed .. ' ' or icon.git.removed .. ' '
+        return (ctx.gitstatus.added > 0 or ctx.gitstatus.changed > 0) and ' ' .. icon.git.removed .. ' '
+          or icon.git.removed .. ' '
       end,
     }),
   },
@@ -274,10 +275,10 @@ local diagnostic_count = stl:add_item(nut.buf.diagnostic_count {
   sep_left = sep.left_half_circle_solid(true),
   sep_right = sep.right_half_circle_solid(true),
   config = {
-    error = { prefix = ' ', fg = color.red },
-    warn = { prefix = ' ', fg = color.yellow },
-    info = { prefix = ' ', fg = color.blue },
-    hint = { prefix = ' ', fg = color.green },
+    error = { prefix = icon.diagnostic.error .. ' ', fg = color.red },
+    warn = { prefix = icon.diagnostic.warn .. ' ', fg = color.yellow },
+    info = { prefix = icon.diagnostic.info .. ' ', fg = color.blue },
+    hint = { prefix = icon.diagnostic.hint .. ' ', fg = color.green },
   },
 })
 stl:add_item(paired_space(diagnostic_count))

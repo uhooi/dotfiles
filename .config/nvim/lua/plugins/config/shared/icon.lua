@@ -69,6 +69,12 @@ return {
   value = '󰎠', -- nf-md-numeric
   variable = '', -- nf-cod-symbol_variable
   while_statement = '󰑖', -- nf-md-repeat
+  diagnostic = {
+    error = '',
+    hint = '󰌶',
+    info = '',
+    warn = '',
+  },
   git = {
     added = '󰐖', -- nf-md-plus_box
     modified = '󱗜', -- nf-md-circle_box
