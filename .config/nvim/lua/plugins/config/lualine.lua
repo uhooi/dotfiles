@@ -1,4 +1,4 @@
-local icons = require('plugins.config.shared.icons')
+local icon = require('plugins.config.shared.icon')
 
 -- {{{ Functions
 -- ref: https://github.com/delphinus/skkeleton_indicator.nvim/issues/17#issuecomment-1616243044
@@ -63,7 +63,7 @@ local function lsp_names()
       end
     end)
     :totable()
-  return icons.lsp .. ' ' .. table.concat(clients, ', ')
+  return icon.lsp .. ' ' .. table.concat(clients, ', ')
 end
 
 -- ref: https://github.com/delphinus/dotfiles/blob/3dd1d9304114983a7ad00a3a04e964c861a99425/.config/nvim/lua/modules/start/config/lualine.lua#L282-L308
@@ -127,9 +127,9 @@ require('lualine').setup {
       {
         'diff',
         symbols = {
-          added = icons.git.added .. ' ',
-          modified = icons.git.modified .. ' ',
-          removed = icons.git.removed .. ' ',
+          added = icon.git.added .. ' ',
+          modified = icon.git.modified .. ' ',
+          removed = icon.git.removed .. ' ',
         },
       },
     },

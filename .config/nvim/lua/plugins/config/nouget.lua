@@ -6,7 +6,7 @@ local Bar = require('nougat.bar')
 local bar_util = require('nougat.bar.util')
 local Item = require('nougat.item')
 local sep = require('nougat.separator')
-local icons = require('plugins.config.shared.icons')
+local icon = require('plugins.config.shared.icon')
 -- }}}
 
 -- nut {{{
@@ -235,7 +235,7 @@ local gitstatus = stl:add_item(nut.git.status.create {
   content = {
     nut.git.status.count('added', {
       hl = { bg = color.green },
-      prefix = icons.git.added .. ' ',
+      prefix = icon.git.added .. ' ',
       suffix = function(_, ctx)
         return (ctx.gitstatus.changed > 0 or ctx.gitstatus.removed > 0) and ' ' or ''
       end,
@@ -243,7 +243,7 @@ local gitstatus = stl:add_item(nut.git.status.create {
     nut.git.status.count('changed', {
       hl = { bg = color.blue },
       prefix = function(_, ctx)
-        return ctx.gitstatus.added > 0 and ' ' .. icons.git.modified .. ' ' or icons.git.modified .. ' '
+        return ctx.gitstatus.added > 0 and ' ' .. icon.git.modified .. ' ' or icon.git.modified .. ' '
       end,
       suffix = function(_, ctx)
         return ctx.gitstatus.removed > 0 and ' ' or ''
@@ -252,7 +252,7 @@ local gitstatus = stl:add_item(nut.git.status.create {
     nut.git.status.count('removed', {
       hl = { bg = color.red },
       prefix = function(_, ctx)
-        return (ctx.gitstatus.added > 0 or ctx.gitstatus.changed > 0) and ' ' .. icons.git.removed .. ' ' or icons.git.removed .. ' '
+        return (ctx.gitstatus.added > 0 or ctx.gitstatus.changed > 0) and ' ' .. icon.git.removed .. ' ' or icon.git.removed .. ' '
       end,
     }),
   },
