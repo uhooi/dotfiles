@@ -121,10 +121,8 @@ end
 -- LspAttach {{{
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-  callback = function(ev)
-    local bufnr = ev.buf
-    vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
-
+  callback = function(args)
+    local bufnr = args.buf
     local bufopts = { buffer = bufnr }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
@@ -144,6 +142,18 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.lsp.buf.format { async = true }
     end, bufopts)
 
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if not client then
+      return
+    end
+
+    if client.server_capabilities.completionProvider then
+      vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
+    end
+    if client.server_capabilities.definitionProvider then
+      vim.bo[bufnr].tagfunc = 'v:lua.vim.lsp.tagfunc'
+    end
+
     -- Inlay hints {{{
     -- ref: https://github.com/neovim/neovim/pull/23984
     --    : https://github.com/lvimuser/lsp-inlayhints.nvim/blob/d981f65c9ae0b6062176f0accb9c151daeda6f16/README.md?plain=1#L19-L37
@@ -151,11 +161,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     --    : https://github.com/uga-rosa/dotfiles/blob/37f49735f3720ca984b165c883f48f3c55bbb8c6/nvim/lua/rc/plugins/lsp.lua#L87-L98
     --    : https://github.com/apple/sourcekit-lsp/issues/757
     --    : https://github.com/neovim/neovim/issues/24183
-    if not (ev.data and ev.data.client_id) then
-      return
-    end
-
-    local client = vim.lsp.get_client_by_id(ev.data.client_id)
     local supports_inlay_hint = client.server_capabilities.inlayHintProvider
     if supports_inlay_hint or client.name == 'sourcekit' then
       set_lsp_inlay_hint_hl()
