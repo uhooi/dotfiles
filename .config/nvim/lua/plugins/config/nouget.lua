@@ -1,11 +1,14 @@
 -- ref: https://github.com/MunifTanjim/nougat.nvim/blob/5f6ee8ebe28496b9976f838d9df32b05e611835a/examples/bubbly.lua
 
+-- modules {{{
 local core = require('nougat.core')
 local Bar = require('nougat.bar')
 local bar_util = require('nougat.bar.util')
 local Item = require('nougat.item')
 local sep = require('nougat.separator')
+-- }}}
 
+-- nut {{{
 local nut = {
   buf = {
     diagnostic_count = require('nougat.nut.buf.diagnostic_count').create,
@@ -29,7 +32,9 @@ local nut = {
   spacer = require('nougat.nut.spacer').create,
   truncation_point = require('nougat.nut.truncation_point').create,
 }
+-- }}}
 
+-- color {{{
 local color = {
   bg = '#1d2021',
   bg0_h = '#1d2021',
@@ -69,7 +74,9 @@ local color = {
     orange = '#d65d0e',
   },
 }
+-- }}}
 
+-- mode {{{
 local mode = nut.mode {
   sep_left = sep.left_half_circle_solid(true),
   sep_right = sep.right_half_circle_solid(true),
@@ -103,7 +110,9 @@ local mode = nut.mode {
     },
   },
 }
+-- }}}
 
+-- filename {{{
 local filename = (function()
   local item = Item {
     prepare = function(_, ctx)
@@ -161,7 +170,9 @@ local filename = (function()
 
   return item
 end)()
+-- }}}
 
+-- ruler {{{
 local ruler = (function()
   local scroll_hl = {
     [true] = { bg = color.bg3 },
@@ -193,7 +204,9 @@ local ruler = (function()
 
   return item
 end)()
+-- }}}
 
+-- functions {{{
 -- renders space only when item is rendered
 ---@param item NougatItem
 local function paired_space(item)
@@ -202,7 +215,9 @@ local function paired_space(item)
     hidden = item,
   }
 end
+-- }}}
 
+-- statusline {{{
 local stl = Bar('statusline')
 stl:add_item(mode)
 stl:add_item(sep.space())
@@ -280,9 +295,10 @@ stl_inactive:add_item(sep.space())
 bar_util.set_statusline(function(ctx)
   return ctx.is_focused and stl or stl_inactive
 end)
+-- }}}
 
+-- tabline {{{
 local tal = Bar('tabline')
-
 tal:add_item(nut.tab.tablist.tabs {
   active_tab = {
     hl = { bg = color.bg0_h, fg = color.blue },
@@ -311,5 +327,5 @@ tal:add_item(nut.tab.tablist.tabs {
     sep_right = sep.right_half_circle_solid { bg = 'bg', fg = color.bg2 },
   },
 })
-
 bar_util.set_tabline(tal)
+-- }}}
