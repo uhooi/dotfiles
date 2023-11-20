@@ -193,34 +193,17 @@ local filename = (function()
 end)()
 -- }}}
 
--- ruler {{{
-local ruler = (function()
-  local scroll_hl = {
-    [true] = { bg = color.bg3 },
-    [false] = { bg = color.bg4 },
-  }
-
+-- datetime {{{
+local datetime = (function()
   local item = Item {
+    sep_left = sep.left_half_circle_solid(true),
     content = {
       Item {
-        hl = { bg = color.bg4 },
-        sep_left = sep.left_half_circle_solid(true),
-        content = core.group({
-          core.code('l'),
-          ':',
-          core.code('c'),
-        }, { align = 'left', min_width = 8 }),
-        suffix = ' ',
-      },
-      Item {
-        hl = function(_, ctx)
-          return scroll_hl[ctx.is_focused]
-        end,
-        prefix = ' ',
-        content = core.code('P'),
-        sep_right = sep.right_half_circle_solid(true),
+        hl = { bg = color.green, fg = color.bg },
+        content = vim.fn.strftime('%H:%M'), -- FIXME: Not refreshing
       },
     },
+    sep_right = sep.right_half_circle_solid(true),
   }
 
   return item
@@ -254,7 +237,7 @@ stl:add_item(nut.buf.filetype {
   sep_right = sep.right_half_circle_solid(true),
 })
 stl:add_item(sep.space())
-stl:add_item(ruler)
+stl:add_item(datetime)
 stl:add_item(sep.space())
 
 local stl_inactive = Bar('statusline')
@@ -263,7 +246,7 @@ stl_inactive:add_item(sep.space())
 stl_inactive:add_item(filename)
 stl_inactive:add_item(sep.space())
 stl_inactive:add_item(nut.spacer())
-stl_inactive:add_item(ruler)
+stl_inactive:add_item(datetime)
 stl_inactive:add_item(sep.space())
 
 bar_util.set_statusline(function(ctx)
