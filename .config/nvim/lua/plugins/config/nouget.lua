@@ -20,15 +20,6 @@ local nut = {
     branch = require('nougat.nut.git.branch').create,
     status = require('nougat.nut.git.status'),
   },
-  tab = {
-    tablist = {
-      tabs = require('nougat.nut.tab.tablist').create,
-      close = require('nougat.nut.tab.tablist.close').create,
-      icon = require('nougat.nut.tab.tablist.icon').create,
-      label = require('nougat.nut.tab.tablist.label').create,
-      modified = require('nougat.nut.tab.tablist.modified').create,
-    },
-  },
   mode = require('nougat.nut.mode').create,
   spacer = require('nougat.nut.spacer').create,
   truncation_point = require('nougat.nut.truncation_point').create,
@@ -222,44 +213,6 @@ end
 local stl = Bar('statusline')
 stl:add_item(mode)
 stl:add_item(sep.space())
-stl:add_item(nut.git.branch {
-  hl = { bg = color.purple, fg = color.bg },
-  sep_left = sep.left_half_circle_solid(true),
-  prefix = ' ',
-  sep_right = sep.right_half_circle_solid(true),
-})
-stl:add_item(sep.space())
-local gitstatus = stl:add_item(nut.git.status.create {
-  hl = { fg = color.bg },
-  sep_left = sep.left_half_circle_solid(true),
-  content = {
-    nut.git.status.count('added', {
-      hl = { bg = color.green },
-      prefix = icon.git.added .. ' ',
-      suffix = function(_, ctx)
-        return (ctx.gitstatus.changed > 0 or ctx.gitstatus.removed > 0) and ' ' or ''
-      end,
-    }),
-    nut.git.status.count('changed', {
-      hl = { bg = color.blue },
-      prefix = function(_, ctx)
-        return ctx.gitstatus.added > 0 and ' ' .. icon.git.modified .. ' ' or icon.git.modified .. ' '
-      end,
-      suffix = function(_, ctx)
-        return ctx.gitstatus.removed > 0 and ' ' or ''
-      end,
-    }),
-    nut.git.status.count('removed', {
-      hl = { bg = color.red },
-      prefix = function(_, ctx)
-        return (ctx.gitstatus.added > 0 or ctx.gitstatus.changed > 0) and ' ' .. icon.git.removed .. ' '
-          or icon.git.removed .. ' '
-      end,
-    }),
-  },
-  sep_right = sep.right_half_circle_solid(true),
-})
-stl:add_item(paired_space(gitstatus))
 stl:add_item(filename)
 stl:add_item(sep.space())
 stl:add_item(nut.spacer())
@@ -300,34 +253,45 @@ end)
 -- }}}
 
 -- tabline {{{
+vim.opt.showtabline = 2
 local tal = Bar('tabline')
-tal:add_item(nut.tab.tablist.tabs {
-  active_tab = {
-    hl = { bg = color.bg0_h, fg = color.blue },
-    prefix = ' ',
-    suffix = ' ',
-    content = {
-      nut.tab.tablist.icon { suffix = ' ' },
-      nut.tab.tablist.label {},
-      nut.tab.tablist.modified { prefix = ' ', config = { text = '●' } },
-      nut.tab.tablist.close { prefix = ' ', config = { text = '󰅖' } },
-    },
-    sep_left = sep.left_half_circle_solid { bg = 'bg', fg = color.bg0_h },
-    sep_right = sep.right_half_circle_solid { bg = 'bg', fg = color.bg0_h },
-  },
-  inactive_tab = {
-    hl = { bg = color.bg2, fg = color.fg2 },
-    prefix = ' ',
-    suffix = ' ',
-    content = {
-      nut.tab.tablist.icon { suffix = ' ' },
-      nut.tab.tablist.label {},
-      nut.tab.tablist.modified { prefix = ' ', config = { text = '●' } },
-      nut.tab.tablist.close { prefix = ' ', config = { text = '󰅖' } },
-    },
-    sep_left = sep.left_half_circle_solid { bg = 'bg', fg = color.bg2 },
-    sep_right = sep.right_half_circle_solid { bg = 'bg', fg = color.bg2 },
-  },
+tal:add_item(nut.git.branch {
+  hl = { bg = color.purple, fg = color.bg },
+  sep_left = sep.left_half_circle_solid(true),
+  prefix = ' ',
+  sep_right = sep.right_half_circle_solid(true),
 })
+tal:add_item(sep.space())
+local gitstatus = tal:add_item(nut.git.status.create {
+  hl = { fg = color.bg },
+  sep_left = sep.left_half_circle_solid(true),
+  content = {
+    nut.git.status.count('added', {
+      hl = { bg = color.green },
+      prefix = icon.git.added .. ' ',
+      suffix = function(_, ctx)
+        return (ctx.gitstatus.changed > 0 or ctx.gitstatus.removed > 0) and ' ' or ''
+      end,
+    }),
+    nut.git.status.count('changed', {
+      hl = { bg = color.blue },
+      prefix = function(_, ctx)
+        return ctx.gitstatus.added > 0 and ' ' .. icon.git.modified .. ' ' or icon.git.modified .. ' '
+      end,
+      suffix = function(_, ctx)
+        return ctx.gitstatus.removed > 0 and ' ' or ''
+      end,
+    }),
+    nut.git.status.count('removed', {
+      hl = { bg = color.red },
+      prefix = function(_, ctx)
+        return (ctx.gitstatus.added > 0 or ctx.gitstatus.changed > 0) and ' ' .. icon.git.removed .. ' '
+          or icon.git.removed .. ' '
+      end,
+    }),
+  },
+  sep_right = sep.right_half_circle_solid(true),
+})
+tal:add_item(paired_space(gitstatus))
 bar_util.set_tabline(tal)
 -- }}}
