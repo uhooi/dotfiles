@@ -69,4 +69,9 @@ return {
   value = '󰎠', -- nf-md-numeric
   variable = '', -- nf-cod-symbol_variable
   while_statement = '󰑖', -- nf-md-repeat
+  git = {
+    added = '󰐖', -- nf-md-plus_box
+    modified = '󱗜', -- nf-md-circle_box
+    removed = '󰍵', -- nf-md-minus_box
+  },
 }

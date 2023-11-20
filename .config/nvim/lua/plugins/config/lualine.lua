@@ -1,3 +1,5 @@
+local icons = require('plugins.config.shared.icons')
+
 -- {{{ Functions
 -- ref: https://github.com/delphinus/skkeleton_indicator.nvim/issues/17#issuecomment-1616243044
 --    : https://github.com/vim-skk/skkeleton/blob/581c7e66c465381cfbb64300440679891b64d59d/doc/skkeleton.jax#L143-L152
@@ -43,7 +45,6 @@ local function skkeleton_state()
 end
 
 local function lsp_names()
-  local icons = require('plugins.config.shared.icons')
   local clients = vim
     .iter(vim.lsp.get_clients { bufnr = 0 })
     :map(function(client)
@@ -126,9 +127,9 @@ require('lualine').setup {
       {
         'diff',
         symbols = {
-          added = '󰐖 ', -- nf-md-plus_box
-          modified = '󱗜 ', -- nf-md-circle_box
-          removed = '󰍵 ', -- nf-md-minus_box
+          added = icons.git.added .. ' ',
+          modified = icons.git.modified .. ' ',
+          removed = icons.git.removed .. ' ',
         },
       },
     },
