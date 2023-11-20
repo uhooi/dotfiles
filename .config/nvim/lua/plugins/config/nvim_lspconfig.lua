@@ -43,10 +43,14 @@ mason_lspconfig.setup_handlers {
     local opts = {
       capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
     }
-    if server_name == 'lua_ls' then
-      opts.settings = require('plugins.config.lsp.lua_ls')
-    end
     require('lspconfig')[server_name].setup(opts)
+  end,
+
+  ['lua_ls'] = function()
+    local lspconfig = require('lspconfig')
+    lspconfig.lua_ls.setup {
+      settings = require('plugins.config.lsp.lua_ls'),
+    }
   end,
 }
 -- }}}
