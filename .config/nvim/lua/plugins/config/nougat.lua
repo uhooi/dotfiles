@@ -171,7 +171,7 @@ local file_status = (function()
 end)()
 -- }}}
 
--- encoding {{{
+-- fileencoding {{{
 local fileencoding = (function()
   local item = Item {
     sep_left = sep.left_half_circle_solid(true),
