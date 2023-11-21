@@ -171,6 +171,25 @@ local file_status = (function()
 end)()
 -- }}}
 
+-- encoding {{{
+local fileencoding = (function()
+  local item = Item {
+    sep_left = sep.left_half_circle_solid(true),
+    content = {
+      Item {
+        hl = { bg = color.blue, fg = color.bg },
+        content = function(_, _)
+          return vim.bo.fileencoding
+        end,
+      },
+    },
+    sep_right = sep.right_half_circle_solid(true),
+  }
+
+  return item
+end)()
+-- }}}
+
 -- datetime {{{
 local datetime = (function()
   local item = Item {
@@ -252,6 +271,8 @@ stl:add_item(sep.space())
 stl:add_item(nut.spacer())
 stl:add_item(nut.truncation_point())
 stl:add_item(file_status)
+stl:add_item(sep.space())
+stl:add_item(fileencoding)
 stl:add_item(sep.space())
 stl:add_item(nut.buf.filetype {
   hl = { bg = color.blue, fg = color.bg },
