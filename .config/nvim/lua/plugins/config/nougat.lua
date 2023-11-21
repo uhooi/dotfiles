@@ -1,7 +1,6 @@
 -- ref: https://github.com/MunifTanjim/nougat.nvim/blob/5f6ee8ebe28496b9976f838d9df32b05e611835a/examples/bubbly.lua
 
 -- modules {{{
-local core = require('nougat.core')
 local Bar = require('nougat.bar')
 local bar_util = require('nougat.bar.util')
 local Item = require('nougat.item')
@@ -9,6 +8,7 @@ local sep = require('nougat.separator')
 local icon = require('plugins.config.shared.icon')
 local skkeleton_util = require('plugins.config.shared.skkeleton_util')
 local lsp_util = require('plugins.config.shared.lsp_util')
+local char_util = require('plugins.config.shared.char_util')
 -- }}}
 
 -- nut {{{
@@ -210,6 +210,26 @@ local lsp_info = (function()
 end)()
 -- }}}
 
+-- char info {{{
+local char_info = (function()
+  local item = Item {
+    sep_left = sep.left_half_circle_solid(true),
+    content = {
+      Item {
+        hl = { bg = color.fg, fg = color.bg },
+        hidden = function(_, _)
+          return char_util.info == ''
+        end,
+        content = char_util.info,
+      },
+    },
+    sep_right = sep.right_half_circle_solid(true),
+  }
+
+  return item
+end)()
+-- }}}
+
 -- functions {{{
 -- renders space only when item is rendered
 ---@param item NougatItem
@@ -227,10 +247,12 @@ stl:add_item(mode)
 stl:add_item(sep.space())
 stl:add_item(skkeleton)
 stl:add_item(sep.space())
-stl:add_item(file_status)
+stl:add_item(char_info)
 stl:add_item(sep.space())
 stl:add_item(nut.spacer())
 stl:add_item(nut.truncation_point())
+stl:add_item(file_status)
+stl:add_item(sep.space())
 stl:add_item(nut.buf.filetype {
   hl = { bg = color.blue, fg = color.bg },
   sep_left = sep.left_half_circle_solid(true),
@@ -243,9 +265,10 @@ stl:add_item(sep.space())
 local stl_inactive = Bar('statusline')
 stl_inactive:add_item(mode)
 stl_inactive:add_item(sep.space())
+stl_inactive:add_item(nut.spacer())
+stl_inactive:add_item(nut.truncation_point())
 stl_inactive:add_item(file_status)
 stl_inactive:add_item(sep.space())
-stl_inactive:add_item(nut.spacer())
 stl_inactive:add_item(datetime)
 stl_inactive:add_item(sep.space())
 
