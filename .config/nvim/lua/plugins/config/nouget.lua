@@ -201,7 +201,9 @@ local datetime = (function()
     content = {
       Item {
         hl = { bg = color.green, fg = color.bg },
-        content = vim.fn.strftime('%H:%M'), -- FIXME: Not refreshing
+        content = function()
+          return vim.fn.strftime('%H:%M')
+        end,
       },
     },
     sep_right = sep.right_half_circle_solid(true),
