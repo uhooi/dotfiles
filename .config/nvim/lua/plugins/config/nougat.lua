@@ -15,7 +15,6 @@ local lsp_util = require('plugins.config.shared.lsp_util')
 local nut = {
   buf = {
     diagnostic_count = require('nougat.nut.buf.diagnostic_count').create,
-    filename = require('nougat.nut.buf.filename').create,
     filetype = require('nougat.nut.buf.filetype').create,
   },
   git = {
@@ -134,8 +133,8 @@ local skkeleton = (function()
 end)()
 -- }}}
 
--- filename {{{
-local filename = (function()
+-- file status {{{
+local file_status = (function()
   local item = Item {
     prepare = function(_, ctx)
       local bufnr, data = ctx.bufnr, ctx.ctx
@@ -150,7 +149,6 @@ local filename = (function()
         hidden = function(_, ctx)
           return not ctx.ctx.readonly
         end,
-        suffix = ' ',
         content = 'RO',
       },
       Item {
@@ -159,31 +157,12 @@ local filename = (function()
           return ctx.ctx.modifiable
         end,
         content = '',
-        suffix = ' ',
-      },
-      nut.buf.filename {
-        hl = { bg = color.fg, fg = color.bg },
-        prefix = function(_, ctx)
-          local data = ctx.ctx
-          if data.readonly or not data.modifiable then
-            return ' '
-          end
-          return ''
-        end,
-        suffix = function(_, ctx)
-          local data = ctx.ctx
-          if data.modified then
-            return ' '
-          end
-          return ''
-        end,
       },
       Item {
         hl = { bg = color.bg4, fg = color.fg },
         hidden = function(_, ctx)
           return not ctx.ctx.modified
         end,
-        prefix = ' ',
         content = '+',
       },
     },
@@ -250,7 +229,7 @@ stl:add_item(mode)
 stl:add_item(sep.space())
 stl:add_item(skkeleton)
 stl:add_item(sep.space())
-stl:add_item(filename)
+stl:add_item(file_status)
 stl:add_item(sep.space())
 stl:add_item(nut.spacer())
 stl:add_item(nut.truncation_point())
@@ -266,7 +245,7 @@ stl:add_item(sep.space())
 local stl_inactive = Bar('statusline')
 stl_inactive:add_item(mode)
 stl_inactive:add_item(sep.space())
-stl_inactive:add_item(filename)
+stl_inactive:add_item(file_status)
 stl_inactive:add_item(sep.space())
 stl_inactive:add_item(nut.spacer())
 stl_inactive:add_item(datetime)
