@@ -12,6 +12,8 @@ fi
 alias ls='eza --icons'
 alias eza='eza --icons'
 
+alias rm='trash-put'
+
 alias g='git'
 
 # ref: https://tokizuoh.hatenablog.com/entry/2022/09/10/104017
