@@ -273,7 +273,7 @@ require('lazy').setup({
   -- statusline {{{
   {
     'nvim-lualine/lualine.nvim',
-    enabled = false, -- Use nouget.nvim
+    enabled = false, -- Use nougat.nvim
     dependencies = {
       'nvim-tree/nvim-web-devicons',
       'delphinus/characterize.nvim',
@@ -316,7 +316,7 @@ require('lazy').setup({
       'delphinus/eaw.nvim',
     },
     config = function()
-      require('plugins.config.nouget')
+      require('plugins.config.nougat')
     end,
   },
   -- }}}
