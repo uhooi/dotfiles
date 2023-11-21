@@ -8,6 +8,7 @@ local Item = require('nougat.item')
 local sep = require('nougat.separator')
 local icon = require('plugins.config.shared.icon')
 local skkeleton_util = require('plugins.config.shared.skkeleton_util')
+local lsp_util = require('plugins.config.shared.lsp_util')
 -- }}}
 
 -- nut {{{
@@ -210,6 +211,26 @@ local datetime = (function()
 end)()
 -- }}}
 
+-- lsp info {{{
+local lsp_info = (function()
+  local item = Item {
+    sep_left = sep.left_half_circle_solid(true),
+    content = {
+      Item {
+        hl = { bg = color.aqua, fg = color.bg },
+        hidden = function(_, _)
+          return lsp_util.names == ''
+        end,
+        content = lsp_util.names,
+      },
+    },
+    sep_right = sep.right_half_circle_solid(true),
+  }
+
+  return item
+end)()
+-- }}}
+
 -- functions {{{
 -- renders space only when item is rendered
 ---@param item NougatItem
@@ -298,6 +319,8 @@ tal:add_item(paired_space(gitstatus))
 tal:add_item(sep.space())
 tal:add_item(nut.spacer())
 tal:add_item(nut.truncation_point())
+tal:add_item(lsp_info)
+tal:add_item(sep.space())
 local diagnostic_count = tal:add_item(nut.buf.diagnostic_count {
   hl = { bg = color.bg4 },
   sep_left = sep.left_half_circle_solid(true),

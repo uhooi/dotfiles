@@ -1,29 +1,8 @@
 local icon = require('plugins.config.shared.icon')
 local skkeleton_util = require('plugins.config.shared.skkeleton_util')
+local lsp_util = require('plugins.config.shared.lsp_util')
 
 -- {{{ Functions
-local function lsp_names()
-  local clients = vim
-    .iter(vim.lsp.get_clients { bufnr = 0 })
-    :map(function(client)
-      if client.name == 'null-ls' then
-        return ('null-ls[%s](' .. client.id .. ')'):format(table.concat(
-          vim
-            .iter(require('null-ls.sources').get_available(vim.bo.filetype))
-            :map(function(source)
-              return source.name
-            end)
-            :totable(),
-          ', '
-        ))
-      else
-        return client.name .. '(' .. client.id .. ')'
-      end
-    end)
-    :totable()
-  return icon.lsp .. ' ' .. table.concat(clients, ', ')
-end
-
 -- ref: https://github.com/delphinus/dotfiles/blob/3dd1d9304114983a7ad00a3a04e964c861a99425/.config/nvim/lua/modules/start/config/lualine.lua#L282-L308
 local function char_info()
   local characterize = require('characterize')
@@ -93,7 +72,7 @@ require('lualine').setup {
     },
     lualine_b = {},
     lualine_c = {},
-    lualine_x = { lsp_names },
+    lualine_x = { lsp_util.names },
     lualine_y = {},
     lualine_z = { 'diagnostics' },
   },
