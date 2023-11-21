@@ -23,7 +23,11 @@ function LspUtil:names()
       end
     end)
     :totable()
-  return icon.lsp .. ' ' .. table.concat(clients, ', ')
+  if not next(clients) then
+    return ''
+  else
+    return icon.lsp .. ' ' .. table.concat(clients, ', ')
+  end
 end
 
 return LspUtil.new()
