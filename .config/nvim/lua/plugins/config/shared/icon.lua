@@ -75,6 +75,11 @@ return {
     info = '', -- nf-fa-info_circle
     warn = '', -- nf-fa-warning
   },
+  fileformat = {
+    unix = '', -- nf-dev-linux
+    dos = '', -- nf-dev-windows
+    mac = '', -- nf-dev-apple
+  },
   git = {
     added = '󰐖', -- nf-md-plus_box
     modified = '󱗜', -- nf-md-circle_box

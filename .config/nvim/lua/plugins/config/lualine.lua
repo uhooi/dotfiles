@@ -19,9 +19,9 @@ require('lualine').setup {
       {
         'fileformat',
         symbols = {
-          unix = ' unix', -- nf-dev-linux
-          dos = ' dos', -- nf-dev-windows
-          mac = ' mac', -- nf-dev-apple
+          unix = icon.fileformat.unix .. ' unix',
+          dos = icon.fileformat.dos .. ' dos',
+          mac = icon.fileformat.mac .. ' mac',
         },
       },
       'filetype',

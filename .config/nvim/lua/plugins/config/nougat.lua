@@ -198,7 +198,13 @@ local fileformat = (function()
       Item {
         hl = { bg = color.blue, fg = color.bg },
         content = function(_, _)
-          return vim.bo.fileformat
+          if vim.bo.fileformat == 'unix' then
+            return icon.fileformat.unix .. ' unix'
+          elseif vim.bo.fileformat == 'dos' then
+            return icon.fileformat.dos .. ' dos'
+          elseif vim.bo.fileformat == 'mac' then
+            return icon.fileformat.mac .. ' mac'
+          end
         end,
       },
     },
