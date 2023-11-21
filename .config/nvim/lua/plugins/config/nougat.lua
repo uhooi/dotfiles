@@ -109,19 +109,17 @@ local mode = nut.mode {
 local skkeleton = (function()
   local item = Item {
     sep_left = sep.left_half_circle_solid(true),
+    hidden = function(_, _)
+      return vim.api.nvim_get_mode().mode ~= 'i'
+    end,
     content = {
       Item {
-        hl = { bg = 'fg', fg = color.bg },
-        hidden = function(_, _)
-          return skkeleton_util.get_mode == ''
-        end,
+        hl = { bg = color.orange, fg = color.bg },
         content = skkeleton_util.get_mode,
+        suffix = ' ',
       },
       Item {
-        hl = { bg = 'fg', fg = color.bg },
-        hidden = function(_, _)
-          return skkeleton_util.get_state == ''
-        end,
+        hl = { bg = color.yellow, fg = color.bg },
         prefix = ' ',
         content = skkeleton_util.get_state,
       },
