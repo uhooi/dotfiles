@@ -1,10 +1,7 @@
-local CharUtil = {}
-CharUtil.new = function()
-  return setmetatable({}, { __index = CharUtil })
-end
+local M = {}
 
 -- ref: https://github.com/delphinus/dotfiles/blob/3dd1d9304114983a7ad00a3a04e964c861a99425/.config/nvim/lua/modules/start/config/lualine.lua#L282-L308
-function CharUtil:info()
+function M:info()
   local characterize = require('characterize')
   local char = characterize.cursor_char()
   local results = characterize.info_table(char)
@@ -27,4 +24,4 @@ function CharUtil:info()
   return text
 end
 
-return CharUtil.new()
+return M

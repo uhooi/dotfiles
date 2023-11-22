@@ -1,11 +1,8 @@
-local SkkeletonUtil = {}
-SkkeletonUtil.new = function()
-  return setmetatable({}, { __index = SkkeletonUtil })
-end
+local M = {}
 
 -- ref: https://github.com/delphinus/skkeleton_indicator.nvim/issues/17#issuecomment-1616243044
 --    : https://github.com/vim-skk/skkeleton/blob/581c7e66c465381cfbb64300440679891b64d59d/doc/skkeleton.jax#L143-L152
-function SkkeletonUtil:get_mode()
+function M:get_mode()
   if vim.api.nvim_get_mode().mode ~= 'i' then
     return ''
   end
@@ -27,7 +24,7 @@ function SkkeletonUtil:get_mode()
 end
 
 -- ref: https://github.com/vim-skk/skkeleton/blob/581c7e66c465381cfbb64300440679891b64d59d/doc/skkeleton.jax#L154-L163
-function SkkeletonUtil:get_state()
+function M:get_state()
   if vim.api.nvim_get_mode().mode ~= 'i' then
     return ''
   end
@@ -46,4 +43,4 @@ function SkkeletonUtil:get_state()
   end
 end
 
-return SkkeletonUtil.new()
+return M

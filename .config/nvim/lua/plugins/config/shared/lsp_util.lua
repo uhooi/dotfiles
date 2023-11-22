@@ -1,9 +1,6 @@
-local LspUtil = {}
-LspUtil.new = function()
-  return setmetatable({}, { __index = LspUtil })
-end
+local M = {}
 
-function LspUtil:names()
+function M:names()
   local icon = require('plugins.config.shared.icon')
   local clients = vim
     .iter(vim.lsp.get_clients { bufnr = 0 })
@@ -30,4 +27,4 @@ function LspUtil:names()
   end
 end
 
-return LspUtil.new()
+return M
