@@ -110,25 +110,6 @@ vim.keymap.set('n', 'g[', vim.diagnostic.goto_prev)
 vim.keymap.set('n', 'gl', vim.diagnostic.setloclist)
 -- }}}
 
--- Functions {{{
--- ref: https://github.com/lvimuser/lsp-inlayhints.nvim/blob/d981f65c9ae0b6062176f0accb9c151daeda6f16/lua/lsp-inlayhints/config.lua#L1-L20
-local function set_lsp_inlay_hint_hl()
-  local hl = vim.api.nvim_get_hl(0, { name = 'Comment' })
-  local foreground = string.format('#%06x', hl['fg'] or 0)
-  if #foreground < 3 then
-    foreground = ''
-  end
-
-  hl = vim.api.nvim_get_hl(0, { name = 'CursorLine' })
-  local background = string.format('#%06x', hl['bg'] or 0)
-  if #background < 3 then
-    background = ''
-  end
-
-  vim.api.nvim_set_hl(0, 'LspInlayHint', { fg = foreground, bg = background })
-end
--- }}}
-
 -- LspAttach {{{
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
@@ -174,8 +155,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     --    : https://github.com/neovim/neovim/issues/24183
     local supports_inlay_hint = client.server_capabilities.inlayHintProvider
     if supports_inlay_hint or client.name == 'sourcekit' then
-      set_lsp_inlay_hint_hl()
-
       if supports_inlay_hint then
         vim.lsp.inlay_hint.enable(bufnr, true)
       end
