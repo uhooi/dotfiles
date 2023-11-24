@@ -10,6 +10,7 @@ local skkeleton_util = require('plugins.config.shared.skkeleton_util')
 local char_util = require('plugins.config.shared.char_util')
 -- }}}
 
+-- variables {{{
 -- nut {{{
 local nut = {
   buf = {
@@ -282,6 +283,7 @@ local char_info = (function()
   return item
 end)()
 -- }}}
+-- }}}
 
 -- functions {{{
 -- renders space only when item is rendered
@@ -295,6 +297,7 @@ end
 -- }}}
 
 -- statusline {{{
+-- active {{{
 local stl = Bar('statusline')
 stl:add_item(mode)
 stl:add_item(sep.space())
@@ -318,7 +321,9 @@ stl:add_item(nut.buf.filetype {
 stl:add_item(sep.space())
 stl:add_item(datetime)
 stl:add_item(sep.space())
+-- }}}
 
+-- inactive {{{
 local stl_inactive = Bar('statusline')
 stl_inactive:add_item(mode)
 stl_inactive:add_item(sep.space())
@@ -328,6 +333,7 @@ stl_inactive:add_item(file_status)
 stl_inactive:add_item(sep.space())
 stl_inactive:add_item(datetime)
 stl_inactive:add_item(sep.space())
+-- }}}
 
 bar_util.set_statusline(function(ctx)
   return ctx.is_focused and stl or stl_inactive
