@@ -32,7 +32,7 @@ require('lazy').setup({
   },
   -- }}}
 
-  -- treesitter {{{
+  -- Tree-sitter {{{
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
@@ -47,6 +47,14 @@ require('lazy').setup({
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
       require('plugins.config.treesitter_context')
+    end,
+  },
+
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    config = function()
+      require('plugins.config.treesitter_textobjects')
     end,
   },
   -- }}}
