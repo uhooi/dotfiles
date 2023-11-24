@@ -32,9 +32,7 @@ require('lazy').setup({
   },
   -- }}}
 
-  -- Library {{{
-  { 'nvim-lua/plenary.nvim', lazy = true },
-
+  -- treesitter {{{
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
@@ -43,6 +41,18 @@ require('lazy').setup({
       require('plugins.config.nvim_treesitter')
     end,
   },
+
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    config = function()
+      require('plugins.config.treesitter_context')
+    end,
+  },
+  -- }}}
+
+  -- Library {{{
+  { 'nvim-lua/plenary.nvim', lazy = true },
 
   { 'nvim-tree/nvim-web-devicons', lazy = true },
 
@@ -85,14 +95,6 @@ require('lazy').setup({
           char = '│',
         },
       }
-    end,
-  },
-
-  {
-    'nvim-treesitter/nvim-treesitter-context',
-    dependencies = { 'nvim-treesitter/nvim-treesitter' },
-    config = function()
-      require('plugins.config.treesitter_context')
     end,
   },
 
