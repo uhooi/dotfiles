@@ -243,7 +243,19 @@ local lsp_servers = nut.lsp.servers.create {
   prefix = icon.lsp .. ' ',
   config = {
     content = function(client, _)
-      return client.name .. '(' .. client.id .. ')'
+      if client.name == 'null-ls' then
+        return ('null-ls[%s](' .. client.id .. ')'):format(table.concat(
+          vim
+            .iter(require('null-ls.sources').get_available(vim.bo.filetype))
+            :map(function(source)
+              return source.name
+            end)
+            :totable(),
+          ' '
+        ))
+      else
+        return client.name .. '(' .. client.id .. ')'
+      end
     end,
     sep = ' ',
   },

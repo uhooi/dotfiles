@@ -13,7 +13,7 @@ function M:names()
               return source.name
             end)
             :totable(),
-          ', '
+          ' '
         ))
       else
         return client.name .. '(' .. client.id .. ')'
@@ -23,7 +23,7 @@ function M:names()
   if not next(clients) then
     return ''
   else
-    return icon.lsp .. ' ' .. table.concat(clients, ', ')
+    return icon.lsp .. ' ' .. table.concat(clients, ' ')
   end
 end
 
