@@ -226,7 +226,7 @@ local datetime = (function()
       Item {
         hl = { bg = color.green, fg = color.bg },
         content = function()
-          return vim.fn.strftime('%H:%M')
+          return vim.fn.strftime('%m/%d %H:%M')
         end,
       },
     },
