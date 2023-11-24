@@ -51,6 +51,14 @@ require('lazy').setup({
   },
 
   {
+    'JoosepAlviste/nvim-ts-context-commentstring',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    config = function()
+      require('ts_context_commentstring').setup()
+    end,
+  },
+
+  {
     'nvim-treesitter/nvim-treesitter-textobjects',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
@@ -154,7 +162,15 @@ require('lazy').setup({
 
   { 'dkarter/bullets.vim' },
 
-  { 'tomtom/tcomment_vim' },
+  {
+    'numToStr/Comment.nvim',
+    dependencies = {
+      'JoosepAlviste/nvim-ts-context-commentstring',
+    },
+    config = function()
+      require('Comment').setup()
+    end,
+  },
 
   {
     'monaqa/dial.nvim',
