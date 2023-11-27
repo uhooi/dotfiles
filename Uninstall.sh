@@ -15,6 +15,7 @@ rm ~/.ideavimrc
 rm -r ~/.vim/config
 rm -r ~/.vim/snippets
 rm -r ~/.config/nvim
+rm -r ~/.config/alacritty
 rm -r ~/.config/efm-langserver
 rm -r ~/.config/ranger
 rm ~/.bash_profile
