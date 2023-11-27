@@ -647,6 +647,14 @@ require('lazy').setup({
     end,
   },
 
+  -- FIXME: Not work
+  {
+    'soulis-1256/hoverhints.nvim',
+    config = function()
+      require('plugins.config.hoverhints')
+    end,
+  },
+
   {
     'VidocqH/lsp-lens.nvim',
     config = function()
