@@ -29,13 +29,16 @@ require('lualine').setup {
     lualine_z = {
       {
         'datetime',
-        style = ' %m/%d %H:%M', -- nf-fa-clock_o
+        style = icon.clock .. ' %m/%d %H:%M',
       },
     },
   },
   tabline = {
     lualine_a = {
-      'branch',
+      {
+        'branch',
+        icon = icon.git.branch,
+      },
       {
         'diff',
         symbols = {

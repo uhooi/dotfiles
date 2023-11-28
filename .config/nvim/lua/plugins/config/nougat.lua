@@ -226,7 +226,7 @@ local datetime = (function()
       Item {
         hl = { bg = color.green, fg = color.bg },
         content = function()
-          return ' ' .. vim.fn.strftime('%m/%d %H:%M') -- nf-fa-clock_o
+          return icon.clock .. ' ' .. vim.fn.strftime('%m/%d %H:%M')
         end,
       },
     },
@@ -346,7 +346,7 @@ local tal = Bar('tabline')
 tal:add_item(nut.git.branch {
   hl = { bg = color.purple, fg = color.bg },
   sep_left = sep.left_half_circle_solid(true),
-  prefix = ' ',
+  prefix = icon.git.branch .. ' ',
   sep_right = sep.right_half_circle_solid(true),
 })
 tal:add_item(sep.space())

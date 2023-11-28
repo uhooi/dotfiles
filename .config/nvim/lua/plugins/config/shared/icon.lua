@@ -69,6 +69,7 @@ return {
   value = '󰎠', -- nf-md-numeric
   variable = '', -- nf-cod-symbol_variable
   while_statement = '󰑖', -- nf-md-repeat
+  clock = '', -- nf-fa-clock_o
   diagnostic = {
     error = '', -- nf-fa-times_circle
     hint = '', -- nf-fa-lightbulb_o
@@ -82,6 +83,7 @@ return {
   },
   git = {
     added = '󰐖', -- nf-md-plus_box
+    branch = '', -- nf-dev-git_branch
     modified = '󱗜', -- nf-md-circle_box
     removed = '󰍵', -- nf-md-minus_box
   },
