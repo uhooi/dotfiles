@@ -29,7 +29,7 @@ require('lualine').setup {
     lualine_z = {
       {
         'datetime',
-        style = '%m/%d %H:%M',
+        style = ' %m/%d %H:%M', -- nf-fa-clock_o
       },
     },
   },
