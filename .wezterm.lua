@@ -24,6 +24,11 @@ config.audible_bell = 'SystemBeep'
 config.canonicalize_pasted_newlines = 'None'
 -- }}}
 
+-- color {{{
+-- ref: https://wezfurlong.org/wezterm/colorschemes/t/index.html#tokyo-night-moon
+config.color_scheme = 'Tokyo Night Moon'
+-- }}}
+
 -- exit_behavior {{{
 config.clean_exit_codes = { 0 }
 -- }}}
