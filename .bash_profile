@@ -13,11 +13,13 @@ fi
 #    : http://qiita.com/griffin3104/items/0d610ad1a57fa6ad6a09
 #    : http://do-zan.com/mac-terminal-change-prompting/
 #    : http://qiita.com/hidai@github/items/1704bf2926ab8b157a4f
+#    : https://qiita.com/hmmrjn/items/60d2a64c9e5bf7c0fe60
+#    : https://www.mm2d.net/main/prog/c/console-02.html
 #    : https://teratail.com/questions/11904
 #export PS1="\h:\W \u\$ " # 初期値
 #export PS1="[\u@\h \w]\$ " # 色なし1行
 #export PS1="\[\e[0;32m\]\u@\h \[\e[0;33m\]\w\n\[\e[0;90m\]\$\[\e[0;0m\] " # カラフル2行
-export PS1='\[\e[0;32m\]\u@\h \[\e[0;33m\]\w\[\e[0;36m\]$(__git_ps1 " (%s)")\n\[\e[0;90m\]\$\[\e[0;0m\] ' # Git情報付きカラフル2行
+export PS1='\n\[\e[0;92m\]\[\e[0;30;102m\] \u@\h\[\e[0;92m\] \[\e[0;93m\]\[\e[0;30;103m\] \w\[\e[0;93m\] \[\e[0;96m\]\[\e[0;30;106m\]$(__git_ps1 " %s")\[\e[0;96m\] \[\e[0;94m\]\[\e[0;30;104m\] \D{%Y/%m/%d %H:%M:%S}\[\e[0;94m\]\n\[\e[0;90m\]\$\[\e[0;0m\] ' # Git情報付きカラフル2行
 
 # coreutils
 # 「g」抜きでコマンドを使用できるようにする
