@@ -138,6 +138,13 @@ if [ -d "${NEOVIM_HOME}" ]; then
   export PATH="${NEOVIM_HOME}/bin:$PATH"
 fi
 
+# WezTerm
+# ref: https://wezfurlong.org/wezterm/install/macos.html#installing-on-macos
+WEZTERM_HOME=/Applications/WezTerm.app/Contents/MacOS
+if [ -d "${WEZTERM_HOME}" ]; then
+  export PATH="${WEZTERM_HOME}:$PATH"
+fi
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
