@@ -25,6 +25,7 @@ rm ~/.sqliterc
 rm ~/.xpdfrc
 rm ~/.gitignore
 rm ~/.svnignore
+rm ~/.wezterm.lua
 rm ~/.hyper.js
 rm ~/.swift-package-complete.bash
 # AquaSKK
