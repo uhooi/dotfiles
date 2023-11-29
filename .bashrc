@@ -47,7 +47,7 @@ GIT_PS1_SHOWUNTRACKEDFILES=true
 
 # HEADとアップストリームとの違いを表示する
 # < : アップストリームより遅れている
-# < : アップストリームより進んでいる
+# > : アップストリームより進んでいる
 # <>: 乖離している
 # = : 差がない
 GIT_PS1_SHOWUPSTREAM="auto"
