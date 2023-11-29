@@ -27,6 +27,7 @@ alias cdg='`ghq list -p | peco`'
 # ref: http://qiita.com/varmil/items/9b0aeafa85975474e9b6
 #    : http://mawatari.jp/archives/git-completion-bash
 #    : http://qiita.com/UmedaTakefumi/items/fe02d17264de6c78443d
+#    : https://oki2a24.com/2019/04/11/customise-git-ps1-to-a-nearly-satisfactory-state/
 if [ "$(uname)" == 'Darwin' ]; then
   source ${HOMEBREW_ETC_PATH}/bash_completion.d/git-prompt.sh
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
@@ -34,9 +35,31 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
 fi
 
 # 表示するGit情報に以下のマークを追加する
-# *: addされていない変更がある
-# +: addされているがcommitされていない変更がある
+# * : addされていない変更がある
+# + : addされているがcommitされていない変更がある
 GIT_PS1_SHOWDIRTYSTATE=true
+
+# $ : スタッシュがある
+GIT_PS1_SHOWSTASHSTATE=true
+
+# % : トラックされていないファイルがある
+GIT_PS1_SHOWUNTRACKEDFILES=true
+
+# HEADとアップストリームとの違いを表示する
+# < : アップストリームより遅れている
+# < : アップストリームより進んでいる
+# <>: 乖離している
+# = : 差がない
+GIT_PS1_SHOWUPSTREAM="auto"
+
+# ブランチ名と上記の状態記号の区切り文字を設定する
+GIT_PS1_STATESEPARATOR=" "
+
+# 状態に色を付ける
+# GIT_PS1_SHOWCOLORHINTS=true
+
+# カレントディレクトリがGitで無視されている場合に何も表示しない
+# GIT_PS1_HIDE_IF_PWD_IGNORED=true
 
 # ターミナルでGitのタブ補完を有効にする
 # ref: http://qiita.com/koyopro/items/3fce94537df2be6247a3
