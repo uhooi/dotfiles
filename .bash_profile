@@ -7,14 +7,13 @@ fi
 # Exports {{{
 
 # プロンプトの表示を変更する
-# 値をダブルコーテーションで括るとGit情報が表示されないため、シングルコーテーションで括る
 # ref: https://qiita.com/iwazer/items/5f57a80b8aac0f4e9839
 #    : http://do-zan.com/mac-terminal-change-prompting/
 #    : https://qiita.com/hidai@github/items/1704bf2926ab8b157a4f
 #    : https://qiita.com/hmmrjn/items/60d2a64c9e5bf7c0fe60
 #    : https://www.mm2d.net/main/prog/c/console-02.html
 #    : https://teratail.com/questions/11904
-export PS1='\[\e[0;92m\]\[\e[0;30;102m\] \D{%Y/%m/%d %H:%M:%S}\[\e[0;92m\] \[\e[0;93m\]\[\e[0;30;103m\] \w\[\e[0;93m\] \[\e[0;91m\]\[\e[0;30;101m\]$(__git_ps1 " %s")\[\e[0;91m\]\n\[\e[0;91m\]❯\[\e[0;92m\]❯\[\e[0;94m\]❯ \[\e[0;90m\]\$\[\e[0;0m\] ' # Git情報付きカラフル2行
+export PS1='\[\e[0;92m\]\[\e[0;30;102m\] \D{%m/%d %H:%M}\[\e[0;92m\] \[\e[0;93m\]\[\e[0;30;103m\] \w\[\e[0;93m\] \[\e[0;91m\]\[\e[0;30;101m\]$(__git_ps1 " %s")\[\e[0;91m\]\n\[\e[0;91m\]❯\[\e[0;92m\]❯\[\e[0;94m\]❯ \[\e[0;90m\]\$\[\e[0;0m\] '
 
 # coreutils
 # 「g」抜きでコマンドを使用できるようにする
