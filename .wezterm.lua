@@ -48,6 +48,26 @@ config.warn_about_missing_glyphs = true
 config.use_ime = true
 -- }}}
 
+-- key tables {{{
+-- ref: https://wezfurlong.org/wezterm/config/key-tables.html
+--    : https://wezfurlong.org/wezterm/config/default-keys.html
+--    : https://coralpink.github.io/commentary/wezterm/keybind.html
+--    : Run `wezterm show-keys --lua`
+local act = wezterm.action
+config.keys = {
+  {
+    key = 'd',
+    mods = 'SUPER',
+    action = act.SplitHorizontal { domain = 'CurrentPaneDomain' },
+  },
+  {
+    key = 'd',
+    mods = 'SUPER|SHIFT',
+    action = act.SplitVertical { domain = 'CurrentPaneDomain' },
+  },
+}
+-- }}}
+
 -- mouse {{{
 config.alternate_buffer_wheel_scroll_speed = 3
 config.bypass_mouse_reporting_modifiers = 'SHIFT'
