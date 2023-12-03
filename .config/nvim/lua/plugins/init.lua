@@ -215,6 +215,20 @@ require('lazy').setup({
   },
 
   {
+    'gen740/SmoothCursor.nvim',
+    config = function()
+      require('plugins.config.smooth_cursor')
+    end,
+  },
+
+  {
+    'karb94/neoscroll.nvim',
+    config = function()
+      require('neoscroll').setup()
+    end,
+  },
+
+  {
     'rcarriga/nvim-notify',
     config = function()
       require('plugins.config.nvim_notify')
@@ -242,13 +256,6 @@ require('lazy').setup({
     end,
     config = function()
       require('plugins.config.which_key')
-    end,
-  },
-
-  {
-    'gen740/SmoothCursor.nvim',
-    config = function()
-      require('plugins.config.smooth_cursor')
     end,
   },
 
