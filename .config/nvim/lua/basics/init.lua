@@ -63,6 +63,7 @@ vim.opt.scrolloff = 15
 
 -- Mouse {{{
 vim.opt.mouse = 'a'
+vim.opt.mousescroll = { 'ver:1', 'hor:1' }
 -- }}}
 
 -- File {{{
