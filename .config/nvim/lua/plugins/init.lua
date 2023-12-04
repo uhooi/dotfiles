@@ -288,8 +288,6 @@ require('lazy').setup({
     end,
   },
 
-  { 'stevearc/dressing.nvim' },
-
   {
     'nvim-zh/colorful-winsep.nvim',
     event = 'WinNew',
@@ -297,6 +295,8 @@ require('lazy').setup({
       require('plugins.config.colorful_winsep')
     end,
   },
+
+  { 'stevearc/dressing.nvim' },
 
   {
     'vim-jp/vimdoc-ja',
