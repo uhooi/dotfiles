@@ -281,6 +281,13 @@ require('lazy').setup({
     end,
   },
 
+  {
+    'nvim-focus/focus.nvim',
+    config = function()
+      require('focus').setup()
+    end,
+  },
+
   { 'stevearc/dressing.nvim' },
 
   {

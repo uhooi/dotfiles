@@ -35,6 +35,7 @@
   "eaw.nvim": { "branch": "main", "commit": "215e1acef4bf4cb8659566bcd72dbad8a3af8fa6" },
   "emmet-vim": { "branch": "master", "commit": "def5d57a1ae5afb1b96ebe83c4652d1c03640f4d" },
   "flash.nvim": { "branch": "main", "commit": "48817af25f51c0590653bbc290866e4890fe1cbe" },
+  "focus.nvim": { "branch": "master", "commit": "5269ea70e2003d9dac199584b093323752a472ba" },
   "friendly-snippets": { "branch": "main", "commit": "53d3df271d031c405255e99410628c26a8f0d2b0" },
   "fzf-lua": { "branch": "main", "commit": "a1a2d0f42eaec400cc6918a8e898fc1f9c4dbc5f" },
   "gin.vim": { "branch": "main", "commit": "e737a4b59a9d391c49aaa07f7c4d91e4a29ae09c" },
