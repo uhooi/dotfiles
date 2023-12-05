@@ -460,6 +460,7 @@ require('lazy').setup({
   { 'nvim-telescope/telescope-frecency.nvim', lazy = true },
   { 'nvim-telescope/telescope-ghq.nvim', lazy = true },
   { 'fdschmidt93/telescope-egrepify.nvim', lazy = true },
+  { 'piersolenski/telescope-import.nvim', lazy = true },
   {
     'nvim-telescope/telescope.nvim',
     dependencies = {
@@ -471,6 +472,7 @@ require('lazy').setup({
       'nvim-telescope/telescope-frecency.nvim',
       'nvim-telescope/telescope-ghq.nvim',
       'fdschmidt93/telescope-egrepify.nvim',
+      'piersolenski/telescope-import.nvim',
     },
     config = function()
       require('plugins.config.telescope')
