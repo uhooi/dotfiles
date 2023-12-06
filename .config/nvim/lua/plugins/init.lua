@@ -663,9 +663,9 @@ require('lazy').setup({
     end,
   },
 
-  -- FIXME: Not work
   {
     'soulis-1256/hoverhints.nvim',
+    enabled = false,
     config = function()
       require('plugins.config.hoverhints')
     end,
