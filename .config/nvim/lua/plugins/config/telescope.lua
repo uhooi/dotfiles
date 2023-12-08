@@ -36,13 +36,6 @@ telescope.setup {
     },
     import = {
       insert_at_top = false,
-      custom_languages = {
-        {
-          regex = [[^import\s+(\w+)\s*$]],
-          filetypes = { 'swift' },
-          extensions = { 'swift' },
-        },
-      },
     },
   },
 }
