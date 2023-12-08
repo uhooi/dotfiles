@@ -31,6 +31,20 @@ vim.opt.wildignorecase = true
 vim.opt.formatoptions:append { 'mM' }
 vim.opt.nrformats = 'alpha'
 vim.opt.virtualedit:append { 'block' }
+
+-- filetype {{{
+vim.api.nvim_create_augroup('edit', {})
+vim.api.nvim_clear_autocmds { group = 'edit' }
+
+-- JSON
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  group = 'edit',
+  pattern = '*.json',
+  callback = function()
+    vim.opt_local.tabstop = 2
+  end,
+})
+-- }}}
 -- }}}
 
 -- Display {{{
