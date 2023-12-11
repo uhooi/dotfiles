@@ -23,6 +23,10 @@ config.macos_window_background_blur = 9
 config.native_macos_fullscreen_mode = true
 config.window_decorations = 'TITLE | RESIZE | MACOS_FORCE_ENABLE_SHADOW'
 config.window_background_opacity = 0.9
+config.window_frame = {
+  font = wezterm.font('RictyDiminished Nerd Font', { weight = 'Bold' }),
+  font_size = 14.0,
+}
 -- }}}
 
 -- bell {{{
@@ -143,7 +147,7 @@ config.term = 'xterm-256color'
 -- event {{{
 -- ref: https://wezfurlong.org/wezterm/config/lua/wezterm/on.html
 
---    : https://wezfurlong.org/wezterm/config/lua/window-events/format-window-title.html
+-- ref: https://wezfurlong.org/wezterm/config/lua/window-events/format-window-title.html
 --    : https://wezfurlong.org/wezterm/config/lua/window-events/format-tab-title.html
 wezterm.on('format-tab-title', function(tab, tabs, _, _, _, _)
   local index = ''
@@ -165,19 +169,28 @@ wezterm.on('format-window-title', function(tab, _, tabs, _, _)
   return index .. basename(tab.active_pane.foreground_process_name)
 end)
 
--- FIXME: Not work
 -- ref: https://coralpink.github.io/commentary/wezterm/right-status.html
 --    : https://wezfurlong.org/wezterm/config/lua/window/set_right_status.html
 --    : https://wezfurlong.org/wezterm/config/lua/window/get_dimensions.html
+--    : https://wezfurlong.org/wezterm/config/lua/wezterm/battery_info.html
 wezterm.on('update-right-status', function(window, _)
   if not window:get_dimensions().is_full_screen then
     return
   end
 
-  local date = wezterm.strtime('%m/%d %H:%M')
+  local battery = ''
+  for _, b in ipairs(wezterm.battery_info()) do
+    battery = string.format('%.0f%%', b.state_of_charge * 100)
+  end
+
+  local date = wezterm.strftime('%m/%d %H:%M')
 
   window:set_right_status(wezterm.format {
-    { Text = date },
+    { Text = ' ' },
+    { Text = ' ' .. battery }, -- nf-fa-battery
+    { Text = ' ' },
+    { Text = ' ' .. date },
+    { Text = ' ' },
   })
 end)
 -- }}}
