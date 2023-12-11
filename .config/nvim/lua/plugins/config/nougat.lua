@@ -1,8 +1,9 @@
 -- ref: https://github.com/MunifTanjim/nougat.nvim/blob/5f6ee8ebe28496b9976f838d9df32b05e611835a/examples/bubbly.lua
+--    : https://github.com/MunifTanjim/nougat.nvim/blob/45bee36ef0c46470bff4b623b9f0c4b98005af80/examples/bubbly.lua
 
 -- modules {{{
+local nougat = require('nougat')
 local Bar = require('nougat.bar')
-local bar_util = require('nougat.bar.util')
 local Item = require('nougat.item')
 local sep = require('nougat.separator')
 local icon = require('plugins.config.shared.icon')
@@ -335,7 +336,7 @@ stl_inactive:add_item(datetime)
 stl_inactive:add_item(sep.space())
 -- }}}
 
-bar_util.set_statusline(function(ctx)
+nougat.set_statusline(function(ctx)
   return ctx.is_focused and stl or stl_inactive
 end)
 -- }}}
@@ -398,5 +399,5 @@ local diagnostic_count = tal:add_item(nut.buf.diagnostic_count {
   },
 })
 tal:add_item(paired_space(diagnostic_count))
-bar_util.set_tabline(tal)
+nougat.set_tabline(tal)
 -- }}}
