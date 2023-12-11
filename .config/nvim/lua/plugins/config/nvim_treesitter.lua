@@ -46,7 +46,9 @@ require('nvim-treesitter.configs').setup {
   ignore_install = {},
   highlight = {
     enable = true,
-    disable = {},
+    disable = {
+      'gitcommit', -- FIXME: https://x.com/the_uhooi/status/1734174970430038307
+    },
   },
   incremental_selection = {
     enable = false,
