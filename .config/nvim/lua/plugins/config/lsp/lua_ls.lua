@@ -14,6 +14,8 @@ return {
       library = {
         vim.env.VIMRUNTIME,
         '${3rd}/luv/library',
+        -- ref: https://vim-jp.slack.com/archives/CJMV3MSLR/p1700204138510059
+        -- vim.fs.normalize('~/.local/nvim/share/nvim/runtime'), -- FIXME: Not work
       },
     },
     telemetry = {
