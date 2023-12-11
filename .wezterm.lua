@@ -143,8 +143,9 @@ config.term = 'xterm-256color'
 -- event {{{
 -- ref: https://wezfurlong.org/wezterm/config/lua/wezterm/on.html
 
--- ref: https://wezfurlong.org/wezterm/config/lua/window-events/format-window-title.html
-wezterm.on('format-tab-title', function(tab, tabs)
+--    : https://wezfurlong.org/wezterm/config/lua/window-events/format-window-title.html
+--    : https://wezfurlong.org/wezterm/config/lua/window-events/format-tab-title.html
+wezterm.on('format-tab-title', function(tab, tabs, _, _, _, _)
   local index = ''
   if #tabs > 1 then
     index = string.format('%d: ', tab.tab_index + 1)
@@ -155,13 +156,29 @@ end)
 
 -- ref: https://coralpink.github.io/commentary/wezterm/window-title.html
 --    : https://wezfurlong.org/wezterm/config/lua/window-events/format-window-title.html
-wezterm.on('format-window-title', function(tab, tabs)
+wezterm.on('format-window-title', function(tab, _, tabs, _, _)
   local index = ''
   if #tabs > 1 then
     index = string.format('[%d/%d] ', tab.tab_index + 1, #tabs)
   end
 
   return index .. basename(tab.active_pane.foreground_process_name)
+end)
+
+-- FIXME: Not work
+-- ref: https://coralpink.github.io/commentary/wezterm/right-status.html
+--    : https://wezfurlong.org/wezterm/config/lua/window/set_right_status.html
+--    : https://wezfurlong.org/wezterm/config/lua/window/get_dimensions.html
+wezterm.on('update-right-status', function(window, _)
+  if not window:get_dimensions().is_full_screen then
+    return
+  end
+
+  local date = wezterm.strtime('%m/%d %H:%M')
+
+  window:set_right_status(wezterm.format {
+    { Text = date },
+  })
 end)
 -- }}}
 
