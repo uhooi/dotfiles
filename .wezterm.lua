@@ -9,6 +9,15 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
+-- function {{{
+--    : https://wezfurlong.org/wezterm/config/lua/window-events/format-window-title.html
+-- ref: https://wezfurlong.org/wezterm/config/lua/PaneInformation.html
+local function basename(s)
+  return string.gsub(s, '(.*[/\\])(.*)', '%2')
+end
+-- }}}
+
+-- basic {{{
 -- appearance {{{
 config.macos_window_background_blur = 9
 config.native_macos_fullscreen_mode = true
@@ -128,6 +137,32 @@ config.treat_east_asian_ambiguous_width_as_wide = false
 -- other {{{
 config.quit_when_all_windows_are_closed = false
 config.term = 'xterm-256color'
+-- }}}
+-- }}}
+
+-- event {{{
+-- ref: https://wezfurlong.org/wezterm/config/lua/wezterm/on.html
+
+-- ref: https://wezfurlong.org/wezterm/config/lua/window-events/format-window-title.html
+wezterm.on('format-tab-title', function(tab, tabs)
+  local index = ''
+  if #tabs > 1 then
+    index = string.format('%d: ', tab.tab_index + 1)
+  end
+
+  return index .. basename(tab.active_pane.foreground_process_name)
+end)
+
+-- ref: https://coralpink.github.io/commentary/wezterm/window-title.html
+--    : https://wezfurlong.org/wezterm/config/lua/window-events/format-window-title.html
+wezterm.on('format-window-title', function(tab, tabs)
+  local index = ''
+  if #tabs > 1 then
+    index = string.format('[%d/%d] ', tab.tab_index + 1, #tabs)
+  end
+
+  return index .. basename(tab.active_pane.foreground_process_name)
+end)
 -- }}}
 
 return config
