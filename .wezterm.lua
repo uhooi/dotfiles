@@ -147,6 +147,15 @@ config.term = 'xterm-256color'
 -- event {{{
 -- ref: https://wezfurlong.org/wezterm/config/lua/wezterm/on.html
 
+-- ref: https://qiita.com/sonarAIT/items/0571c869e5f9ab3be817#フルスクリーン表示--背景透過
+--    : https://wezfurlong.org/wezterm/config/lua/gui-events/gui-startup.html
+--    : https://wezfurlong.org/wezterm/config/lua/window/toggle_fullscreen.html
+local mux = wezterm.mux
+wezterm.on('gui-startup', function(cmd)
+  local _, _, window = mux.spawn_window(cmd or {})
+  window:gui_window():toggle_fullscreen()
+end)
+
 -- ref: https://wezfurlong.org/wezterm/config/lua/window-events/format-window-title.html
 --    : https://wezfurlong.org/wezterm/config/lua/window-events/format-tab-title.html
 wezterm.on('format-tab-title', function(tab, tabs, _, _, _, _)
