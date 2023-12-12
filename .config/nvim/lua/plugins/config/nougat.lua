@@ -219,25 +219,6 @@ local fileformat = (function()
 end)()
 -- }}}
 
--- datetime {{{
-local datetime = (function()
-  local item = Item {
-    sep_left = sep.left_half_circle_solid(true),
-    content = {
-      Item {
-        hl = { bg = color.green, fg = color.bg },
-        content = function()
-          return icon.clock .. ' ' .. vim.fn.strftime('%m/%d %H:%M')
-        end,
-      },
-    },
-    sep_right = sep.right_half_circle_solid(true),
-  }
-
-  return item
-end)()
--- }}}
-
 -- lsp servers {{{
 local lsp_servers = nut.lsp.servers.create {
   hl = { bg = color.aqua, fg = color.bg },
@@ -320,7 +301,6 @@ stl:add_item(nut.buf.filetype {
   sep_right = sep.right_half_circle_solid(true),
 })
 stl:add_item(sep.space())
-stl:add_item(datetime)
 stl:add_item(sep.space())
 -- }}}
 
@@ -332,7 +312,6 @@ stl_inactive:add_item(nut.spacer())
 stl_inactive:add_item(nut.truncation_point())
 stl_inactive:add_item(file_status)
 stl_inactive:add_item(sep.space())
-stl_inactive:add_item(datetime)
 stl_inactive:add_item(sep.space())
 -- }}}
 
