@@ -9,6 +9,13 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
+-- color {{{
+-- ref: https://wezfurlong.org/wezterm/config/lua/config/window_frame.html
+local color = {
+  active_titlebar_bg = '#333333',
+}
+-- }}}
+
 -- function {{{
 --    : https://wezfurlong.org/wezterm/config/lua/window-events/format-window-title.html
 -- ref: https://wezfurlong.org/wezterm/config/lua/PaneInformation.html
@@ -26,6 +33,7 @@ config.window_background_opacity = 0.9
 config.window_frame = {
   font = wezterm.font('RictyDiminished Nerd Font', { weight = 'Bold' }),
   font_size = 14.0,
+  active_titlebar_bg = color.active_titlebar_bg,
 }
 -- }}}
 
@@ -195,6 +203,7 @@ wezterm.on('update-right-status', function(window, _)
   local date = wezterm.strftime('%m/%d %H:%M')
 
   window:set_right_status(wezterm.format {
+    { Background = { Color = color.active_titlebar_bg } },
     { Text = ' ' },
     { Text = ' ' .. battery }, -- nf-fa-battery
     { Text = ' ' },
