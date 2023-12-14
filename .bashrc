@@ -20,6 +20,8 @@ alias g='git'
 #    : https://qiita.com/IzumiSy/items/b44b384468d8f2f9dc71
 shopt -s autocd
 alias cdg='`ghq list -p | peco`'
+
+alias goodbye-derived-data='/bin/rm -rf ~/Library/Developer/Xcode/DerivedData/'
 # }}}
 
 # Git {{{
