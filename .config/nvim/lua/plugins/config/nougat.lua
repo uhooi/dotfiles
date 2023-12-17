@@ -223,7 +223,7 @@ end)()
 local lsp_servers = nut.lsp.servers.create {
   hl = { bg = color.aqua, fg = color.bg },
   sep_left = sep.left_half_circle_solid(true),
-  prefix = icon.lsp .. ' ',
+  prefix = icon.symbol.lsp .. ' ',
   config = {
     content = function(client, _)
       if client.name == 'null-ls' then

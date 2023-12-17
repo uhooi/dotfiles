@@ -23,7 +23,7 @@ function M:names()
   if not next(clients) then
     return ''
   else
-    return icon.lsp .. ' ' .. table.concat(clients, ' ')
+    return icon.symbol.lsp .. ' ' .. table.concat(clients, ' ')
   end
 end
 

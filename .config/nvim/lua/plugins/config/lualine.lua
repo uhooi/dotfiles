@@ -29,7 +29,7 @@ require('lualine').setup {
     lualine_z = {
       {
         'datetime',
-        style = icon.clock .. ' %m/%d %H:%M',
+        style = icon.other.clock .. ' %m/%d %H:%M',
       },
     },
   },
