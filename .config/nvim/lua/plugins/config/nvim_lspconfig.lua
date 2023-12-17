@@ -82,23 +82,18 @@ lspconfig.sourcekit.setup {
 -- }}}
 
 -- Signs {{{
--- ref: https://github.com/neovim/neovim/commit/a5bbb932f9094098bd656d3f6be3c58344576709
-vim.fn.sign_define(
-  'DiagnosticSignError',
-  { text = icon.diagnostic.error, texthl = 'DiagnosticSignError', numhl = 'DiagnosticSignError' }
-)
-vim.fn.sign_define(
-  'DiagnosticSignWarn',
-  { text = icon.diagnostic.warn, texthl = 'DiagnosticSignWarn', numhl = 'DiagnosticSignWarn' }
-)
-vim.fn.sign_define(
-  'DiagnosticSignHint',
-  { text = icon.diagnostic.hint, texthl = 'DiagnosticSignHint', numhl = 'DiagnosticSignHint' }
-)
-vim.fn.sign_define(
-  'DiagnosticSignInfo',
-  { text = icon.diagnostic.info, texthl = 'DiagnosticSignInfo', numhl = 'DiagnosticSignInfo' }
-)
+-- ref: https://github.com/neovim/neovim/pull/26193
+--    : https://github.com/neovim/neovim/pull/26555
+vim.diagnostic.config {
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = icon.diagnostic.error,
+      [vim.diagnostic.severity.WARN] = icon.diagnostic.warn,
+      [vim.diagnostic.severity.INFO] = icon.diagnostic.info,
+      [vim.diagnostic.severity.HINT] = icon.diagnostic.hint,
+    },
+  },
+}
 -- }}}
 
 -- Keymaps {{{
