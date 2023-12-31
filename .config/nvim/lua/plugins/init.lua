@@ -127,7 +127,7 @@ require('lazy').setup({
     event = { 'UIEnter' },
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
-      require('hlchunk').setup {}
+      require('plugins.config.hlchunk')
     end,
   },
 
