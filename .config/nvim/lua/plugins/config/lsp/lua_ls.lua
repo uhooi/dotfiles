@@ -15,6 +15,8 @@ return {
         vim.env.VIMRUNTIME,
         '${3rd}/luv/library',
         '${3rd}/busted/library',
+        -- '~/.local/nvim/share/nvim/runtime', -- FIXME: Not work
+        -- vim.fn.stdpath('data') .. '/lazy', -- Plugins -- FIXME: Not work
       },
       -- library = vim.api.nvim_get_runtime_file('', true), -- This is a lot slower
     },
