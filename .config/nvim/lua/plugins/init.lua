@@ -111,6 +111,7 @@ require('lazy').setup({
 
   {
     'lukas-reineke/indent-blankline.nvim',
+    enabled = false, -- Use hlchunk.nvim
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
       require('ibl').setup {
@@ -118,6 +119,15 @@ require('lazy').setup({
           char = '│',
         },
       }
+    end,
+  },
+
+  {
+    'shellRaining/hlchunk.nvim',
+    event = { 'UIEnter' },
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    config = function()
+      require('hlchunk').setup {}
     end,
   },
 
