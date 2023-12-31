@@ -633,10 +633,6 @@ require('lazy').setup({
   -- ref: https://github.com/wookayin/dotfiles/blob/ad1b4f90f58f922b85860095830fe6625814bbf2/nvim/lua/plugins/ide.lua#L27-L38
   {
     'neovim/nvim-lspconfig',
-    dependencies = {
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-    },
     config = function()
       require('plugins.config.nvim_lspconfig')
     end,
@@ -646,7 +642,14 @@ require('lazy').setup({
     'williamboman/mason.nvim',
     build = ':MasonUpdate',
   },
-  { 'williamboman/mason-lspconfig.nvim', dependencies = { 'williamboman/mason.nvim' } },
+  {
+    'williamboman/mason-lspconfig.nvim',
+    dependencies = {
+      'williamboman/mason.nvim',
+      'neovim/nvim-lspconfig',
+      'hrsh7th/cmp-nvim-lsp',
+    },
+  },
 
   {
     'jose-elias-alvarez/null-ls.nvim',
