@@ -1,3 +1,4 @@
+local lspconfig = require('lspconfig')
 local icon = require('plugins.config.shared.icon')
 
 -- mason.nvim {{{
@@ -45,11 +46,10 @@ mason_lspconfig.setup_handlers {
     local opts = {
       capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
     }
-    require('lspconfig')[server_name].setup(opts)
+    lspconfig[server_name].setup(opts)
   end,
 
   ['lua_ls'] = function()
-    local lspconfig = require('lspconfig')
     lspconfig.lua_ls.setup {
       settings = require('plugins.config.lsp.lua_ls'),
     }
@@ -58,7 +58,6 @@ mason_lspconfig.setup_handlers {
 -- }}}
 
 -- Language servers (Not managed by mason-lspconfig) {{{
-local lspconfig = require('lspconfig')
 -- SourceKit-LSP {{{
 lspconfig.sourcekit.setup {
   -- Use iOS SDK (UIKit etc.)
