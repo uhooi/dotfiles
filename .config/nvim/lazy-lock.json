@@ -80,6 +80,7 @@
   "octo.nvim": { "branch": "master", "commit": "b5371003f209764c9d1cc43cf20b6dc52961f0e8" },
   "open-browser.vim": { "branch": "master", "commit": "7d4c1d8198e889d513a030b5a83faa07606bac27" },
   "plenary.nvim": { "branch": "master", "commit": "55d9fe89e33efd26f532ef20223e5f9430c8b0c0" },
+  "presenting.nvim": { "branch": "main", "commit": "93d955ba86aa92efb3326b8dc81fb011e02dab4c" },
   "previm": { "branch": "master", "commit": "452e395e6bb6c1266d9b4845ca2071bcb14771a2" },
   "rainbow-delimiters.nvim": { "branch": "master", "commit": "1ed4613437c585eacd5c8827b408e6db8234c3ee" },
   "satellite.nvim": { "branch": "main", "commit": "acb185e1475a19e2538ee517fb540b82db629887" },
