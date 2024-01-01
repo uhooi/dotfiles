@@ -832,12 +832,6 @@ require('lazy').setup({
   },
 
   {
-    'thinca/vim-showtime',
-    enabled = false, -- Use presenting.nvim
-    ft = { 'markdown' },
-  },
-
-  {
     'sotte/presenting.nvim',
     cmd = { 'Presenting' },
     ft = { 'markdown' },
