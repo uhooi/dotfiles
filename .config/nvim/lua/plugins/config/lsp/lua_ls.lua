@@ -35,8 +35,8 @@ return {
         '${3rd}/busted/library',
         '${3rd}/luassert/library',
         '${3rd}/luv/library',
-        get_plugin_path('lazy.nvim'),
-        get_plugin_path('nougat.nvim'),
+        get_plugin_path('lazy.nvim'), -- FIXME: Not work
+        get_plugin_path('nougat.nvim'), -- FIXME: Not work
         vim.fn.stdpath('config'),
       },
       -- library = vim.api.nvim_get_runtime_file('', true), -- This is a lot slower
