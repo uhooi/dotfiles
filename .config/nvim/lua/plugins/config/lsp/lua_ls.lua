@@ -6,13 +6,14 @@
 
 -- ref: https://zenn.dev/uga_rosa/articles/afe384341fc2e1#lazy.nvim-の場合
 ---@param name string
----@return string?
+---@return string
 local function get_plugin_path(name)
   local plugins = require('lazy.core.config').plugins
   if plugins[name] then
     return vim.fs.joinpath(plugins[name].dir, 'lua')
   else
     vim.notify('Invalid plugin name: ' .. name, vim.log.levels.WARN)
+    return ''
   end
 end
 
@@ -42,7 +43,7 @@ return {
         get_plugin_path('nvim-dap-ui'),
         get_plugin_path('nvim-insx'),
         get_plugin_path('nougat.nvim'),
-        vim.fs.joinpath(vim.fn.stdpath('config'), 'lua'),
+        vim.fs.joinpath(vim.fn.stdpath('config')--[[@as string]], 'lua'),
       },
       -- library = vim.api.nvim_get_runtime_file('', true), -- This is a lot slower
     },
