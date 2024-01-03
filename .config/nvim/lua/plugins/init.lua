@@ -307,6 +307,8 @@ require('lazy').setup({
 
   { 'stevearc/dressing.nvim' },
 
+  { 'tyru/capture.vim' },
+
   {
     'vim-jp/vimdoc-ja',
     config = function()
