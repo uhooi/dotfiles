@@ -41,17 +41,19 @@ mason_lspconfig.setup {
   },
 }
 
+-- ref: https://www.reddit.com/r/neovim/comments/pqssf1/autocomplete_plugins_what_is_surrounding/
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 mason_lspconfig.setup_handlers {
   function(server_name)
     local opts = {
-      capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+      capabilities = capabilities,
     }
     lspconfig[server_name].setup(opts)
   end,
 
   ['lua_ls'] = function()
     lspconfig.lua_ls.setup {
-      capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+      capabilities = capabilities,
       settings = require('plugins.config.lsp.lua_ls'),
     }
   end,
