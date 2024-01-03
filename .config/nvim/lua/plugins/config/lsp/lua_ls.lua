@@ -11,12 +11,15 @@ return {
     },
     workspace = {
       checkThirdParty = 'Disable',
+      -- ref: https://zenn.dev/uga_rosa/articles/afe384341fc2e1
+      --    : https://github.com/LuaLS/lua-language-server/tree/f836d90eb629c22219cbcdff9bfcd7f45f1751f3/meta/3rd
       library = {
         vim.env.VIMRUNTIME,
-        '${3rd}/luv/library',
         '${3rd}/busted/library',
-        -- '~/.local/nvim/share/nvim/runtime', -- FIXME: Not work
+        '${3rd}/luassert/library',
+        '${3rd}/luv/library',
         -- vim.fn.stdpath('data') .. '/lazy', -- Plugins -- FIXME: Not work
+        vim.fn.stdpath('config'),
       },
       -- library = vim.api.nvim_get_runtime_file('', true), -- This is a lot slower
     },
