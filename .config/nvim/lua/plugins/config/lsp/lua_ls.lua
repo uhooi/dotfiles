@@ -22,7 +22,7 @@ return {
   Lua = {
     runtime = {
       version = 'LuaJIT',
-      pathStrict = true,
+      -- pathStrict = true, -- TODO: Comment in when library is worked on
     },
     diagnostics = {
       globals = { 'vim' },
@@ -39,6 +39,7 @@ return {
         '${3rd}/luv/library',
         get_plugin_path('lazy.nvim'),
         get_plugin_path('nvim-cmp'),
+        get_plugin_path('nvim-dap-ui'),
         get_plugin_path('nvim-insx'),
         get_plugin_path('nougat.nvim'),
         vim.fs.joinpath(vim.fn.stdpath('config'), 'lua'),
