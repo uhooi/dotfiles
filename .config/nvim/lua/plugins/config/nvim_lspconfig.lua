@@ -1,6 +1,28 @@
 local lspconfig = require('lspconfig')
 local icon = require('plugins.config.shared.icon')
 
+local server_names = {
+  'bashls',
+  'cssls',
+  'denols',
+  'elmls',
+  'gopls',
+  'groovyls',
+  'html',
+  'jsonls',
+  'kotlin_language_server',
+  'lua_ls',
+  'omnisharp',
+  'perlnavigator',
+  'pyright',
+  'rust_analyzer',
+  'solargraph',
+  'taplo',
+  'tsserver',
+  'vimls',
+  -- 'yamlls',
+}
+
 -- mason.nvim {{{
 require('mason').setup {
   ui = {
@@ -15,50 +37,27 @@ require('mason').setup {
 -- }}}
 
 -- mason-lspconfig.nvim {{{
-local mason_lspconfig = require('mason-lspconfig')
-
-mason_lspconfig.setup {
-  ensure_installed = {
-    'bashls',
-    'cssls',
-    'denols',
-    'elmls',
-    'gopls',
-    'groovyls',
-    'html',
-    'jsonls',
-    'kotlin_language_server',
-    'lua_ls',
-    'omnisharp',
-    'perlnavigator',
-    'pyright',
-    'rust_analyzer',
-    'solargraph',
-    'taplo',
-    'tsserver',
-    'vimls',
-    -- 'yamlls',
-  },
-}
-
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    local opts = {
-      capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
-    }
-    lspconfig[server_name].setup(opts)
-  end,
-
-  ['lua_ls'] = function()
-    lspconfig.lua_ls.setup {
-      capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
-      settings = require('plugins.config.lsp.lua_ls'),
-    }
-  end,
+require('mason-lspconfig').setup {
+  ensure_installed = server_names,
 }
 -- }}}
 
--- Language servers (Not managed by mason-lspconfig) {{{
+-- Language servers {{{
+-- Managed by mason-lspconfig.nvim {{{
+for _, server_name in pairs(server_names) do
+  local opts = {
+    capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  }
+  -- LuaLS {{{
+  if server_name == 'lua_ls' then
+    opts.settings = require('plugins.config.lsp.lua_ls')
+  end
+  -- }}}
+  lspconfig[server_name].setup(opts)
+end
+-- }}}
+
+-- Not Managed by mason-lspconfig.nvim {{{
 -- SourceKit-LSP {{{
 lspconfig.sourcekit.setup {
   -- Use iOS SDK (UIKit etc.)
@@ -78,6 +77,7 @@ lspconfig.sourcekit.setup {
     'x86_64-apple-ios17.0-simulator',
   },
 }
+-- }}}
 -- }}}
 -- }}}
 
