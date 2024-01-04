@@ -809,11 +809,12 @@ require('lazy').setup({
   },
 
   {
-    'previm/previm',
-    dependencies = { 'tyru/open-browser.vim' },
+    'toppair/peek.nvim',
+    event = 'VeryLazy',
+    build = 'deno task --quiet build:fast',
     ft = { 'markdown' },
     config = function()
-      require('plugins.config.previm')
+      require('plugins.config.peek')
     end,
   },
   -- }}}
