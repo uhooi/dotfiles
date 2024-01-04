@@ -1,7 +1,7 @@
 require('flash').setup {
   modes = {
     search = {
-      enabled = false,
+      enabled = false, -- Prevent interrupted searches
     },
   },
 }
