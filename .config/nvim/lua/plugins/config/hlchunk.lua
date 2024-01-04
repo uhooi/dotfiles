@@ -16,7 +16,7 @@ require('hlchunk').setup {
     style = '#806d9c',
   },
   indent = {
-    chars = { '│', '¦', '┆', '┊' },
+    chars = { '│' },
   },
   blank = {
     enable = false,
