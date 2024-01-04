@@ -1,3 +1,5 @@
+local color = require('plugins.config.shared.color')
+
 require('hlchunk').setup {
   chunk = {
     chars = {
@@ -8,12 +10,12 @@ require('hlchunk').setup {
       right_arrow = '─',
     },
     style = {
-      { fg = '#806d9c' },
+      { fg = color.accent },
       { fg = '#c21f30' }, -- This fg is used to highlight wrong chunk
     },
   },
   line_num = {
-    style = '#806d9c',
+    style = color.accent,
   },
   indent = {
     chars = { '│' },
