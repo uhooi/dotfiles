@@ -43,6 +43,7 @@
   "git-conflict.nvim": { "branch": "main", "commit": "690879ba23741f21646e97ba287333ff56137c4d" },
   "gitlinker.nvim": { "branch": "master", "commit": "cc59f732f3d043b626c8702cb725c82e54d35c25" },
   "gitsigns.nvim": { "branch": "main", "commit": "d195f0c35ced5174d3ecce1c4c8ebb3b5bc23fa9" },
+  "hawtkeys.nvim": { "branch": "main", "commit": "954b4d95c8f47d0d4c2102e14f799884957a1332" },
   "helpful.vim": { "branch": "master", "commit": "ab3d9a465bb776a72c7b0d9382eef44609c1f4bb" },
   "highlight-undo.nvim": { "branch": "main", "commit": "50a6884a8476be04ecce8f1c4ed692c5000ef0a1" },
   "hlchunk.nvim": { "branch": "main", "commit": "882d1bc86d459fa8884398223c841fd09ea61b6b" },

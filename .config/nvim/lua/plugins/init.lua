@@ -269,6 +269,13 @@ require('lazy').setup({
   },
 
   {
+    'tris203/hawtkeys.nvim',
+    config = function()
+      require('plugins.config.hawtkeys')
+    end,
+  },
+
+  {
     'uga-rosa/ugaterm.nvim',
     config = function()
       require('plugins.config.ugaterm')
