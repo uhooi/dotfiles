@@ -53,7 +53,7 @@ require('lazy').setup({
     'JoosepAlviste/nvim-ts-context-commentstring',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
-      require('ts_context_commentstring').setup()
+      require('plugins.config.ts_context_commentstring')
     end,
   },
 
@@ -69,7 +69,7 @@ require('lazy').setup({
     'windwp/nvim-ts-autotag',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
-      require('nvim-ts-autotag').setup()
+      require('plugins.config.ts_autotag')
     end,
   },
   -- }}}
@@ -110,19 +110,6 @@ require('lazy').setup({
   },
 
   {
-    'lukas-reineke/indent-blankline.nvim',
-    enabled = false, -- Use hlchunk.nvim
-    dependencies = { 'nvim-treesitter/nvim-treesitter' },
-    config = function()
-      require('ibl').setup {
-        indent = {
-          char = '│',
-        },
-      }
-    end,
-  },
-
-  {
     'shellRaining/hlchunk.nvim',
     event = { 'UIEnter' },
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
@@ -133,11 +120,11 @@ require('lazy').setup({
 
   -- FIXME: Not work
   {
-    'haringsrob/nvim_context_vt',
+    'andersevenrud/nvim_context_vt',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     ft = { 'dart' },
     config = function()
-      require('nvim_context_vt').setup {}
+      require('plugins.config.context_vt')
     end,
   },
 
@@ -153,9 +140,7 @@ require('lazy').setup({
     'delphinus/cellwidths.nvim',
     enabled = false,
     config = function()
-      require('cellwidths').setup {
-        name = 'default',
-      }
+      require('plugins.config.cellwidths')
     end,
   },
 
@@ -169,11 +154,7 @@ require('lazy').setup({
   {
     'hrsh7th/nvim-insx',
     config = function()
-      require('insx.preset.standard').setup {
-        cmdline = {
-          enabled = true,
-        },
-      }
+      require('plugins.config.insx')
     end,
   },
 
@@ -185,7 +166,7 @@ require('lazy').setup({
       'JoosepAlviste/nvim-ts-context-commentstring',
     },
     config = function()
-      require('Comment').setup()
+      require('plugins.config.comment')
     end,
   },
 
@@ -233,7 +214,7 @@ require('lazy').setup({
   {
     'karb94/neoscroll.nvim',
     config = function()
-      require('neoscroll').setup()
+      require('plugins.config.neoscroll')
     end,
   },
 
@@ -300,7 +281,7 @@ require('lazy').setup({
   {
     'nvim-focus/focus.nvim',
     config = function()
-      require('focus').setup()
+      require('plugins.config.focus')
     end,
   },
 
@@ -344,7 +325,7 @@ require('lazy').setup({
     'delphinus/characterize.nvim',
     lazy = true,
     config = function()
-      require('characterize').setup {}
+      require('plugins.config.characterize')
     end,
   },
   { 'delphinus/eaw.nvim', lazy = true },
@@ -358,10 +339,7 @@ require('lazy').setup({
       'nvim-lualine/lualine.nvim',
     },
     config = function()
-      vim.o.cursorline = true
-      vim.o.number = true
-      vim.o.termguicolors = true
-      require('modicator').setup()
+      require('plugins.config.modicator')
     end,
   },
 
