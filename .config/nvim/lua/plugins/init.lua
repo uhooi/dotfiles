@@ -403,7 +403,9 @@ require('lazy').setup({
 
   {
     'akinsho/git-conflict.nvim',
-    config = true,
+    config = function()
+      require('plugins.config.git_conflict')
+    end,
   },
 
   {
@@ -423,7 +425,7 @@ require('lazy').setup({
       'ibhagwan/fzf-lua',
     },
     config = function()
-      require('neogit').setup()
+      require('plugins.config.neogit')
     end,
   },
 
@@ -470,7 +472,7 @@ require('lazy').setup({
     'ibhagwan/fzf-lua',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
-      require('fzf-lua').setup()
+      require('plugins.config.fzf_lua')
     end,
   },
   -- }}}
@@ -506,9 +508,7 @@ require('lazy').setup({
     'dart-lang/dart-vim-plugin',
     ft = { 'dart' },
     config = function()
-      vim.g.dart_html_in_string = true
-      vim.g.dart_style_guide = 2
-      vim.g.dart_format_on_save = true
+      require('plugins.config.dart_vim_plugin')
     end,
   },
 
@@ -566,8 +566,7 @@ require('lazy').setup({
     'mattn/emmet-vim',
     ft = { 'html', 'css', 'javascript', 'typescript', 'vue', 'svelte', 'markdown' },
     config = function()
-      vim.g.user_emmet_mode = 'i'
-      vim.g.user_emmet_install_global = 0
+      require('plugins.config.emmet_vim')
     end,
   },
   -- }}}
@@ -613,7 +612,11 @@ require('lazy').setup({
     end,
   },
 
-  { 'willelz/skk-tutorial.vim', dependencies = { 'vim-denops/denops.vim' } },
+  {
+    'willelz/skk-tutorial.vim',
+    enabled = false,
+    dependencies = { 'vim-denops/denops.vim' },
+  },
   -- }}}
 
   -- LSP {{{
@@ -666,7 +669,7 @@ require('lazy').setup({
     enabled = false,
     event = 'VeryLazy',
     config = function()
-      require('lsp_signature').setup()
+      require('plugins.config.lsp_signature')
     end,
   },
 
@@ -730,7 +733,7 @@ require('lazy').setup({
     dependencies = { 'nvim-lua/plenary.nvim' },
     lazy = true,
     config = function()
-      require('cmp_ghq').setup {}
+      require('plugins.config.cmp_ghq')
     end,
   },
   { 'uga-rosa/cmp-latex-symbol', lazy = true },
@@ -814,7 +817,7 @@ require('lazy').setup({
     cmd = { 'Presenting' },
     ft = { 'markdown' },
     config = function()
-      require('presenting').setup()
+      require('plugins.config.presenting')
     end,
   },
 
@@ -827,17 +830,21 @@ require('lazy').setup({
   -- Toy {{{
   {
     'delphinus/nekokak.nvim',
-    config = function()
+    init = function()
       vim.opt.termguicolors = true
-      require('nekokak').setup()
+    end,
+    config = function()
+      require('plugins.config.nekokak')
     end,
   },
 
   {
     'uhooi/uhooi.nvim',
-    config = function()
+    init = function()
       vim.opt.termguicolors = true
-      require('uhooi').setup()
+    end,
+    config = function()
+      require('plugins.config.uhooi')
     end,
   },
 
@@ -847,10 +854,7 @@ require('lazy').setup({
     'alanfortlink/blackjack.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
-      require('blackjack').setup {
-        card_style = 'large',
-        suit_style = 'black',
-      }
+      require('plugins.config.blackjack')
     end,
   },
   -- }}}
