@@ -125,13 +125,15 @@ cmp.setup {
     { name = 'nvim_lua' },
     { name = 'vsnip' },
     { name = 'path' },
-    { name = 'ghq' },
     { name = 'latex_symbol' },
     { name = 'emoji' },
     { name = 'dynamic' },
     { name = 'calc' },
-    { name = 'treesitter' },
+  }, {
     sources.visible_buffers,
+  }, {
+    { name = 'treesitter' },
+    { name = 'ghq' },
   }, {
     { name = 'dictionary' },
   }),
