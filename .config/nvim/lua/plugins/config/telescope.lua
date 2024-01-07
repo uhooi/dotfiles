@@ -114,4 +114,5 @@ telescope.load_extension('frecency')
 telescope.load_extension('ghq')
 telescope.load_extension('egrepify')
 telescope.load_extension('import')
+telescope.load_extension('textcase')
 -- }}}

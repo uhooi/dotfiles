@@ -178,6 +178,17 @@ require('lazy').setup({
   },
 
   {
+    'johmsalas/text-case.nvim',
+    dependencies = {
+      'nvim-telescope/telescope.nvim',
+      'folke/which-key.nvim',
+    },
+    config = function()
+      require('plugins.config.textcase')
+    end,
+  },
+
+  {
     'github/copilot.vim',
     config = function()
       require('plugins.config.copilot')
@@ -461,6 +472,7 @@ require('lazy').setup({
       'nvim-telescope/telescope-ghq.nvim',
       'fdschmidt93/telescope-egrepify.nvim',
       'piersolenski/telescope-import.nvim',
+      'johmsalas/text-case.nvim',
     },
     config = function()
       require('plugins.config.telescope')
