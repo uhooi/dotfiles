@@ -34,7 +34,6 @@ vim.opt.virtualedit:append { 'block' }
 
 -- filetype {{{
 vim.api.nvim_create_augroup('edit', {})
-vim.api.nvim_clear_autocmds { group = 'edit' }
 
 -- JSON
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
@@ -45,6 +44,7 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   end,
 })
 -- }}}
+
 -- }}}
 
 -- Display {{{
@@ -87,7 +87,6 @@ vim.opt.undodir = '~/.vim/undo'
 
 -- ref: http://itchyny.hatenablog.com/entry/2014/12/25/090000
 vim.api.nvim_create_augroup('swapchoice-readonly', {})
-vim.api.nvim_clear_autocmds { group = 'swapchoice-readonly' }
 vim.api.nvim_create_autocmd('SwapExists', {
   group = 'swapchoice-readonly',
   pattern = '*',
