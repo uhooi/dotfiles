@@ -21,8 +21,11 @@ vim.fn['skkeleton#config'] {
   markerHenkanSelect = '▼ ',
   registerConvertResult = true,
   showCandidatesCount = 1,
-  -- useSkkServer = true, -- FIXME: Freeze
-  userJisyo = skkeleton_dir .. 'user_jisyo.txt',
+  sources = {
+    'skk_dictionary',
+    -- 'skk_server', -- FIXME: Freeze
+  },
+  userDictionary = skkeleton_dir .. 'user_jisyo.txt',
 }
 
 vim.fn['skkeleton#register_kanatable']('rom', {
