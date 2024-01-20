@@ -532,11 +532,6 @@ require('lazy').setup({
   },
 
   {
-    'cespare/vim-toml',
-    ft = { 'toml' },
-  },
-
-  {
     'aklt/plantuml-syntax',
     cond = function()
       local ext = vim.fn.expand('%:e')
