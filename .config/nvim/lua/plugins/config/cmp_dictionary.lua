@@ -1,11 +1,5 @@
-local cmp_dictionary = require('cmp_dictionary')
-
-cmp_dictionary.setup {
-  async = true,
-}
-
-cmp_dictionary.switcher {
-  spelllang = {
-    en = '~/.config/nvim/lua/plugins/config/dictionaries/english.dict',
+require('cmp_dictionary').setup {
+  paths = {
+    vim.fs.joinpath(vim.fn.stdpath('config')--[[@as string]], 'lua', 'plugins', 'config', 'dictionaries', 'english.dict'),
   },
 }
