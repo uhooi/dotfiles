@@ -31,6 +31,7 @@ vim.fn['skkeleton#config'] {
 vim.fn['skkeleton#register_kanatable']('rom', {
   -- [' '] = { '　', '' }, -- Cannot convert
   ['@'] = { '＠', '' },
+  ['*'] = { '＊', '' },
   ['~'] = { '〜', '' },
   ['('] = { '（', '' },
   [')'] = { '）', '' },
