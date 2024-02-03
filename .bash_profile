@@ -19,14 +19,6 @@ export PS1='\[\e[0;92m\]\[\e[0;30;102m\] \D{%m/%d %H:%M}\[\e[0;92m\] \[
 # ref: https://blog.shibayu36.org/entry/2017/04/01/145758
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
-# coreutils
-# 「g」抜きでコマンドを使用できるようにする
-# ref: http://qiita.com/eumesy/items/3bb39fc783c8d4863c5f
-if [ "$(uname)" == 'Darwin' ]; then
-  export PATH=/usr/local/opt/coreutils/libexec/gnubin:${PATH}
-  export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}
-fi
-
 # pyenv-virtualenv
 # ref: https://github.com/pyenv/pyenv#installation
 #    : http://qiita.com/hedgehoCrow/items/0733c63c690450b14dcf
@@ -94,6 +86,15 @@ else
 fi
 if [ -d "${HOMEBREW_HOME}" ]; then
   export PATH="${HOMEBREW_HOME}/bin:$PATH"
+fi
+
+# coreutils
+# 「g」抜きでコマンドを使用できるようにする
+# ref: http://qiita.com/eumesy/items/3bb39fc783c8d4863c5f
+LIBEXEC_HOME=${HOMEBREW_HOME}/opt/coreutils/libexec
+if [ -d "${LIBEXEC_HOME}" ]; then
+  export PATH="${LIBEXEC_HOME}/gnubin:${PATH}"
+  export MANPATH="${LIBEXEC_HOME}/gnuman:${MANPATH}"
 fi
 
 # diff-highlight
