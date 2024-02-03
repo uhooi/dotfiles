@@ -144,6 +144,12 @@ if [ -d "${WEZTERM_HOME}" ]; then
   export PATH="${WEZTERM_HOME}:$PATH"
 fi
 
+# Pkl
+PKL_HOME=$HOME/.local/pkl
+if [ -d "${PKL_HOME}" ]; then
+  export PATH="${PKL_HOME}/bin:$PATH"
+fi
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
