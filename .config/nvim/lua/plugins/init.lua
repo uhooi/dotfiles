@@ -512,6 +512,15 @@ require('lazy').setup({
   },
 
   {
+    'apple/pkl-neovim',
+    lazy = true,
+    event = 'BufReadPre *.pkl',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+    },
+  },
+
+  {
     'udalov/kotlin-vim',
     ft = { 'kotlin' },
   },

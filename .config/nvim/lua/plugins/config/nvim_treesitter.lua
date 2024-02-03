@@ -27,6 +27,7 @@ require('nvim-treesitter.configs').setup {
     -- 'objc',
     'perl',
     'php',
+    'pkl',
     'python',
     'query',
     'regex',
