@@ -882,3 +882,5 @@ require('lazy').setup({
   -- }}}
 })
 -- }}}
+
+-- vim: set foldmethod=marker:

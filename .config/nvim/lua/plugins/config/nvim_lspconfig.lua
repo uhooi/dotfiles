@@ -1,7 +1,7 @@
 local lspconfig = require('lspconfig')
 local icon = require('plugins.config.shared.icon')
 
--- mason.nvim {{{
+-- mason.nvim
 require('mason').setup {
   ui = {
     border = 'rounded',
@@ -12,9 +12,8 @@ require('mason').setup {
     },
   },
 }
--- }}}
 
--- mason-lspconfig.nvim {{{
+-- mason-lspconfig.nvim
 local mason_lspconfig = require('mason-lspconfig')
 
 mason_lspconfig.setup {
@@ -58,10 +57,8 @@ mason_lspconfig.setup_handlers {
     }
   end,
 }
--- }}}
 
--- Language servers (Not managed by mason-lspconfig) {{{
--- SourceKit-LSP {{{
+-- Language servers (Not managed by mason-lspconfig)
 lspconfig.sourcekit.setup {
   -- Use iOS SDK (UIKit etc.)
   -- ref: https://qiita.com/niusounds/items/5a39b65b54939814a9f9
@@ -80,10 +77,8 @@ lspconfig.sourcekit.setup {
     'x86_64-apple-ios17.0-simulator',
   },
 }
--- }}}
--- }}}
 
--- Signs {{{
+-- Signs
 -- ref: https://github.com/neovim/neovim/pull/26193
 --    : https://github.com/neovim/neovim/pull/26555
 vim.diagnostic.config {
@@ -96,18 +91,16 @@ vim.diagnostic.config {
     },
   },
 }
--- }}}
 
--- Keymaps {{{
+-- Keymaps
 -- ref: https://neovim.io/doc/user/lsp.html
 --    : https://github.com/neovim/nvim-lspconfig/blob/da7461b596d70fa47b50bf3a7acfaef94c47727d/doc/lspconfig.txt#L444-L476
 --    : https://zenn.dev/botamotch/articles/21073d78bc68bf
 vim.keymap.set('n', 'g]', vim.diagnostic.goto_next)
 vim.keymap.set('n', 'g[', vim.diagnostic.goto_prev)
 vim.keymap.set('n', 'gl', vim.diagnostic.setloclist)
--- }}}
 
--- LspAttach {{{
+-- LspAttach
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(args)
@@ -163,8 +156,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- }}}
   end,
 })
--- }}}
 
--- UI {{{
+-- UI
 require('lspconfig.ui.windows').default_options.border = 'rounded'
--- }}}

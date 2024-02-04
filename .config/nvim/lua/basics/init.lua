@@ -63,11 +63,16 @@ vim.opt.showcmd = true
 vim.opt.title = true
 vim.opt.cursorline = true
 vim.opt.colorcolumn = { 80 }
-vim.opt.foldmethod = 'marker'
 vim.opt.pumheight = 10
 vim.opt.pumblend = 10
 vim.opt.signcolumn = 'yes'
 vim.opt.laststatus = 3
+-- }}}
+
+-- Fold {{{
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldtext = ''
 -- }}}
 
 -- Cursor {{{
@@ -97,3 +102,5 @@ vim.api.nvim_create_autocmd('SwapExists', {
 -- Others {{{
 vim.opt.clipboard = { 'unnamed', 'unnamedplus' }
 -- }}}
+
+-- vim: set foldmethod=marker:

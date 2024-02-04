@@ -2,10 +2,11 @@
 --    : https://github.com/delphinus/dotfiles/blob/e562d4f8e99793e6ae1cd330c9208dac1d29d407/.config/nvim/lua/modules/telescope/config.lua
 
 local telescope = require('telescope')
-
--- Setup {{{
--- ref: https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#mapping-esc-to-quit-in-insert-mode
 local telescope_actions = require('telescope.actions')
+local telescope_builtin = require('telescope.builtin')
+
+-- Setup
+-- ref: https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#mapping-esc-to-quit-in-insert-mode
 telescope.setup {
   defaults = {
     winblend = 10,
@@ -40,11 +41,8 @@ telescope.setup {
     },
   },
 }
--- }}}
 
--- Functions {{{
-local telescope_builtin = require('telescope.builtin')
-
+-- Functions
 local function get_git_dirpath()
   local filepath = vim.api.nvim_buf_get_name(0)
   local dirpath = vim.fs.dirname(filepath)
@@ -87,9 +85,8 @@ local function grep_string_from_project()
 
   telescope_builtin.grep_string(opts)
 end
--- }}}
 
--- Keymaps {{{
+-- Keymaps
 vim.keymap.set('n', '<Leader>F', project_files)
 vim.keymap.set('n', '<Leader>f', live_grep_from_project)
 vim.keymap.set('n', '<Leader>G', grep_string_from_project)
@@ -106,9 +103,8 @@ vim.keymap.set('n', '<Leader>gs', telescope_builtin.git_status)
 vim.keymap.set('n', '<Leader>gt', telescope_builtin.git_stash)
 vim.keymap.set('n', '<Leader>gl', '<Cmd>Telescope ghq list<CR>')
 vim.keymap.set('n', '<Leader>i', '<Cmd>Telescope import<CR>')
---- }}}
 
--- Extensions {{{
+-- Extensions
 telescope.load_extension('fzf')
 telescope.load_extension('ui-select')
 telescope.load_extension('frecency')
@@ -116,4 +112,3 @@ telescope.load_extension('ghq')
 telescope.load_extension('egrepify')
 telescope.load_extension('import')
 telescope.load_extension('textcase')
--- }}}

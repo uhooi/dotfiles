@@ -81,3 +81,5 @@ end
 
 vim.keymap.set('x', '<', '<gv')
 vim.keymap.set('x', '>', '>gv')
+
+-- vim: set foldmethod=marker:

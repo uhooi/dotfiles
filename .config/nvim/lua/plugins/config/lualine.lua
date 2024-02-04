@@ -3,7 +3,6 @@ local skkeleton_util = require('plugins.config.shared.skkeleton_util')
 local lsp_util = require('plugins.config.shared.lsp_util')
 local char_util = require('plugins.config.shared.char_util')
 
--- {{{ Setup
 require('lualine').setup {
   options = {
     component_separators = { left = '', right = '' },
@@ -64,4 +63,3 @@ require('lualine').setup {
   --   lualine_z = {},
   -- },
 }
--- }}}

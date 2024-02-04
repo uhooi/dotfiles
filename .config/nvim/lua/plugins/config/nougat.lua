@@ -1,7 +1,6 @@
 -- ref: https://github.com/MunifTanjim/nougat.nvim/blob/5f6ee8ebe28496b9976f838d9df32b05e611835a/examples/bubbly.lua
 --    : https://github.com/MunifTanjim/nougat.nvim/blob/45bee36ef0c46470bff4b623b9f0c4b98005af80/examples/bubbly.lua
 
--- modules {{{
 local nougat = require('nougat')
 local Bar = require('nougat.bar')
 local Item = require('nougat.item')
@@ -9,10 +8,7 @@ local sep = require('nougat.separator')
 local icon = require('plugins.config.shared.icon')
 local skkeleton_util = require('plugins.config.shared.skkeleton_util')
 local char_util = require('plugins.config.shared.char_util')
--- }}}
 
--- variables {{{
--- nut {{{
 local nut = {
   buf = {
     diagnostic_count = require('nougat.nut.buf.diagnostic_count').create,
@@ -29,9 +25,7 @@ local nut = {
   spacer = require('nougat.nut.spacer').create,
   truncation_point = require('nougat.nut.truncation_point').create,
 }
--- }}}
 
--- color {{{
 local color = {
   bg = '#1d2021',
   bg0_h = '#1d2021',
@@ -71,9 +65,7 @@ local color = {
     orange = '#d65d0e',
   },
 }
--- }}}
 
--- mode {{{
 local mode = nut.mode {
   sep_left = sep.left_half_circle_solid(true),
   sep_right = sep.right_half_circle_solid(true),
@@ -107,9 +99,7 @@ local mode = nut.mode {
     },
   },
 }
--- }}}
 
--- skkeleton {{{
 local skkeleton = (function()
   local item = Item {
     sep_left = sep.left_half_circle_solid(true),
@@ -133,9 +123,7 @@ local skkeleton = (function()
 
   return item
 end)()
--- }}}
 
--- file status {{{
 local file_status = (function()
   local item = Item {
     prepare = function(_, ctx)
@@ -173,9 +161,7 @@ local file_status = (function()
 
   return item
 end)()
--- }}}
 
--- fileencoding {{{
 local fileencoding = (function()
   local item = Item {
     sep_left = sep.left_half_circle_solid(true),
@@ -192,9 +178,7 @@ local fileencoding = (function()
 
   return item
 end)()
--- }}}
 
--- fileformat {{{
 local fileformat = (function()
   local item = Item {
     sep_left = sep.left_half_circle_solid(true),
@@ -217,9 +201,7 @@ local fileformat = (function()
 
   return item
 end)()
--- }}}
 
--- lsp servers {{{
 local lsp_servers = nut.lsp.servers.create {
   hl = { bg = color.aqua, fg = color.bg },
   sep_left = sep.left_half_circle_solid(true),
@@ -244,9 +226,7 @@ local lsp_servers = nut.lsp.servers.create {
   },
   sep_right = sep.right_half_circle_solid(true),
 }
--- }}}
 
--- char info {{{
 local char_info = (function()
   local item = Item {
     sep_left = sep.left_half_circle_solid(true),
@@ -264,11 +244,7 @@ local char_info = (function()
 
   return item
 end)()
--- }}}
--- }}}
 
--- functions {{{
--- renders space only when item is rendered
 ---@param item NougatItem
 local function paired_space(item)
   return Item {
@@ -276,10 +252,9 @@ local function paired_space(item)
     hidden = item,
   }
 end
--- }}}
 
--- statusline {{{
--- active {{{
+-- statusline
+-- active
 local stl = Bar('statusline')
 stl:add_item(mode)
 stl:add_item(sep.space())
@@ -302,9 +277,8 @@ stl:add_item(nut.buf.filetype {
 })
 stl:add_item(sep.space())
 stl:add_item(sep.space())
--- }}}
 
--- inactive {{{
+-- inactive
 local stl_inactive = Bar('statusline')
 stl_inactive:add_item(mode)
 stl_inactive:add_item(sep.space())
@@ -313,14 +287,12 @@ stl_inactive:add_item(nut.truncation_point())
 stl_inactive:add_item(file_status)
 stl_inactive:add_item(sep.space())
 stl_inactive:add_item(sep.space())
--- }}}
 
 nougat.set_statusline(function(ctx)
   return ctx.is_focused and stl or stl_inactive
 end)
--- }}}
 
--- tabline {{{
+-- tabline
 vim.opt.showtabline = 2
 local tal = Bar('tabline')
 tal:add_item(nut.git.branch {
@@ -379,4 +351,3 @@ local diagnostic_count = tal:add_item(nut.buf.diagnostic_count {
 })
 tal:add_item(paired_space(diagnostic_count))
 nougat.set_tabline(tal)
--- }}}

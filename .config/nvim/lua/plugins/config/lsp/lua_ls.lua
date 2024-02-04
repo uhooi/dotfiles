@@ -2,8 +2,6 @@
 --    : https://luals.github.io/wiki/settings/
 --    : https://github.com/uga-rosa/dotfiles/blob/f2770a2b210cfdeec43c8a7508e88929f724ac34/nvim/rc/lsp.toml#L110-L133
 
--- Functions {{{
-
 -- ref: https://zenn.dev/uga_rosa/articles/afe384341fc2e1#lazy.nvim-の場合
 ---@param name string
 ---@return string
@@ -16,8 +14,6 @@ local function get_plugin_path(name)
     return ''
   end
 end
-
--- }}}
 
 return {
   Lua = {

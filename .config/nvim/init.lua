@@ -8,3 +8,5 @@ require('basics')
 require('filetypes')
 require('mappings')
 require('plugins')
+
+-- vim: set foldmethod=marker:
