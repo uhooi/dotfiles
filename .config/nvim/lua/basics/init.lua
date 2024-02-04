@@ -70,6 +70,7 @@ vim.opt.laststatus = 3
 -- }}}
 
 -- Fold {{{
+-- ref: https://x.com/delphinus35/status/1751780116156612868
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.opt.foldtext = ''
