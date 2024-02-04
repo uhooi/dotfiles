@@ -118,5 +118,5 @@
   "vimdoc-ja": { "branch": "master", "commit": "3223ad58fd7ad66afb2ceb2cec56df988b752328" },
   "virt-column.nvim": { "branch": "master", "commit": "b62b4ef0774d19452d4ed18e473e824c7a756f2f" },
   "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" },
-  "xcodebuild.nvim": { "branch": "main", "commit": "4d777c1c08aeb4d2ccd9df234e727db6f944cd1f" }
+  "xcodebuild.nvim": { "branch": "main", "commit": "92cdbdd076d286eecce5904c5cfff89369923588" }
 }
