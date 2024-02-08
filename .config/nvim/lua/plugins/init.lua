@@ -118,6 +118,14 @@ require('lazy').setup({
     end,
   },
 
+  {
+    '0xAdk/full_visual_line.nvim',
+    keys = 'V',
+    config = function()
+      require('plugins.config.full_visual_line')
+    end,
+  },
+
   -- FIXME: Not work
   {
     'andersevenrud/nvim_context_vt',
