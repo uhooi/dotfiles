@@ -150,6 +150,12 @@ if [ -d "${PKL_HOME}" ]; then
   export PATH="${PKL_HOME}/bin:$PATH"
 fi
 
+# CodeLLDB
+CODELLDB_HOME=$HOME/codelldb-aarch64-darwin/extension/adapter
+if [ -d "${CODELLDB_HOME}" ]; then
+  export PATH="${CODELLDB_HOME}:$PATH"
+fi
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

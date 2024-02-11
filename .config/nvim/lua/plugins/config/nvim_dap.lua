@@ -17,7 +17,7 @@ dap.adapters.codelldb = {
   type = 'server',
   port = '13000',
   executable = {
-    command = '~/codelldb-aarch64-darwin/extension/adapter/codelldb',
+    command = vim.fn.exepath('codelldb'),
     args = {
       '--port',
       '13000',
