@@ -2,6 +2,7 @@ local icon = require('plugins.config.shared.icon')
 local skkeleton_util = require('plugins.config.shared.skkeleton_util')
 local lsp_util = require('plugins.config.shared.lsp_util')
 local char_util = require('plugins.config.shared.char_util')
+local xcodebuild_util = require('plugins.config.shared.xcodebuild_util')
 
 require('lualine').setup {
   options = {
@@ -49,7 +50,10 @@ require('lualine').setup {
     },
     lualine_b = {},
     lualine_c = {},
-    lualine_x = { lsp_util.names },
+    lualine_x = {
+      { xcodebuild_util.destination },
+      { lsp_util.names },
+    },
     lualine_y = {},
     lualine_z = { 'diagnostics' },
   },

@@ -8,6 +8,7 @@ local sep = require('nougat.separator')
 local icon = require('plugins.config.shared.icon')
 local skkeleton_util = require('plugins.config.shared.skkeleton_util')
 local char_util = require('plugins.config.shared.char_util')
+local xcodebuild_util = require('plugins.config.shared.xcodebuild_util')
 
 local nut = {
   buf = {
@@ -245,6 +246,24 @@ local char_info = (function()
   return item
 end)()
 
+local xcodebuild_destination = (function()
+  local item = Item {
+    sep_left = sep.left_half_circle_solid(true),
+    content = {
+      Item {
+        hl = { bg = color.fg, fg = color.bg },
+        hidden = function(_, _)
+          return xcodebuild_util.destination == ''
+        end,
+        content = xcodebuild_util.destination,
+      },
+    },
+    sep_right = sep.right_half_circle_solid(true),
+  }
+
+  return item
+end)()
+
 ---@param item NougatItem
 local function paired_space(item)
   return Item {
@@ -336,6 +355,8 @@ tal:add_item(paired_space(gitstatus))
 tal:add_item(sep.space())
 tal:add_item(nut.spacer())
 tal:add_item(nut.truncation_point())
+tal:add_item(xcodebuild_destination)
+tal:add_item(sep.space())
 tal:add_item(lsp_servers)
 tal:add_item(sep.space())
 local diagnostic_count = tal:add_item(nut.buf.diagnostic_count {
