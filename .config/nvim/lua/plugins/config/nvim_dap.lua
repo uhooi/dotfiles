@@ -27,12 +27,6 @@ dap.adapters.codelldb = {
   },
 }
 
-vim.keymap.set('n', '<Leader>R', function()
-  xcodebuild_dap.build_and_debug(function()
-    dap.continue()
-  end)
-end)
-
 vim.keymap.set('n', '<Leader>dd', xcodebuild_dap.build_and_debug, { desc = 'Build & Debug' })
 vim.keymap.set('n', '<Leader>dr', xcodebuild_dap.debug_without_build, { desc = 'Debug Without Building' })
 vim.keymap.set('n', '<Leader>dt', xcodebuild_dap.debug_tests, { desc = 'Debug Tests' })

@@ -1,7 +1,11 @@
 local dap = require('dap')
 local dapui = require('dapui')
 
-require('dapui').setup()
+require('dapui').setup {
+  floating = {
+    border = 'rounded',
+  },
+}
 
 dap.listeners.before.attach.dapui_config = function()
   dapui.open()
