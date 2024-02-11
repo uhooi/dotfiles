@@ -1,4 +1,9 @@
-require('xcodebuild').setup()
+require('xcodebuild').setup {
+  auto_save = false,
+  logs = {
+    logs_formatter = '', -- Skip formatting
+  },
+}
 
 vim.keymap.set('n', '<Leader>X', '<Cmd>XcodebuildPicker<CR>', { desc = 'Show All Xcodebuild Actions' })
 vim.keymap.set('n', '<Leader>xf', '<Cmd>XcodebuildProjectManager<CR>', { desc = 'Show Project Manager Actions' })
@@ -24,3 +29,5 @@ vim.keymap.set('n', '<Leader>xp', '<Cmd>XcodebuildSelectTestPlan<CR>', { desc = 
 vim.keymap.set('n', '<Leader>xu', '<Cmd>XcodebuildUninstall<CR>', { desc = 'Uninstall App' })
 vim.keymap.set('n', '<Leader>xo', '<Cmd>XcodebuildShowConfig<CR>', { desc = 'Print Current Project Configuration' })
 vim.keymap.set('n', '<Leader>xq', '<Cmd>Telescope quickfix<CR>', { desc = 'Show QuickFix List' })
+
+vim.keymap.set('n', '<Leader>dt', require('xcodebuild.dap').debug_tests, { desc = 'Debug Tests' })
