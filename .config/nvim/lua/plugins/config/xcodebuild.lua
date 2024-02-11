@@ -29,5 +29,3 @@ vim.keymap.set('n', '<Leader>xp', '<Cmd>XcodebuildSelectTestPlan<CR>', { desc = 
 vim.keymap.set('n', '<Leader>xu', '<Cmd>XcodebuildUninstall<CR>', { desc = 'Uninstall App' })
 vim.keymap.set('n', '<Leader>xo', '<Cmd>XcodebuildShowConfig<CR>', { desc = 'Print Current Project Configuration' })
 vim.keymap.set('n', '<Leader>xq', '<Cmd>Telescope quickfix<CR>', { desc = 'Show QuickFix List' })
-
-vim.keymap.set('n', '<Leader>dt', require('xcodebuild.dap').debug_tests, { desc = 'Debug Tests' })

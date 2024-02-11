@@ -6,9 +6,10 @@ dap.configurations.swift = {
     name = 'iOS App Debugger',
     type = 'codelldb',
     request = 'attach',
-    pid = xcodebuild_dap.wait_for_pid,
+    program = xcodebuild_dap.get_program_path,
     cwd = '${workspaceFolder}',
     stopOnEntry = false,
+    waitFor = true,
   },
 }
 
@@ -21,13 +22,17 @@ dap.adapters.codelldb = {
       '--port',
       '13000',
       '--liblldb',
-      '/Applications/Xcode-15.0.1.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB',
+      '/Applications/Xcode-15.2.0.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB',
     },
   },
 }
 
-vim.keymap.set('n', '<leader>R', function()
-  xcodebuild_dap.build_and_run(function()
+vim.keymap.set('n', '<Leader>R', function()
+  xcodebuild_dap.build_and_debug(function()
     dap.continue()
   end)
 end)
+
+vim.keymap.set('n', '<Leader>dd', xcodebuild_dap.build_and_debug, { desc = 'Build & Debug' })
+vim.keymap.set('n', '<Leader>dr', xcodebuild_dap.debug_without_build, { desc = 'Debug Without Building' })
+vim.keymap.set('n', '<Leader>dt', xcodebuild_dap.debug_tests, { desc = 'Debug Tests' })
