@@ -28,6 +28,13 @@ dap.adapters.codelldb = {
   },
 }
 
+vim.api.nvim_set_hl(0, 'DapIcon', { fg = '#179FFF' })
+vim.fn.sign_define('DapBreakpoint', { text = '󰜴', texthl = 'DapIcon', linehl = '', numhl = '' }) -- nf-md-arrow_right_bold
+vim.fn.sign_define('DapBreakpointCondition', { text = '󰁗', texthl = 'DapIcon', linehl = '', numhl = '' }) -- nf-md-arrow_right_bold_circle_outline
+vim.fn.sign_define('DapLogPoint', { text = '󰜶', texthl = 'DapIcon', linehl = '', numhl = '' }) -- nf-md-arrow_right_bold_box_outline
+vim.fn.sign_define('DapStopped', { text = '❯', texthl = 'DapIcon', linehl = '', numhl = '' })
+vim.fn.sign_define('DapBreakpointRejected', { text = '󰧂', texthl = 'DapIcon', linehl = '', numhl = '' }) -- nf-md-arrow_right_bold_outline
+
 vim.keymap.set('n', '<F5>', dap.continue)
 vim.keymap.set('n', '<F10>', dap.step_over)
 vim.keymap.set('n', '<F11>', dap.step_into)
