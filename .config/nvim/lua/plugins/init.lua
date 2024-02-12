@@ -300,6 +300,7 @@ require('lazy').setup({
 
   {
     'nvim-focus/focus.nvim',
+    enabled = false,
     config = function()
       require('plugins.config.focus')
     end,
