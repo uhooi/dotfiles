@@ -239,7 +239,6 @@ require('lazy').setup({
 
   {
     'rcarriga/nvim-notify',
-    enabled = false, -- TODO: https://x.com/the_uhooi/status/1756175891477213671
     config = function()
       require('plugins.config.nvim_notify')
     end,
