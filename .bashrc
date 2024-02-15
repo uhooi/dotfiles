@@ -93,3 +93,6 @@ source ~/.swift-package-complete.bash
 # ref: https://github.com/direnv/direnv/blob/357825f4ddcc8d7ef62a6276b60d9aa36449ac96/docs/hook.md#bash
 eval "$(direnv hook bash)"
 # }}}
+
+# Cargo
+. "$HOME/.cargo/env"
