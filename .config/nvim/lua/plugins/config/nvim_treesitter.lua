@@ -24,6 +24,7 @@ require('nvim-treesitter.configs').setup {
     'lua',
     'make',
     'markdown',
+    'nix',
     -- 'objc',
     'perl',
     'php',

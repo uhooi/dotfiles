@@ -28,6 +28,7 @@ mason_lspconfig.setup {
     'jsonls',
     'kotlin_language_server',
     'lua_ls',
+    'nil_ls',
     'omnisharp',
     'perlnavigator',
     'pyright',
