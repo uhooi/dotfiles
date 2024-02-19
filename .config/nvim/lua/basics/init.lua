@@ -43,6 +43,15 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
     vim.opt_local.tabstop = 2
   end,
 })
+
+-- Pkl
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  group = 'edit',
+  pattern = '*.pkl',
+  callback = function()
+    vim.opt_local.tabstop = 2
+  end,
+})
 -- }}}
 
 -- }}}
