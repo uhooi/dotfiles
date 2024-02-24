@@ -86,6 +86,9 @@ require('lazy').setup({
   {
     'RRethy/vim-illuminate',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    cond = function()
+      return vim.fn.expand('%:e') ~= 'pkl' -- FIXME: Error in tree-sitter
+    end,
   },
 
   {
