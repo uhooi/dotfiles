@@ -525,8 +525,9 @@ require('lazy').setup({
 
   {
     'apple/pkl-neovim',
-    lazy = true,
-    event = 'BufReadPre *.pkl',
+    cond = function()
+      return vim.fn.expand('%:e') == 'pkl'
+    end,
     dependencies = {
       'nvim-treesitter/nvim-treesitter',
     },
