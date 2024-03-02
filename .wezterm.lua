@@ -140,7 +140,6 @@ config.max_fps = 60
 -- updates {{{
 config.check_for_updates = true
 config.check_for_updates_interval_seconds = 24 * 60 * 60
-config.show_update_window = true
 -- }}}
 
 -- unicode {{{
@@ -215,3 +214,5 @@ end)
 -- }}}
 
 return config
+
+-- vim: set foldmethod=marker:
