@@ -23,7 +23,7 @@ dap.adapters.codelldb = {
       '--port',
       '13000',
       '--liblldb',
-      '/Applications/Xcode-15.2.0.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB',
+      '/Applications/Xcode-15.3.0.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB',
     },
   },
 }
