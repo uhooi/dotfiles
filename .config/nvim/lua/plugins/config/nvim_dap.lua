@@ -1,32 +1,12 @@
 local dap = require('dap')
 local dap_ui_widgets = require('dap.ui.widgets')
-local xcodebuild_dap = require('xcodebuild.dap')
+local xcodebuild = require('xcodebuild.integrations.dap')
 
-dap.configurations.swift = {
-  {
-    name = 'iOS App Debugger',
-    type = 'codelldb',
-    request = 'attach',
-    program = xcodebuild_dap.get_program_path,
-    cwd = '${workspaceFolder}',
-    stopOnEntry = false,
-    waitFor = true,
-  },
-}
-
-dap.adapters.codelldb = {
-  type = 'server',
-  port = '13000',
-  executable = {
-    command = vim.fn.exepath('codelldb'),
-    args = {
-      '--port',
-      '13000',
-      '--liblldb',
-      '/Applications/Xcode-15.3.0.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB',
-    },
-  },
-}
+xcodebuild.setup('')
+dap.adapters.codelldb = xcodebuild.get_codelldb_adapter(
+  vim.fn.exepath('codelldb'),
+  '/Applications/Xcode-15.3.0.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB'
+)
 
 vim.api.nvim_set_hl(0, 'DapIcon', { fg = '#179FFF' })
 vim.api.nvim_set_hl(0, 'DapStopped', { bg = '#003D66' })
@@ -55,6 +35,8 @@ vim.keymap.set('n', '<Leader>ds', function()
   dap_ui_widgets.centered_float(dap_ui_widgets.scopes)
 end)
 
-vim.keymap.set('n', '<Leader>dd', xcodebuild_dap.build_and_debug, { desc = 'Build & Debug' })
-vim.keymap.set('n', '<Leader>dR', xcodebuild_dap.debug_without_build, { desc = 'Debug Without Building' })
-vim.keymap.set('n', '<Leader>dt', xcodebuild_dap.debug_tests, { desc = 'Debug Tests' })
+vim.keymap.set('n', '<Leader>dd', xcodebuild.build_and_debug, { desc = 'Build & Debug' })
+vim.keymap.set('n', '<Leader>dR', xcodebuild.debug_without_build, { desc = 'Debug Without Building' })
+vim.keymap.set('n', '<Leader>dt', xcodebuild.debug_tests, { desc = 'Debug Tests' })
+vim.keymap.set('n', '<Leader>dT', xcodebuild.debug_class_tests, { desc = 'Debug Class Tests' })
+vim.keymap.set('n', '<Leader>dx', xcodebuild.terminate_session, { desc = 'Terminate Debugger' })

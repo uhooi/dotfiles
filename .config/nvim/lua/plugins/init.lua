@@ -80,6 +80,9 @@ require('lazy').setup({
   { 'nvim-tree/nvim-web-devicons', lazy = true },
 
   { 'MunifTanjim/nui.nvim', lazy = true },
+
+  { 'nvim-neotest/nvim-nio', lazy = true },
+
   -- }}}
 
   -- Basic {{{
@@ -731,7 +734,10 @@ require('lazy').setup({
 
   {
     'rcarriga/nvim-dap-ui',
-    dependencies = { 'mfussenegger/nvim-dap' },
+    dependencies = {
+      'mfussenegger/nvim-dap',
+      'nvim-neotest/nvim-nio',
+    },
     config = function()
       require('plugins.config.nvim_dap_ui')
     end,
