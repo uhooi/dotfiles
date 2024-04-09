@@ -175,16 +175,6 @@ require('lazy').setup({
   { 'dkarter/bullets.vim' },
 
   {
-    'numToStr/Comment.nvim',
-    dependencies = {
-      'JoosepAlviste/nvim-ts-context-commentstring',
-    },
-    config = function()
-      require('plugins.config.comment')
-    end,
-  },
-
-  {
     'monaqa/dial.nvim',
     config = function()
       require('plugins.config.dial')

@@ -1,5 +1,4 @@
 {
-  "Comment.nvim": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },
   "SmoothCursor.nvim": { "branch": "main", "commit": "150a4943458014149db4bbc7e292c263aa98dede" },
   "apiblueprint.vim": { "branch": "master", "commit": "776b9863e32a8ba59bf8a9656770a77c148c6e9c" },
   "blackjack.nvim": { "branch": "main", "commit": "cf59e79de25b87a3ef68b92b3277c50d4b345a92" },
