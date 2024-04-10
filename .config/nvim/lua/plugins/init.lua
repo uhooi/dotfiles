@@ -818,14 +818,6 @@ require('lazy').setup({
 
   -- Preview {{{
   {
-    'tyru/open-browser.vim',
-    keys = { '<Plug>(openbrowser-smart-search)' },
-    config = function()
-      require('plugins.config.open_browser')
-    end,
-  },
-
-  {
     'toppair/peek.nvim',
     event = 'VeryLazy',
     build = 'deno task --quiet build:fast',
