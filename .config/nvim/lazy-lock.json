@@ -32,6 +32,7 @@
   "diffview.nvim": { "branch": "main", "commit": "3dc498c9777fe79156f3d32dddd483b8b3dbd95f" },
   "dressing.nvim": { "branch": "master", "commit": "18e5beb3845f085b6a33c24112b37988f3f93c06" },
   "dropbar.nvim": { "branch": "master", "commit": "26173fd5347bddc28fdc645d7020abd860754a73" },
+  "eagle.nvim": { "branch": "main", "commit": "177957f60f6ca9c38b92328c8a51453f88a9d098" },
   "eaw.nvim": { "branch": "main", "commit": "215e1acef4bf4cb8659566bcd72dbad8a3af8fa6" },
   "emmet-vim": { "branch": "master", "commit": "def5d57a1ae5afb1b96ebe83c4652d1c03640f4d" },
   "flash.nvim": { "branch": "main", "commit": "48817af25f51c0590653bbc290866e4890fe1cbe" },

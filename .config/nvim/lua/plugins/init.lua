@@ -679,10 +679,9 @@ require('lazy').setup({
   },
 
   {
-    'soulis-1256/hoverhints.nvim',
-    enabled = false,
+    'soulis-1256/eagle.nvim',
     config = function()
-      require('plugins.config.hoverhints')
+      require('plugins.config.eagle')
     end,
   },
 
