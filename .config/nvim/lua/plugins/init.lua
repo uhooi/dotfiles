@@ -593,6 +593,17 @@ require('lazy').setup({
   },
   -- }}}
 
+  -- Markdown {{{
+  {
+    'MeanderingProgrammer/markdown.nvim',
+    name = 'render-markdown',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    config = function()
+      require('plugins.config.render_markdown')
+    end,
+  },
+  -- }}}
+
   -- Denops {{{
   { 'vim-denops/denops.vim', lazy = true },
 
