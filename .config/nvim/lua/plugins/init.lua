@@ -597,6 +597,7 @@ require('lazy').setup({
   {
     'MeanderingProgrammer/markdown.nvim',
     name = 'render-markdown',
+    enabled = false,
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
       require('plugins.config.render_markdown')
