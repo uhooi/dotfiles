@@ -856,8 +856,8 @@ require('lazy').setup({
     'epwalsh/obsidian.nvim',
     lazy = true,
     event = {
-      'BufReadPre ' .. vim.fn.expand('~') .. '/vaults/uhooi/**.md',
-      'BufNewFile ' .. vim.fn.expand('~') .. '/vaults/uhooi/**.md',
+      'BufReadPre ' .. vim.fn.expand('~') .. '/Library/Mobile Documents/iCloud~md~obsidian/Documents/uhooi/**.md',
+      'BufNewFile ' .. vim.fn.expand('~') .. '/Library/Mobile Documents/iCloud~md~obsidian/Documents/uhooi/**.md',
     },
     dependencies = {
       'nvim-lua/plenary.nvim',
