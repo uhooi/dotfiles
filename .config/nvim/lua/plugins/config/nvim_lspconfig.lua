@@ -147,11 +147,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
     local supports_inlay_hint = client.server_capabilities.inlayHintProvider
     if supports_inlay_hint or client.name == 'sourcekit' then
       if supports_inlay_hint then
-        vim.lsp.inlay_hint.enable(bufnr, true)
+        vim.lsp.inlay_hint.enable(true, { bufnr })
       end
 
       vim.keymap.set('n', 'gh', function()
-        vim.lsp.inlay_hint.enable(bufnr, not vim.lsp.inlay_hint.is_enabled())
+        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(), { bufnr })
       end, bufopts)
     end
     -- }}}
