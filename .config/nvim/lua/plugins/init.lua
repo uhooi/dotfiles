@@ -853,6 +853,24 @@ require('lazy').setup({
   },
 
   {
+    'epwalsh/obsidian.nvim',
+    lazy = true,
+    event = {
+      'BufReadPre ' .. vim.fn.expand('~') .. '/vaults/uhooi/**.md',
+      'BufNewFile ' .. vim.fn.expand('~') .. '/vaults/uhooi/**.md',
+    },
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'hrsh7th/nvim-cmp',
+      'nvim-telescope/telescope.nvim',
+      'nvim-treesitter/nvim-treesitter',
+    },
+    config = function()
+      require('plugins.config.obsidian')
+    end,
+  },
+
+  {
     'thinca/vim-themis',
     ft = { 'vim' },
   },
