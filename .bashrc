@@ -16,6 +16,9 @@ alias rm='trash-put'
 
 alias g='git'
 
+alias ga='git add "$(git status --short | peco | cut --characters 4-)"'
+alias gr='git reset HEAD "$(git status --short | peco | cut --characters 4-)"'
+
 # ref: https://tokizuoh.hatenablog.com/entry/2022/09/10/104017
 #    : https://qiita.com/IzumiSy/items/b44b384468d8f2f9dc71
 shopt -s autocd
