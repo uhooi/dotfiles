@@ -5,7 +5,7 @@ local xcodebuild = require('xcodebuild.integrations.dap')
 xcodebuild.setup('')
 dap.adapters.codelldb = xcodebuild.get_codelldb_adapter(
   vim.fn.exepath('codelldb'),
-  '/Applications/Xcode-15.3.0.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB'
+  '/Applications/Xcode-15.4.0.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB'
 )
 
 vim.api.nvim_set_hl(0, 'DapIcon', { fg = '#179FFF' })
