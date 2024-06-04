@@ -2,6 +2,9 @@ vim.opt.termguicolors = true
 
 local ccc = require('ccc')
 ccc.setup {
+  highlight_mode = 'virtual',
+  virtual_symbol = '󱓻 ', -- nf-md-square_rounded
+  virtual_pos = 'inline-left',
   highlighter = {
     auto_enable = true,
   },
