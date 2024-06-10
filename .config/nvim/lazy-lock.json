@@ -46,7 +46,7 @@
   "hawtkeys.nvim": { "branch": "main", "commit": "261cc311d4abdc88decceca6dc1013faa14c56ea" },
   "helpful.vim": { "branch": "master", "commit": "998082d1342e087aacf03ac2e4cdeb3571561470" },
   "highlight-undo.nvim": { "branch": "main", "commit": "1ea1c79372d7d93c88fd97543880927b7635e3d2" },
-  "hlchunk.nvim": { "branch": "main", "commit": "31ddd8c4fb1b315873ab122a367e69a28f75aed9" },
+  "hlchunk.nvim": { "branch": "main", "commit": "1754bb9fecb8ab4a68163b721ab3e1a744fcf4a7" },
   "kensaku-command.vim": { "branch": "main", "commit": "d14e13d67e53b597806951f7ccabc40fe6a574fb" },
   "kensaku-search.vim": { "branch": "main", "commit": "9568c2b174a9cf31bd9922c0a991117f4dd4f0c3" },
   "kensaku.vim": { "branch": "main", "commit": "7ddad2f355a3678597ebbac666e2ee6dda6b9cf3" },
