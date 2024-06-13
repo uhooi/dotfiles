@@ -61,6 +61,14 @@ mason_lspconfig.setup_handlers {
 
 -- Language servers (Not managed by mason-lspconfig)
 lspconfig.sourcekit.setup {
+  -- ref: https://www.swift.org/documentation/articles/zero-to-swift-nvim.html
+  capabilities = {
+    workspace = {
+      didChangeWatchedFiles = {
+        dynamicRegistration = true,
+      },
+    },
+  },
   -- Use iOS SDK (UIKit etc.)
   -- ref: https://qiita.com/niusounds/items/5a39b65b54939814a9f9
   -- TODO: Make version dynamic
