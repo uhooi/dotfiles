@@ -87,6 +87,7 @@
   "presenting.nvim": { "branch": "main", "commit": "a496b33070c96d28ba5be81deb7f1fba80d13de4" },
   "rainbow-delimiters.nvim": { "branch": "master", "commit": "5c9660801ce345cd3835e1947c12b54290ab7e71" },
   "satellite.nvim": { "branch": "main", "commit": "777ed56e1ef45ec808df701730b6597fc4fb0fbc" },
+  "screenkey.nvim": { "branch": "main", "commit": "c7c94b0e2f2f9bf1a2370e47348c42b378347298" },
   "skkeleton": { "branch": "main", "commit": "e660dc2ba7e9e6c9c3e9a259c372149bfdd01741" },
   "skkeleton_indicator.nvim": { "branch": "main", "commit": "6d567debfedaad79e72f9088a2711351ec8770ec" },
   "ssr.nvim": { "branch": "main", "commit": "bb323ba621ac647b4ac5638b47666e3ef3c279e1" },

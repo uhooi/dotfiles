@@ -854,6 +854,13 @@ require('lazy').setup({
   },
 
   {
+    'NStefan002/screenkey.nvim',
+    config = function()
+      require('plugins.config.screenkey')
+    end,
+  },
+
+  {
     'epwalsh/obsidian.nvim',
     lazy = true,
     event = {
