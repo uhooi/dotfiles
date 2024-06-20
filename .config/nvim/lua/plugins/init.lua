@@ -132,7 +132,6 @@ require('lazy').setup({
     end,
   },
 
-  -- FIXME: Not work
   {
     'andersevenrud/nvim_context_vt',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
