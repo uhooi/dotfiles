@@ -60,6 +60,7 @@ mason_lspconfig.setup_handlers {
 }
 
 -- Language servers (Not managed by mason-lspconfig)
+-- ref: https://github.com/neovim/nvim-lspconfig/blob/6806370929cf6a35be6e5e0e74588515a4356e4d/doc/server_configurations.md#sourcekit
 lspconfig.sourcekit.setup {
   -- ref: https://www.swift.org/documentation/articles/zero-to-swift-nvim.html
   capabilities = {
@@ -86,6 +87,10 @@ lspconfig.sourcekit.setup {
     'x86_64-apple-ios17.5-simulator',
   },
 }
+
+-- ref: https://github.com/neovim/nvim-lspconfig/blob/6806370929cf6a35be6e5e0e74588515a4356e4d/doc/server_configurations.md#dartls
+--    : https://github.com/dart-lang/sdk/tree/09e87e6d7bd18e3b08cc96c3a42b8e3f37a096d6/pkg/analysis_server/tool/lsp_spec
+lspconfig.dartls.setup {}
 
 -- Signs
 -- ref: https://github.com/neovim/neovim/pull/26193
