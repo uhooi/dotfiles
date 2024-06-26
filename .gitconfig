@@ -68,6 +68,9 @@
     ss = status -s
     sb = status -s -b
     sh = show
+    sm = submodule
+    smu = submodule update
+    smur = submodule update --remote
     st = stash
     stl = stash list
     sts = stash show
