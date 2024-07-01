@@ -2,6 +2,12 @@ local color = require('plugins.config.shared.color')
 
 require('hlchunk').setup {
   chunk = {
+    enable = true,
+    style = {
+      { fg = color.accent },
+      { fg = '#c21f30' }, -- This fg is used to highlight wrong chunk
+    },
+    use_treesitter = true,
     chars = {
       horizontal_line = '─',
       vertical_line = '│',
@@ -9,16 +15,16 @@ require('hlchunk').setup {
       left_bottom = '╰',
       right_arrow = '─',
     },
-    style = {
-      { fg = color.accent },
-      { fg = '#c21f30' }, -- This fg is used to highlight wrong chunk
-    },
-  },
-  line_num = {
-    style = color.accent,
   },
   indent = {
+    enable = true,
+    use_treesitter = true,
     chars = { '│' },
+  },
+  line_num = {
+    enable = true,
+    style = color.accent,
+    use_treesitter = true,
   },
   blank = {
     enable = false,
