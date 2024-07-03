@@ -1,13 +1,26 @@
 root = true
 
 # ref: https://neovim.io/doc/user/editorconfig.html
-# ref: https://github.com/CppCXY/EmmyLuaCodeStyle/blob/28bff899e7590f594b15146ea5f3a791268d1427/lua.template.editorconfig
-# ref: https://github.com/neovim/neovim/blob/f76e1ac92eda9cb364a9de49422b45a035256ca6/.editorconfig
+#    : https://github.com/pinterest/ktlint/blob/abb24b946cb2cc35037640dbb9b91850cd7c0070/.editorconfig
+#    : https://github.com/rust-lang/rust/blob/6c3485512fc95fa9c43cb831607bfec9d2153b6e/.editorconfig
+#    : https://github.com/CppCXY/EmmyLuaCodeStyle/blob/28bff899e7590f594b15146ea5f3a791268d1427/lua.template.editorconfig
+#    : https://github.com/neovim/neovim/blob/f76e1ac92eda9cb364a9de49422b45a035256ca6/.editorconfig
 
-[*.lua]
+[*]
 indent_style = space
 indent_size = 2
-max_line_length = 120
+max_line_length = 140
 end_of_line = lf
+charset = utf-8
 insert_final_newline = true
 trim_trailing_whitespace = true
+
+[*.lua]
+max_line_length = 120
+
+[Makefile]
+indent_style = tab
+
+[*.md]
+max_line_length = unset
+trim_trailing_whitespace = false
