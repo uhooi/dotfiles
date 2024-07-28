@@ -13,7 +13,7 @@ vim.api.nvim_set_hl(0, 'DapStopped', { bg = '#003D66' })
 vim.fn.sign_define('DapBreakpoint', { text = '󰌕', texthl = 'DapIcon', linehl = '', numhl = '' }) -- nf-md-label
 vim.fn.sign_define('DapBreakpointCondition', { text = '󰌖', texthl = 'DapIcon', linehl = '', numhl = '' }) -- nf-md-label_outline
 vim.fn.sign_define('DapLogPoint', { text = '󱋪', texthl = 'DapIcon', linehl = '', numhl = '' }) -- nf-md-label_percent
-vim.fn.sign_define('DapStopped', { text = '❯', texthl = 'DapIcon', linehl = 'DapStopped', numhl = '' })
+vim.fn.sign_define('DapStopped', { text = '󰜴', texthl = 'DapIcon', linehl = 'DapStopped', numhl = '' }) -- nf-md-arrow_right_bold
 vim.fn.sign_define('DapBreakpointRejected', { text = '󰫋', texthl = 'DapIcon', linehl = '', numhl = '' }) -- nf-md-label_off
 
 vim.keymap.set('n', '<F5>', dap.continue)
