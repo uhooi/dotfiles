@@ -162,7 +162,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
     --    : https://github.com/apple/sourcekit-lsp/issues/757
     --    : https://github.com/neovim/neovim/issues/24183
     local supports_inlay_hint = client.server_capabilities.inlayHintProvider
-    if supports_inlay_hint or client.name == 'sourcekit' or client.name == 'dartls' then
+    -- FIXME: Error when enabling inlay hints in sourcekit-lsp
+    --      : https://x.com/the_uhooi/status/1826297399884878193
+    --      : https://github.com/neovim/neovim/issues/26926
+    -- if supports_inlay_hint or client.name == 'sourcekit' or client.name == 'dartls' then
+    if supports_inlay_hint then
       if supports_inlay_hint then
         vim.lsp.inlay_hint.enable(true, { bufnr })
       end
