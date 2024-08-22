@@ -29,9 +29,24 @@ null_ls.setup {
     -- null_ls.builtins.diagnostics.vint, -- `brew install vint`
     null_ls.builtins.diagnostics.swiftlint.with {
       prefer_local = '.mint/lib/packages/github.com_realm_SwiftLint/build/0.55.0', -- TODO: Make version dynamic
+      args = {
+        '--reporter',
+        'json',
+        '--use-stdin',
+        '--quiet',
+        '--config',
+        vim.fn.expand('~/ghq/github.com/uhooi/Loki/.swiftlint.yml'), -- TODO: Make path dynamic
+      },
     },
     null_ls.builtins.formatting.swiftlint.with {
       prefer_local = '.mint/lib/packages/github.com_realm_SwiftLint/build/0.55.0', -- TODO: Make version dynamic
+      args = {
+        '--use-stdin',
+        '--fix',
+        '--format',
+        '--config',
+        vim.fn.expand('~/ghq/github.com/uhooi/Loki/.swiftlint.yml'), -- TODO: Make path dynamic
+      },
     },
   },
 }
