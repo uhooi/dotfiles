@@ -1,5 +1,6 @@
 require('smoothcursor').setup {
   cursor = '▷',
+  texthl = 'Text',
   disable_float_win = true,
 }
 

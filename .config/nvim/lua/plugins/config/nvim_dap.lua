@@ -8,8 +8,14 @@ dap.adapters.codelldb = xcodebuild.get_codelldb_adapter(
   '/Applications/Xcode-15.4.0.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB'
 )
 
-vim.api.nvim_set_hl(0, 'DapIcon', { fg = '#179FFF' })
-vim.api.nvim_set_hl(0, 'DapStopped', { bg = '#003D66' })
+-- TokyoNight
+-- vim.api.nvim_set_hl(0, 'DapIcon', { fg = '#179FFF' })
+-- vim.api.nvim_set_hl(0, 'DapStopped', { bg = '#003D66' })
+
+-- Dayfox
+vim.cmd([[highlight link DapIcon Text]])
+vim.cmd([[highlight link DapStopped CursorLine]])
+
 vim.fn.sign_define('DapBreakpoint', { text = '󰌕', texthl = 'DapIcon', linehl = '', numhl = '' }) -- nf-md-label
 vim.fn.sign_define('DapBreakpointCondition', { text = '󰌖', texthl = 'DapIcon', linehl = '', numhl = '' }) -- nf-md-label_outline
 vim.fn.sign_define('DapLogPoint', { text = '󱋪', texthl = 'DapIcon', linehl = '', numhl = '' }) -- nf-md-label_percent

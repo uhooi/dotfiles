@@ -60,6 +60,7 @@
   "nekokak.nvim": { "branch": "main", "commit": "2bf8ed0ed369306abf487531512c5260858b2533" },
   "neogit": { "branch": "master", "commit": "6af8fc6b03210d0ac99398f8eff27c5be7b2ba8a" },
   "neoscroll.nvim": { "branch": "master", "commit": "532dcc8cea4287c4cad6bb77532989a8217cfc7b" },
+  "nightfox.nvim": { "branch": "main", "commit": "d3e8b1acc095baf57af81bb5e89fe7c4359eb619" },
   "noice.nvim": { "branch": "main", "commit": "448bb9c524a7601035449210838e374a30153172" },
   "nougat.nvim": { "branch": "main", "commit": "1c1cde6e53d7d7c2242d125fe67552b00e235876" },
   "nui.nvim": { "branch": "main", "commit": "61574ce6e60c815b0a0c4b5655b8486ba58089a1" },
