@@ -24,7 +24,6 @@ require('lazy').setup({
   -- Colorscheme {{{
   {
     'folke/tokyonight.nvim',
-    enabled = false,
     lazy = false,
     priority = 1000,
     config = function()
@@ -34,6 +33,7 @@ require('lazy').setup({
 
   {
     'EdenEast/nightfox.nvim',
+    enabled = false,
     lazy = false,
     priority = 1000,
     config = function()
