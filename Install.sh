@@ -34,8 +34,9 @@ ln -fns ${SCRIPT_DIR_PATH}/.wezterm.lua ~/.wezterm.lua
 ln -fns ${SCRIPT_DIR_PATH}/.hyper.js ~/.hyper.js
 ln -fns ${SCRIPT_DIR_PATH}/.swift-package-complete.bash ~/.swift-package-complete.bash
 # macSKK
-mkdir -p ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries
+mkdir -p ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Library/Preferences
 cp ${SCRIPT_DIR_PATH}/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Library/Preferences/net.mtgto.inputmethod.macSKK.plist ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Library/Preferences/net.mtgto.inputmethod.macSKK.plist
+mkdir -p ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries
 cp ${SCRIPT_DIR_PATH}/.dictionaries/SKK-JISYO.jawiki ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries/SKK-JISYO.jawiki
 cp ${SCRIPT_DIR_PATH}/.dictionaries/SKK-JISYO.emoji.utf8 ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries/SKK-JISYO.emoji.utf8
 cp ${SCRIPT_DIR_PATH}/.dictionaries/skk-jisyo.utf8 ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries/skk-jisyo.utf8
