@@ -67,6 +67,7 @@ config.warn_about_missing_glyphs = true
 -- }}}
 
 -- keys {{{
+config.macos_forward_to_ime_modifier_mask = 'SHIFT|CTRL'
 config.use_ime = true
 -- }}}
 
