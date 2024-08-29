@@ -8,34 +8,33 @@
 # ----
 
 # dotfilesのシンボリックリンクを削除する
-rm ~/.vimrc
-rm ~/.gvimrc
-rm ~/.xvimrc
-rm ~/.ideavimrc
-rm -r ~/.vim/config
-rm -r ~/.vim/snippets
-rm -r ~/.config/nvim
-rm -r ~/.config/alacritty
-rm -r ~/.config/efm-langserver
-rm -r ~/.config/ranger
-rm ~/.bash_profile
-rm ~/.bashrc
-rm ~/.inputrc
-rm ~/.sqliterc
-rm ~/.xpdfrc
-rm ~/.gitignore
-rm ~/.svnignore
-rm ~/.wezterm.lua
-rm ~/.hyper.js
-rm ~/.swift-package-complete.bash
+/bin/rm ~/.vimrc
+/bin/rm ~/.gvimrc
+/bin/rm ~/.xvimrc
+/bin/rm ~/.ideavimrc
+/bin/rm -r ~/.vim/config
+/bin/rm -r ~/.vim/snippets
+/bin/rm -r ~/.config/nvim
+/bin/rm -r ~/.config/alacritty
+/bin/rm -r ~/.config/efm-langserver
+/bin/rm -r ~/.config/ranger
+/bin/rm ~/.bash_profile
+/bin/rm ~/.bashrc
+/bin/rm ~/.inputrc
+/bin/rm ~/.sqliterc
+/bin/rm ~/.xpdfrc
+/bin/rm ~/.gitignore
+/bin/rm ~/.svnignore
+/bin/rm ~/.wezterm.lua
+/bin/rm ~/.hyper.js
+/bin/rm ~/.swift-package-complete.bash
+# macSKK
+/bin/rm ~/Library/Containers/net.mtgto.inputmethod.macSKK
 # AquaSKK
-rm ~/Library/Application\ Support/AquaSKK/kana-rule.conf
-rm ~/Library/Application\ Support/AquaSKK/keymap.conf
-rm ~/Library/Application\ Support/AquaSKK/SKK-JISYO.jawiki
-rm ~/Library/Application\ Support/AquaSKK/SKK-JISYO.emoji.utf8
+/bin/rm ~/Library/Application\ Support/AquaSKK
 
 # dein.vimをアンインストールする
-rm -r ~/.cache/dein
+/bin/rm -r ~/.cache/dein
 
 if [ "$(uname)" == 'Darwin' ]; then
   # 環境設定を削除する
