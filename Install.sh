@@ -41,13 +41,11 @@ cp ${SCRIPT_DIR_PATH}/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Docum
 mkdir -p ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries
 cp ${SCRIPT_DIR_PATH}/.dictionaries/SKK-JISYO.jawiki ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries/SKK-JISYO.jawiki
 cp ${SCRIPT_DIR_PATH}/.dictionaries/SKK-JISYO.emoji.utf8 ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries/SKK-JISYO.emoji.utf8
-cp ${SCRIPT_DIR_PATH}/.dictionaries/skk-jisyo.utf8 ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries/skk-jisyo.utf8
 # AquaSKK
 ln -fns ${SCRIPT_DIR_PATH}/Library/Application\ Support/AquaSKK/kana-rule.conf ~/Library/Application\ Support/AquaSKK/kana-rule.conf
 ln -fns ${SCRIPT_DIR_PATH}/Library/Application\ Support/AquaSKK/keymap.conf ~/Library/Application\ Support/AquaSKK/keymap.conf
 ln -fns ${SCRIPT_DIR_PATH}/.dictionaries/SKK-JISYO.jawiki ~/Library/Application\ Support/AquaSKK/SKK-JISYO.jawiki
 ln -fns ${SCRIPT_DIR_PATH}/.dictionaries/SKK-JISYO.emoji.utf8 ~/Library/Application\ Support/AquaSKK/SKK-JISYO.emoji.utf8
-ln -fns ${SCRIPT_DIR_PATH}/.dictionaries/skk-jisyo.utf8 ~/Library/Application\ Support/AquaSKK/skk-jisyo.utf8
 
 source ~/.bash_profile
 
