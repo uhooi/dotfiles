@@ -549,13 +549,6 @@ require('lazy').setup({
   },
 
   {
-    'mechatroner/rainbow_csv',
-    cond = function()
-      return vim.fn.expand('%:e') == 'csv'
-    end,
-  },
-
-  {
     'aklt/plantuml-syntax',
     cond = function()
       local ext = vim.fn.expand('%:e')
