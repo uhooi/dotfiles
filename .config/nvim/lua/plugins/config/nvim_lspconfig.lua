@@ -35,7 +35,7 @@ mason_lspconfig.setup {
     'rust_analyzer',
     'solargraph',
     'taplo',
-    'tsserver',
+    'ts_ls',
     'vimls',
     -- 'yamlls',
   },
