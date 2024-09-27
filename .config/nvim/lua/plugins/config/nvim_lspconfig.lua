@@ -79,12 +79,12 @@ lspconfig.sourcekit.setup {
     '-sdk',
     '-Xswiftc',
     -- '`xcrun --sdk iphonesimulator --show-sdk-path`',
-    '/Applications/Xcode-15.4.0.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator17.5.sdk',
+    '/Applications/Xcode-16.0.0.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator17.5.sdk',
     '-Xswiftc',
     '-target',
     '-Xswiftc',
     -- 'x86_64-apple-ios`xcrun --sdk iphonesimulator --show-sdk-platform-version`-simulator',
-    'x86_64-apple-ios17.5-simulator',
+    'x86_64-apple-ios18.0-simulator',
   },
 }
 
