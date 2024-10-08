@@ -134,6 +134,7 @@ cmp.setup {
   }, {
     { name = 'treesitter' },
     { name = 'ghq' },
+    { name = 'wezterm' },
   }, {
     { name = 'dictionary' },
   }),
@@ -144,6 +145,7 @@ cmp.setup.cmdline({ '/', '?' }, {
   sources = cmp.config.sources({
     { name = 'skkeleton' },
     { name = 'buffer' },
+    { name = 'wezterm' },
   }, {
     { name = 'dictionary' },
   }),

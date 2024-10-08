@@ -774,10 +774,8 @@ require('lazy').setup({
     'delphinus/cmp-ghq',
     dependencies = { 'nvim-lua/plenary.nvim' },
     lazy = true,
-    config = function()
-      require('plugins.config.cmp_ghq')
-    end,
   },
+  { 'delphinus/cmp-wezterm', lazy = true },
   { 'uga-rosa/cmp-latex-symbol', lazy = true },
   {
     'uga-rosa/cmp-dictionary',
