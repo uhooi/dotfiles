@@ -4,7 +4,6 @@ require('dropbar').setup {
   icons = {
     enable = true,
     kinds = {
-      use_devicons = true,
       symbols = {
         Array = icon.symbol.array .. ' ',
         Boolean = icon.symbol.boolean .. ' ',
