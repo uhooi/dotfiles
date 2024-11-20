@@ -127,7 +127,6 @@ require('lazy').setup({
 
   {
     'shellRaining/hlchunk.nvim',
-    enabled = false, -- FIXME: Error
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
