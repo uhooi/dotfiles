@@ -91,6 +91,7 @@
   "screenkey.nvim": { "branch": "main", "commit": "fea221f005662f43ebf72d9a23c3f75aa8fdf30b" },
   "skkeleton": { "branch": "main", "commit": "2cdd414c1bfa8c363505b8dfc9f50ef2f446ea61" },
   "skkeleton_indicator.nvim": { "branch": "main", "commit": "6d567debfedaad79e72f9088a2711351ec8770ec" },
+  "snacks.nvim": { "branch": "main", "commit": "78f44f720b1b0609930581965f4f92649efae95b" },
   "ssr.nvim": { "branch": "main", "commit": "7c95cfa5836508f08ae833a4b31d2ed265560f64" },
   "swift.vim": { "branch": "master", "commit": "87ea6da902553c533b2916bd800ddabbfcd80973" },
   "symbols-outline.nvim": { "branch": "master", "commit": "564ee65dfc9024bdde73a6621820866987cbb256" },
