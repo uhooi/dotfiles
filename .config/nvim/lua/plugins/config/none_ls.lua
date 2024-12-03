@@ -7,15 +7,16 @@ null_ls.setup {
     -- ref: https://github.com/jose-elias-alvarez/null-ls.nvim/blob/8c90ccf7ffbdeb49da415837ec45e6ac457d5c60/doc/BUILTINS.md
     --    : https://github.com/jose-elias-alvarez/null-ls.nvim/blob/8c90ccf7ffbdeb49da415837ec45e6ac457d5c60/doc/BUILTIN_CONFIG.md#using-local-executables
     --    : https://zenn.dev/koga1020/scraps/46a160c9aec061
-    null_ls.builtins.code_actions.eslint.with {
-      prefer_local = 'node_modules/.bin',
-    },
-    null_ls.builtins.diagnostics.eslint.with {
-      prefer_local = 'node_modules/.bin',
-    },
-    null_ls.builtins.formatting.eslint.with {
-      prefer_local = 'node_modules/.bin',
-    },
+    -- FIXME: eslint is not working
+    -- null_ls.builtins.code_actions.eslint.with {
+    --   prefer_local = 'node_modules/.bin',
+    -- },
+    -- null_ls.builtins.diagnostics.eslint.with {
+    --   prefer_local = 'node_modules/.bin',
+    -- },
+    -- null_ls.builtins.formatting.eslint.with {
+    --   prefer_local = 'node_modules/.bin',
+    -- },
     null_ls.builtins.diagnostics.textlint.with {
       filetypes = { 'markdown' },
       prefer_local = 'node_modules/.bin',
