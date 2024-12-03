@@ -678,10 +678,10 @@ require('lazy').setup({
   },
 
   {
-    'jose-elias-alvarez/null-ls.nvim',
+    'nvimtools/none-ls.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
-      require('plugins.config.null_ls')
+      require('plugins.config.none_ls')
     end,
   },
 
