@@ -686,13 +686,6 @@ require('lazy').setup({
   },
 
   {
-    url = 'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
-    config = function()
-      require('plugins.config.lsp_lines')
-    end,
-  },
-
-  {
     'soulis-1256/eagle.nvim',
     config = function()
       require('plugins.config.eagle')
