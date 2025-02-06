@@ -110,6 +110,7 @@ vim.diagnostic.config {
 -- ref: https://neovim.io/doc/user/lsp.html
 --    : https://github.com/neovim/nvim-lspconfig/blob/da7461b596d70fa47b50bf3a7acfaef94c47727d/doc/lspconfig.txt#L444-L476
 --    : https://zenn.dev/botamotch/articles/21073d78bc68bf
+--    : https://github.com/neovim/neovim/pull/31959
 vim.keymap.set('n', 'g]', function()
   vim.diagnostic.jump { count = 1, float = true }
 end)
@@ -117,6 +118,10 @@ vim.keymap.set('n', 'g[', function()
   vim.diagnostic.jump { count = -1, float = true }
 end)
 vim.keymap.set('n', 'gl', vim.diagnostic.setloclist)
+vim.keymap.set('n', 'gK', function()
+  local new_config = not vim.diagnostic.config().virtual_lines
+  vim.diagnostic.config { virtual_lines = new_config }
+end, { desc = 'Toggle diagnostic virtual_lines' })
 
 -- LspAttach
 vim.api.nvim_create_autocmd('LspAttach', {
