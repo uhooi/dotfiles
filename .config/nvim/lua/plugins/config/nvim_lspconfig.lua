@@ -104,6 +104,7 @@ vim.diagnostic.config {
       [vim.diagnostic.severity.HINT] = icon.diagnostic.hint,
     },
   },
+  virtual_lines = true,
 }
 
 -- Keymaps
