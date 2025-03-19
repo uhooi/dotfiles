@@ -6,8 +6,6 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.opt.termguicolors = true
 
-vim.keymap.set('n', '<Leader>e', '<Cmd>NvimTreeToggle<CR>')
-
 require('nvim-tree').setup {
   renderer = {
     icons = {
