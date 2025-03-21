@@ -4,7 +4,7 @@ snacks.setup {
   bigfile = { enabled = true },
   dashboard = { enabled = true },
   explorer = { enabled = true },
-  indent = { enabled = true },
+  indent = { enabled = false }, -- Use hlchunk.nvim
   input = { enabled = true },
   picker = { enabled = true },
   notifier = { enabled = false }, -- Use nvim-notify
