@@ -33,6 +33,8 @@ ln -fns ${SCRIPT_DIR_PATH}/.gitconfig ~/.gitconfig
 ln -fns ${SCRIPT_DIR_PATH}/.wezterm.lua ~/.wezterm.lua
 ln -fns ${SCRIPT_DIR_PATH}/.hyper.js ~/.hyper.js
 ln -fns ${SCRIPT_DIR_PATH}/.swift-package-complete.bash ~/.swift-package-complete.bash
+mkdir ~/.sourcekit-lsp
+ln -fns ${SCRIPT_DIR_PATH}/.sourcekit-lsp/config.json ~/.sourcekit-lsp/config.json
 # macSKK
 mkdir -p ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Library/Preferences
 cp ${SCRIPT_DIR_PATH}/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Library/Preferences/net.mtgto.inputmethod.macSKK.plist ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Library/Preferences/net.mtgto.inputmethod.macSKK.plist
