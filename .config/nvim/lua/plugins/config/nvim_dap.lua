@@ -5,7 +5,7 @@ local xcodebuild = require('xcodebuild.integrations.dap')
 xcodebuild.setup('')
 dap.adapters.codelldb = xcodebuild.get_codelldb_adapter(
   vim.fn.exepath('codelldb'),
-  '/Applications/Xcode-16.2.0.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB'
+  '/Applications/Xcode-16.3.0.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB'
 )
 
 -- TokyoNight
