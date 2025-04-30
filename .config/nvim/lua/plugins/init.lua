@@ -679,6 +679,7 @@ require('lazy').setup({
 
   {
     'nvimtools/none-ls.nvim',
+    enabled = false, -- TODO: Wait for fixing error
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
       require('plugins.config.none_ls')
