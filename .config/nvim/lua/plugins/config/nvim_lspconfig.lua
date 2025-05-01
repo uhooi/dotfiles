@@ -52,9 +52,32 @@ mason_lspconfig.setup_handlers {
   end,
 
   ['lua_ls'] = function()
+    ---@type vim.lsp.Config
     lspconfig.lua_ls.setup {
       capabilities = capabilities,
       settings = require('plugins.config.lsp.lua_ls'),
+    }
+  end,
+
+  -- ref: https://github.com/neovim/nvim-lspconfig/blob/94d0fec9135719e046903bbbbf8f39e3d3436d4e/lua/lspconfig/configs/ts_ls.lua
+  -- ref: https://pawelgrzybek.com/reconcile-two-conflicting-lsp-servers-in-neovim-0-11/#update-neovim-0111-comes-with-workspace_required
+  ['ts_ls'] = function()
+    ---@type vim.lsp.Config
+    lspconfig.ts_ls.setup {
+      capabilities = capabilities,
+      root_markers = { 'tsconfig.json', 'package.json' },
+      workspace_required = true,
+    }
+  end,
+
+  -- ref: https://github.com/neovim/nvim-lspconfig/blob/94d0fec9135719e046903bbbbf8f39e3d3436d4e/lua/lspconfig/configs/denols.lua
+  -- ref: https://pawelgrzybek.com/reconcile-two-conflicting-lsp-servers-in-neovim-0-11/#update-neovim-0111-comes-with-workspace_required
+  ['denols'] = function()
+    ---@type vim.lsp.Config
+    lspconfig.denols.setup {
+      capabilities = capabilities,
+      root_markers = { 'deno.json', 'deno.jsonc' },
+      workspace_required = true,
     }
   end,
 }
