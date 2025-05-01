@@ -1,4 +1,3 @@
-local lspconfig = require('lspconfig')
 local icon = require('plugins.config.shared.icon')
 
 -- mason.nvim
@@ -43,77 +42,20 @@ mason_lspconfig.setup {
 
 -- ref: https://www.reddit.com/r/neovim/comments/pqssf1/autocomplete_plugins_what_is_surrounding/
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    local opts = {
-      capabilities = capabilities,
-    }
-    lspconfig[server_name].setup(opts)
-  end,
-
-  ['lua_ls'] = function()
-    ---@type vim.lsp.Config
-    lspconfig.lua_ls.setup {
-      capabilities = capabilities,
-      settings = require('plugins.config.lsp.lua_ls'),
-    }
-  end,
-
-  -- ref: https://github.com/neovim/nvim-lspconfig/blob/94d0fec9135719e046903bbbbf8f39e3d3436d4e/lua/lspconfig/configs/ts_ls.lua
-  -- ref: https://pawelgrzybek.com/reconcile-two-conflicting-lsp-servers-in-neovim-0-11/#update-neovim-0111-comes-with-workspace_required
-  ['ts_ls'] = function()
-    ---@type vim.lsp.Config
-    lspconfig.ts_ls.setup {
-      capabilities = capabilities,
-      root_markers = { 'tsconfig.json', 'package.json' },
-      workspace_required = true,
-    }
-  end,
-
-  -- ref: https://github.com/neovim/nvim-lspconfig/blob/94d0fec9135719e046903bbbbf8f39e3d3436d4e/lua/lspconfig/configs/denols.lua
-  -- ref: https://pawelgrzybek.com/reconcile-two-conflicting-lsp-servers-in-neovim-0-11/#update-neovim-0111-comes-with-workspace_required
-  ['denols'] = function()
-    ---@type vim.lsp.Config
-    lspconfig.denols.setup {
-      capabilities = capabilities,
-      root_markers = { 'deno.json', 'deno.jsonc' },
-      workspace_required = true,
-    }
-  end,
-}
+vim.lsp.config('*', {
+  capabilities = capabilities,
+})
+vim.lsp.enable(
+  -- Enable all language servers installed by mason.nvim
+  mason_lspconfig.get_installed_servers()
+)
 
 -- Language servers (Not managed by mason-lspconfig)
--- ref: https://github.com/neovim/nvim-lspconfig/blob/6806370929cf6a35be6e5e0e74588515a4356e4d/doc/server_configurations.md#sourcekit
-lspconfig.sourcekit.setup {
-  -- ref: https://www.swift.org/documentation/articles/zero-to-swift-nvim.html
-  capabilities = {
-    workspace = {
-      didChangeWatchedFiles = {
-        dynamicRegistration = true,
-      },
-    },
-  },
-  -- Use iOS SDK (UIKit etc.)
-  -- ref: https://qiita.com/niusounds/items/5a39b65b54939814a9f9
-  -- TODO: Make version dynamic
-  cmd = {
-    'sourcekit-lsp',
-    '-Xswiftc',
-    '-sdk',
-    '-Xswiftc',
-    -- '`xcrun --sdk iphonesimulator --show-sdk-path`',
-    '/Applications/Xcode-16.3.0.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator18.4.sdk',
-    '-Xswiftc',
-    '-target',
-    '-Xswiftc',
-    -- 'x86_64-apple-ios`xcrun --sdk iphonesimulator --show-sdk-platform-version`-simulator',
-    'x86_64-apple-ios18.4-simulator',
-  },
-}
+vim.lsp.enable('sourcekit')
 
 -- ref: https://github.com/neovim/nvim-lspconfig/blob/6806370929cf6a35be6e5e0e74588515a4356e4d/doc/server_configurations.md#dartls
 --    : https://github.com/dart-lang/sdk/tree/09e87e6d7bd18e3b08cc96c3a42b8e3f37a096d6/pkg/analysis_server/tool/lsp_spec
-lspconfig.dartls.setup {}
+vim.lsp.enable('dartls')
 
 -- Signs
 -- ref: https://github.com/neovim/neovim/pull/26193
