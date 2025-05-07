@@ -679,7 +679,6 @@ require('lazy').setup({
 
   {
     'nvimtools/none-ls.nvim',
-    version = '78546696d365c4d958351881ff43a8d82ac1ed44', -- TODO: Wait for patch release
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
       require('plugins.config.none_ls')
