@@ -13,9 +13,7 @@ require('mason').setup {
 }
 
 -- mason-lspconfig.nvim
-local mason_lspconfig = require('mason-lspconfig')
-
-mason_lspconfig.setup {
+require('mason-lspconfig').setup {
   ensure_installed = {
     'bashls',
     'cssls',
@@ -45,10 +43,6 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 vim.lsp.config('*', {
   capabilities = capabilities,
 })
-vim.lsp.enable(
-  -- Enable all language servers installed by mason.nvim
-  mason_lspconfig.get_installed_servers()
-)
 
 -- Language servers (Not managed by mason-lspconfig)
 vim.lsp.enable('sourcekit')
