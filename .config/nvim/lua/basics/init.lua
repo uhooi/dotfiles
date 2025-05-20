@@ -113,4 +113,11 @@ vim.api.nvim_create_autocmd('SwapExists', {
 vim.opt.clipboard = { 'unnamed', 'unnamedplus' }
 -- }}}
 
+-- Languages {{{
+-- Use Ruby managed by rbenv
+-- ref: https://github.com/neovim/neovim/issues/20529
+vim.g.loaded_ruby_provider = nil
+vim.g.ruby_host_prog = os.getenv('HOME') .. '/.rbenv/shims/ruby'
+-- }}}
+
 -- vim: set foldmethod=marker:
