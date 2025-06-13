@@ -4,6 +4,7 @@ snacks.setup {
   bigfile = { enabled = true },
   dashboard = { enabled = true },
   explorer = { enabled = true },
+  image = {enabled = true }, -- For xcodebuild.nvim
   indent = { enabled = false }, -- Use hlchunk.nvim
   input = { enabled = true },
   picker = { enabled = true },
