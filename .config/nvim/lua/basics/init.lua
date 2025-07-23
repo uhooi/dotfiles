@@ -36,18 +36,18 @@ vim.opt.virtualedit:append { 'block' }
 vim.api.nvim_create_augroup('edit', {})
 
 -- JSON
-vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+vim.api.nvim_create_autocmd({ 'FileType' }, {
   group = 'edit',
-  pattern = '*.json',
+  pattern = 'json',
   callback = function()
     vim.opt_local.tabstop = 2
   end,
 })
 
 -- Pkl
-vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+vim.api.nvim_create_autocmd({ 'FileType' }, {
   group = 'edit',
-  pattern = '*.pkl',
+  pattern = 'pkl',
   callback = function()
     vim.opt_local.tabstop = 2
   end,
