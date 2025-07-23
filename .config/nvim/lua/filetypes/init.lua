@@ -29,6 +29,16 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   end,
 })
 
+-- APNs
+-- ref: https://developer.apple.com/documentation/usernotifications/generating-a-remote-notification
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  group = 'filetype',
+  pattern = '*.apns',
+  callback = function()
+    vim.opt_local.filetype = 'json'
+  end,
+})
+
 -- CocoaPods
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   group = 'filetype',
