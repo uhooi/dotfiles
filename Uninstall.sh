@@ -32,6 +32,8 @@
 /bin/rm ~/Library/Containers/net.mtgto.inputmethod.macSKK
 # AquaSKK
 /bin/rm ~/Library/Application\ Support/AquaSKK
+# Claude Code
+/bin/rm ~/.claude/settings.json
 
 # dein.vimをアンインストールする
 /bin/rm -r ~/.cache/dein

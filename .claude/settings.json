@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat:*)",
+      "Bash(cd:*)",
+      "Bash(find:*)",
+      "Bash(git:*)",
+      "Bash(grep:*)",
+      "Bash(ls:*)",
+      "Bash(pwd:*)",
+      "Bash(rg:*)",
+      "WebFetch(domain:github.com)"
+    ],
+    "deny": [
+      "Bash(git push:*)",
+      "Bash(git rebase:*)",
+      "Bash(git reset:*)",
+      "Read(id_rsa)",
+      "Read(id_ed25519)"
+    ]
+  },
+  "hooks": {}
+}

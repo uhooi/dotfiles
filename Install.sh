@@ -48,6 +48,9 @@ ln -fns ${SCRIPT_DIR_PATH}/Library/Application\ Support/AquaSKK/kana-rule.conf ~
 ln -fns ${SCRIPT_DIR_PATH}/Library/Application\ Support/AquaSKK/keymap.conf ~/Library/Application\ Support/AquaSKK/keymap.conf
 ln -fns ${SCRIPT_DIR_PATH}/.dictionaries/SKK-JISYO.jawiki ~/Library/Application\ Support/AquaSKK/SKK-JISYO.jawiki
 ln -fns ${SCRIPT_DIR_PATH}/.dictionaries/SKK-JISYO.emoji.utf8 ~/Library/Application\ Support/AquaSKK/SKK-JISYO.emoji.utf8
+# Claude Code
+mkdir ~/.claude
+ln -fns ${SCRIPT_DIR_PATH}/.claude/settings.json ~/.claude/settings.json
 
 source ~/.bash_profile
 
