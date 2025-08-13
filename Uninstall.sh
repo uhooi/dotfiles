@@ -18,6 +18,7 @@
 /bin/rm -r ~/.config/alacritty
 /bin/rm -r ~/.config/efm-langserver
 /bin/rm -r ~/.config/ranger
+/bin/rm -r ~/.config/mise
 /bin/rm ~/.bash_profile
 /bin/rm ~/.bashrc
 /bin/rm ~/.inputrc

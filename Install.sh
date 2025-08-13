@@ -22,6 +22,7 @@ ln -fns ${SCRIPT_DIR_PATH}/.config/nvim ~/.config/nvim
 ln -fns ${SCRIPT_DIR_PATH}/.config/alacritty ~/.config/alacritty
 ln -fns ${SCRIPT_DIR_PATH}/.config/efm-langserver ~/.config/efm-langserver
 ln -fns ${SCRIPT_DIR_PATH}/.config/ranger ~/.config/ranger
+ln -fns ${SCRIPT_DIR_PATH}/.config/mise ~/.config/mise
 ln -fns ${SCRIPT_DIR_PATH}/.bash_profile ~/.bash_profile
 ln -fns ${SCRIPT_DIR_PATH}/.bashrc ~/.bashrc
 ln -fns ${SCRIPT_DIR_PATH}/.inputrc ~/.inputrc
