@@ -173,3 +173,9 @@ fi
 if [ -f "$HOME/google-cloud-sdk/completion.bash.inc" ]; then
   . "$HOME/google-cloud-sdk/completion.bash.inc"
 fi
+
+# mise
+# ref: https://mise.jdx.dev/getting-started.html#activate-mise
+if [ -d "$HOME/.config/mise" ]; then
+  eval "$(mise activate bash)"
+fi
