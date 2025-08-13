@@ -45,13 +45,6 @@ if [ -d "${RBENV_ROOT}" ]; then
   eval "$(rbenv init -)"
 fi
 
-# nodebrew
-# ref: https://qiita.com/taketakekaho/items/dd08cf01b4fe86b2e218
-NODEBREW_DIR="${HOME}/.nodebrew"
-if [ -d "${NODEBREW_DIR}" ]; then
-  export PATH=${NODEBREW_DIR}/current/bin:$PATH
-fi
-
 # Maven
 # ref: https://qiita.com/yhayashi30/items/dd0e47aea01d65c8a1b4
 MAVEN_HOME="/usr/local/opt/maven@3.6"
