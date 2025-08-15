@@ -45,6 +45,8 @@ require('lazy').setup({
   -- Tree-sitter {{{
   {
     'nvim-treesitter/nvim-treesitter',
+    lazy = false,
+    branch = 'main',
     build = ':TSUpdate',
     config = function()
       require('plugins.config.nvim_treesitter')
@@ -70,6 +72,7 @@ require('lazy').setup({
   {
     'nvim-treesitter/nvim-treesitter-textobjects',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    branch = 'main',
     config = function()
       require('plugins.config.treesitter_textobjects')
     end,
@@ -127,7 +130,6 @@ require('lazy').setup({
 
   {
     'shellRaining/hlchunk.nvim',
-    enabled = false,
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
