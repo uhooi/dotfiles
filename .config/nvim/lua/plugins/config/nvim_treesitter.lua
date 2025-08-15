@@ -50,7 +50,12 @@ treesitter.install {
 
 vim.api.nvim_create_autocmd('FileType', {
   -- TODO: Add more filetypes
-  pattern = { 'lua', 'swift' },
+  pattern = {
+    'gitcommit',
+    'lua',
+    'markdown',
+    'swift',
+  },
   callback = function()
     vim.treesitter.start()
     vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
