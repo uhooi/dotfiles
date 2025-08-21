@@ -1,5 +1,6 @@
 [tools]
 node = "22.18.0"
+python = "3.13.7"
 ruby = "3.4.3"
 
 [settings]
