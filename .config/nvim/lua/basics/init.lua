@@ -114,10 +114,10 @@ vim.opt.clipboard = { 'unnamed', 'unnamedplus' }
 -- }}}
 
 -- Languages {{{
--- Use Ruby managed by rbenv
+-- Use Ruby managed by mise
 -- ref: https://github.com/neovim/neovim/issues/20529
 vim.g.loaded_ruby_provider = nil
-vim.g.ruby_host_prog = os.getenv('HOME') .. '/.rbenv/shims/ruby'
+vim.g.ruby_host_prog = os.getenv('HOME') .. '/.local/share/mise/shims/ruby'
 -- }}}
 
 -- vim: set foldmethod=marker:
