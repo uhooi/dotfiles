@@ -13,7 +13,7 @@ fi
 #    : https://qiita.com/hmmrjn/items/60d2a64c9e5bf7c0fe60
 #    : https://www.mm2d.net/main/prog/c/console-02.html
 #    : https://teratail.com/questions/11904
-export PS1='\[\e[0;92m\]\[\e[0;30;102m\] \D{%m/%d %H:%M}\[\e[0;92m\] \[\e[0;94m\]\[\e[0;30;104m\]󰎙 $(node -v) 󰌠 $(python3 --version) 󰴭 $(mise tool ruby --active)\[\e[0;94m\] \[\e[0;93m\]\[\e[0;30;103m\] \w\[\e[0;93m\] \[\e[0;91m\]\[\e[0;30;101m\]$(__git_ps1 " %s")\[\e[0;91m\]\n\[\e[0;91m\]❯\[\e[0;92m\]❯\[\e[0;94m\]❯ \[\e[0;90m\]\$\[\e[0;0m\] '
+export PS1='\[\e[0;92m\]\[\e[0;30;102m\] \D{%m/%d %H:%M}\[\e[0;92m\] \[\e[0;94m\]\[\e[0;30;104m\]󰎙 $(node -v) 󰌠 $(mise tool python --active) 󰴭 $(mise tool ruby --active)\[\e[0;94m\] \[\e[0;93m\]\[\e[0;30;103m\] \w\[\e[0;93m\] \[\e[0;91m\]\[\e[0;30;101m\]$(__git_ps1 " %s")\[\e[0;91m\]\n\[\e[0;91m\]❯\[\e[0;92m\]❯\[\e[0;94m\]❯ \[\e[0;90m\]\$\[\e[0;0m\] '
 
 # virtualenvのプロンプトを非表示にする
 # ref: https://blog.shibayu36.org/entry/2017/04/01/145758
