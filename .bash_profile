@@ -13,7 +13,7 @@ fi
 #    : https://qiita.com/hmmrjn/items/60d2a64c9e5bf7c0fe60
 #    : https://www.mm2d.net/main/prog/c/console-02.html
 #    : https://teratail.com/questions/11904
-export PS1='\[\e[0;92m\]\[\e[0;30;102m\] \D{%m/%d %H:%M}\[\e[0;92m\] \[\e[0;94m\]\[\e[0;30;104m\]󰎙 $(node -v) 󰌠 $(pyenv version-name) 󰴭 $(rbenv version-name)\[\e[0;94m\] \[\e[0;93m\]\[\e[0;30;103m\] \w\[\e[0;93m\] \[\e[0;91m\]\[\e[0;30;101m\]$(__git_ps1 " %s")\[\e[0;91m\]\n\[\e[0;91m\]❯\[\e[0;92m\]❯\[\e[0;94m\]❯ \[\e[0;90m\]\$\[\e[0;0m\] '
+export PS1='\[\e[0;92m\]\[\e[0;30;102m\] \D{%m/%d %H:%M}\[\e[0;92m\] \[\e[0;94m\]\[\e[0;30;104m\]󰎙 $(node -v) 󰌠 $(pyenv version-name) 󰴭 $(ruby --version)\[\e[0;94m\] \[\e[0;93m\]\[\e[0;30;103m\] \w\[\e[0;93m\] \[\e[0;91m\]\[\e[0;30;101m\]$(__git_ps1 " %s")\[\e[0;91m\]\n\[\e[0;91m\]❯\[\e[0;92m\]❯\[\e[0;94m\]❯ \[\e[0;90m\]\$\[\e[0;0m\] '
 
 # virtualenvのプロンプトを非表示にする
 # ref: https://blog.shibayu36.org/entry/2017/04/01/145758
@@ -36,13 +36,6 @@ JENV_ROOT="$HOME/.jenv"
 if [ -d "${JENV_ROOT}" ]; then
   export PATH="$JENV_ROOT/bin:$PATH"
   eval "$(jenv init -)"
-fi
-
-# rbenv
-RBENV_ROOT="$HOME/.rbenv"
-if [ -d "${RBENV_ROOT}" ]; then
-  export PATH="${RBENV_ROOT}/bin:$PATH"
-  eval "$(rbenv init -)"
 fi
 
 # Maven
