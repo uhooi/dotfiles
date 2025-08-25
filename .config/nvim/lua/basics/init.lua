@@ -114,8 +114,17 @@ vim.opt.clipboard = { 'unnamed', 'unnamedplus' }
 -- }}}
 
 -- Languages {{{
--- Use Ruby managed by mise
+-- Use languages managed by mise
 -- ref: https://github.com/neovim/neovim/issues/20529
+-- Python
+vim.g.loaded_python_provider = nil
+vim.g.python_host_prog = os.getenv('HOME') .. '/.local/share/mise/shims/python'
+
+-- Python3
+vim.g.loaded_python3_provider = nil
+vim.g.python3_host_prog = os.getenv('HOME') .. '/.local/share/mise/shims/python3'
+
+-- Ruby
 vim.g.loaded_ruby_provider = nil
 vim.g.ruby_host_prog = os.getenv('HOME') .. '/.local/share/mise/shims/ruby'
 -- }}}
