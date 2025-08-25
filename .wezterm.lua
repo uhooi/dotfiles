@@ -68,6 +68,7 @@ config.warn_about_missing_glyphs = true
 
 -- keys {{{
 config.macos_forward_to_ime_modifier_mask = 'SHIFT|CTRL'
+config.send_composed_key_when_left_alt_is_pressed = true
 config.use_ime = true
 -- }}}
 
