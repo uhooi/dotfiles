@@ -115,7 +115,12 @@ vim.opt.clipboard = { 'unnamed', 'unnamedplus' }
 
 -- Languages {{{
 -- Use languages managed by mise
--- ref: https://github.com/neovim/neovim/issues/20529
+-- ref: https://neovim.io/doc/user/provider.html
+--    : https://github.com/neovim/neovim/issues/20529
+-- Node.js
+vim.g.loaded_node_provider = nil
+vim.g.node_host_prog = os.getenv('HOME') .. '/.local/share/mise/shims/node'
+
 -- Python
 vim.g.loaded_python_provider = nil
 vim.g.python_host_prog = os.getenv('HOME') .. '/.local/share/mise/shims/python'
