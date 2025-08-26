@@ -140,6 +140,18 @@ vim.api.nvim_create_autocmd('LspAttach', {
       end, bufopts)
     end
     -- }}}
+
+    -- Document color
+    -- ref: https://neovim.io/doc/user/lsp.html#lsp-document_color
+    --    : https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#textDocument_documentColor
+    local supports_document_color = client.server_capabilities.colorProvider
+    if supports_document_color then
+      local dc_opts = { style = '󱓻 ' } -- nf-md-square_rounded
+      vim.lsp.document_color.enable(true, bufnr, dc_opts)
+      vim.keymap.set('n', '<Leader>c', function()
+        vim.lsp.document_color.enable(not vim.lsp.document_color.is_enabled(bufnr), bufnr, dc_opts)
+      end, bufopts)
+    end
   end,
 })
 
