@@ -171,13 +171,6 @@ require('lazy').setup({
   },
 
   {
-    'uga-rosa/ccc.nvim',
-    config = function()
-      require('plugins.config.ccc')
-    end,
-  },
-
-  {
     'hrsh7th/nvim-insx',
     config = function()
       require('plugins.config.insx')
