@@ -126,7 +126,7 @@ if [ -d "${PKL_HOME}" ]; then
 fi
 
 # CodeLLDB
-CODELLDB_HOME=$HOME/codelldb-aarch64-darwin/extension/adapter
+CODELLDB_HOME=$HOME/codelldb-darwin-arm64/extension/adapter
 if [ -d "${CODELLDB_HOME}" ]; then
   export PATH="${CODELLDB_HOME}:$PATH"
 fi
