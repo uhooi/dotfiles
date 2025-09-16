@@ -198,13 +198,6 @@ require('lazy').setup({
   },
 
   {
-    'github/copilot.vim',
-    config = function()
-      require('plugins.config.copilot')
-    end,
-  },
-
-  {
     'lewis6991/satellite.nvim',
     -- ref: https://github.com/delphinus/dotfiles/blob/a6670cd510c4e5f6bd731186431723be6002a794/.config/nvim/lua/lazies/opt.lua#L610-L623
     --    : https://github.com/lewis6991/satellite.nvim/blob/22c8cc5283c9533677e4b86b9d25d3beeca04667/lua/satellite.lua#L45-L69

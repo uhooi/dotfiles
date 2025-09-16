@@ -1,4 +1,4 @@
---    : https://github.com/neovim/nvim-lspconfig/blob/9bedcfed749755e43fc8bed46f85ce2044fe3b77/doc/server_configurations.md#lua_ls
+-- ref: https://github.com/neovim/nvim-lspconfig/blob/9bedcfed749755e43fc8bed46f85ce2044fe3b77/doc/server_configurations.md#lua_ls
 --    : https://luals.github.io/wiki/settings/
 --    : https://github.com/uga-rosa/dotfiles/blob/f2770a2b210cfdeec43c8a7508e88929f724ac34/nvim/rc/lsp.toml#L110-L133
 

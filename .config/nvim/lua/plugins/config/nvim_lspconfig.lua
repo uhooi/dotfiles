@@ -16,6 +16,7 @@ require('mason').setup {
 require('mason-lspconfig').setup {
   ensure_installed = {
     'bashls',
+    'copilot',
     'cssls',
     'denols',
     'elmls',
@@ -151,6 +152,22 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.keymap.set('n', '<Leader>c', function()
         vim.lsp.document_color.enable(not vim.lsp.document_color.is_enabled(bufnr), bufnr, dc_opts)
       end, bufopts)
+    end
+
+    -- Inline completion
+    -- ref: https://github.com/neovim/neovim/issues/32421
+    --    : https://neovim.io/doc/user/lsp.html#_lua-module:-vim.lsp.inline_completion
+    --    : https://microsoft.github.io/language-server-protocol/specifications/lsp/3.18/specification/#textDocument_inlineCompletion
+    local supports_inline_completion = client.server_capabilities.inlineCompletionProvider
+    if supports_inline_completion then
+      if client.name == 'copilot' then
+        vim.lsp.inline_completion.enable(true, { bufnr = bufnr })
+        vim.keymap.set('i', '<C-g>', function()
+          if not vim.lsp.inline_completion.get() then
+            return '<C-g>'
+          end
+        end, { expr = true, buffer = bufnr })
+      end
     end
   end,
 })
