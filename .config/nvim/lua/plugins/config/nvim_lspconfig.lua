@@ -142,7 +142,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
     -- }}}
 
-    -- Document color
+    -- Document color {{{
     -- ref: https://neovim.io/doc/user/lsp.html#lsp-document_color
     --    : https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#textDocument_documentColor
     local supports_document_color = client.server_capabilities.colorProvider
@@ -153,8 +153,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.lsp.document_color.enable(not vim.lsp.document_color.is_enabled(bufnr), bufnr, dc_opts)
       end, bufopts)
     end
+    -- }}}
 
-    -- Inline completion
+    -- Inline completion {{{
     -- ref: https://github.com/neovim/neovim/issues/32421
     --    : https://neovim.io/doc/user/lsp.html#_lua-module:-vim.lsp.inline_completion
     --    : https://microsoft.github.io/language-server-protocol/specifications/lsp/3.18/specification/#textDocument_inlineCompletion
@@ -169,6 +170,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end, { expr = true, buffer = bufnr })
       end
     end
+    -- }}}
   end,
 })
 
