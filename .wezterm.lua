@@ -23,6 +23,22 @@ local color = {
 local function basename(s)
   return string.gsub(s, '(.*[/\\])(.*)', '%2')
 end
+
+-- ref: https://wezterm.org/config/lua/pane/get_progress.html
+local function pct_glyph(pct)
+  local slot = math.floor(pct / 12)
+  local PCT_GLYPHS = {
+    wezterm.nerdfonts.md_circle_slice_1,
+    wezterm.nerdfonts.md_circle_slice_2,
+    wezterm.nerdfonts.md_circle_slice_3,
+    wezterm.nerdfonts.md_circle_slice_4,
+    wezterm.nerdfonts.md_circle_slice_5,
+    wezterm.nerdfonts.md_circle_slice_6,
+    wezterm.nerdfonts.md_circle_slice_7,
+    wezterm.nerdfonts.md_circle_slice_8,
+  }
+  return PCT_GLYPHS[slot + 1]
+end
 -- }}}
 
 -- basic {{{
@@ -168,13 +184,37 @@ end)
 
 -- ref: https://wezfurlong.org/wezterm/config/lua/window-events/format-window-title.html
 --    : https://wezfurlong.org/wezterm/config/lua/window-events/format-tab-title.html
-wezterm.on('format-tab-title', function(tab, tabs, _, _, _, _)
-  local index = ''
-  if #tabs > 1 then
-    index = string.format('%d: ', tab.tab_index + 1)
+--    : https://wezterm.org/config/lua/pane/get_progress.html
+wezterm.on('format-tab-title', function(tab, _, _, _, _, _)
+  local progress = tab.active_pane.progress or 'None'
+  local title = basename(tab.active_pane.foreground_process_name)
+  local elements = {
+    { Text = '' },
+  }
+
+  if progress ~= 'None' then
+    local progress_color = 'green'
+    local status
+    if progress.Percentage ~= nil then
+      status = pct_glyph(progress.Percentage)
+    elseif progress.Error ~= nil then
+      status = pct_glyph(progress.Error)
+      progress_color = 'red'
+    elseif progress == 'Indeterminate' then
+      status = '~'
+    else
+      status = wezterm.serde.json_encode(progress)
+    end
+
+    table.insert(elements, { Foreground = { Color = progress_color } })
+    table.insert(elements, { Text = status .. ' ' })
+    table.insert(elements, { Foreground = 'Default' })
   end
 
-  return index .. basename(tab.active_pane.foreground_process_name)
+  table.insert(elements, { Text = string.format('%d: ', tab.tab_index + 1) })
+  table.insert(elements, { Text = title .. ' ' })
+
+  return elements
 end)
 
 -- ref: https://coralpink.github.io/commentary/wezterm/window-title.html
