@@ -26,8 +26,7 @@ end
 
 -- ref: https://wezterm.org/config/lua/pane/get_progress.html
 local function pct_glyph(pct)
-  local slot = math.floor(pct / 12)
-  local PCT_GLYPHS = {
+  local pct_glyphs = {
     wezterm.nerdfonts.md_circle_slice_1,
     wezterm.nerdfonts.md_circle_slice_2,
     wezterm.nerdfonts.md_circle_slice_3,
@@ -37,7 +36,8 @@ local function pct_glyph(pct)
     wezterm.nerdfonts.md_circle_slice_7,
     wezterm.nerdfonts.md_circle_slice_8,
   }
-  return PCT_GLYPHS[slot + 1]
+  local slot = math.floor(pct / 12)
+  return pct_glyphs[slot + 1]
 end
 -- }}}
 
