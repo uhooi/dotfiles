@@ -189,6 +189,7 @@ end)
 --    : https://wezterm.org/config/lua/PaneInformation.html
 --    : https://wezterm.org/config/lua/pane/get_progress.html
 wezterm.on('format-tab-title', function(tab, tabs, _, _, _, _)
+  local pane = tab.active_pane
   local index = ''
   if #tabs > 1 then
     index = string.format('%d: ', tab.tab_index + 1)
@@ -197,7 +198,7 @@ wezterm.on('format-tab-title', function(tab, tabs, _, _, _, _)
     { Text = index },
   }
 
-  local progress = tab.active_pane.progress or 'None'
+  local progress = pane.progress or 'None'
   if progress ~= 'None' then
     local progress_color = 'green'
     local status
@@ -217,7 +218,7 @@ wezterm.on('format-tab-title', function(tab, tabs, _, _, _, _)
     table.insert(elements, { Foreground = 'Default' })
   end
 
-  local title = basename(tab.active_pane.foreground_process_name)
+  local title = basename(pane.foreground_process_name)
   table.insert(elements, { Text = title .. ' ' })
 
   return elements
