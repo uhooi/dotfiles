@@ -17,8 +17,8 @@ local color = {
 -- }}}
 
 -- function {{{
---    : https://wezfurlong.org/wezterm/config/lua/window-events/format-window-title.html
--- ref: https://wezfurlong.org/wezterm/config/lua/PaneInformation.html
+-- ref: https://wezfurlong.org/wezterm/config/lua/window-events/format-window-title.html
+--    : https://wezfurlong.org/wezterm/config/lua/PaneInformation.html
 ---@param s string|number
 local function basename(s)
   return string.gsub(s, '(.*[/\\])(.*)', '%2')
@@ -186,14 +186,18 @@ end)
 -- format-tab-title {{{
 -- ref: https://wezfurlong.org/wezterm/config/lua/window-events/format-window-title.html
 --    : https://wezfurlong.org/wezterm/config/lua/window-events/format-tab-title.html
+--    : https://wezterm.org/config/lua/PaneInformation.html
 --    : https://wezterm.org/config/lua/pane/get_progress.html
-wezterm.on('format-tab-title', function(tab, _, _, _, _, _)
-  local progress = tab.active_pane.progress or 'None'
-  local title = basename(tab.active_pane.foreground_process_name)
+wezterm.on('format-tab-title', function(tab, tabs, _, _, _, _)
+  local index = ''
+  if #tabs > 1 then
+    index = string.format('%d: ', tab.tab_index + 1)
+  end
   local elements = {
-    { Text = '' },
+    { Text = index },
   }
 
+  local progress = tab.active_pane.progress or 'None'
   if progress ~= 'None' then
     local progress_color = 'green'
     local status
@@ -213,7 +217,7 @@ wezterm.on('format-tab-title', function(tab, _, _, _, _, _)
     table.insert(elements, { Foreground = 'Default' })
   end
 
-  table.insert(elements, { Text = string.format('%d: ', tab.tab_index + 1) })
+  local title = basename(tab.active_pane.foreground_process_name)
   table.insert(elements, { Text = title .. ' ' })
 
   return elements
