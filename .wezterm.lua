@@ -173,15 +173,17 @@ config.term = 'xterm-256color'
 -- event {{{
 -- ref: https://wezfurlong.org/wezterm/config/lua/wezterm/on.html
 
+-- gui-startup {{{
 -- ref: https://qiita.com/sonarAIT/items/0571c869e5f9ab3be817#フルスクリーン表示--背景透過
 --    : https://wezfurlong.org/wezterm/config/lua/gui-events/gui-startup.html
 --    : https://wezfurlong.org/wezterm/config/lua/window/toggle_fullscreen.html
-local mux = wezterm.mux
 wezterm.on('gui-startup', function(cmd)
-  local _, _, window = mux.spawn_window(cmd or {})
+  local _, _, window = wezterm.mux.spawn_window(cmd or {})
   window:gui_window():toggle_fullscreen()
 end)
+-- }}}
 
+-- format-tab-title {{{
 -- ref: https://wezfurlong.org/wezterm/config/lua/window-events/format-window-title.html
 --    : https://wezfurlong.org/wezterm/config/lua/window-events/format-tab-title.html
 --    : https://wezterm.org/config/lua/pane/get_progress.html
@@ -216,7 +218,9 @@ wezterm.on('format-tab-title', function(tab, _, _, _, _, _)
 
   return elements
 end)
+-- }}}
 
+-- format-window-title {{{
 -- ref: https://coralpink.github.io/commentary/wezterm/window-title.html
 --    : https://wezfurlong.org/wezterm/config/lua/window-events/format-window-title.html
 wezterm.on('format-window-title', function(tab, _, tabs, _, _)
@@ -227,7 +231,9 @@ wezterm.on('format-window-title', function(tab, _, tabs, _, _)
 
   return index .. basename(tab.active_pane.foreground_process_name)
 end)
+-- }}}
 
+-- update-right-status {{{
 -- ref: https://coralpink.github.io/commentary/wezterm/right-status.html
 --    : https://wezfurlong.org/wezterm/config/lua/window/set_right_status.html
 --    : https://wezfurlong.org/wezterm/config/lua/window/get_dimensions.html
@@ -253,6 +259,7 @@ wezterm.on('update-right-status', function(window, _)
     { Text = ' ' },
   })
 end)
+-- }}}
 -- }}}
 
 return config
