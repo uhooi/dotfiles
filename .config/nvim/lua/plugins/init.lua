@@ -132,6 +132,9 @@ require('lazy').setup({
     'shellRaining/hlchunk.nvim',
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    cond = function()
+      return vim.fn.expand('%:e') ~= 'xcconfig' -- FIXME: Error in tree-sitter
+    end,
     config = function()
       require('plugins.config.hlchunk')
     end,
