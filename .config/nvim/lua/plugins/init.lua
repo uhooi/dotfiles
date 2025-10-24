@@ -133,7 +133,8 @@ require('lazy').setup({
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     cond = function()
-      return vim.fn.expand('%:e') ~= 'xcconfig' -- FIXME: Error in tree-sitter
+      local ext = vim.fn.expand('%:e')
+      return ext ~= 'xcconfig' and ext ~= 'entitlements' -- FIXME: Error in tree-sitter
     end,
     config = function()
       require('plugins.config.hlchunk')
