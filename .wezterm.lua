@@ -89,8 +89,8 @@ config.use_ime = true
 -- }}}
 
 -- key tables {{{
--- ref: https://wezfurlong.org/wezterm/config/key-tables.html
---    : https://wezfurlong.org/wezterm/config/default-keys.html
+-- ref: https://wezterm.org/config/key-tables.html
+--    : https://wezterm.org/config/default-keys.html
 --    : https://coralpink.github.io/commentary/wezterm/keybind.html
 --    : Run `wezterm show-keys --lua`
 local act = wezterm.action
@@ -98,7 +98,10 @@ config.keys = {
   {
     key = 'd',
     mods = 'SUPER',
-    action = act.SplitHorizontal { domain = 'CurrentPaneDomain' },
+    action = act.SplitHorizontal {
+      domain = 'CurrentPaneDomain',
+      { key = 'Enter', mods = 'SHIFT', action = wezterm.action { SendString = '\x1b\r' } },
+    },
   },
   {
     key = 'd',
