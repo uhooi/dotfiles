@@ -105,6 +105,11 @@ config.keys = {
     mods = 'SUPER|SHIFT',
     action = act.SplitVertical { domain = 'CurrentPaneDomain' },
   },
+  { -- Run '/terminal-setup' in Claude Code
+    key = 'Enter',
+    mods = 'SHIFT',
+    action = wezterm.action { SendString = '\x1b\r' },
+  },
 }
 -- }}}
 
