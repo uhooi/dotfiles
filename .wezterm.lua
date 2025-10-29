@@ -98,10 +98,7 @@ config.keys = {
   {
     key = 'd',
     mods = 'SUPER',
-    action = act.SplitHorizontal {
-      domain = 'CurrentPaneDomain',
-      { key = 'Enter', mods = 'SHIFT', action = wezterm.action { SendString = '\x1b\r' } },
-    },
+    action = act.SplitHorizontal { domain = 'CurrentPaneDomain' },
   },
   {
     key = 'd',
