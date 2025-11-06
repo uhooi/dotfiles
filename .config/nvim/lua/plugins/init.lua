@@ -134,7 +134,7 @@ require('lazy').setup({
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     cond = function()
       local ext = vim.fn.expand('%:e')
-      return ext ~= 'xcconfig' and ext ~= 'entitlements' and ext ~= 'txt' -- FIXME: Error in tree-sitter
+      return ext == 'lua' -- FIXME: Error in tree-sitter
     end,
     config = function()
       require('plugins.config.hlchunk')
