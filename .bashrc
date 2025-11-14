@@ -99,3 +99,5 @@ eval "$(direnv hook bash)"
 
 # Cargo
 . "$HOME/.cargo/env"
+
+source $HOME/.bashrc.local
