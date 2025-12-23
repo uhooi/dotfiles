@@ -415,8 +415,12 @@ require('lazy').setup({
   { 'rhysd/committia.vim' },
 
   {
-    'sindrets/diffview.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    'esmuellert/vscode-diff.nvim',
+    dependencies = { 'MunifTanjim/nui.nvim' },
+    cmd = 'CodeDiff',
+    config = function()
+      require('plugins.config.vscode_diff')
+    end,
   },
 
   {
