@@ -1,4 +1,10 @@
--- lazy.nvim
+-- Standard plugins {{{
+-- ref: https://neovim.io/doc/user/plugins.html#standard-plugin-list
+--    : https://zenn.dev/vim_jp/articles/e2620b502913f4
+vim.cmd.packadd('nohlsearch')
+-- }}}
+
+-- lazy.nvim {{{
 
 -- Install {{{
 local lazypath = vim.fs.joinpath(vim.fn.stdpath('data')--[[@as string]], 'lazy', 'lazy.nvim')
@@ -923,6 +929,8 @@ require('lazy').setup({
   },
   -- }}}
 })
+-- }}}
+
 -- }}}
 
 -- vim: set foldmethod=marker:
