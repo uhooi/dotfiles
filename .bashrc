@@ -91,6 +91,12 @@ fi
 # 補完を有効にする
 # ref: https://github.com/apple/swift-package-manager/blob/main/Documentation/Usage.md#bash
 source ~/.swift-package-complete.bash
+
+# uv
+# ref: https://docs.astral.sh/uv/reference/cli/#uv-generate-shell-completion
+if type 'uv' > /dev/null 2>&1; then
+  eval "$(uv generate-shell-completion bash)"
+fi
 # }}}
 
 # Cargo
