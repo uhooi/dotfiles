@@ -92,9 +92,11 @@ fi
 # ref: https://github.com/apple/swift-package-manager/blob/main/Documentation/Usage.md#bash
 source ~/.swift-package-complete.bash
 
-# direnv
-# ref: https://github.com/direnv/direnv/blob/357825f4ddcc8d7ef62a6276b60d9aa36449ac96/docs/hook.md#bash
-eval "$(direnv hook bash)"
+# uv
+# ref: https://docs.astral.sh/uv/reference/cli/#uv-generate-shell-completion
+if type 'uv' > /dev/null 2>&1; then
+  eval "$(uv generate-shell-completion bash)"
+fi
 # }}}
 
 # Cargo
