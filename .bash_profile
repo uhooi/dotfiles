@@ -160,5 +160,5 @@ fi
 # ref: https://mise.jdx.dev/getting-started.html#activate-mise
 if [ -d "$HOME/.config/mise" ]; then
   eval "$(mise activate bash)"
-  eval "$(mise completion bash --include-bash-completion-lib)" # FIXME: Many errors
+  # eval "$(mise completion bash --include-bash-completion-lib)" # FIXME: Many errors
 fi
