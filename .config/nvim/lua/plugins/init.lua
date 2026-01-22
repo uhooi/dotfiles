@@ -158,7 +158,7 @@ require('lazy').setup({
   {
     'andersevenrud/nvim_context_vt',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
-    ft = { 'dart' },
+    ft = { 'dart', 'lua' },
     config = function()
       require('plugins.config.context_vt')
     end,
