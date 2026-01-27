@@ -28,12 +28,11 @@ cmp.setup {
   formatting = {
     -- ref: https://github.com/onsails/lspkind.nvim/pull/30
     fields = {
-      cmp.ItemField.Kind,
-      cmp.ItemField.Abbr,
-      cmp.ItemField.Menu,
+      'icon',
+      'abbr',
+      'menu',
     },
     format = lspkind.cmp_format {
-      mode = 'symbol',
       maxwidth = 50,
       ellipsis_char = '…',
       menu = {
