@@ -26,7 +26,7 @@ require('mason-lspconfig').setup {
     'jsonls',
     'kotlin_language_server',
     'lua_ls',
-    'nil_ls',
+    -- 'nil_ls', -- TODO: Setup
     'omnisharp',
     'perlnavigator',
     'pyright',
