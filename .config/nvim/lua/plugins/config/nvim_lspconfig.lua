@@ -21,7 +21,7 @@ require('mason-lspconfig').setup {
     'denols',
     'elmls',
     'gopls',
-    'groovyls',
+    -- 'groovyls', -- FIXME: Failed to install
     'html',
     'jsonls',
     'kotlin_language_server',
