@@ -706,6 +706,7 @@ require('lazy').setup({
 
   {
     'VidocqH/lsp-lens.nvim',
+    enabled = false, -- FIXME: Not updated, so warnings occur
     config = function()
       require('plugins.config.lsp_lens')
     end,
