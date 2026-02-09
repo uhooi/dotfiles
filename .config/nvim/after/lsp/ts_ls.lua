@@ -4,4 +4,7 @@ return {
   -- ref: https://pawelgrzybek.com/reconcile-two-conflicting-lsp-servers-in-neovim-0-11/#update-neovim-0111-comes-with-workspace_required
   root_markers = { 'tsconfig.json', 'package.json' },
   workspace_required = true,
+  on_attach = function(client, _)
+    client.server_capabilities.documentFormattingProvider = false -- Use Prettier
+  end,
 }

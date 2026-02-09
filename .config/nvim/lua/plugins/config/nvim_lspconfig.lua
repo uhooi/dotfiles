@@ -20,6 +20,7 @@ require('mason-lspconfig').setup {
     'cssls',
     -- 'denols', -- FIXME: Conflicts with `ts_ls`
     'elmls',
+    'eslint',
     'gopls',
     -- 'groovyls', -- FIXME: Failed to install
     'html',
