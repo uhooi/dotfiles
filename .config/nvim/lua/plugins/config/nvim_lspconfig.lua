@@ -18,7 +18,7 @@ require('mason-lspconfig').setup {
     'bashls',
     'copilot',
     'cssls',
-    'denols',
+    -- 'denols', -- FIXME: Conflicts with `ts_ls`
     'elmls',
     'gopls',
     -- 'groovyls', -- FIXME: Failed to install
