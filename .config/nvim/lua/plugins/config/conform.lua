@@ -12,6 +12,8 @@ conform.setup {
   },
 }
 
+vim.keymap.set('n', 'cf', conform.format)
+
 vim.api.nvim_create_autocmd({ 'FileType' }, {
   group = 'edit',
   pattern = {
