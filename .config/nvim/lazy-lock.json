@@ -23,6 +23,7 @@
   "cmp-wezterm": { "branch": "main", "commit": "8570fbfdaadd6df6b45bdd554929ee3d88e6f246" },
   "colorful-winsep.nvim": { "branch": "main", "commit": "cc514e64dd9b33f56d28fbd977ebd8397892e349" },
   "committia.vim": { "branch": "master", "commit": "c8c0f255e8090ed90dd9d5dd2e8672994f8e3671" },
+  "conform.nvim": { "branch": "master", "commit": "c2526f1cde528a66e086ab1668e996d162c75f4f" },
   "context_filetype.vim": { "branch": "master", "commit": "ffb1ec4b2b3b34d77dd1a1b3610f2533eb69506c" },
   "dart-vim-plugin": { "branch": "master", "commit": "4bdc04e2540edf90fda2812434c11d19dc04bc8f" },
   "denops-helloworld.vim": { "branch": "main", "commit": "f975281571191cfd4e3f9e5ba77103932f7dd6e5" },

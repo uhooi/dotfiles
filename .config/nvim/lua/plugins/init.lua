@@ -689,6 +689,13 @@ require('lazy').setup({
   },
 
   {
+    'stevearc/conform.nvim',
+    config = function()
+      require('plugins.config.conform')
+    end,
+  },
+
+  {
     'soulis-1256/eagle.nvim',
     config = function()
       require('plugins.config.eagle')
