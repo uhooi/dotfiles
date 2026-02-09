@@ -12,4 +12,17 @@ conform.setup {
   },
 }
 
-vim.keymap.set('n', 'cf', conform.format)
+vim.api.nvim_create_autocmd({ 'FileType' }, {
+  group = 'edit',
+  pattern = {
+    'css',
+    'html',
+    'javascript',
+    'javascriptreact',
+    'typescript',
+    'typescriptreact',
+  },
+  callback = function()
+    vim.opt_local.formatexpr = "v:lua.require'conform'.formatexpr()"
+  end,
+})

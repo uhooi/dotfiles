@@ -35,10 +35,17 @@ vim.opt.virtualedit:append { 'block' }
 -- filetype {{{
 vim.api.nvim_create_augroup('edit', {})
 
--- HTML, JS, TS
+-- Frontend
 vim.api.nvim_create_autocmd({ 'FileType' }, {
   group = 'edit',
-  pattern = { 'html', 'javascript', 'typescript' },
+  pattern = {
+    'css',
+    'html',
+    'javascript',
+    'javascriptreact',
+    'typescript',
+    'typescriptreact',
+  },
   callback = function()
     vim.opt_local.tabstop = 2
   end,
