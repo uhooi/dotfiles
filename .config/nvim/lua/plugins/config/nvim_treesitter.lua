@@ -24,6 +24,7 @@ treesitter
     'html',
     'java',
     'javascript',
+    'jsdoc',
     'json',
     'kotlin',
     'latex',
