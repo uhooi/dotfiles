@@ -91,6 +91,13 @@ require('lazy').setup({
       require('plugins.config.ts_autotag')
     end,
   },
+
+  {
+    'danymat/neogen',
+    config = function()
+      require('plugins.config.neogen')
+    end,
+  },
   -- }}}
 
   -- Library {{{
