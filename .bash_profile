@@ -162,3 +162,9 @@ if [ -d "$HOME/.config/mise" ]; then
   eval "$(mise activate bash)"
   # eval "$(mise completion bash --include-bash-completion-lib)" # FIXME: Many errors
 fi
+
+# Claude Code
+# ref: https://code.claude.com/docs/ja/quickstart#native-install-recommended
+if [ -f "$HOME/.local/bin/claude" ]; then
+  export PATH="$HOME/.local/bin:$PATH"
+fi
