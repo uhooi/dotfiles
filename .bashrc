@@ -99,5 +99,11 @@ if type 'uv' > /dev/null 2>&1; then
 fi
 # }}}
 
+# pnpm
+# ref: https://pnpm.io/completion
+if type 'pnpm' > /dev/null 2>&1; then
+  eval "$(pnpm completion bash)"
+fi
+
 # Cargo
 . "$HOME/.cargo/env"
