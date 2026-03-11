@@ -5,6 +5,7 @@ pnpm = "10.29.2"
 python = "3.13.7"
 ruby = "3.4.3"
 rust = "1.89.0"
+tfenv = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby"]
