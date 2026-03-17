@@ -129,6 +129,7 @@ require('lazy').setup({
 
   {
     'HiPhish/rainbow-delimiters.nvim',
+    enabled = false, -- FIXME: Error in tree-sitter
     config = function()
       require('plugins.config.rainbow_delimiters')
     end,
