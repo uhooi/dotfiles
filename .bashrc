@@ -104,6 +104,11 @@ fi
 if type 'pnpm' > /dev/null 2>&1; then
   eval "$(pnpm completion bash)"
 fi
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 
 # Cargo
 . "$HOME/.cargo/env"
