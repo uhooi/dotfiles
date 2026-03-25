@@ -34,6 +34,7 @@ require('mason-lspconfig').setup {
     'ruby_lsp',
     'rust_analyzer',
     'taplo',
+    'terraformls',
     'ts_ls',
     'vimls',
     -- 'yamlls',
