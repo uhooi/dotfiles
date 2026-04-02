@@ -52,6 +52,7 @@ ln -fns ${SCRIPT_DIR_PATH}/.dictionaries/SKK-JISYO.emoji.utf8 ~/Library/Applicat
 # Claude Code
 mkdir ~/.claude
 ln -fns ${SCRIPT_DIR_PATH}/.claude/settings.json ~/.claude/settings.json
+ln -fns ${SCRIPT_DIR_PATH}/.claude/skills ~/.claude/skills
 
 source ~/.bash_profile
 
