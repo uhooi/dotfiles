@@ -72,5 +72,6 @@
         ]
       }
     ]
-  }
+  },
+  "editorMode": "vim"
 }
