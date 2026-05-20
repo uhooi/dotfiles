@@ -44,7 +44,7 @@
   "gitlinker.nvim": { "branch": "master", "commit": "cc59f732f3d043b626c8702cb725c82e54d35c25" },
   "gitsigns.nvim": { "branch": "main", "commit": "dd3f588bacbeb041be6facf1742e42097f62165d" },
   "hawtkeys.nvim": { "branch": "main", "commit": "27495e633c071ab0881d337e0f59bfbbb19e0ac2" },
-  "helpful.vim": { "branch": "master", "commit": "5580fbb554d2ca647d704e4c5c30a7271f929d2b" },
+  "helpful.vim": { "branch": "master", "commit": "f83049c3ae117cdd5741ad65aea4882597285f1c" },
   "highlight-undo.nvim": { "branch": "main", "commit": "ee32e12693d70e66f954d09a504a7371d110fc27" },
   "kensaku-command.vim": { "branch": "main", "commit": "d14e13d67e53b597806951f7ccabc40fe6a574fb" },
   "kensaku-search.vim": { "branch": "main", "commit": "9568c2b174a9cf31bd9922c0a991117f4dd4f0c3" },
