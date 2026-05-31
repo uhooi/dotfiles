@@ -5,6 +5,11 @@ description: Gitでコミットするときに使う
 
 Gitでコミットします。
 
+## ステージング
+
+- `git add -A` でまとめて追加しない。コミット対象のファイルを明示して `git add {ファイル}` する
+- ステージング後は `git status` で意図しないファイル（`.serena/` など）が混ざっていないか確認する
+
 ## フォーマット
 
 - Conventional Commitsに従う
