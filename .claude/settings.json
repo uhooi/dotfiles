@@ -73,5 +73,6 @@
       }
     ]
   },
-  "editorMode": "vim"
+  "editorMode": "vim",
+  "tui": "fullscreen"
 }
