@@ -429,11 +429,10 @@ require('lazy').setup({
   { 'rhysd/committia.vim' },
 
   {
-    'esmuellert/vscode-diff.nvim',
-    dependencies = { 'MunifTanjim/nui.nvim' },
+    'esmuellert/codediff.nvim',
     cmd = 'CodeDiff',
     config = function()
-      require('plugins.config.vscode_diff')
+      require('plugins.config.codediff')
     end,
   },
 
