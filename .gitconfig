@@ -12,7 +12,7 @@
     path = ~/.gitconfig.local
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
@@ -47,6 +47,7 @@
     lg = log
     lga = log --graph --pretty=format:\"%C(yellow)%h %C(green)%an %C(cyan)%ar%C(yellow)%d %Creset%s\"
     mr = merge
+    pl = pull
     ps = push
     psd = push -d
     psf = push --force-with-lease
