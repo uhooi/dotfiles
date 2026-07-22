@@ -105,10 +105,30 @@ config.keys = {
     mods = 'SUPER|SHIFT',
     action = act.SplitVertical { domain = 'CurrentPaneDomain' },
   },
+  {
+    key = 'h',
+    mods = 'CTRL|SHIFT',
+    action = act.ActivatePaneDirection('Left'),
+  },
+  {
+    key = 'j',
+    mods = 'CTRL|SHIFT',
+    action = act.ActivatePaneDirection('Down'),
+  },
+  {
+    key = 'k',
+    mods = 'CTRL|SHIFT',
+    action = act.ActivatePaneDirection('Up'),
+  },
+  {
+    key = 'l',
+    mods = 'CTRL|SHIFT',
+    action = act.ActivatePaneDirection('Right'),
+  },
   { -- Run '/terminal-setup' in Claude Code
     key = 'Enter',
     mods = 'SHIFT',
-    action = wezterm.action { SendString = '\x1b\r' },
+    action = act { SendString = '\x1b\r' },
   },
 }
 -- }}}
