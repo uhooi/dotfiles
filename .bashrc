@@ -111,4 +111,6 @@ case ":$PATH:" in
 esac
 
 # Cargo
-. "$HOME/.cargo/env"
+if [ -f "$HOME/.cargo/env" ]; then
+  . "$HOME/.cargo/env"
+fi

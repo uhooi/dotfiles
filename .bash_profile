@@ -146,9 +146,6 @@ export MANPAGER='nvim +Man!'
 # ref: https://iterm2.com/documentation-shell-integration.html
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
-# Cargo
-. "$HOME/.cargo/env"
-
 # Google Cloud SDK
 if [ -f "$HOME/google-cloud-sdk/path.bash.inc" ]; then
   . "$HOME/google-cloud-sdk/path.bash.inc"
