@@ -129,10 +129,6 @@ if [ -d "${CODELLDB_HOME}" ]; then
   export PATH="${CODELLDB_HOME}:$PATH"
 fi
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
 # Man
 # ManをNeovimで開く
 export MANPAGER='nvim +Man!'
@@ -163,3 +159,7 @@ fi
 if [ -f "$HOME/.local/bin/claude" ]; then
   export PATH="$HOME/.local/bin:$PATH"
 fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
