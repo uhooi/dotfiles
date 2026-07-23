@@ -403,6 +403,7 @@ require('lazy').setup({
   -- Motion {{{
   {
     'folke/flash.nvim',
+    enabled = false, -- FIXME: Error. ref: https://x.com/delphinus35/status/2080124053831160159
     event = 'VeryLazy',
     config = function()
       require('plugins.config.flash')
