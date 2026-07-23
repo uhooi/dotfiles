@@ -15,7 +15,6 @@
 /bin/rm -r ~/.vim/config
 /bin/rm -r ~/.vim/snippets
 /bin/rm -r ~/.config/nvim
-/bin/rm -r ~/.config/alacritty
 /bin/rm -r ~/.config/efm-langserver
 /bin/rm -r ~/.config/ranger
 /bin/rm -r ~/.config/mise
