@@ -129,9 +129,9 @@ local file_status = (function()
   local item = Item {
     prepare = function(_, ctx)
       local bufnr, data = ctx.bufnr, ctx.ctx
-      data.readonly = vim.api.nvim_buf_get_option(bufnr, 'readonly')
-      data.modifiable = vim.api.nvim_buf_get_option(bufnr, 'modifiable')
-      data.modified = vim.api.nvim_buf_get_option(bufnr, 'modified')
+      data.readonly = vim.bo[bufnr].readonly
+      data.modifiable = vim.bo[bufnr].modifiable
+      data.modified = vim.bo[bufnr].modified
     end,
     sep_left = sep.left_half_circle_solid(true),
     content = {
