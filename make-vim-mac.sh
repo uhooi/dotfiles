@@ -32,7 +32,7 @@ make distclean
   --enable-cscope \
   --enable-fail-if-missing \
   --enable-luainterp=yes \
-  --with-lua-prefix=/opt/homebrew/Cellar/lua/5.4.6 \
+  --with-lua-prefix=$(brew --prefix lua) \
   --enable-perlinterp=yes \
   --enable-python3interp=yes \
   --with-python3-command=python \
