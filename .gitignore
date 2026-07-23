@@ -14,3 +14,7 @@ packer_compiled.lua
 
 # Claude Code
 .claude/settings.local.json
+
+# SKK
+# 自動生成の辞書はコミットせず、Install.sh でダウンロードする
+.dictionaries/SKK-JISYO.jawiki
