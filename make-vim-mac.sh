@@ -10,7 +10,7 @@
 
 # Variables {{{
 
-CURRENT_DIR=`dirname $0`
+CURRENT_DIR=$(cd "$(dirname "$0")"; pwd)
 ROOT=${HOME}/ghq/github.com/vim/vim
 INSTALL_DIR=${HOME}/.local/vim
 MAIN_BRANCH=master
@@ -40,7 +40,7 @@ make distclean
   --prefix=${INSTALL_DIR} \
   --with-compiledby=uhooi \
   --with-tlib=ncurses \
-  CFLAGS='-I/opt/homebrew/include'
+  CFLAGS="-I$(brew --prefix)/include"
 
 make
 

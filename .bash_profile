@@ -42,9 +42,6 @@ if [ -d "${JAVA_HOME_PATH}" ]; then
 fi
 
 ANDROID_HOME=${HOME}/Library/Android/sdk
-if [ -d "${ANDROID_HOME}" ]; then
-  export PATH="${ANDROID_HOME}/bin:$PATH"
-fi
 
 # Platform-Tools( `adb` コマンドなど)
 # ref: https://qiita.com/uhooi/items/a3dcc15f7e15ae11d1d6
@@ -132,10 +129,6 @@ if [ -d "${CODELLDB_HOME}" ]; then
   export PATH="${CODELLDB_HOME}:$PATH"
 fi
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
 # Man
 # ManをNeovimで開く
 export MANPAGER='nvim +Man!'
@@ -166,3 +159,7 @@ fi
 if [ -f "$HOME/.local/bin/claude" ]; then
   export PATH="$HOME/.local/bin:$PATH"
 fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

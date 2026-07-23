@@ -87,9 +87,12 @@ time_remaining() {
   }'
 }
 
+# jq is required to parse the stdin JSON; without it, render nothing.
+command -v jq >/dev/null 2>&1 || exit 0
+
 input=$(cat)
 
-cwd=$(echo "$input" | jq -r '.workspace.current_dir')
+cwd=$(echo "$input" | jq -r '.workspace.current_dir // empty')
 
 dir=""
 git_info=""

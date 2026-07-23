@@ -446,7 +446,9 @@ require('lazy').setup({
 
   {
     'ruifm/gitlinker.nvim',
-    requires = 'nvim-lua/plenary.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
     config = function()
       require('plugins.config.gitlinker')
     end,

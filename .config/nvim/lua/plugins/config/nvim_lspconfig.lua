@@ -134,9 +134,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     --      : https://github.com/neovim/neovim/issues/26926
     -- if supports_inlay_hint or client.name == 'sourcekit' or client.name == 'dartls' then
     if supports_inlay_hint then
-      if supports_inlay_hint then
-        vim.lsp.inlay_hint.enable(true, { bufnr })
-      end
+      vim.lsp.inlay_hint.enable(true, { bufnr })
 
       vim.keymap.set('n', 'gh', function()
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(), { bufnr })
