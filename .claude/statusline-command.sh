@@ -3,12 +3,13 @@
 #
 # Line 1: directory (📁, faded bright-yellow badge) + git branch (🌿, faded
 #         bright-red badge) — colors converted from ~/.bash_profile PS1.
-# Line 2: model name, context-window size & reasoning effort (🤖, faded
-#         bright-blue badge), e.g. "Fable 5[1m] (high)" — the bracketed size
-#         comes from `context_window.context_window_size` (1000000 → "1m",
-#         200000 → "200k"; whole millions use "m", otherwise "k"), omitted
-#         if absent — + context-window usage (🧠, cyan, plain bar), e.g.
-#         "▓▓▓░░░░░░░ 32%".
+#         Directory paths under ~/ghq/<host>/<owner>/<repo>/... are shown
+#         from the repo name onward (host+owner stripped), e.g.
+#         "qa-aj-frontend-app/frontend2/apps/web"; other paths just get the
+#         usual ~ substitution for $HOME.
+# Line 2: model name & reasoning effort (🤖, faded bright-blue badge), e.g.
+#         "Fable 5 (high)", + context-window usage (🧠, cyan, plain bar),
+#         e.g. "▓▓▓░░░░░░░ 32%".
 # Line 3: rate-limit usage (magenta, plain bar; no "5h"/"7d" text labels —
 #         the 🕔/📅 emoji alone identify each bar), each with a reset
 #         countdown in hours+minutes, e.g. "🕔 ▓▓▓░░░░░░░ 30% (3h 12m)  📅
@@ -78,7 +79,13 @@ time_remaining() {
 input=$(cat)
 
 cwd=$(echo "$input" | jq -r '.workspace.current_dir')
-dir=${cwd/#$HOME/\~}
+# If under ~/ghq/<host>/<owner>/<repo>/..., show from the repo name onward
+# (strip host+owner); otherwise fall back to plain ~ substitution.
+if [[ "$cwd" =~ ^"$HOME"/ghq/[^/]+/[^/]+/(.+)$ ]]; then
+  dir="${BASH_REMATCH[1]}"
+else
+  dir=${cwd/#$HOME/\~}
+fi
 
 git_info=""
 if git -C "$cwd" --no-optional-locks rev-parse --is-inside-work-tree >/dev/null 2>&1; then
@@ -94,18 +101,7 @@ ctx_info=""
 
 model_name=$(echo "$input" | jq -r '.model.display_name // empty')
 effort=$(echo "$input" | jq -r '.effort.level // empty')
-ctx_size=$(echo "$input" | jq -r '.context_window.context_window_size // empty')
-ctx_size_str=""
-if [ -n "$ctx_size" ]; then
-  ctx_size_str=$(awk -v n="$ctx_size" 'BEGIN {
-    if (n % 1000000 == 0) { printf "%dm", n / 1000000 }
-    else { printf "%dk", n / 1000 }
-  }')
-fi
 model_info="$model_name"
-if [ -n "$model_info" ] && [ -n "$ctx_size_str" ]; then
-  model_info="${model_info}[${ctx_size_str}]"
-fi
 if [ -n "$model_info" ] && [ -n "$effort" ]; then
   model_info="${model_info} (${effort})"
 fi
