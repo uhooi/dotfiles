@@ -35,6 +35,8 @@
 /bin/rm ~/Library/Application\ Support/AquaSKK
 # Claude Code
 /bin/rm ~/.claude/settings.json
+/bin/rm ~/.claude/statusline-command.sh
+/bin/rm -r ~/.claude/skills
 
 # dein.vimをアンインストールする
 /bin/rm -r ~/.cache/dein
