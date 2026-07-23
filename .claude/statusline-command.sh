@@ -1,12 +1,23 @@
 #!/bin/bash
 # Claude Code status line (3 lines)
 #
-# Line 1: directory (📁, faded bright-yellow badge) + git branch (🌿, faded
-#         bright-red badge) — colors converted from ~/.bash_profile PS1.
-#         Directory paths under ~/ghq/<host>/<owner>/<repo>/... are shown
-#         from the repo name onward (host+owner stripped), e.g.
-#         "qa-aj-frontend-app/frontend2/apps/web"; other paths just get the
-#         usual ~ substitution for $HOME.
+# Line 1: directory (📁, faded bright-yellow badge) + git branch (🌿/🌳,
+#         faded bright-red badge) — colors converted from ~/.bash_profile
+#         PS1.
+#         Directory: inside a git repo, shown as "<repo-name>/<path relative
+#         to worktree root>" (just "<repo-name>" at the worktree root), so
+#         long/temporary worktree folder names don't clutter the badge.
+#         repo-name is derived from `git rev-parse --git-common-dir`
+#         (resolved to an absolute path, parent-dir basename), which
+#         correctly resolves to the MAIN repo's name even from inside a
+#         linked worktree; falls back to `workspace.repo.name` from stdin
+#         JSON if that git-based derivation fails. The relative path is
+#         `cwd` minus the `git rev-parse --show-toplevel` prefix. Outside a
+#         git repo (or if repo-name couldn't be derived), falls back to
+#         plain ~ substitution for $HOME.
+#         Git branch emoji: 🌿 in the main worktree, 🌳 when `git rev-parse
+#         --git-dir` differs from `--git-common-dir` (i.e. a linked
+#         worktree).
 # Line 2: model name & reasoning effort (🤖, faded bright-blue badge), e.g.
 #         "Fable 5 (high)", + context-window usage (🧠, cyan, plain bar),
 #         e.g. "▓▓▓░░░░░░░ 32%".
@@ -79,21 +90,61 @@ time_remaining() {
 input=$(cat)
 
 cwd=$(echo "$input" | jq -r '.workspace.current_dir')
-# If under ~/ghq/<host>/<owner>/<repo>/..., show from the repo name onward
-# (strip host+owner); otherwise fall back to plain ~ substitution.
-if [[ "$cwd" =~ ^"$HOME"/ghq/[^/]+/[^/]+/(.+)$ ]]; then
-  dir="${BASH_REMATCH[1]}"
-else
-  dir=${cwd/#$HOME/\~}
-fi
 
+dir=""
 git_info=""
+branch_emoji="🌿"
 if git -C "$cwd" --no-optional-locks rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  toplevel=$(git -C "$cwd" --no-optional-locks rev-parse --show-toplevel 2>/dev/null)
+  git_dir=$(git -C "$cwd" --no-optional-locks rev-parse --git-dir 2>/dev/null)
+  common_dir=$(git -C "$cwd" --no-optional-locks rev-parse --git-common-dir 2>/dev/null)
+
+  # Resolve --git-common-dir to an absolute path so we can derive the MAIN
+  # repository's directory name, even from inside a linked worktree (where
+  # --git-common-dir points back at the main repo's .git dir).
+  common_dir_abs="$common_dir"
+  case "$common_dir_abs" in
+    /*) ;;
+    *) common_dir_abs="$cwd/$common_dir_abs" ;;
+  esac
+  repo_root_dir=$(cd "$(dirname "$common_dir_abs")" 2>/dev/null && pwd)
+  repo_name=""
+  [ -n "$repo_root_dir" ] && repo_name=$(basename "$repo_root_dir")
+  # Fallback if the git-based derivation above didn't work out.
+  [ -z "$repo_name" ] && repo_name=$(echo "$input" | jq -r '.workspace.repo.name // empty')
+
+  rel_path=""
+  [ -n "$toplevel" ] && rel_path="${cwd#"$toplevel"}"
+
+  [ -n "$repo_name" ] && dir="${repo_name}${rel_path}"
+
+  # Linked worktree (git-dir differs from the shared git-common-dir) gets a
+  # distinct emoji from the main worktree. Both must be normalized to
+  # absolute, canonical paths before comparing: from a subdirectory, git can
+  # return --git-dir as absolute while --git-common-dir stays relative (or
+  # vice versa), e.g. "/repo/.git" vs "../../../.git" for the SAME main
+  # repo — a raw string compare would wrongly treat that as a linked
+  # worktree.
+  git_dir_abs="$git_dir"
+  case "$git_dir_abs" in
+    /*) ;;
+    *) git_dir_abs="$cwd/$git_dir_abs" ;;
+  esac
+  git_dir_norm=$(cd "$git_dir_abs" 2>/dev/null && pwd)
+  common_dir_norm=$(cd "$common_dir_abs" 2>/dev/null && pwd)
+  if [ -n "$git_dir_norm" ] && [ -n "$common_dir_norm" ] && [ "$git_dir_norm" != "$common_dir_norm" ]; then
+    branch_emoji="🌳"
+  fi
+
   branch=$(git -C "$cwd" --no-optional-locks symbolic-ref --short HEAD 2>/dev/null || git -C "$cwd" --no-optional-locks rev-parse --short HEAD 2>/dev/null)
   dirty=""
   [ -n "$(git -C "$cwd" --no-optional-locks status --porcelain 2>/dev/null)" ] && dirty="*"
   git_info="${branch}${dirty}"
 fi
+
+# Outside a git repo (or if the git-based derivation above failed), fall
+# back to plain ~ substitution for $HOME.
+[ -z "$dir" ] && dir=${cwd/#$HOME/\~}
 
 ctx_used=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
 ctx_info=""
@@ -122,7 +173,7 @@ fi
 # Line 1: directory (faded bright-yellow badge) + git branch (faded bright-red badge)
 printf "\033[97;48;2;96;96;44m📁 %s \033[0m" "$dir"
 if [ -n "$git_info" ]; then
-  printf " \033[97;48;2;96;44;44m🌿 %s \033[0m" "$git_info"
+  printf " \033[97;48;2;96;44;44m%s %s \033[0m" "$branch_emoji" "$git_info"
 fi
 printf "\n"
 
