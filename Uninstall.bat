@@ -23,7 +23,6 @@ del %USERPROFILE%\.xpdfrc
 del %USERPROFILE%\.gitignore
 del %USERPROFILE%\.svnignore
 del %USERPROFILE%\.gitconfig
-del %USERPROFILE%\.hyper.js
 
 endlocal
 exit

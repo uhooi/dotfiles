@@ -26,7 +26,6 @@
 /bin/rm ~/.gitignore
 /bin/rm ~/.svnignore
 /bin/rm ~/.wezterm.lua
-/bin/rm ~/.hyper.js
 /bin/rm ~/.swift-package-complete.bash
 # macSKK
 /bin/rm ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Library/Preferences/net.mtgto.inputmethod.macSKK.plist
