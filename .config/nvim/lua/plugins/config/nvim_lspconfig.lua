@@ -190,6 +190,3 @@ vim.api.nvim_create_autocmd('LspProgress', {
     end
   end,
 })
-
--- UI
-require('lspconfig.ui.windows').default_options.border = 'rounded'
