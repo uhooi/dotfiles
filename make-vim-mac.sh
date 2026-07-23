@@ -10,7 +10,7 @@
 
 # Variables {{{
 
-CURRENT_DIR=`dirname $0`
+CURRENT_DIR=$(cd "$(dirname "$0")"; pwd)
 ROOT=${HOME}/ghq/github.com/vim/vim
 INSTALL_DIR=${HOME}/.local/vim
 MAIN_BRANCH=master

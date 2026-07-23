@@ -10,7 +10,7 @@
 
 # Variables {{{
 
-CURRENT_DIR=`dirname $0`
+CURRENT_DIR=$(cd "$(dirname "$0")"; pwd)
 NVIM_ROOT=${HOME}/ghq/github.com/neovim/neovim
 
 # }}}
