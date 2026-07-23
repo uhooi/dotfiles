@@ -1,4 +1,4 @@
-#!bin/sh
+#!/bin/sh
 
 # ----
 # dotfilesのシンボリックリンクを削除する
@@ -25,9 +25,10 @@
 /bin/rm ~/.xpdfrc
 /bin/rm ~/.gitignore
 /bin/rm ~/.svnignore
+/bin/rm ~/.gitconfig
 /bin/rm ~/.wezterm.lua
-/bin/rm ~/.hyper.js
 /bin/rm ~/.swift-package-complete.bash
+/bin/rm ~/.sourcekit-lsp/config.json
 # macSKK
 /bin/rm ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Library/Preferences/net.mtgto.inputmethod.macSKK.plist
 /bin/rm ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Settings/kana-rule.conf
@@ -43,14 +44,14 @@
 /bin/rm ~/.claude/statusline-command.sh
 /bin/rm -r ~/.claude/skills
 
-# dein.vimをアンインストールする
-/bin/rm -r ~/.cache/dein
+# dpp.vimをアンインストールする
+/bin/rm -r ~/.cache/dpp
 
 if [ "$(uname)" == 'Darwin' ]; then
   # 環境設定を削除する
   defaults delete com.apple.screencapture disable-shadow
   defaults delete com.apple.finder AppleShowAllFiles
-  defaults delete com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration
+  defaults delete com.apple.dt.Xcode ShowBuildOperationDuration
   defaults delete com.apple.iphonesimulator ShowSingleTouches
   defaults delete com.apple.dt.XCBuild EnableSwiftBuildSystemIntegration
   killall SystemUIServer

@@ -5,3 +5,7 @@ vim-mac:
 .PHONY: nvim
 nvim:
 	sh ./make-nvim.sh
+
+.PHONY: clean-nvim
+clean-nvim:
+	sh ./clean-nvim.sh

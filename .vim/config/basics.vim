@@ -60,6 +60,7 @@ set mouse=a
 set writebackup
 set nobackup
 set undodir=~/.vim/undo
+set undofile
 
 " スワップファイルが存在する場合、メッセージを表示せずに読取専用で開く
 " ref: http://itchyny.hatenablog.com/entry/2014/12/25/090000

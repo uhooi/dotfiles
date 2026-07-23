@@ -1,4 +1,4 @@
-#!bin/sh
+#!/bin/sh
 
 # ----
 # dotfilesのシンボリックリンクを作成する
@@ -31,7 +31,6 @@ ln -fns ${SCRIPT_DIR_PATH}/.gitignore ~/.gitignore
 ln -fns ${SCRIPT_DIR_PATH}/.svnignore ~/.svnignore
 ln -fns ${SCRIPT_DIR_PATH}/.gitconfig ~/.gitconfig
 ln -fns ${SCRIPT_DIR_PATH}/.wezterm.lua ~/.wezterm.lua
-ln -fns ${SCRIPT_DIR_PATH}/.hyper.js ~/.hyper.js
 ln -fns ${SCRIPT_DIR_PATH}/.swift-package-complete.bash ~/.swift-package-complete.bash
 mkdir ~/.sourcekit-lsp
 ln -fns ${SCRIPT_DIR_PATH}/.sourcekit-lsp/config.json ~/.sourcekit-lsp/config.json
@@ -51,6 +50,7 @@ mkdir -p ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictio
 cp ${SCRIPT_DIR_PATH}/.dictionaries/SKK-JISYO.jawiki ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries/SKK-JISYO.jawiki
 cp ${SCRIPT_DIR_PATH}/.dictionaries/SKK-JISYO.emoji.utf8 ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries/SKK-JISYO.emoji.utf8
 # AquaSKK
+mkdir -p ~/Library/Application\ Support/AquaSKK
 ln -fns ${SCRIPT_DIR_PATH}/Library/Application\ Support/AquaSKK/kana-rule.conf ~/Library/Application\ Support/AquaSKK/kana-rule.conf
 ln -fns ${SCRIPT_DIR_PATH}/Library/Application\ Support/AquaSKK/keymap.conf ~/Library/Application\ Support/AquaSKK/keymap.conf
 ln -fns ${SCRIPT_DIR_PATH}/.dictionaries/SKK-JISYO.jawiki ~/Library/Application\ Support/AquaSKK/SKK-JISYO.jawiki
@@ -62,12 +62,6 @@ ln -fns ${SCRIPT_DIR_PATH}/.claude/statusline-command.sh ~/.claude/statusline-co
 ln -fns ${SCRIPT_DIR_PATH}/.claude/skills ~/.claude/skills
 
 source ~/.bash_profile
-
-# dein.vimをインストールする
-# ref: https://github.com/Shougo/dein.vim#quick-start
-curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-sh ./installer.sh ~/.cache/dein
-rm -f ./installer.sh
 
 if [ "$(uname)" == 'Darwin' ]; then
   # スクリーンショットの撮影時に影を含めない

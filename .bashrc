@@ -33,11 +33,16 @@ alias goodbye-derived-data='/bin/rm -rf ~/Library/Developer/Xcode/DerivedData/'
 #    : http://mawatari.jp/archives/git-completion-bash
 #    : http://qiita.com/UmedaTakefumi/items/fe02d17264de6c78443d
 #    : https://oki2a24.com/2019/04/11/customise-git-ps1-to-a-nearly-satisfactory-state/
-if [ "$(uname)" == 'Darwin' ]; then
-  source ${HOMEBREW_ETC_PATH}/bash_completion.d/git-prompt.sh
-elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
-  source /usr/share/doc/git-1.8.3.1/contrib/completion/git-prompt.sh
-fi
+for git_prompt_path in \
+  "${HOMEBREW_ETC_PATH}/bash_completion.d/git-prompt.sh" \
+  '/usr/share/git-core/contrib/completion/git-prompt.sh' \
+  '/etc/bash_completion.d/git-prompt'
+do
+  if [ -f "${git_prompt_path}" ]; then
+    source "${git_prompt_path}"
+    break
+  fi
+done
 
 # 表示するGit情報に以下のマークを追加する
 # * : addされていない変更がある
@@ -68,11 +73,15 @@ GIT_PS1_STATESEPARATOR=" "
 
 # ターミナルでGitのタブ補完を有効にする
 # ref: http://qiita.com/koyopro/items/3fce94537df2be6247a3
-if [ "$(uname)" == 'Darwin' ]; then
-  source ${HOMEBREW_ETC_PATH}/bash_completion.d/git-completion.bash
-elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
-  source /usr/share/doc/git-1.8.3.1/contrib/completion/git-completion.bash
-fi
+for git_completion_path in \
+  "${HOMEBREW_ETC_PATH}/bash_completion.d/git-completion.bash" \
+  '/usr/share/bash-completion/completions/git'
+do
+  if [ -f "${git_completion_path}" ]; then
+    source "${git_completion_path}"
+    break
+  fi
+done
 
 # `git` に `g` のエイリアスを貼っていても補完が効くようにする
 # ref: https://twitter.com/396f91/status/1271299342318497792?s=20
@@ -83,8 +92,8 @@ complete -o bashdefault -o default -o nospace -F __git_wrap__git_main g
 # bash-comletion
 # makeコマンドの補完などを有効にする
 # ref: https://qiita.com/notakaos/items/d44a4c2b72625746de25
-if [ "$(uname)" == 'Darwin' ]; then
-  source ${HOMEBREW_ETC_PATH}/bash_completion
+if [ -f "${HOMEBREW_ETC_PATH}/bash_completion" ]; then
+  source "${HOMEBREW_ETC_PATH}/bash_completion"
 fi
 
 # Swift Package Manager
@@ -111,4 +120,6 @@ case ":$PATH:" in
 esac
 
 # Cargo
-. "$HOME/.cargo/env"
+if [ -f "$HOME/.cargo/env" ]; then
+  . "$HOME/.cargo/env"
+fi

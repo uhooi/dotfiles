@@ -89,10 +89,6 @@
 [diff]
     # diffでリネームを検知する
     renames = true
-[filter "hawser"]
-    clean = git hawser clean %f
-    smudge = git hawser smudge %f
-    required = true
 # diffで差分をハイライトする
 # ref: https://github.com/git/git/tree/master/contrib/diff-highlight
 #    : https://udomomo.hatenablog.com/entry/2019/12/01/181404

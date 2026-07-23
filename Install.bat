@@ -25,7 +25,6 @@ mklink %USERPROFILE%\.xpdfrc %~dp0\.xpdfrc
 mklink %USERPROFILE%\.gitignore %~dp0\.gitignore
 mklink %USERPROFILE%\.svnignore %~dp0\.svnignore
 mklink %USERPROFILE%\.gitconfig %~dp0\windows.gitconfig
-mklink %USERPROFILE%\.hyper.js %~dp0\.hyper.js
 
 endlocal
 exit
