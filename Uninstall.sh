@@ -30,9 +30,15 @@
 /bin/rm ~/.hyper.js
 /bin/rm ~/.swift-package-complete.bash
 # macSKK
-/bin/rm ~/Library/Containers/net.mtgto.inputmethod.macSKK
+/bin/rm ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Library/Preferences/net.mtgto.inputmethod.macSKK.plist
+/bin/rm ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Settings/kana-rule.conf
+/bin/rm ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries/SKK-JISYO.jawiki
+/bin/rm ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries/SKK-JISYO.emoji.utf8
 # AquaSKK
-/bin/rm ~/Library/Application\ Support/AquaSKK
+/bin/rm ~/Library/Application\ Support/AquaSKK/kana-rule.conf
+/bin/rm ~/Library/Application\ Support/AquaSKK/keymap.conf
+/bin/rm ~/Library/Application\ Support/AquaSKK/SKK-JISYO.jawiki
+/bin/rm ~/Library/Application\ Support/AquaSKK/SKK-JISYO.emoji.utf8
 # Claude Code
 /bin/rm ~/.claude/settings.json
 /bin/rm ~/.claude/statusline-command.sh
