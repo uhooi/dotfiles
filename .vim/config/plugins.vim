@@ -10,9 +10,10 @@ if !isdirectory(s:dpp_base)
 endif
 
 " Copy my dpp config files
+const s:dpp_config_dir = expand('<sfile>:h') .. '/dpp'
 const s:dpp_config_file = s:dpp_base .. 'dpp.ts'
 if !filereadable(s:dpp_config_file)
-  execute '!cp -f ./dpp/* ' .. s:dpp_base
+  execute '!cp -f ' .. s:dpp_config_dir .. '/* ' .. s:dpp_base
 endif
 
 " Set dpp source path (required)
