@@ -42,9 +42,6 @@ if [ -d "${JAVA_HOME_PATH}" ]; then
 fi
 
 ANDROID_HOME=${HOME}/Library/Android/sdk
-if [ -d "${ANDROID_HOME}" ]; then
-  export PATH="${ANDROID_HOME}/bin:$PATH"
-fi
 
 # Platform-Tools( `adb` コマンドなど)
 # ref: https://qiita.com/uhooi/items/a3dcc15f7e15ae11d1d6
