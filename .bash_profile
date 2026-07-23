@@ -35,8 +35,9 @@ if [ -d "${MAVEN_HOME}" ]; then
 fi
 
 # Androidアプリ開発
-export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jbr/Contents/Home
-if [ -d "${JAVA_HOME}" ]; then
+JAVA_HOME_PATH="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
+if [ -d "${JAVA_HOME_PATH}" ]; then
+  export JAVA_HOME="${JAVA_HOME_PATH}"
   export PATH="${JAVA_HOME}/bin:$PATH"
 fi
 
