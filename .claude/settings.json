@@ -75,7 +75,7 @@
   },
   "tui": "fullscreen",
   "editorMode": "vim",
-  "model": "claude-fable-5",
+  "model": "claude-fable-5[1m]",
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
