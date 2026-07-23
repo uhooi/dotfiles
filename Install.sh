@@ -14,10 +14,10 @@ ln -fns ${SCRIPT_DIR_PATH}/.vimrc ~/.vimrc
 ln -fns ${SCRIPT_DIR_PATH}/.gvimrc ~/.gvimrc
 ln -fns ${SCRIPT_DIR_PATH}/.xvimrc ~/.xvimrc
 ln -fns ${SCRIPT_DIR_PATH}/.ideavimrc ~/.ideavimrc
-mkdir ~/.vim
+mkdir -p ~/.vim
 ln -fns ${SCRIPT_DIR_PATH}/.vim/config ~/.vim/config
 ln -fns ${SCRIPT_DIR_PATH}/.vim/snippets ~/.vim/snippets
-mkdir ~/.config
+mkdir -p ~/.config
 ln -fns ${SCRIPT_DIR_PATH}/.config/nvim ~/.config/nvim
 ln -fns ${SCRIPT_DIR_PATH}/.config/efm-langserver ~/.config/efm-langserver
 ln -fns ${SCRIPT_DIR_PATH}/.config/ranger ~/.config/ranger
@@ -32,7 +32,7 @@ ln -fns ${SCRIPT_DIR_PATH}/.svnignore ~/.svnignore
 ln -fns ${SCRIPT_DIR_PATH}/.gitconfig ~/.gitconfig
 ln -fns ${SCRIPT_DIR_PATH}/.wezterm.lua ~/.wezterm.lua
 ln -fns ${SCRIPT_DIR_PATH}/.swift-package-complete.bash ~/.swift-package-complete.bash
-mkdir ~/.sourcekit-lsp
+mkdir -p ~/.sourcekit-lsp
 ln -fns ${SCRIPT_DIR_PATH}/.sourcekit-lsp/config.json ~/.sourcekit-lsp/config.json
 # SKK-JISYO.jawikiをダウンロードする
 # ∵自動生成の辞書（約26MB）はリポジトリにコミットしないため
@@ -56,7 +56,7 @@ ln -fns ${SCRIPT_DIR_PATH}/Library/Application\ Support/AquaSKK/keymap.conf ~/Li
 ln -fns ${SCRIPT_DIR_PATH}/.dictionaries/SKK-JISYO.jawiki ~/Library/Application\ Support/AquaSKK/SKK-JISYO.jawiki
 ln -fns ${SCRIPT_DIR_PATH}/.dictionaries/SKK-JISYO.emoji.utf8 ~/Library/Application\ Support/AquaSKK/SKK-JISYO.emoji.utf8
 # Claude Code
-mkdir ~/.claude
+mkdir -p ~/.claude
 ln -fns ${SCRIPT_DIR_PATH}/.claude/settings.json ~/.claude/settings.json
 ln -fns ${SCRIPT_DIR_PATH}/.claude/statusline-command.sh ~/.claude/statusline-command.sh
 ln -fns ${SCRIPT_DIR_PATH}/.claude/skills ~/.claude/skills
