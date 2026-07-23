@@ -7,7 +7,7 @@
 # 備考: なし
 # ----
 
-SCRIPT_DIR_PATH=$(cd $(dirname $0);pwd)
+SCRIPT_DIR_PATH=$(cd "$(dirname "$0")"; pwd)
 
 # dotfilesのシンボリックリンクを作成する
 ln -fns ${SCRIPT_DIR_PATH}/.vimrc ~/.vimrc
