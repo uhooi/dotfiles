@@ -40,7 +40,7 @@ make distclean
   --prefix=${INSTALL_DIR} \
   --with-compiledby=uhooi \
   --with-tlib=ncurses \
-  CFLAGS='-I/opt/homebrew/include'
+  CFLAGS="-I$(brew --prefix)/include"
 
 make
 
