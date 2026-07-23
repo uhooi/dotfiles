@@ -1,6 +1,15 @@
 -- ref: https://github.com/delphinus/dotfiles/blob/e562d4f8e99793e6ae1cd330c9208dac1d29d407/.config/nvim/lua/modules/lsp/config.lua#L440-L665
 local null_ls = require('null-ls')
 
+-- プロジェクトの `.swiftlint.yml` があればそれを使い、なければ Loki の設定にフォールバックする
+local function swiftlint_config_path()
+  local project_config = vim.fn.findfile('.swiftlint.yml', '.;')
+  if project_config ~= '' then
+    return vim.fn.fnamemodify(project_config, ':p')
+  end
+  return vim.fn.expand('~/ghq/github.com/uhooi/Loki/.swiftlint.yml')
+end
+
 null_ls.setup {
   border = 'rounded',
   sources = {
@@ -36,7 +45,7 @@ null_ls.setup {
         '--use-stdin',
         '--quiet',
         '--config',
-        vim.fn.expand('~/ghq/github.com/uhooi/Loki/.swiftlint.yml'), -- TODO: Make path dynamic
+        swiftlint_config_path(),
       },
     },
     null_ls.builtins.formatting.swiftlint.with {
@@ -46,7 +55,7 @@ null_ls.setup {
         '--fix',
         '--format',
         '--config',
-        vim.fn.expand('~/ghq/github.com/uhooi/Loki/.swiftlint.yml'), -- TODO: Make path dynamic
+        swiftlint_config_path(),
       },
     },
   },
