@@ -19,7 +19,6 @@ ln -fns ${SCRIPT_DIR_PATH}/.vim/config ~/.vim/config
 ln -fns ${SCRIPT_DIR_PATH}/.vim/snippets ~/.vim/snippets
 mkdir ~/.config
 ln -fns ${SCRIPT_DIR_PATH}/.config/nvim ~/.config/nvim
-ln -fns ${SCRIPT_DIR_PATH}/.config/alacritty ~/.config/alacritty
 ln -fns ${SCRIPT_DIR_PATH}/.config/efm-langserver ~/.config/efm-langserver
 ln -fns ${SCRIPT_DIR_PATH}/.config/ranger ~/.config/ranger
 ln -fns ${SCRIPT_DIR_PATH}/.config/mise ~/.config/mise
@@ -36,6 +35,13 @@ ln -fns ${SCRIPT_DIR_PATH}/.hyper.js ~/.hyper.js
 ln -fns ${SCRIPT_DIR_PATH}/.swift-package-complete.bash ~/.swift-package-complete.bash
 mkdir ~/.sourcekit-lsp
 ln -fns ${SCRIPT_DIR_PATH}/.sourcekit-lsp/config.json ~/.sourcekit-lsp/config.json
+# SKK-JISYO.jawikiをダウンロードする
+# ∵自動生成の辞書（約26MB）はリポジトリにコミットしないため
+# ref: https://github.com/tokuhirom/jawiki-kana-kanji-dict
+if [ ! -f ${SCRIPT_DIR_PATH}/.dictionaries/SKK-JISYO.jawiki ]; then
+  curl -fsSL https://github.com/tokuhirom/jawiki-kana-kanji-dict/releases/latest/download/SKK-JISYO.jawiki -o ${SCRIPT_DIR_PATH}/.dictionaries/SKK-JISYO.jawiki
+fi
+
 # macSKK
 mkdir -p ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Library/Preferences
 cp ${SCRIPT_DIR_PATH}/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Library/Preferences/net.mtgto.inputmethod.macSKK.plist ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Library/Preferences/net.mtgto.inputmethod.macSKK.plist
