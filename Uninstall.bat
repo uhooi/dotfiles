@@ -3,13 +3,13 @@ setlocal
 cd /d %~dp0
 
 rem ----------------------------------------------------------------
-rem Remove symbolic links for dotfiles
-rem Arguments: none
-rem Returns: none
-rem Notes: none
+rem dotfilesのシンボリックリンクを削除する
+rem 引数：なし
+rem 戻値：なし
+rem 備考：
 rem ----------------------------------------------------------------
 
-rem Remove symbolic links for dotfiles
+rem dotfilesのシンボリックリンクを削除する
 del %USERPROFILE%\.vimrc
 del %USERPROFILE%\.gvimrc
 del %USERPROFILE%\.ideavimrc

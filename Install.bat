@@ -3,13 +3,13 @@ setlocal
 cd /d %~dp0
 
 rem ----------------------------------------------------------------
-rem Create symbolic links for dotfiles
-rem Arguments: none
-rem Returns: none
-rem Notes: none
+rem dotfilesのシンボリックリンクを作成する
+rem 引数：なし
+rem 戻値：なし
+rem 備考：
 rem ----------------------------------------------------------------
 
-rem Create symbolic links for dotfiles
+rem dotfilesのシンボリックリンクを作成する
 mklink %USERPROFILE%\.vimrc %~dp0\.vimrc
 mklink %USERPROFILE%\.gvimrc %~dp0\.gvimrc
 mklink %USERPROFILE%\.ideavimrc %~dp0\.ideavimrc
