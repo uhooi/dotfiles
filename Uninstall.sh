@@ -42,8 +42,8 @@
 /bin/rm ~/.claude/statusline-command.sh
 /bin/rm -r ~/.claude/skills
 
-# dein.vimをアンインストールする
-/bin/rm -r ~/.cache/dein
+# dpp.vimをアンインストールする
+/bin/rm -r ~/.cache/dpp
 
 if [ "$(uname)" == 'Darwin' ]; then
   # 環境設定を削除する

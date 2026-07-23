@@ -62,12 +62,6 @@ ln -fns ${SCRIPT_DIR_PATH}/.claude/skills ~/.claude/skills
 
 source ~/.bash_profile
 
-# dein.vimをインストールする
-# ref: https://github.com/Shougo/dein.vim#quick-start
-curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-sh ./installer.sh ~/.cache/dein
-rm -f ./installer.sh
-
 if [ "$(uname)" == 'Darwin' ]; then
   # スクリーンショットの撮影時に影を含めない
   defaults write com.apple.screencapture disable-shadow -bool true
