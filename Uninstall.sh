@@ -48,6 +48,9 @@
 /bin/rm ~/.codex/pets/uhooi-blue/pet.json
 /bin/rm ~/.codex/pets/uhooi-blue/spritesheet.webp
 /bin/rmdir ~/.codex/pets/uhooi-blue
+/bin/rm ~/.codex/pets/uhooi/pet.json
+/bin/rm ~/.codex/pets/uhooi/spritesheet.webp
+/bin/rmdir ~/.codex/pets/uhooi
 
 # dpp.vimをアンインストールする
 /bin/rm -r ~/.cache/dpp
