@@ -45,6 +45,7 @@
 /bin/rm -r ~/.claude/skills
 # Codex
 /bin/rm ~/.codex/config.toml
+/bin/rm ~/.codex/pets/uhooi-blue
 
 # dpp.vimをアンインストールする
 /bin/rm -r ~/.cache/dpp

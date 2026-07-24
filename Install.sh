@@ -63,6 +63,8 @@ ln -fns ${SCRIPT_DIR_PATH}/.claude/skills ~/.claude/skills
 # Codex
 mkdir -p ~/.codex
 ln -fns ${SCRIPT_DIR_PATH}/.codex/config.toml ~/.codex/config.toml
+mkdir -p ~/.codex/pets
+ln -fns ${SCRIPT_DIR_PATH}/.codex/pets/uhooi-blue ~/.codex/pets/uhooi-blue
 
 source ~/.bash_profile
 
