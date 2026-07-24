@@ -43,6 +43,8 @@
 /bin/rm ~/.claude/settings.json
 /bin/rm ~/.claude/statusline-command.sh
 /bin/rm -r ~/.claude/skills
+# Codex
+/bin/rm ~/.codex/config.toml
 
 # dpp.vimをアンインストールする
 /bin/rm -r ~/.cache/dpp
@@ -60,4 +62,3 @@ if [ "$(uname)" == 'Darwin' ]; then
   # ref: https://github.com/homebrew/install#uninstall-homebrew
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
 fi
-
