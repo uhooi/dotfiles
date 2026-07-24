@@ -70,6 +70,12 @@ fi
 mkdir -p ~/.codex/pets/uhooi-blue
 ln -fns ${SCRIPT_DIR_PATH}/.codex/pets/uhooi-blue/pet.json ~/.codex/pets/uhooi-blue/pet.json
 ln -fns ${SCRIPT_DIR_PATH}/.codex/pets/uhooi-blue/spritesheet.webp ~/.codex/pets/uhooi-blue/spritesheet.webp
+if [ -L ~/.codex/pets/uhooi ]; then
+  /bin/rm ~/.codex/pets/uhooi
+fi
+mkdir -p ~/.codex/pets/uhooi
+ln -fns ${SCRIPT_DIR_PATH}/.codex/pets/uhooi/pet.json ~/.codex/pets/uhooi/pet.json
+ln -fns ${SCRIPT_DIR_PATH}/.codex/pets/uhooi/spritesheet.webp ~/.codex/pets/uhooi/spritesheet.webp
 
 source ~/.bash_profile
 
