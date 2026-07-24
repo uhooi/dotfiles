@@ -60,6 +60,9 @@ mkdir -p ~/.claude
 ln -fns ${SCRIPT_DIR_PATH}/.claude/settings.json ~/.claude/settings.json
 ln -fns ${SCRIPT_DIR_PATH}/.claude/statusline-command.sh ~/.claude/statusline-command.sh
 ln -fns ${SCRIPT_DIR_PATH}/.claude/skills ~/.claude/skills
+# Codex
+mkdir -p ~/.codex
+ln -fns ${SCRIPT_DIR_PATH}/.codex/config.toml ~/.codex/config.toml
 
 source ~/.bash_profile
 
@@ -94,4 +97,3 @@ if [ "$(uname)" == 'Darwin' ]; then
 
   source ~/.bash_profile
 fi
-
