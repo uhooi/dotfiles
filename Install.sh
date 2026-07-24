@@ -70,7 +70,6 @@ ln -fns ${SCRIPT_DIR_PATH}/.claude/statusline-command.sh ~/.claude/statusline-co
 ln -fns ${SCRIPT_DIR_PATH}/.claude/skills ~/.claude/skills
 # Codex
 mkdir -p ~/.codex
-ln -fns ${SCRIPT_DIR_PATH}/.codex/config.toml ~/.codex/config.toml
 mkdir -p ~/.codex/pets
 if [ -L ~/.codex/pets/uhooi-blue ]; then
   /bin/rm ~/.codex/pets/uhooi-blue
