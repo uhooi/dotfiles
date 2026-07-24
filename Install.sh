@@ -42,13 +42,21 @@ if [ ! -f ${SCRIPT_DIR_PATH}/.dictionaries/SKK-JISYO.jawiki ]; then
 fi
 
 # macSKK
-mkdir -p ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Library/Preferences
-cp ${SCRIPT_DIR_PATH}/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Library/Preferences/net.mtgto.inputmethod.macSKK.plist ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Library/Preferences/net.mtgto.inputmethod.macSKK.plist
-mkdir -p ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Settings
-cp ${SCRIPT_DIR_PATH}/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Settings/kana-rule.conf ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Settings/kana-rule.conf
-mkdir -p ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries
-cp ${SCRIPT_DIR_PATH}/.dictionaries/SKK-JISYO.jawiki ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries/SKK-JISYO.jawiki
-cp ${SCRIPT_DIR_PATH}/.dictionaries/SKK-JISYO.emoji.utf8 ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries/SKK-JISYO.emoji.utf8
+# macOS 14以降、他アプリのコンテナ（~/Library/Containers）はOSに保護されており、
+# ターミナルにアクセス権限がないと Operation not permitted でコピーに失敗する
+MACSKK_SRC_DATA_PATH=${SCRIPT_DIR_PATH}/Library/Containers/net.mtgto.inputmethod.macSKK/Data
+MACSKK_DEST_DATA_PATH=~/Library/Containers/net.mtgto.inputmethod.macSKK/Data
+mkdir -p ${MACSKK_DEST_DATA_PATH}/Library/Preferences 2> /dev/null \
+  && mkdir -p ${MACSKK_DEST_DATA_PATH}/Documents/Settings 2> /dev/null \
+  && mkdir -p ${MACSKK_DEST_DATA_PATH}/Documents/Dictionaries 2> /dev/null \
+  && cp ${MACSKK_SRC_DATA_PATH}/Library/Preferences/net.mtgto.inputmethod.macSKK.plist ${MACSKK_DEST_DATA_PATH}/Library/Preferences/net.mtgto.inputmethod.macSKK.plist 2> /dev/null \
+  && cp ${MACSKK_SRC_DATA_PATH}/Documents/Settings/kana-rule.conf ${MACSKK_DEST_DATA_PATH}/Documents/Settings/kana-rule.conf 2> /dev/null \
+  && cp ${SCRIPT_DIR_PATH}/.dictionaries/SKK-JISYO.jawiki ${MACSKK_DEST_DATA_PATH}/Documents/Dictionaries/SKK-JISYO.jawiki 2> /dev/null \
+  && cp ${SCRIPT_DIR_PATH}/.dictionaries/SKK-JISYO.emoji.utf8 ${MACSKK_DEST_DATA_PATH}/Documents/Dictionaries/SKK-JISYO.emoji.utf8 2> /dev/null
+if [ $? -ne 0 ]; then
+  echo '警告: macSKKの設定のコピーに失敗しました。' 1>&2
+  echo '「システム設定 > プライバシーとセキュリティ > フルディスクアクセス」でターミナルを許可してから、再度実行してください。' 1>&2
+fi
 # AquaSKK
 mkdir -p ~/Library/Application\ Support/AquaSKK
 ln -fns ${SCRIPT_DIR_PATH}/Library/Application\ Support/AquaSKK/kana-rule.conf ~/Library/Application\ Support/AquaSKK/kana-rule.conf
@@ -77,9 +85,11 @@ mkdir -p ~/.codex/pets/uhooi
 ln -fns ${SCRIPT_DIR_PATH}/.codex/pets/uhooi/pet.json ~/.codex/pets/uhooi/pet.json
 ln -fns ${SCRIPT_DIR_PATH}/.codex/pets/uhooi/spritesheet.webp ~/.codex/pets/uhooi/spritesheet.webp
 
-source ~/.bash_profile
+# NOTE: `source ~/.bash_profile` は実行しない
+# ∵.bash_profileから読み込まれる補完スクリプトはbash専用の記述を含み、
+#   sh（POSIXモードのbash）で読み込むとエラーになるため
 
-if [ "$(uname)" == 'Darwin' ]; then
+if [ "$(uname)" = 'Darwin' ]; then
   # スクリーンショットの撮影時に影を含めない
   defaults write com.apple.screencapture disable-shadow -bool true
 
@@ -102,11 +112,16 @@ if [ "$(uname)" == 'Darwin' ]; then
   # ref: https://docs.brew.sh/Installation
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-  source ~/.bash_profile
+  # Homebrewへのパスを通す
+  # ref: https://docs.brew.sh/Installation
+  if [ "$(uname -m)" = 'arm64' ]; then
+    HOMEBREW_HOME=/opt/homebrew
+  else
+    HOMEBREW_HOME=/usr/local
+  fi
+  eval "$(${HOMEBREW_HOME}/bin/brew shellenv)"
 
   # Homebrewで管理しているパッケージをインストールする
   # ref: https://tech.gootablog.com/article/homebrew-brewfile/
   brew bundle
-
-  source ~/.bash_profile
 fi
