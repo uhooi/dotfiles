@@ -70,6 +70,8 @@ vim.diagnostic.config {
 
 -- Keymaps
 -- ref: https://neovim.io/doc/user/lsp.html
+--    : https://neovim.io/doc/user/lsp/#_defaults
+--    : https://github.com/neovim/neovim/blob/359459dec6e1929c0afb56a3111dee7b5a924eea/runtime/lua/vim/_core/defaults.lua
 --    : https://github.com/neovim/nvim-lspconfig/blob/da7461b596d70fa47b50bf3a7acfaef94c47727d/doc/lspconfig.txt#L444-L476
 --    : https://zenn.dev/botamotch/articles/21073d78bc68bf
 --    : https://github.com/neovim/neovim/pull/31959
@@ -94,20 +96,21 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+    vim.keymap.set('n', 'gri', vim.lsp.buf.implementation, bufopts)
     vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
     vim.keymap.set('n', 'gwa', vim.lsp.buf.add_workspace_folder, bufopts)
     vim.keymap.set('n', 'gwr', vim.lsp.buf.remove_workspace_folder, bufopts)
     vim.keymap.set('n', 'gwl', function()
       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, bufopts)
-    vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bufopts)
-    vim.keymap.set('n', 'gn', vim.lsp.buf.rename, bufopts)
-    vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, bufopts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+    vim.keymap.set('n', 'grt', vim.lsp.buf.type_definition, bufopts)
+    vim.keymap.set('n', 'grn', vim.lsp.buf.rename, bufopts)
+    vim.keymap.set('n', 'gra', vim.lsp.buf.code_action, bufopts)
+    vim.keymap.set('n', 'grr', vim.lsp.buf.references, bufopts)
     vim.keymap.set('n', 'gf', function()
       vim.lsp.buf.format { async = true }
     end, bufopts)
+    vim.keymap.set('n', 'gO', vim.lsp.buf.document_symbol, bufopts)
 
     local client = vim.lsp.get_client_by_id(args.data.client_id)
     if not client then
@@ -140,6 +143,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(), { bufnr })
       end, bufopts)
     end
+
+    vim.keymap.set('i', '<C-s>', vim.lsp.buf.signature_help, bufopts)
     -- }}}
 
     -- Document color {{{
