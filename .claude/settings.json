@@ -51,6 +51,7 @@
       "Read(**/.env.*)"
     ]
   },
+  "model": "opus[1m]",
   "hooks": {
     "Notification": [
       {
@@ -75,11 +76,10 @@
       }
     ]
   },
-  "tui": "fullscreen",
-  "editorMode": "vim",
-  "model": "claude-fable-5[1m]",
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
-  }
+  },
+  "tui": "fullscreen",
+  "editorMode": "vim"
 }
