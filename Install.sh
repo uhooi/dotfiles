@@ -120,12 +120,6 @@ if [ "$(uname)" = 'Darwin' ]; then
   fi
   eval "$(${HOMEBREW_HOME}/bin/brew shellenv)"
 
-  # Brewfileに記載しているtapを信頼する
-  # ∵Homebrewは信頼していないtapのフォーミュラの読み込みを拒否するため
-  grep -E '^tap ' ${SCRIPT_DIR_PATH}/Brewfile | cut -d '"' -f 2 | while read -r tap_name; do
-    brew trust --tap "${tap_name}"
-  done
-
   # Homebrewで管理しているパッケージをインストールする
   # ref: https://tech.gootablog.com/article/homebrew-brewfile/
   brew bundle --file ${SCRIPT_DIR_PATH}/Brewfile
