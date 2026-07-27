@@ -403,10 +403,21 @@ require('lazy').setup({
   -- Motion {{{
   {
     'folke/flash.nvim',
-    enabled = false, -- FIXME: Error. ref: https://x.com/delphinus35/status/2080124053831160159
+    enabled = false, -- Use jab.nvim -- FIXME: Error. ref: https://x.com/delphinus35/status/2080124053831160159
     event = 'VeryLazy',
     config = function()
       require('plugins.config.flash')
+    end,
+  },
+
+  {
+    'atusy/jab.nvim',
+    event = 'VeryLazy',
+    dependencies = {
+      'delphinus/luamigemo',
+    },
+    config = function()
+      require('plugins.config.jab')
     end,
   },
   --- }}}
