@@ -86,6 +86,11 @@
     tg = tag
     tgd = tag -d
     v = version
+    wt = worktree
+    wta = worktree add
+    wtl = worktree list
+    wtp = worktree prune
+    wtr = worktree remove
 [diff]
     # diffでリネームを検知する
     renames = true
