@@ -1,7 +1,4 @@
-tap "dart-lang/dart"
-tap "delphinus/sfmono-square"
 tap "homebrew/bundle"
-tap "koekeishiya/formulae"
 tap "yonaskolb/xcodegen", "https://github.com/yonaskolb/XcodeGen.git"
 brew "little-cms2"
 brew "webp"
@@ -84,10 +81,6 @@ brew "tree"
 brew "vint"
 brew "xcbeautify"
 brew "xcodegen"
-brew "xcproj"
-brew "dart-lang/dart/dart"
-brew "delphinus/sfmono-square/sfmono-square"
-brew "koekeishiya/formulae/yabai"
 cask "aquaskk"
 mas "MeetingBar", id: 1532419400
 mas "Microsoft Excel", id: 462058435

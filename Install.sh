@@ -122,5 +122,5 @@ if [ "$(uname)" = 'Darwin' ]; then
 
   # Homebrewで管理しているパッケージをインストールする
   # ref: https://tech.gootablog.com/article/homebrew-brewfile/
-  brew bundle
+  brew bundle --file ${SCRIPT_DIR_PATH}/Brewfile
 fi
