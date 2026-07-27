@@ -96,21 +96,20 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-    vim.keymap.set('n', 'gri', vim.lsp.buf.implementation, bufopts)
-    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
     vim.keymap.set('n', 'gwa', vim.lsp.buf.add_workspace_folder, bufopts)
     vim.keymap.set('n', 'gwr', vim.lsp.buf.remove_workspace_folder, bufopts)
     vim.keymap.set('n', 'gwl', function()
       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, bufopts)
-    vim.keymap.set('n', 'grt', vim.lsp.buf.type_definition, bufopts)
     vim.keymap.set('n', 'grn', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', 'gra', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'grr', vim.lsp.buf.references, bufopts)
+    vim.keymap.set('n', 'gri', vim.lsp.buf.implementation, bufopts)
+    vim.keymap.set('n', 'grt', vim.lsp.buf.type_definition, bufopts)
+    vim.keymap.set('n', 'gO', vim.lsp.buf.document_symbol, bufopts)
     vim.keymap.set('n', 'gf', function()
       vim.lsp.buf.format { async = true }
     end, bufopts)
-    vim.keymap.set('n', 'gO', vim.lsp.buf.document_symbol, bufopts)
 
     local client = vim.lsp.get_client_by_id(args.data.client_id)
     if not client then
@@ -144,7 +143,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
       end, bufopts)
     end
 
-    vim.keymap.set('i', '<C-s>', vim.lsp.buf.signature_help, bufopts)
+    vim.keymap.set('i', '<C-S>', vim.lsp.buf.signature_help, bufopts)
     -- }}}
 
     -- Document color {{{
