@@ -82,12 +82,4 @@ brew "vint"
 brew "xcbeautify"
 brew "xcodegen"
 cask "aquaskk"
-mas "MeetingBar", id: 1532419400
-mas "Microsoft Excel", id: 462058435
-mas "Microsoft OneNote", id: 784801555
-mas "Microsoft Outlook", id: 985367838
-mas "Microsoft PowerPoint", id: 462062816
-mas "Microsoft Word", id: 462054704
-mas "OneDrive", id: 823766827
-mas "Playgrounds", id: 1496833156
 mas "Skitch", id: 425955336
