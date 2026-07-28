@@ -1,6 +1,20 @@
 -- ref: https://github.com/delphinus/dotfiles/blob/e562d4f8e99793e6ae1cd330c9208dac1d29d407/.config/nvim/lua/modules/lsp/config.lua#L440-L665
 local null_ls = require('null-ls')
 
+local function textlint_options()
+  local options = {
+    filetypes = { 'markdown' },
+  }
+
+  if vim.fn.executable('textlint') == 1 then
+    options.prefer_local = 'node_modules/.bin'
+  else
+    options.only_local = 'node_modules/.bin'
+  end
+
+  return options
+end
+
 -- Use the project's `.swiftlint.yml` if it exists, otherwise fall back to Loki's config
 local function swiftlint_config_path()
   local project_config = vim.fn.findfile('.swiftlint.yml', '.;')
@@ -26,14 +40,8 @@ null_ls.setup {
     -- null_ls.builtins.formatting.eslint.with {
     --   prefer_local = 'node_modules/.bin',
     -- },
-    null_ls.builtins.diagnostics.textlint.with {
-      filetypes = { 'markdown' },
-      prefer_local = 'node_modules/.bin',
-    },
-    null_ls.builtins.formatting.textlint.with {
-      filetypes = { 'markdown' },
-      prefer_local = 'node_modules/.bin',
-    },
+    null_ls.builtins.diagnostics.textlint.with(textlint_options()),
+    null_ls.builtins.formatting.textlint.with(textlint_options()),
     -- null_ls.builtins.formatting.yamlfmt,
     null_ls.builtins.formatting.stylua, -- `brew install stylua`
     -- null_ls.builtins.diagnostics.vint, -- `brew install vint`
