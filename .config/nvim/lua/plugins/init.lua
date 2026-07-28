@@ -304,13 +304,6 @@ require('lazy').setup({
   },
 
   {
-    'simrat39/symbols-outline.nvim',
-    config = function()
-      require('plugins.config.symbols_outline')
-    end,
-  },
-
-  {
     'nvim-focus/focus.nvim',
     enabled = false,
     config = function()
