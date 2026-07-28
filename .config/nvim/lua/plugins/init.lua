@@ -296,6 +296,7 @@ require('lazy').setup({
 
   {
     'nvim-tree/nvim-tree.lua',
+    enabled = false, -- Use Snacks.explorer
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       require('plugins.config.nvim_tree')
