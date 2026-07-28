@@ -2,7 +2,12 @@
 return {
   -- ref: https://github.com/neovim/nvim-lspconfig/blob/94d0fec9135719e046903bbbbf8f39e3d3436d4e/lua/lspconfig/configs/ts_ls.lua
   -- ref: https://pawelgrzybek.com/reconcile-two-conflicting-lsp-servers-in-neovim-0-11/#update-neovim-0111-comes-with-workspace_required
-  root_markers = { 'tsconfig.json', 'package.json' },
+  root_dir = function(bufnr, on_dir)
+    local root = vim.fs.root(bufnr, { 'tsconfig.json', 'package.json' })
+    if root then
+      on_dir(root)
+    end
+  end,
   workspace_required = true,
   on_attach = function(client, _)
     client.server_capabilities.documentFormattingProvider = false -- Use Prettier
