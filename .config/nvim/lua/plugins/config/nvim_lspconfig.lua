@@ -33,6 +33,7 @@ require('mason-lspconfig').setup {
     'pyright',
     'ruby_lsp',
     'rust_analyzer',
+    'tailwindcss',
     'taplo',
     'terraformls',
     'ts_ls',
