@@ -304,6 +304,17 @@ require('lazy').setup({
   },
 
   {
+    'stevearc/aerial.nvim',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-tree/nvim-web-devicons',
+    },
+    config = function()
+      require('plugins.config.aerial')
+    end,
+  },
+
+  {
     'nvim-focus/focus.nvim',
     enabled = false,
     config = function()
