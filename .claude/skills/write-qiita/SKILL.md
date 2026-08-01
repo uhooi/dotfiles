@@ -63,7 +63,7 @@ ignorePublish: false
 
 ```markdown
 :::note info
-本記事の執筆はClaude Codeを使用しています。
+本記事の執筆にはAIを使用しています。
 :::
 
 ## はじめに
