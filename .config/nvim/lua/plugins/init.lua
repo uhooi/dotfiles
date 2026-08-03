@@ -336,6 +336,22 @@ require('lazy').setup({
 
   {
     'vim-jp/vimdoc-ja',
+    -- lazy.nvim runs :helptags after updates, but Neovim rewrites the tracked
+    -- language-specific tag file and then treats the plugin as locally modified.
+    -- Restore the tag file shipped by vimdoc-ja after lazy.nvim regenerates it.
+    build = function(plugin)
+      local result = vim.system({
+        'git',
+        'restore',
+        '--source=HEAD',
+        '--',
+        'doc/tags-ja',
+      }, { cwd = plugin.dir }):wait()
+
+      if result.code ~= 0 then
+        error(result.stderr or 'Failed to restore doc/tags-ja')
+      end
+    end,
     config = function()
       vim.opt.helplang = { 'ja', 'en' }
     end,
