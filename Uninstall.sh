@@ -44,6 +44,7 @@
 /bin/rm ~/.claude/statusline-command.sh
 /bin/rm -r ~/.claude/skills
 # Codex
+/bin/rm ~/.agents/skills
 /bin/rm ~/.codex/pets/uhooi-blue/pet.json
 /bin/rm ~/.codex/pets/uhooi-blue/spritesheet.webp
 /bin/rmdir ~/.codex/pets/uhooi-blue
