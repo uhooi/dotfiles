@@ -117,7 +117,7 @@
   "vim-textobj-user": { "branch": "master", "commit": "41a675ddbeefd6a93664a4dc52f302fe3086a933" },
   "vim-themis": { "branch": "master", "commit": "355c34b1bff03a8fd3744e3ad2dd0627c0692716" },
   "vim-vsnip": { "branch": "master", "commit": "9bcfabea653abdcdac584283b5097c3f8760abaa" },
-  "vimdoc-ja": { "branch": "master", "commit": "839934dc4095b45a45870d5daa6764565cde99c2" },
+  "vimdoc-ja": { "branch": "master", "commit": "b3e5d3a845b8114fdb274634c20dce2fa1fe7fea" },
   "virt-column.nvim": { "branch": "master", "commit": "b87e3e0864211a32724a2ebf3be37e24e9e2fa99" },
   "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" },
   "xcodebuild.nvim": { "branch": "main", "commit": "633eb71c0b354581837025581b7261dbe5361226" }
