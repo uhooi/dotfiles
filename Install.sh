@@ -69,6 +69,8 @@ ln -fns ${SCRIPT_DIR_PATH}/.claude/settings.json ~/.claude/settings.json
 ln -fns ${SCRIPT_DIR_PATH}/.claude/statusline-command.sh ~/.claude/statusline-command.sh
 ln -fns ${SCRIPT_DIR_PATH}/.claude/skills ~/.claude/skills
 # Codex
+mkdir -p ~/.agents
+ln -fns ${SCRIPT_DIR_PATH}/.claude/skills ~/.agents/skills
 mkdir -p ~/.codex
 mkdir -p ~/.codex/pets
 if [ -L ~/.codex/pets/uhooi-blue ]; then
