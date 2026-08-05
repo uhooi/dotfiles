@@ -73,6 +73,12 @@ mkdir -p ~/.agents
 ln -fns ${SCRIPT_DIR_PATH}/.claude/skills ~/.agents/skills
 mkdir -p ~/.codex
 mkdir -p ~/.codex/pets
+if [ -L ~/.codex/pets/firesoul ]; then
+  /bin/rm ~/.codex/pets/firesoul
+fi
+mkdir -p ~/.codex/pets/firesoul
+ln -fns ${SCRIPT_DIR_PATH}/.codex/pets/firesoul/pet.json ~/.codex/pets/firesoul/pet.json
+ln -fns ${SCRIPT_DIR_PATH}/.codex/pets/firesoul/spritesheet.webp ~/.codex/pets/firesoul/spritesheet.webp
 if [ -L ~/.codex/pets/uhooi-blue ]; then
   /bin/rm ~/.codex/pets/uhooi-blue
 fi
