@@ -340,13 +340,15 @@ require('lazy').setup({
     -- language-specific tag file and then treats the plugin as locally modified.
     -- Restore the tag file shipped by vimdoc-ja after lazy.nvim regenerates it.
     build = function(plugin)
-      local result = vim.system({
-        'git',
-        'restore',
-        '--source=HEAD',
-        '--',
-        'doc/tags-ja',
-      }, { cwd = plugin.dir }):wait()
+      local result = vim
+        .system({
+          'git',
+          'restore',
+          '--source=HEAD',
+          '--',
+          'doc/tags-ja',
+        }, { cwd = plugin.dir })
+        :wait()
 
       if result.code ~= 0 then
         error(result.stderr or 'Failed to restore doc/tags-ja')
@@ -644,10 +646,21 @@ require('lazy').setup({
   {
     'MeanderingProgrammer/markdown.nvim',
     name = 'render-markdown',
-    enabled = false,
+    enabled = false, -- Use md-render.nvim
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
       require('plugins.config.render_markdown')
+    end,
+  },
+
+  {
+    'delphinus/md-render.nvim',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+      'delphinus/budoux.lua',
+    },
+    config = function()
+      require('plugins.config.md_render')
     end,
   },
   -- }}}
