@@ -70,7 +70,7 @@ query($owner:String!, $repo:String!, $pr:Int!) {
 {対応内容}
 修正: {短縮SHA}
 
-コメント: {AI 名}
+🤖 Generated with {AI 名}
 ```
 
 - 対応内容は過不足なく説明する。文の数は問わない。1文で足りるなら1文、必要なら3文以上でもよい
@@ -78,7 +78,9 @@ query($owner:String!, $repo:String!, $pr:Int!) {
 - 複数コミットにまたがる場合は「修正:」の行を並べる
 - コミットしていない場合は「修正:」の行を省く
 - 末尾の1行は必ず入れる。AI が書いた返信だと分かるようにするため
-- AI 名はモデル名まで書く（例: `Claude Code (Opus 5)`、`Codex`）
+- AI 名
+  - Claude Code: [Claude Code](https://claude.com/claude-code)
+  - Codex: [Codex](https://openai.com/codex/)
 
 ### 返信コマンド
 
