@@ -34,7 +34,13 @@ PRを作成します。
     ## 参考リンク
 
     - x
+
+    🤖 Generated with {AI 名}
     ```
+- AI 名
+  - Claude Code: [Claude Code](https://claude.com/claude-code)
+  - Codex: [Codex](https://openai.com/codex/)
+- 各項目について、ない場合は `x` でなく `なし` と書く
 - 指示がない限りDraftとする
 
 ## 「やったこと」の書き方
