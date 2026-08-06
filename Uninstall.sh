@@ -45,6 +45,9 @@
 /bin/rm -r ~/.claude/skills
 # Codex
 /bin/rm ~/.agents/skills
+/bin/rm ~/.codex/pets/firesoul/pet.json
+/bin/rm ~/.codex/pets/firesoul/spritesheet.webp
+/bin/rmdir ~/.codex/pets/firesoul
 /bin/rm ~/.codex/pets/uhooi-blue/pet.json
 /bin/rm ~/.codex/pets/uhooi-blue/spritesheet.webp
 /bin/rmdir ~/.codex/pets/uhooi-blue
