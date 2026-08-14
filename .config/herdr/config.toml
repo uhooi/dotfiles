@@ -1,5 +1,12 @@
+[theme]
+name = "tokyo-night"
+
 [ui]
 agent_panel_sort = "spaces"
 
 [ui.sidebar.agents.rows_by_agent]
 claude = [["state_icon", "workspace", "tab"], ["terminal_title_stripped"], ["agent"]]
+
+[ui.toast]
+delivery = "system"
+delay_seconds = 1
