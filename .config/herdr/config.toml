@@ -2,9 +2,12 @@
 name = "tokyo-night"
 
 [keys]
-previous_agent = "prefix+shift+k"
-next_agent = "prefix+shift+j"
-focus_agent = "prefix+alt+1..9"
+previous_tab = ""
+next_tab = ""
+switch_tab = ""
+previous_agent = "prefix+p"
+next_agent = "prefix+n"
+focus_agent = "prefix+1..9"
 
 [ui]
 agent_panel_sort = "spaces"
