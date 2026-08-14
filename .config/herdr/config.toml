@@ -1,7 +1,5 @@
 [ui]
 agent_panel_sort = "spaces"
 
-# Claude Codeの`/rename`で変えたセッション名をサイドバーに表示する
-# ∵セッション名がターミナルタイトルに反映されるため
 [ui.sidebar.agents.rows_by_agent]
 claude = [["state_icon", "workspace", "tab"], ["terminal_title_stripped"], ["agent"]]
