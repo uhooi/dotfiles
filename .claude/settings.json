@@ -52,30 +52,6 @@
     ]
   },
   "model": "opus[1m]",
-  "hooks": {
-    "Notification": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "osascript -e 'display notification \"確認を待っています\" with title \"Claude Code\" subtitle \"確認待ち\" sound name \"Glass\"'"
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "osascript -e 'display notification \"タスクが完了しました\" with title \"Claude Code\" subtitle \"応答完了\" sound name \"Hero\"'"
-          }
-        ]
-      }
-    ]
-  },
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
