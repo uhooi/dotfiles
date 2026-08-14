@@ -1,6 +1,11 @@
 [theme]
 name = "tokyo-night"
 
+[keys]
+previous_agent = "prefix+shift+k"
+next_agent = "prefix+shift+j"
+focus_agent = "prefix+alt+1..9"
+
 [ui]
 agent_panel_sort = "spaces"
 
