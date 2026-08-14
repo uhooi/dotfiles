@@ -124,3 +124,9 @@ esac
 if [ -f "$HOME/.cargo/env" ]; then
   . "$HOME/.cargo/env"
 fi
+
+# herdr
+# ref: https://herdr.dev/ja/docs/cli-reference/#シェル補完
+if type 'herdr' > /dev/null 2>&1; then
+  eval "$(herdr completion bash)"
+fi
