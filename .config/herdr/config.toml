@@ -1,6 +1,14 @@
 [theme]
 name = "tokyo-night"
 
+[keys]
+previous_tab = ""
+next_tab = ""
+switch_tab = ""
+previous_agent = "prefix+p"
+next_agent = "prefix+n"
+focus_agent = "prefix+1..9"
+
 [ui]
 agent_panel_sort = "spaces"
 
