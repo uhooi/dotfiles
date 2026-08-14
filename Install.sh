@@ -22,6 +22,10 @@ ln -fns ${SCRIPT_DIR_PATH}/.config/nvim ~/.config/nvim
 ln -fns ${SCRIPT_DIR_PATH}/.config/efm-langserver ~/.config/efm-langserver
 ln -fns ${SCRIPT_DIR_PATH}/.config/ranger ~/.config/ranger
 ln -fns ${SCRIPT_DIR_PATH}/.config/mise ~/.config/mise
+# NOTE: herdrはディレクトリごとリンクしない
+# ∵~/.config/herdrにログやソケット、セッションが作られるため
+mkdir -p ~/.config/herdr
+ln -fns ${SCRIPT_DIR_PATH}/.config/herdr/config.toml ~/.config/herdr/config.toml
 ln -fns ${SCRIPT_DIR_PATH}/.bash_profile ~/.bash_profile
 ln -fns ${SCRIPT_DIR_PATH}/.bashrc ~/.bashrc
 ln -fns ${SCRIPT_DIR_PATH}/.inputrc ~/.inputrc
