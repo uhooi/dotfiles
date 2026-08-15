@@ -69,39 +69,6 @@ import SwiftUI           // internal な View を定義するファイル
 // MARK: - Screen factory
 ```
 
-## OSバージョンでの分岐
-
-ビューに分岐を書かないルールがあるため、 `if #available` は `private extension` のメソッドの中に閉じ込めます。
-
-```swift
-@ToolbarContentBuilder
-func toolbarContent(...) -> some ToolbarContent {
-    if #available(iOS 26.0, *) {
-        ...
-    } else {
-        ...
-    }
-}
-```
-
-## デバッグ専用のコード
-
-- プレビューは `#if DEBUG` で囲む
-- デバッグ専用の画面や機能は `#if DEBUG` で囲む。 `init` の引数も分ける
-
-```swift
-#if DEBUG
-package init(
-    onLicensesButtonClick: @escaping () -> Void,
-    onDebugButtonClick: @escaping () -> Void,
-) { ... }
-#else
-package init(
-    onLicensesButtonClick: @escaping () -> Void,
-) { ... }
-#endif
-```
-
 ## 補足: UiA以外のルール
 
 ここから下はUiAの一部ではありません。Lokiで採用しているだけなので、必要に応じて取り入れてください。
