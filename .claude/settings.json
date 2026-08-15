@@ -49,7 +49,8 @@
       "Read(id_ed25519)",
       "Read(**/.env)",
       "Read(**/.env.*)"
-    ]
+    ],
+    "defaultMode": "acceptEdits"
   },
   "model": "opus[1m]",
   "statusLine": {
