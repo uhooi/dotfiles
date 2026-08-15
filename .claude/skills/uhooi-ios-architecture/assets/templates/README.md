@@ -29,7 +29,7 @@ $ .claude/skills/uhooi-ios-architecture/scripts/new-screen.sh SakatsuList LokiPa
 
 1. `// TODO:` のコメントを埋める
 2. 使わないもの（ツールバー、エラーなど）は消す
-3. 状態がまったくない画面なら、ViewとViewModelを消してScreenだけにする
-4. `Localizable.xcstrings` に文言を足す
-5. Apps層のルート画面から呼ぶ
-6. ビルドして動きを確認する
+    - 状態がまったくない画面でも、ViewとViewModelは残す
+3. `Localizable.xcstrings` に文言を足す
+4. Apps層のルート画面から呼ぶ
+5. ビルドして動きを確認する

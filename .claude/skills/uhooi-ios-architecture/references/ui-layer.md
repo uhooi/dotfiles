@@ -1,6 +1,6 @@
 # UI層（Screen・View・ViewModel）
 
-UiAの中心です。1画面 = 3ファイル + 1ビューモデルで作ります。
+UiAの中心です。1画面はScreen・View・ViewModelの3ファイルで作ります。状態がない画面でも省略しません。
 
 ## ファイル構成
 
@@ -554,14 +554,14 @@ private extension ProductionRootScreen {
 
 ルート画面だけは `@State` で遷移のフラグを持ちます。
 
-## ビューモデルを持たない画面
+## 状態がない画面
 
-状態もロジックもない画面は、Screenだけで作ります。ViewModelもViewも作りません。
+状態もロジックもない画面でも、Screen・View・ViewModelの3ファイルを作ります。省略しません。
 
-- 例: ライセンス一覧、デバッグメニュー
-- 閉じる操作は `@Environment(\.dismiss)` を使う
+- どの画面も同じ形になり、読むときに迷わない
+- あとから状態が増えても、構成を変えずに済む
 
-作るかどうかは「 `uiState` に持つものがあるか」で決めてください。
+閉じる操作は `@Environment(\.dismiss)` を使います。
 
 ## 単体テスト
 
