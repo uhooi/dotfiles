@@ -2,16 +2,16 @@ import SwiftUI
 
 // MARK: - Action
 
-enum __SUBVIEW_NAME__ViewAction {
+enum ___FILEBASENAMEASIDENTIFIER___ViewAction {
     // TODO: この部品で起きるイベントを書く
     // 例: case onEditButtonClick
 }
 
 // MARK: - View
 
-struct __SUBVIEW_NAME__View: View {
+struct ___FILEBASENAMEASIDENTIFIER___View: View {
     // TODO: 表示に必要な値を let で受け取る
-    let send: (__SUBVIEW_NAME__ViewAction) -> Void
+    let send: (___FILEBASENAMEASIDENTIFIER___ViewAction) -> Void
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -22,7 +22,7 @@ struct __SUBVIEW_NAME__View: View {
 
 // MARK: - Privates
 
-private extension __SUBVIEW_NAME__View {
+private extension ___FILEBASENAMEASIDENTIFIER___View {
     // TODO: bodyが長くなったら、ここへ計算プロパティで切り出す
 }
 
@@ -30,7 +30,7 @@ private extension __SUBVIEW_NAME__View {
 // MARK: - Previews
 
 #Preview {
-    __SUBVIEW_NAME__View(
+    ___FILEBASENAMEASIDENTIFIER___View(
         send: { _ in },
     )
 }

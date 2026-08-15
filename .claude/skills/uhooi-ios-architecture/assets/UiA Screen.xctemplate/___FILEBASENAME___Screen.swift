@@ -3,29 +3,29 @@ import UICore
 
 // MARK: - Actions
 
-enum __SCREEN_NAME__ScreenAction {
+enum ___FILEBASENAMEASIDENTIFIER___ScreenAction {
     case onErrorAlertDismiss
 }
 
-enum __SCREEN_NAME__ScreenAsyncAction {
+enum ___FILEBASENAMEASIDENTIFIER___ScreenAsyncAction {
     case task
 }
 
 // MARK: - View
 
-struct __SCREEN_NAME__Screen: View {
-    @StateObject private var viewModel: __SCREEN_NAME__ViewModel
+struct ___FILEBASENAMEASIDENTIFIER___Screen: View {
+    @StateObject private var viewModel: ___FILEBASENAMEASIDENTIFIER___ViewModel
 
     var body: some View {
-        __SCREEN_NAME__View(
+        ___FILEBASENAMEASIDENTIFIER___View(
             // TODO: uiStateから表示に必要な値だけ渡す
             send: { action in
                 viewModel.send(.view(action))
             },
         )
-        .navigationTitle(String(localized: "__SCREEN_NAME__", bundle: .module))
+        .navigationTitle(String(localized: "___FILEBASENAMEASIDENTIFIER___", bundle: .module))
         .errorAlert(
-            error: viewModel.uiState.__screenName__Error,
+            error: viewModel.uiState.___VARIABLE_screenName___Error,
             onDismiss: { viewModel.send(.screen(.onErrorAlertDismiss)) },
         )
         .task {
@@ -34,13 +34,13 @@ struct __SCREEN_NAME__Screen: View {
     }
 
     init() {
-        self._viewModel = StateObject(wrappedValue: __SCREEN_NAME__ViewModel())
+        self._viewModel = StateObject(wrappedValue: ___FILEBASENAMEASIDENTIFIER___ViewModel())
     }
 }
 
 // MARK: - Privates
 
-private extension __SCREEN_NAME__Screen {
+private extension ___FILEBASENAMEASIDENTIFIER___Screen {
     // TODO: ツールバーが必要なら書く。不要ならこのextensionごと消す
     @ToolbarContentBuilder
     func toolbarContent(
@@ -60,7 +60,7 @@ private extension __SCREEN_NAME__Screen {
 
 #Preview {
     NavigationStack {
-        __SCREEN_NAME__Screen()
+        ___FILEBASENAMEASIDENTIFIER___Screen()
     }
 }
 #endif

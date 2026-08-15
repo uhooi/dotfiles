@@ -5,26 +5,26 @@ import LogCore
 
 // MARK: - UI state
 
-struct __SCREEN_NAME__UiState {
+struct ___FILEBASENAMEASIDENTIFIER___UiState {
     // TODO: 画面の状態を書く
-    var __screenName__Error: __SCREEN_NAME__Error?
+    var ___VARIABLE_screenName___Error: ___FILEBASENAMEASIDENTIFIER___Error?
 }
 
 // MARK: - Actions
 
-enum __SCREEN_NAME__Action {
-    case screen(_ action: __SCREEN_NAME__ScreenAction)
-    case view(_ action: __SCREEN_NAME__ViewAction)
+enum ___FILEBASENAMEASIDENTIFIER___Action {
+    case screen(_ action: ___FILEBASENAMEASIDENTIFIER___ScreenAction)
+    case view(_ action: ___FILEBASENAMEASIDENTIFIER___ViewAction)
 }
 
-enum __SCREEN_NAME__AsyncAction {
-    case screen(_ asyncAction: __SCREEN_NAME__ScreenAsyncAction)
-    case view(_ asyncAction: __SCREEN_NAME__ViewAsyncAction)
+enum ___FILEBASENAMEASIDENTIFIER___AsyncAction {
+    case screen(_ asyncAction: ___FILEBASENAMEASIDENTIFIER___ScreenAsyncAction)
+    case view(_ asyncAction: ___FILEBASENAMEASIDENTIFIER___ViewAsyncAction)
 }
 
 // MARK: - Error
 
-enum __SCREEN_NAME__Error: LocalizedError {
+enum ___FILEBASENAMEASIDENTIFIER___Error: LocalizedError {
     // TODO: この画面で起きるエラーを書く
     case fetchFailed(localizedDescription: String)
 
@@ -38,8 +38,8 @@ enum __SCREEN_NAME__Error: LocalizedError {
 // MARK: - View model
 
 @MainActor
-final class __SCREEN_NAME__ViewModel: ObservableObject {
-    @Published private(set) var uiState: __SCREEN_NAME__UiState
+final class ___FILEBASENAMEASIDENTIFIER___ViewModel: ObservableObject {
+    @Published private(set) var uiState: ___FILEBASENAMEASIDENTIFIER___UiState
 
     // TODO: 画面遷移のクロージャやリポジトリを持つ
     // private let repository: any XxxRepository
@@ -47,11 +47,11 @@ final class __SCREEN_NAME__ViewModel: ObservableObject {
     init(
         // repository: some XxxRepository = DefaultXxxRepository.shared,
     ) {
-        self.uiState = __SCREEN_NAME__UiState()
+        self.uiState = ___FILEBASENAMEASIDENTIFIER___UiState()
         // self.repository = repository
     }
 
-    func send(_ action: __SCREEN_NAME__Action) {
+    func send(_ action: ___FILEBASENAMEASIDENTIFIER___Action) {
         let message = "\(#function) action: \(action)"
         Logger.standard.debug("\(message, privacy: .public)")
 
@@ -59,7 +59,7 @@ final class __SCREEN_NAME__ViewModel: ObservableObject {
         case let .screen(screenAction):
             switch screenAction {
             case .onErrorAlertDismiss:
-                uiState.__screenName__Error = nil
+                uiState.___VARIABLE_screenName___Error = nil
             }
 
         case let .view(viewAction):
@@ -68,7 +68,7 @@ final class __SCREEN_NAME__ViewModel: ObservableObject {
         }
     }
 
-    func sendAsync(_ asyncAction: __SCREEN_NAME__AsyncAction) async {
+    func sendAsync(_ asyncAction: ___FILEBASENAMEASIDENTIFIER___AsyncAction) async {
         let message = "\(#function) asyncAction: \(asyncAction)"
         Logger.standard.debug("\(message, privacy: .public)")
 
@@ -89,7 +89,7 @@ final class __SCREEN_NAME__ViewModel: ObservableObject {
 
 // MARK: - Privates
 
-private extension __SCREEN_NAME__ViewModel {
+private extension ___FILEBASENAMEASIDENTIFIER___ViewModel {
     // TODO: ロジックが長くなったら、ここへメソッドで切り出す
     // 例:
     // func refresh() async {
@@ -98,7 +98,7 @@ private extension __SCREEN_NAME__ViewModel {
     //     } catch is CancellationError {
     //         // Do nothing when cancelled
     //     } catch {
-    //         uiState.__screenName__Error = .fetchFailed(localizedDescription: error.localizedDescription)
+    //         uiState.___VARIABLE_screenName___Error = .fetchFailed(localizedDescription: error.localizedDescription)
     //     }
     // }
 }

@@ -2,19 +2,19 @@ import SwiftUI
 
 // MARK: - Actions
 
-enum __SCREEN_NAME__ViewAction {
+enum ___FILEBASENAMEASIDENTIFIER___ViewAction {
     // TODO: 子ビューで起きるイベントを書く
     // 例: case onSaveButtonClick
 }
 
-enum __SCREEN_NAME__ViewAsyncAction {
+enum ___FILEBASENAMEASIDENTIFIER___ViewAsyncAction {
 }
 
 // MARK: - View
 
-struct __SCREEN_NAME__View: View {
+struct ___FILEBASENAMEASIDENTIFIER___View: View {
     // TODO: 表示に必要な値を let で受け取る
-    let send: (__SCREEN_NAME__ViewAction) -> Void
+    let send: (___FILEBASENAMEASIDENTIFIER___ViewAction) -> Void
 
     var body: some View {
         Form {
@@ -25,7 +25,7 @@ struct __SCREEN_NAME__View: View {
 
 // MARK: - Privates
 
-private extension __SCREEN_NAME__View {
+private extension ___FILEBASENAMEASIDENTIFIER___View {
     // TODO: bodyが長くなったら、ここへ計算プロパティで切り出す
     // 例:
     // var generalSection: some View {
@@ -37,7 +37,7 @@ private extension __SCREEN_NAME__View {
 // MARK: - Previews
 
 #Preview {
-    __SCREEN_NAME__View(
+    ___FILEBASENAMEASIDENTIFIER___View(
         send: { _ in },
     )
 }

@@ -150,7 +150,9 @@ sequenceDiagram
 $ .claude/skills/uhooi-ios-architecture/scripts/new-screen.sh SakatsuList LokiPackage/Sources/Features/Sakatsu
 ```
 
-引数は画面名（UpperCamelCase）と、置き先のディレクトリです。 `{置き先}/{画面名}/` に3ファイルを作ります。手で作るときは [assets/templates/](assets/templates/) をコピーして、 `__SCREEN_NAME__` を画面名に、 `__screenName__` をその先頭小文字版に置き換えてください。
+引数は画面名（UpperCamelCase）と、置き先のディレクトリです。 `{置き先}/{画面名}/` に3ファイルを作ります。
+
+自分で作るときはXcodeから作るのが早いです。 [assets/](assets/) のテンプレートはXcodeのファイルテンプレートの形式なので、Xcodeが読む場所に置けば File > New > File... から選べます。置き方は [assets/README.md](assets/README.md) を読んでください。
 
 ### 不具合を直す・機能を追加する
 
@@ -172,7 +174,7 @@ $ .claude/skills/uhooi-ios-architecture/scripts/new-screen.sh SakatsuList LokiPa
 | [references/data-layer.md](references/data-layer.md) | リポジトリ・データソース・モデル・バリデータのルール |
 | [references/coding-rules.md](references/coding-rules.md) | 命名・アクセス修飾子・MARKコメントなどのコーディングルール |
 | [references/new-app.md](references/new-app.md) | 新規アプリの基盤を作る手順 |
-| [assets/templates/](assets/templates/) | Screen・View・ViewModel・子ビューのテンプレート |
+| [assets/](assets/) | Screen・View・ViewModel・子ビューのテンプレート（Xcodeのファイルテンプレート形式） |
 
 ## 参考リンク
 

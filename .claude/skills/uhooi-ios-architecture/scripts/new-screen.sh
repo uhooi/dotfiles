@@ -33,7 +33,7 @@ if [ ! -d "${dest_root}" ]; then
 fi
 
 script_dir_path=$(cd "$(dirname "$0")" && pwd)
-template_dir_path="${script_dir_path}/../assets/templates"
+template_dir_path="${script_dir_path}/../assets/UiA Screen.xctemplate"
 dest_dir_path="${dest_root}/${screen_name}"
 
 if [ -d "${dest_dir_path}" ]; then
@@ -48,9 +48,9 @@ mkdir -p "${dest_dir_path}"
 
 for suffix in Screen View ViewModel; do
   sed \
-    -e "s/__SCREEN_NAME__/${screen_name}/g" \
-    -e "s/__screenName__/${lower_screen_name}/g" \
-    "${template_dir_path}/__SCREEN_NAME__${suffix}.swift" \
+    -e "s/___FILEBASENAMEASIDENTIFIER___/${screen_name}/g" \
+    -e "s/___VARIABLE_screenName___/${lower_screen_name}/g" \
+    "${template_dir_path}/___FILEBASENAME___${suffix}.swift" \
     > "${dest_dir_path}/${screen_name}${suffix}.swift"
 
   echo "created: ${dest_dir_path}/${screen_name}${suffix}.swift"
