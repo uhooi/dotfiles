@@ -34,10 +34,7 @@ Xcodeプロジェクトにコードを置くと、ビルドが遅くなり、モ
 │       ├── Features/{機能名}Tests/
 │       ├── Data/{機能名}Tests/
 │       └── Core/{機能名}Tests/
-├── {アプリ名}.xcworkspace
-├── Makefile
-├── Mintfile
-└── .swiftlint.yml
+└── {アプリ名}.xcworkspace
 ```
 
 ## 各層のルール
@@ -164,19 +161,3 @@ let debugOtherSwiftFlags = [
 Text("Sakatsu list", bundle: .module)
 String(localized: "Sakatsu list", bundle: .module)
 ```
-
-## パッケージ管理
-
-### ライブラリ
-
-- Swift製: `Package.swift` のみで管理する
-- それ以外: できる限り使わない。どうしても使うなら適切に管理する
-
-### CLIツール
-
-- Swift製: Build Tool PluginかCommand Pluginで管理する
-    - 用意されていなければ自作してOSSにPRを送る
-    - マージされなければ、自分のリポジトリにコミットする
-    - どうしてもPluginにできないならMintで管理する
-- Ruby製: できる限り使わない。どうしても使うならBundlerで管理する
-- それ以外: できる限り使わない

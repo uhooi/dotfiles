@@ -22,14 +22,10 @@ UiAに則った新しいiOSアプリの土台を作る手順です。 `{アプ�
 │   │   ├── Data/
 │   │   └── Core/{Log,UI}/
 │   └── Tests/
-├── {アプリ名}.xcworkspace
-├── Makefile
-├── Mintfile
-├── .swiftlint.yml
-├── .editorconfig
-├── .gitignore
-└── README.md
+└── {アプリ名}.xcworkspace
 ```
+
+ビルドやLintの仕組み（Makefile、Mint、SwiftLintなど）はUiAの範囲外です。好きなものを使ってください。
 
 ## 手順
 
@@ -255,77 +251,7 @@ struct ProductionApp: App {
 
 `{アプリ名}.xcworkspace` を作り、3つのプロジェクトと `{アプリ名}Package` を入れます。
 
-### 6. Makefileを作る
-
-よく使うターゲットです。
-
-```makefile
-product_name := {アプリ名}
-workspace_name := $(product_name).xcworkspace
-package_name := $(product_name)Package
-
-TEST_SDK := iphonesimulator
-TEST_CONFIGURATION := Debug
-TEST_PLATFORM := iOS Simulator
-TEST_DESTINATION := 'generic/platform=$(TEST_PLATFORM)'
-
-MINT := mint
-SWIFTLINT := $(MINT) run realm/SwiftLint swiftlint
-
-MINT_ROOT := ./.mint
-export MINT_PATH := $(MINT_ROOT)/lib
-export MINT_LINK_PATH := $(MINT_ROOT)/bin
-
-.PHONY: setup
-setup:
-	$(MAKE) install-mint-dependencies
-	$(MAKE) open
-
-.PHONY: install-mint-dependencies
-install-mint-dependencies:
-	$(MINT) bootstrap --overwrite y
-
-.PHONY: open
-open:
-	open ./$(workspace_name)
-
-.PHONY: build-debug-develop
-build-debug-develop:
-	$(MAKE) build-debug PROJECT_NAME=Develop
-
-.PHONY: build-debug
-build-debug:
-	set -o pipefail \
-&& xcodebuild \
--sdk $(TEST_SDK) \
--configuration $(TEST_CONFIGURATION) \
--workspace $(workspace_name) \
--scheme '$(PROJECT_NAME)' \
--destination $(TEST_DESTINATION) \
--skipPackagePluginValidation \
-clean build \
-| tee $(product_name)_$(PROJECT_NAME)_Build.log
-
-.PHONY: lint
-lint:
-	$(SWIFTLINT)
-
-.PHONY: fix
-fix:
-	$(SWIFTLINT) --fix --format
-```
-
-### 7. SwiftLintを設定する
-
-`Mintfile` にSwiftLintを書きます。
-
-```
-realm/SwiftLint@0.60.0
-```
-
-`.swiftlint.yml` は [Loki のもの](https://github.com/uhooi/Loki/blob/main/.swiftlint.yml) をコピーして使ってください。無効にしたルールには理由をコメントで書きます。
-
-### 8. 最初の画面を作る
+### 6. 最初の画面を作る
 
 `scripts/new-screen.sh` でテンプレートを生成します。
 
@@ -352,12 +278,9 @@ $ .claude/skills/uhooi-ios-architecture/scripts/new-screen.sh Home {アプリ名
 
 `productionFeatures` にも `"HomeFeature"` を足し、Apps層のルート画面から呼びます。
 
-### 9. ビルドできることを確認する
+### 7. ビルドできることを確認する
 
-```shell
-$ make setup
-$ make lint && make build-debug-develop
-```
+Xcodeでワークスペースを開き、ビルドして起動します。
 
 ## チェックリスト
 
@@ -367,4 +290,4 @@ $ make lint && make build-debug-develop
 - [ ] 4層のディレクトリがある
 - [ ] 全ターゲットに `swiftSettings` が当たっている
 - [ ] LogCoreに全ターゲットが依存している
-- [ ] `make lint` と `make build-debug-develop` が通る
+- [ ] ビルドが通る

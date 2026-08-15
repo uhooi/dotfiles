@@ -1,19 +1,5 @@
 # コーディングルール
 
-## 全体
-
-- できる限り [Swift API Design Guidelines](https://www.swift.org/documentation/api-design-guidelines/) に従う
-- できる限り `any` より `some` を使う
-    - 引数は `some` で受ける
-    - プロパティに持つときは `any` になる
-- 引数が複数行なら、最後の引数のあとにもカンマを付ける（trailing comma）
-
-```swift
-private init(
-    userDefaultsClient: some UserDefaultsClient = DefaultUserDefaultsClient.shared,
-)
-```
-
 ## 命名
 
 | 対象 | 命名 | 例 |
@@ -82,54 +68,9 @@ import SwiftUI           // internal な View を定義するファイル
 // MARK: - Screen factory
 ```
 
-## ログ
-
-- `os.Logger` をラップした `LogCore` の `Logger` を使う
-- 出す場所は2つだけ
-    - ビューの `init`
-    - ビューモデルの `send()` ・ `sendAsync()`
-
-```swift
-Logger.standard.debug("\(#function, privacy: .public)")
-```
-
-```swift
-let message = "\(#function) action: \(action)"
-Logger.standard.debug("\(message, privacy: .public)")
-```
-
-`privacy: .public` を付けないと、実機のログで文字列が伏せられます。
-
-## ローカライズ
-
-- 文言は `Localizable.xcstrings` に書く。モジュールごとに用意する
-- 参照するときは必ず `bundle: .module` を付ける
-
-```swift
-Text("Sakatsu list", bundle: .module)
-Text("\(count) Sakatsu(s)", bundle: .module)
-String(localized: "Save", bundle: .module)
-```
-
-- `Text` に直接渡せるところは `Text("...", bundle: .module)` を使う
-- 文字列が必要なところ（ `navigationTitle` 、 `accessibilityLabel` など）は `String(localized:bundle:)` を使う
-
-## アクセシビリティ
-
-SwiftLintの `accessibility_label_for_image` と `accessibility_trait_for_button` を有効にしています。
-
-- 画像だけのボタンには `.accessibilityLabel(...)` を付ける
-
-```swift
-Button(action: onAddButtonClick) {
-    Image(systemName: "plus")
-}
-.accessibilityLabel(String(localized: "New Sakatsu", bundle: .module))
-```
-
 ## OSバージョンでの分岐
 
-新しいAPIを使うときは `if #available` で分けます。ビューの分岐を避けるため、ツールバーなど `private extension` のメソッドの中に閉じ込めます。
+ビューに分岐を書かないルールがあるため、 `if #available` は `private extension` のメソッドの中に閉じ込めます。
 
 ```swift
 @ToolbarContentBuilder
@@ -160,27 +101,12 @@ package init(
 #endif
 ```
 
-## SwiftLint
+## 補足: UiA以外のルール
 
-- Mintで管理する
-- `make lint` で実行、 `make fix` で自動修正する
-- 意図的に無視するときは、行末に `// swiftlint:disable:this {ルール名}` を付ける
-    - よく使うもの
-        - `@Environment` のプロパティ → `attributes`
-        - 長い `send()` → `cyclomatic_complexity function_body_length`
+ここから下はUiAの一部ではありません。Lokiで採用しているだけなので、必要に応じて取り入れてください。
 
-無効にしているルールと、その理由は `.swiftlint.yml` にコメントで書きます。
-
-```yaml
-disabled_rules:
-  - todo  # TODOコメントで警告を増やしたくないため
-  - trailing_comma  # 末尾にカンマを付けたいことがあるため
-```
-
-## ビルドと確認
-
-Swiftのコードを変更したら、必ず次を実行します。
-
-```shell
-$ make lint && make build-debug-develop
-```
+- できる限り [Swift API Design Guidelines](https://www.swift.org/documentation/api-design-guidelines/) に従う
+- できる限り `any` より `some` を使う（引数は `some` で受け、プロパティは `any` で持つ）
+- 引数が複数行なら、最後の引数のあとにもカンマを付ける（trailing comma）
+- ログは必要に応じて出す。 `send()` の先頭に1行書くと、その画面のイベントをすべて追える
+- 画像だけのボタンには `.accessibilityLabel(...)` を付ける

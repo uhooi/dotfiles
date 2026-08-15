@@ -1,6 +1,4 @@
 import SwiftUI
-import os
-import LogCore
 import UICore
 
 // MARK: Actions
@@ -36,8 +34,6 @@ struct __SCREEN_NAME__Screen: View {
     }
 
     init() {
-        Logger.standard.debug("\(#function, privacy: .public)")
-
         self._viewModel = StateObject(wrappedValue: __SCREEN_NAME__ViewModel())
     }
 }

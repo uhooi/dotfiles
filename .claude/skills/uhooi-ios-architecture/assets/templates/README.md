@@ -32,4 +32,4 @@ $ .claude/skills/uhooi-ios-architecture/scripts/new-screen.sh SakatsuList LokiPa
 3. 状態がまったくない画面なら、ViewとViewModelを消してScreenだけにする
 4. `Localizable.xcstrings` に文言を足す
 5. Apps層のルート画面から呼ぶ
-6. `make lint && make build-debug-develop` で確認する
+6. ビルドして動きを確認する

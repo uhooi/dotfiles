@@ -142,7 +142,7 @@ sequenceDiagram
 3. テンプレートから3ファイルを生成する（後述）
 4. UI stateとアクションを埋める
 5. Appsのルート画面にナビゲーションを追加する
-6. `make lint && make build-debug-develop` で確認する
+6. ビルドして動きを確認する
 
 テンプレートは `scripts/new-screen.sh` で生成できます。
 
@@ -161,7 +161,7 @@ $ .claude/skills/uhooi-ios-architecture/scripts/new-screen.sh SakatsuList LokiPa
     - 状態やロジック → `{画面名}ViewModel.swift`
     - データの取得や保存 → Data層のリポジトリ
 3. 新しいイベントが必要なら、まずアクションを追加する
-4. `make lint && make build-debug-develop` で確認する
+4. ビルドして動きを確認する
 
 ## 参照ファイル
 
@@ -170,7 +170,7 @@ $ .claude/skills/uhooi-ios-architecture/scripts/new-screen.sh SakatsuList LokiPa
 | [references/layers.md](references/layers.md) | 4層のモジュール分割と依存のルール |
 | [references/ui-layer.md](references/ui-layer.md) | Screen・View・ViewModelとアクションの詳しいルール |
 | [references/data-layer.md](references/data-layer.md) | リポジトリ・データソース・モデル・バリデータのルール |
-| [references/coding-rules.md](references/coding-rules.md) | 命名・アクセス修飾子・SwiftLintなどのコーディングルール |
+| [references/coding-rules.md](references/coding-rules.md) | 命名・アクセス修飾子・MARKコメントなどのコーディングルール |
 | [references/new-app.md](references/new-app.md) | 新規アプリの基盤を作る手順 |
 | [assets/templates/](assets/templates/) | Screen・View・ViewModel・子ビューのテンプレート |
 

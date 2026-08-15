@@ -132,8 +132,6 @@ case let .view(viewAsyncAction):
 
 ```swift
 package import SwiftUI
-import os
-import LogCore
 import UICore
 
 // MARK: Actions
@@ -173,8 +171,6 @@ package struct SakatsuListScreen: View {
     }
 
     package init(onSettingsButtonClick: @escaping () -> Void) {
-        Logger.standard.debug("\(#function, privacy: .public)")
-
         self._viewModel = StateObject(wrappedValue: SakatsuListViewModel(
             onSettingsButtonClick: onSettingsButtonClick,
         ))
@@ -205,7 +201,6 @@ private extension SakatsuListScreen {
     - `// MARK: Actions` → `// MARK: - View` → `// MARK: - Privates` → `// MARK: - Previews`
     - 最初のMARKだけ `-` を付けない
 - ビューモデルは `init` で `self._viewModel = StateObject(wrappedValue: ...)` として生成する
-- `init` の先頭で `Logger.standard.debug("\(#function, privacy: .public)")` を書く
 - 自分のアクションは `viewModel.send(.screen(...))` で送る
 - 子ビューには `send: { action in viewModel.send(.view(action)) }` を渡す
 - ツールバーは `private extension` の `@ToolbarContentBuilder func toolbarContent(...)` に切り出す
@@ -431,8 +426,8 @@ private extension SakatsuListViewModel {
     - `repository: some SakatsuRepository = DefaultSakatsuRepository.shared`
     - 型は `some` で受けてプロパティは `any` で持つ
     - こうするとテストでモックへ差し替えられる
-- `send()` と `sendAsync()` の先頭でアクションをログに出す
-    - 変数 `message` に入れてから渡す（ `Logger` の文字列補間の制限を避けるため）
+- ログを出すなら `send()` と `sendAsync()` の先頭に書く
+    - 入口が1つなので、1行書くだけでその画面のイベントをすべて追える
 - `switch` は必ず網羅する。 `default` を書かない
 - 各ケースは1つの空行で区切る
 - ロジックが長くなったら `private extension` のメソッドへ切り出す
