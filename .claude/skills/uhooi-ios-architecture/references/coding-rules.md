@@ -16,6 +16,7 @@
 | データソース | `{名前}{保存先}DataSource` | `SakatsuUserDefaultsDataSource` |
 | バリデータ | `{名前}Validator` / `Default{名前}Validator` | `SakatsuValidator` |
 
+- SwiftUIのコンポーネントを少しいじっただけの部品は、 `{部品名}Label` や `{部品名}Text` と名付けてもいい
 - `UiState` は `UIState` と書かない（Android由来の綴り）
 - プロトコルに対する標準の実装は `Default` を付ける
 - 1ファイル1型ではない。関係する型（アクション・UI state・エラー）は同じファイルにまとめる
