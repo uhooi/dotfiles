@@ -7,17 +7,13 @@ UiAに則った新しいiOSアプリの土台を作る手順です。 `{アプ�
 ```
 {アプリ名}/
 ├── App/
-│   ├── Production.xcodeproj
-│   ├── Develop.xcodeproj
-│   ├── Catalog.xcodeproj
+│   ├── {環境名}.xcodeproj          … 環境の数だけ作る
 │   └── {アプリ名}/
-│       ├── Production/ProductionApp.swift
-│       ├── Develop/DevelopApp.swift
-│       └── Catalog/CatalogApp.swift
+│       └── {環境名}/{環境名}App.swift
 ├── {アプリ名}Package/
 │   ├── Package.swift
 │   ├── Sources/
-│   │   ├── Apps/{Production,Develop,Catalog}/
+│   │   ├── Apps/{環境名}/
 │   │   ├── Features/
 │   │   ├── Data/
 │   │   └── Core/{Log,UI}/
@@ -222,7 +218,7 @@ public struct CatalogRootScreen: View {
 
 ### 4. Xcodeプロジェクトを作る
 
-Xcodeで `Production` ・ `Develop` ・ `Catalog` の3つのプロジェクトを `App/` に作ります。各プロジェクトには次のファイルだけを置きます。
+Xcodeで環境の数だけプロジェクトを `App/` に作ります。各プロジェクトには次のファイルだけを置きます。
 
 - `{環境名}App.swift`
 - `Resources/Assets.xcassets`
@@ -249,7 +245,7 @@ struct ProductionApp: App {
 
 ### 5. ワークスペースを作る
 
-`{アプリ名}.xcworkspace` を作り、3つのプロジェクトと `{アプリ名}Package` を入れます。
+`{アプリ名}.xcworkspace` を作り、すべてのプロジェクトと `{アプリ名}Package` を入れます。
 
 ### 6. 最初の画面を作る
 
@@ -286,7 +282,7 @@ Xcodeでワークスペースを開き、ビルドして起動します。
 
 - [ ] ソースコードがSwiftパッケージに寄っている
 - [ ] Xcodeプロジェクトには `@main` の構造体とリソースしかない
-- [ ] Production・Develop・Catalogの3つのアプリがある
+- [ ] 必要な環境の数だけアプリがある
 - [ ] 4層のディレクトリがある
 - [ ] 全ターゲットに `swiftSettings` が当たっている
 - [ ] LogCoreに全ターゲットが依存している

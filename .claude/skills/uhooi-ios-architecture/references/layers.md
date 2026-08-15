@@ -16,17 +16,13 @@ Xcodeプロジェクトにコードを置くと、ビルドが遅くなり、モ
 ```
 {アプリ名}/
 ├── App/                              … Xcodeプロジェクト（最低限のみ）
-│   ├── Production.xcodeproj
-│   ├── Develop.xcodeproj
-│   ├── Catalog.xcodeproj
+│   ├── {環境名}.xcodeproj          … 環境の数だけ作る
 │   └── {アプリ名}/
-│       ├── Production/ProductionApp.swift
-│       ├── Develop/DevelopApp.swift
-│       └── Catalog/CatalogApp.swift
+│       └── {環境名}/{環境名}App.swift
 ├── {アプリ名}Package/                … ソースコードのほぼすべて
 │   ├── Package.swift
 │   ├── Sources/
-│   │   ├── Apps/{Production,Develop,Catalog}/
+│   │   ├── Apps/{環境名}/
 │   │   ├── Features/{機能名}/
 │   │   ├── Data/{機能名}/
 │   │   └── Core/{機能名}/
@@ -48,7 +44,9 @@ Xcodeプロジェクトにコードを置くと、ビルドが遅くなり、モ
 
 参考: [App modules](https://developer.android.com/topic/modularization/patterns#app-modules)
 
-Lokiでは3つのアプリを用意しています。
+アプリは必要な環境の数だけ作ります。 `.xcodeproj` も環境ごとに用意します。
+
+Lokiでは3つ作っています。
 
 | モジュール | 用途 |
 | --- | --- |
