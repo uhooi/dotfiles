@@ -1,6 +1,6 @@
 import SwiftUI
 
-// MARK: Actions
+// MARK: - Actions
 
 enum __SCREEN_NAME__ViewAction {
     // TODO: 子ビューで起きるイベントを書く

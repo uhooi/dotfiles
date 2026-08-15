@@ -41,12 +41,12 @@ import SwiftUI           // internal な View を定義するファイル
 
 ## MARKコメント
 
-ファイルの先頭から順に並べます。最初のMARKには `-` を付けず、2つ目以降に付けます。
+ファイルの先頭から順に並べます。すべてのMARKに `-` を付けます。
 
 ### ビューのファイル
 
 ```swift
-// MARK: Actions
+// MARK: - Actions
 // MARK: - View
 // MARK: - Privates
 // MARK: - Previews   ← #if DEBUG の中
@@ -55,7 +55,7 @@ import SwiftUI           // internal な View を定義するファイル
 ### ビューモデルのファイル
 
 ```swift
-// MARK: UI state
+// MARK: - UI state
 // MARK: - Actions
 // MARK: - Error
 // MARK: - View model

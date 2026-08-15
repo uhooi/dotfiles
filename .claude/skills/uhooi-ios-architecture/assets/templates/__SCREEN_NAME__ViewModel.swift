@@ -3,7 +3,7 @@ import Foundation
 import os
 import LogCore
 
-// MARK: UI state
+// MARK: - UI state
 
 struct __SCREEN_NAME__UiState {
     // TODO: 画面の状態を書く

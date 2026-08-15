@@ -59,7 +59,7 @@ let productionFeatures: [PackageDescription.Target.Dependency] = [
     // ここにFeatureモジュールを足していく
 ]
 
-// MARK: Package
+// MARK: - Package
 
 let package = Package(
     name: "{アプリ名}Package",

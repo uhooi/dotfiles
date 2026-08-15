@@ -1,7 +1,7 @@
 import SwiftUI
 import UICore
 
-// MARK: Actions
+// MARK: - Actions
 
 enum __SCREEN_NAME__ScreenAction {
     case onErrorAlertDismiss

@@ -1,6 +1,6 @@
 import SwiftUI
 
-// MARK: Action
+// MARK: - Action
 
 enum __SUBVIEW_NAME__ViewAction {
     // TODO: この部品で起きるイベントを書く

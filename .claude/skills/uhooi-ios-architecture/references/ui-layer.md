@@ -134,7 +134,7 @@ case let .view(viewAsyncAction):
 package import SwiftUI
 import UICore
 
-// MARK: Actions
+// MARK: - Actions
 
 enum SakatsuListScreenAction { ... }
 
@@ -198,8 +198,7 @@ private extension SakatsuListScreen {
 ### 暗黙のルール
 
 - MARKコメントの順番を守る
-    - `// MARK: Actions` → `// MARK: - View` → `// MARK: - Privates` → `// MARK: - Previews`
-    - 最初のMARKだけ `-` を付けない
+    - `// MARK: - Actions` → `// MARK: - View` → `// MARK: - Privates` → `// MARK: - Previews`
 - ビューモデルは `init` で `self._viewModel = StateObject(wrappedValue: ...)` として生成する
 - 自分のアクションは `viewModel.send(.screen(...))` で送る
 - 子ビューには `send: { action in viewModel.send(.view(action)) }` を渡す
@@ -244,7 +243,7 @@ private extension SakatsuListScreen {
 import SwiftUI
 import SakatsuData
 
-// MARK: Actions
+// MARK: - Actions
 
 enum SakatsuListViewAction { ... }
 
@@ -298,7 +297,7 @@ private extension SakatsuListView {
 `Subviews/` に置きます。アクションも自分で持ちます。
 
 ```swift
-// MARK: Action
+// MARK: - Action
 
 enum SakatsuRowViewAction {
     case onCopySakatsuTextButtonClick
@@ -306,7 +305,7 @@ enum SakatsuRowViewAction {
 }
 ```
 
-非同期アクションが不要なら、 `{名前}AsyncAction` は作りません。MARKも `// MARK: Action` と単数にします。
+非同期アクションが不要なら、 `{名前}AsyncAction` は作りません。MARKも `// MARK: - Action` と単数にします。
 
 親ビューは子ビューのアクションを受け取り、自分のアクションへ変換して送ります。このとき、子ビューが知らない情報（インデックスなど）を足します。
 
@@ -342,7 +341,7 @@ import os
 import SakatsuData
 import LogCore
 
-// MARK: UI state
+// MARK: - UI state
 
 struct SakatsuListUiState {
     var sakatsus: [Sakatsu] = []
@@ -417,7 +416,7 @@ private extension SakatsuListViewModel {
 ### 暗黙のルール
 
 - MARKコメントの順番を守る
-    - `// MARK: UI state` → `// MARK: - Actions` → `// MARK: - Error` → `// MARK: - View model` → `// MARK: - Privates`
+    - `// MARK: - UI state` → `// MARK: - Actions` → `// MARK: - Error` → `// MARK: - View model` → `// MARK: - Privates`
 - `@MainActor` を付けた `final class` にし、 `ObservableObject` に準拠する
     - iOS 16をサポートするため `@Observable` は使わない
 - `@Published private(set) var uiState` の1つだけを公開する
