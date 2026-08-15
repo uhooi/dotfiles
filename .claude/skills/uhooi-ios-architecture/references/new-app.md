@@ -34,23 +34,6 @@ UiAに則った新しいiOSアプリの土台を作る手順です。 `{アプ�
 
 import PackageDescription
 
-let debugOtherSwiftFlags = [
-    "-Xfrontend", "-warn-long-expression-type-checking=500",
-    "-Xfrontend", "-warn-long-function-bodies=500",
-    "-strict-concurrency=complete",
-    "-enable-actor-data-race-checks",
-]
-
-let swiftSettings: [PackageDescription.SwiftSetting] = [
-    .unsafeFlags(debugOtherSwiftFlags, .when(configuration: .debug)),
-    .enableUpcomingFeature("ExistentialAny"), // SE-0335
-    .enableUpcomingFeature("InternalImportsByDefault"), // SE-0409
-    .enableUpcomingFeature("MemberImportVisibility"), // SE-0444
-    .enableUpcomingFeature("InferIsolatedConformances"), // SE-0470
-    .enableUpcomingFeature("NonisolatedNonsendingByDefault"), // SE-0461
-    .enableUpcomingFeature("ImmutableWeakCaptures"), // SE-0481
-]
-
 let productionFeatures: [PackageDescription.Target.Dependency] = [
     // ここにFeatureモジュールを足していく
 ]
@@ -114,8 +97,6 @@ let package = Package(
 )
 
 for target in package.targets {
-    target.swiftSettings = swiftSettings
-
     if target.name != "LogCore" {
         target.dependencies.append("LogCore")
     }
@@ -284,6 +265,5 @@ Xcodeでワークスペースを開き、ビルドして起動します。
 - [ ] Xcodeプロジェクトには `@main` の構造体とリソースしかない
 - [ ] 必要な環境の数だけアプリがある
 - [ ] 4層のディレクトリがある
-- [ ] 全ターゲットに `swiftSettings` が当たっている
 - [ ] LogCoreに全ターゲットが依存している
 - [ ] ビルドが通る
