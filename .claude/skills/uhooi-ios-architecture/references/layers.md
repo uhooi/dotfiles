@@ -15,8 +15,8 @@ Xcodeプロジェクトにコードを置くと、ビルドが遅くなり、モ
 
 ```
 {アプリ名}/
-├── App/                              … Xcodeプロジェクト（最低限のみ）
-│   ├── {環境名}.xcodeproj          … 環境の数だけ作る
+├── App/                             … Xcodeプロジェクト（最低限のみ）
+│   ├── {環境名}.xcodeproj            … 環境の数だけ作る
 │   └── {アプリ名}/
 │       └── {環境名}/{環境名}App.swift
 ├── {アプリ名}Package/                … ソースコードのほぼすべて
@@ -101,61 +101,5 @@ Lokiでは次の3つを用意しています。
 
 ターゲット名と `path` は必ず両方書きます。 `path` を省略するとディレクトリ名とターゲット名を揃える必要があり、上の構成にできません。
 
-## Package.swift の書き方
-
-Lokiの `Package.swift` には、暗黙のルールが3つあります。
-
-### 1. 全ターゲットに同じSwift設定を適用する
-
-ファイル末尾のループでまとめて設定します。ターゲットごとに書きません。
-
-```swift
-for target in package.targets {
-    target.swiftSettings = swiftSettings
-
-    if target.name != "LogCore" {
-        target.dependencies.append("LogCore")
-    }
-}
-```
-
-### 2. LogCoreは全ターゲットが依存する
-
-ログはどこでも使うため、上のループで自動的に足します。 `dependencies` に手で書きません。
-
-### 3. Upcoming Featureを積極的に有効化する
-
-```swift
-let swiftSettings: [PackageDescription.SwiftSetting] = [
-    .unsafeFlags(debugOtherSwiftFlags, .when(configuration: .debug)),
-    .enableUpcomingFeature("ExistentialAny"), // SE-0335
-    .enableUpcomingFeature("InternalImportsByDefault"), // SE-0409
-    .enableUpcomingFeature("MemberImportVisibility"), // SE-0444
-    .enableUpcomingFeature("InferIsolatedConformances"), // SE-0470
-    .enableUpcomingFeature("NonisolatedNonsendingByDefault"), // SE-0461
-    .enableUpcomingFeature("ImmutableWeakCaptures"), // SE-0481
-]
-```
-
-デバッグビルドでは、型チェックが遅い箇所と競合を検知するフラグも付けます。
-
-```swift
-let debugOtherSwiftFlags = [
-    "-Xfrontend", "-warn-long-expression-type-checking=500",
-    "-Xfrontend", "-warn-long-function-bodies=500",
-    "-strict-concurrency=complete",
-    "-enable-actor-data-race-checks",
-]
-```
-
-`InternalImportsByDefault` を有効にしているため、モジュールの外へ型を公開するときは `package import` や `public import` を書きます。詳しくは [coding-rules.md](coding-rules.md) を読んでください。
-
-## リソース
-
-- `Localizable.xcstrings` はモジュールごとに `Sources/{層}/{機能名}/Resources/` へ置く
-- 文字列は必ず `bundle: .module` を付けて参照する
-
-```swift
-Text("Sakatsu list", bundle: .module)
 String(localized: "Sakatsu list", bundle: .module)
 ```
