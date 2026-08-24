@@ -336,26 +336,39 @@ require('lazy').setup({
 
   {
     'vim-jp/vimdoc-ja',
-    -- lazy.nvim runs :helptags after updates, but Neovim rewrites the tracked
-    -- language-specific tag file and then treats the plugin as locally modified.
-    -- Restore the tag file shipped by vimdoc-ja after lazy.nvim regenerates it.
-    build = function(plugin)
-      local result = vim
-        .system({
-          'git',
-          'restore',
-          '--source=HEAD',
-          '--',
-          'doc/tags-ja',
-        }, { cwd = plugin.dir })
-        :wait()
-
-      if result.code ~= 0 then
-        error(result.stderr or 'Failed to restore doc/tags-ja')
-      end
-    end,
-    config = function()
+    config = function(plugin)
       vim.opt.helplang = { 'ja', 'en' }
+
+      -- lazy.nvim runs :helptags after updates, but Neovim rewrites the tracked
+      -- doc/tags-ja shipped by vimdoc-ja and then treats the plugin as locally
+      -- modified. lazy.nvim restores doc/tags on its own, but not the
+      -- language-specific tag file, and it checks for local changes before
+      -- running `build`. So restore the tag file before lazy.nvim starts, while
+      -- the check can still be satisfied.
+      vim.api.nvim_create_autocmd('User', {
+        group = vim.api.nvim_create_augroup('vimdoc_ja_restore_tags', {}),
+        pattern = {
+          'LazyCheckPre',
+          'LazyInstallPre',
+          'LazyRestorePre',
+          'LazyUpdatePre',
+        },
+        callback = function()
+          local result = vim
+            .system({
+              'git',
+              'restore',
+              '--source=HEAD',
+              '--',
+              'doc/tags-ja',
+            }, { cwd = plugin.dir })
+            :wait()
+
+          if result.code ~= 0 then
+            vim.notify(result.stderr or 'Failed to restore doc/tags-ja', vim.log.levels.WARN)
+          end
+        end,
+      })
     end,
   },
 
