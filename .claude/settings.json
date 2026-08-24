@@ -58,5 +58,8 @@
     "command": "bash ~/.claude/statusline-command.sh"
   },
   "tui": "fullscreen",
-  "editorMode": "vim"
+  "editorMode": "vim",
+  "enabledPlugins": {
+    "swift-lsp@claude-plugins-official": true
+  }
 }
