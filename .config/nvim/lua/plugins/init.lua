@@ -21,6 +21,20 @@ end
 vim.opt.rtp:prepend(lazypath)
 -- }}}
 
+-- Workarounds {{{
+
+-- Neovim's `:helptags` misreads the C comments in the ASCII art of vimdoc-ja's
+-- usr_08.jax as a tag and fails with `E154: Duplicate tag "/"`. It leaves a
+-- broken doc/tags-ja behind, which makes lazy.nvim treat vimdoc-ja as locally
+-- modified and refuse to update it. vimdoc-ja ships a correct doc/tags-ja, so
+-- skip lazy.nvim's helptags task for it.
+local plugin_task = require('lazy.manage.task.plugin')
+local skip_docs = plugin_task.docs.skip
+plugin_task.docs.skip = function(plugin, opts)
+  return plugin.name == 'vimdoc-ja' or skip_docs(plugin, opts)
+end
+-- }}}
+
 -- Setup {{{
 require('lazy').setup({
   -- Plugin manager {{{
@@ -336,39 +350,8 @@ require('lazy').setup({
 
   {
     'vim-jp/vimdoc-ja',
-    config = function(plugin)
+    config = function()
       vim.opt.helplang = { 'ja', 'en' }
-
-      -- lazy.nvim runs :helptags after updates, but Neovim rewrites the tracked
-      -- doc/tags-ja shipped by vimdoc-ja and then treats the plugin as locally
-      -- modified. lazy.nvim restores doc/tags on its own, but not the
-      -- language-specific tag file, and it checks for local changes before
-      -- running `build`. So restore the tag file before lazy.nvim starts, while
-      -- the check can still be satisfied.
-      vim.api.nvim_create_autocmd('User', {
-        group = vim.api.nvim_create_augroup('vimdoc_ja_restore_tags', {}),
-        pattern = {
-          'LazyCheckPre',
-          'LazyInstallPre',
-          'LazyRestorePre',
-          'LazyUpdatePre',
-        },
-        callback = function()
-          local result = vim
-            .system({
-              'git',
-              'restore',
-              '--source=HEAD',
-              '--',
-              'doc/tags-ja',
-            }, { cwd = plugin.dir })
-            :wait()
-
-          if result.code ~= 0 then
-            vim.notify(result.stderr or 'Failed to restore doc/tags-ja', vim.log.levels.WARN)
-          end
-        end,
-      })
     end,
   },
 
