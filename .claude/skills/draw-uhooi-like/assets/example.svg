@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <!-- 手描きのゆらぎ。これがないと CG くさくなる -->
+    <filter id="wobble" x="-15%" y="-15%" width="130%" height="130%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="3" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="14"
+                         xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+
+  <!-- 線の設定はここに 1 回だけ書く。個々のパスで stroke や太さを変えない -->
+  <g filter="url(#wobble)" fill="none"
+     stroke="#000000" stroke-width="18" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- しっぽ：黒 70 → 色 34（差 36 = 輪郭 18 × 2） -->
+    <path d="M 740 520 C 900 500 946 360 880 268 C 850 226 796 228 776 268" stroke-width="70"/>
+    <path d="M 740 520 C 900 500 946 360 880 268 C 850 226 796 228 776 268"
+          stroke="#6EB7DB" stroke-width="34"/>
+
+    <!-- 脚：太さも長さも 1 本ずつ変える。差は必ず 36 -->
+    <path d="M 655 640 L 668 880" stroke-width="80"/>
+    <path d="M 655 640 L 668 880" stroke="#6EB7DB" stroke-width="44"/>
+    <path d="M 520 655 L 505 900" stroke-width="72"/>
+    <path d="M 520 655 L 505 900" stroke="#6EB7DB" stroke-width="36"/>
+    <path d="M 300 650 L 285 872" stroke-width="76"/>
+    <path d="M 300 650 L 285 872" stroke="#6EB7DB" stroke-width="40"/>
+    <path d="M 410 660 L 425 895" stroke-width="68"/>
+    <path d="M 410 660 L 425 895" stroke="#6EB7DB" stroke-width="32"/>
+
+    <!-- 体。まん丸にしない -->
+    <path d="M 268 400 C 195 428 190 610 262 682 C 400 742 655 748 742 672
+             C 812 600 800 428 730 398 C 580 350 396 362 268 400 Z"
+          fill="#6EB7DB"/>
+
+    <!-- 耳。左右で大きさと角度を変える -->
+    <path d="M 208 300 L 172 150 L 322 252 Z" fill="#6EB7DB"/>
+    <path d="M 486 268 L 552 128 L 610 258 Z" fill="#6EB7DB"/>
+
+    <!-- 頭。体より後に描いて上に重ねる -->
+    <path d="M 198 306 C 132 402 148 528 262 585 C 400 632 552 618 620 545
+             C 692 462 666 292 570 236 C 452 178 268 218 198 306 Z"
+          fill="#6EB7DB"/>
+
+    <!-- 目：白目を塗って、瞳は黒ベタ。左右で少しずらす -->
+    <path d="M 258 378 C 288 340 358 344 378 386 C 352 424 282 422 258 378 Z" fill="#FFFFFF"/>
+    <path d="M 466 368 C 498 328 570 334 588 378 C 562 416 492 414 466 368 Z" fill="#FFFFFF"/>
+    <circle cx="320" cy="384" r="30" fill="#000000" stroke="none"/>
+    <circle cx="530" cy="376" r="28" fill="#000000" stroke="none"/>
+
+    <!-- 鼻と口 -->
+    <path d="M 378 452 L 434 450 L 406 486 Z" fill="#000000"/>
+    <path d="M 406 486 L 404 512"/>
+    <path d="M 404 512 C 378 540 340 534 334 506"/>
+    <path d="M 404 512 C 430 540 468 534 474 506"/>
+
+    <!-- ひげ。細い線を使ってよい数少ない例外 -->
+    <path d="M 226 442 L 96 420" stroke-width="13"/>
+    <path d="M 224 480 L 98 490" stroke-width="13"/>
+    <path d="M 620 432 L 752 412" stroke-width="13"/>
+    <path d="M 618 470 L 748 480" stroke-width="13"/>
+
+  </g>
+</svg>
