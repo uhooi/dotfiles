@@ -1,4 +1,0 @@
-interface:
-  display_name: "Fix CI Failure"
-  short_description: "GitHub PR の失敗した CI を調査して修正する"
-  default_prompt: "$fix-ci-failure を使って、GitHub PR の CI 失敗を調査して修正してください。"
