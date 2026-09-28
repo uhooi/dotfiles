@@ -14,6 +14,7 @@ packer_compiled.lua
 
 # Claude Code
 .claude/settings.local.json
+.claude/skills/synced/
 
 # SKK
 # 自動生成の辞書はコミットせず、Install.sh でダウンロードする
