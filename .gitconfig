@@ -27,7 +27,7 @@
     ba = branch -a
     bd = branch -d
     bdf = branch -d -f
-    bdm = !git branch --merged | grep -vE '^[*+]|master|main|develop' | xargs -r git branch -d
+    bdm = branch --delete-merged 'origin/*'
     bm = branch -m
     bl = blame
     bll = blame -L
