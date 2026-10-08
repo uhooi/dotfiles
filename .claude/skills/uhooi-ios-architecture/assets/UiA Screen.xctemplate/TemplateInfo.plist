@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Kind</key>
+	<string>Xcode.IDEFoundation.TextSubstitutionFileTemplateKind</string>
+	<key>Description</key>
+	<string>UiAの画面。Screen・View・ViewModelの3ファイルを作ります。</string>
+	<key>Summary</key>
+	<string>UiAの画面（Screen + View + ViewModel）</string>
+	<key>SortOrder</key>
+	<string>1</string>
+	<key>AllowedTypes</key>
+	<array>
+		<string>public.swift-source</string>
+	</array>
+	<key>MainTemplateFile</key>
+	<string>___FILEBASENAME___Screen.swift</string>
+	<key>Nodes</key>
+	<array>
+		<string>___FILEBASENAME___Screen.swift</string>
+		<string>___FILEBASENAME___View.swift</string>
+		<string>___FILEBASENAME___ViewModel.swift</string>
+	</array>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Identifier</key>
+			<string>screenName</string>
+			<key>Name</key>
+			<string>画面名（先頭を小文字にしたもの）:</string>
+			<key>Description</key>
+			<string>uiStateのエラープロパティ名に使います。例: sakatsuList</string>
+			<key>Type</key>
+			<string>text</string>
+			<key>Required</key>
+			<true/>
+			<key>NotPersisted</key>
+			<true/>
+		</dict>
+	</array>
+</dict>
+</plist>
