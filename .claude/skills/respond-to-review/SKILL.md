@@ -74,7 +74,7 @@ query($owner:String!, $repo:String!, $pr:Int!) {
 
 ## 4. 返信
 
-指摘元のコメントに返信します。文章は `uhooi-writing` スキル、書式は [`format-review-reply`](../format-review-reply/SKILL.md) スキルに従います。
+指摘元のコメントに返信します。文章は `uhooi-writing` スキル、書式は [`format-github-comment`](../format-github-comment/SKILL.md) スキルに従います。
 
 ### 返信コマンド
 

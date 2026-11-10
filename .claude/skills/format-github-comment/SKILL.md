@@ -1,6 +1,6 @@
 ---
-name: format-review-reply
-description: GitHub PR のレビュー指摘への返信を所定の書式に整える。返信の下書きや整形で、対応内容、修正コミットの短縮 SHA、AI の署名を記載するときに使う。
+name: format-github-comment
+description: GitHub のコメントを所定の書式に整える。Issue や PR のコメント、レビュー指摘、返信などの下書きや整形に使う。
 ---
 
 ## フォーマット
