@@ -1,6 +1,6 @@
 ---
 name: review
-description: GitHub の PR をレビューする。`/review` が指定されたときや、PR の実装を確認してレビューコメントを書くよう頼まれたときに使う。
+description: GitHub の PR をレビューする。`/review` が指定されたときや、PR の実装を確認してレビューコメントを書くよう頼まれたときに使う。指摘への対応を確認する再レビューにも使う。
 ---
 
 ## レビューの進め方
@@ -34,7 +34,7 @@ Google の `eng-practices` にある [レビューガイド](https://google.gith
 
 ## 投稿手順
 
-ユーザーが `/review` を指定した場合や投稿を依頼した場合は、GitHub にコメントを投稿します。下書きの依頼にはチャットで返します。GitHub 上の操作はコメントの投稿に限ります。
+ユーザーが `/review` を指定した場合や投稿を依頼した場合は、GitHub にコメントを投稿します。下書きの依頼にはチャットで返します。GitHub 上の操作は、コメントの投稿と、再レビューでのスレッドの resolve に限ります。
 
 - 投稿前に `gh pr view --json headRefOid` で確認した SHA と、レビューした SHA が一致することを確認する。変わっていれば新しい差分を読み、指摘と行番号を見直す
 - 指摘がある場合は、次の方法でインラインコメントを投稿する。`line` は差分に表示されるファイルの行番号を指定する。追加行と差分に表示される未変更行は `RIGHT`、削除行は `LEFT` を使う。本文は `body_file` に保存する
@@ -47,8 +47,54 @@ gh api --hostname "$host" --method POST "repos/$owner/$repo/pulls/$pr/comments" 
 
 [GitHub のインラインコメント API](https://docs.github.com/en/rest/pulls/comments#create-a-review-comment-for-a-pull-request)
 
-- レビューを終えて指摘が1件もない場合に限り、`LGTM` を [`format-github-comment`](../format-github-comment/SKILL.md) で整え、ラベルを付けずに PR 全体へ通常のコメントとして投稿する
+- レビューを終えて指摘が1件もない場合と、再レビューですべての指摘が解消した場合に限り、`LGTM` を [`format-github-comment`](../format-github-comment/SKILL.md) で整え、ラベルを付けずに PR 全体へ通常のコメントとして投稿する
 
 ```bash
 gh pr comment "$pr" --repo "$host/$owner/$repo" --body-file "$body_file"
 ```
+
+## 再レビュー
+
+再レビューを頼まれたときや、対象の PR に自分が指摘した未解決のスレッドがあるときは、指摘への対応を確認します。
+
+1. 未解決のスレッドを取得し、自分が始めたものだけを対象にする。自分のログイン名は `gh api user --jq '.login'` で調べる
+
+```bash
+gh api graphql --hostname "$host" -f query='
+query($owner:String!, $repo:String!, $pr:Int!) {
+  repository(owner:$owner, name:$repo) {
+    pullRequest(number:$pr) {
+      reviewThreads(first:100) {
+        nodes {
+          id
+          isResolved
+          path
+          line
+          comments(first:50) { nodes { databaseId author { login } body } }
+        }
+      }
+    }
+  }
+}' -f owner="$owner" -f repo="$repo" -F pr="$pr"
+```
+
+2. スレッドごとに返信と修正内容を読み、指摘が解消したか確認する。返信も修正もないスレッドには何もしない
+3. 結果をスレッドに返信する。書式は指摘コメントと同じだが、ラベルは付けない。`comment_id` にはスレッドの先頭のコメントの `databaseId` を指定する
+   - 対応に問題がなければ、その旨を返信してスレッドを resolve する
+   - 問題があれば、その旨を返信する。resolve はしない
+
+```bash
+gh api --hostname "$host" --method POST \
+  "repos/$owner/$repo/pulls/$pr/comments/$comment_id/replies" \
+  -F "body=@$body_file" --jq '.html_url'
+```
+
+```bash
+gh api graphql --hostname "$host" -f query='
+mutation($threadId:ID!) {
+  resolveReviewThread(input:{threadId:$threadId}) { thread { isResolved } }
+}' -f threadId="$thread_id"
+```
+
+4. 修正で新しい問題が見つかった場合は、通常の手順で新しい指摘として投稿する
+5. 自分の指摘がすべて解消し、新しい指摘もなければ、投稿手順と同じ方法で `LGTM` を投稿する。未解決の指摘が1件でも残っていれば投稿しない
