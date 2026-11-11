@@ -6,8 +6,32 @@ description: GitHub の PR をレビューする。`/review` が指定された�
 ## レビューの進め方
 
 1. 指定された URL や番号から PR を特定する。指定がなければ現在のブランチの PR を調べ、特定できなければ URL を聞く
-2. `gh pr view` で PR の目的と先頭コミットの SHA を確認し、`gh pr diff` で差分を読む。必要に応じて変更箇所の周辺や呼び出し元も確認する
-3. 変更に関係するリポジトリ内のドキュメント（`README.md`、`CONTRIBUTING.md`、`AGENTS.md`、設計資料など）を読み、仕様やルールに沿った実装か確認する
+2. 「投稿ユーザー」に従って、GitHub の操作に使うユーザーを決める
+3. `gh pr view` で PR の目的と先頭コミットの SHA を確認し、`gh pr diff` で差分を読む。必要に応じて変更箇所の周辺や呼び出し元も確認する
+4. 変更に関係するリポジトリ内のドキュメント（`README.md`、`CONTRIBUTING.md`、`AGENTS.md`、設計資料など）を読み、仕様やルールに沿った実装か確認する
+
+## 投稿ユーザー
+
+投稿する GitHub のユーザー名が指定された場合は、そのユーザーでコメントを投稿します。指定がなければ、今まで通り `gh` のデフォルトの認証を使います。
+
+ユーザー名が指定された場合は、対象 PR のホストを `host`、指定されたユーザー名を `review_user` に設定し、保存済みのトークンを取得します。
+
+```bash
+review_token=$(gh auth token --hostname "$host" --user "$review_user")
+```
+
+トークンを取得できない場合は、指定ユーザーでの認証が必要なことを伝え、投稿を止めます。別のユーザーでは投稿しません。トークンは画面やログ、ファイルに出力しません。
+
+以降の `gh` コマンドには、次のようにコマンド単位で認証情報を渡します。まずログイン名を確認し、指定ユーザーと一致しなければ投稿を止めます。
+
+```bash
+GH_TOKEN="$review_token" GH_ENTERPRISE_TOKEN="$review_token" \
+  gh api --hostname "$host" user --jq '.login'
+```
+
+このスキル内のすべての `gh` コマンドに同じ認証情報を渡します。インラインコメント、`LGTM`、再レビューの返信、スレッドの resolve にも適用します。`gh auth switch` や環境変数の `export` は使わず、デフォルトの認証設定を変えません。
+
+[トークンの取得](https://cli.github.com/manual/gh_auth_token)、[認証用の環境変数](https://cli.github.com/manual/gh_help_environment)
 
 ## レビュー観点
 
@@ -57,7 +81,7 @@ gh pr comment "$pr" --repo "$host/$owner/$repo" --body-file "$body_file"
 
 再レビューを頼まれたときや、対象の PR に自分が指摘した未解決のスレッドがあるときは、指摘への対応を確認します。
 
-1. 未解決のスレッドを取得し、自分が始めたものだけを対象にする。自分のログイン名は `gh api user --jq '.login'` で調べる
+1. 未解決のスレッドを取得し、自分が始めたものだけを対象にする。自分のログイン名は「投稿ユーザー」で決めた認証を使い、`gh api --hostname "$host" user --jq '.login'` で調べる
 
 ```bash
 gh api graphql --hostname "$host" -f query='
