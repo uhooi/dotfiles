@@ -1,31 +1,34 @@
 ---
 name: fix-ci-failure
-description: GitHub PR の CI 失敗を調査して修正する。`/fix-ci-failure` に PR 番号、PR URL、または CI 結果の URL が渡されたときに使う。競合解消、レビュー対応、CI と無関係な修正には使わない。
+description: GitHub PR の CI 失敗を調査して修正する。「CI を直してください」「CI が落ちているので修正してください」と言われたとき、PR 番号、PR URL、CI 結果の URL（/actions/runs/… の GitHub URL）が渡されて CI の修正を頼まれたときに使う。競合解消、レビュー対応、CI と無関係な修正には使わない。
 ---
 
 GitHub PR の CI を確認し、失敗している場合は原因を直して PR のブランチへプッシュします。
 
-## 入力
-
-入力は次のいずれか1つです。
-
-- PR 番号（例: `123`）
-- PR URL（例: `https://github.com/owner/repo/pull/123`）
-- CI 結果の URL（例: `https://github.com/owner/repo/actions/runs/123456789`）
-
-入力がない、対象を特定できない、または複数の値が渡された場合は、作業せず PR 番号か URL を1つだけ求めます。
-
 ## 対象の決め方
 
-- PR 番号または PR URL が渡された場合は、その PR のすべての CI 結果を対象にする
-- CI 結果の URL が渡された場合は、その結果だけを対象にする。同じ PR のほかの CI 結果は取得も確認もしない
+PR 番号や URL が渡された場合は、それを対象にします。
+
+| 渡されたもの | 例 | 対象 |
+| --- | --- | --- |
+| PR 番号、PR URL | `123`、`https://github.com/owner/repo/pull/123` | その PR のすべての CI 結果 |
+| CI 結果の URL | `https://github.com/owner/repo/actions/runs/123456789` | その結果だけ。同じ PR のほかの CI 結果は取得も確認もしない |
+
+渡されず「CI を直してください」と言われた場合は、次の順で対象を決めます。どちらも、その PR のすべての CI 結果を対象にします。
+
+1. 会話の流れで対象の PR が分かる場合は、その PR
+2. それ以外は、現在のブランチの PR（`gh pr view` と `gh pr checks` を引数なしで実行すると取得できる）
+
+- 現在のブランチに PR がない場合は、推測せず PR 番号か URL を求める
 - CI 結果の URL から PR を一意に特定できない場合は、推測せず PR 番号か URL を求める
+- 同じ PR の CI 結果の URL が複数渡された場合は、それらをまとめて対象にする
+- 複数の PR が渡された場合は、1つずつ順に対応する
 
 ## 進め方
 
-1. 入力に応じて PR と対象の CI 結果を取得し、リポジトリ、ベースブランチ、ヘッドブランチ、HEAD の SHA を確認する
-   - PR 番号または PR URL: `gh pr view {入力}` と `gh pr checks {入力} --json bucket,name,state,link,workflow` を使う
-   - CI 結果の URL: URL が示す run または job だけを取得し、関連する PR を特定する
+1. [対象の決め方](#対象の決め方)に従って PR と対象の CI 結果を取得し、リポジトリ、ベースブランチ、ヘッドブランチ、HEAD の SHA を確認する
+   - PR が対象の場合: `gh pr view {PR番号}` と `gh pr checks {PR番号} --json bucket,name,state,link,workflow` を使う
+   - CI 結果の URL が対象の場合: URL が示す run または job だけを取得し、関連する PR を特定する
 2. URL のリポジトリが現在のリポジトリと異なる場合は、作業せずその旨を伝える
 3. 対象が保留中なら、完了を待ってから再確認する。長時間変わらない場合は、その結果を報告して作業を止める
 4. 対象に失敗もキャンセルもない場合は、ファイル、コミット、チェックを変更せず、CI が失敗していないと報告する
