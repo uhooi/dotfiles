@@ -19,7 +19,7 @@ Google の `eng-practices` にある [レビューガイド](https://google.gith
 
 ## 指摘コメント
 
-文章は [`uhooi-writing`](../uhooi-writing/SKILL.md)、書式は [`format-github-comment`](../format-github-comment/SKILL.md) に従います。指摘ごとに、次のラベルから必ず1つだけ選び、本文の1行目に単独で置きます。
+文章は [`uhooi-writing`](../uhooi-writing/SKILL.md)、書式は [`format-github-comment`](../format-github-comment/SKILL.md) に従います。指摘ごとに、次のラベルから必ず1つだけ選び、本文の1行目に単独で置きます。ラベルと本文の間に空白行は不要です。
 
 | ラベル | 使う場面 |
 | --- | --- |
